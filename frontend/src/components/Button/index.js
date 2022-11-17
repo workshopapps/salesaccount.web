@@ -8,8 +8,8 @@ const index = ({title, path, primary}) => {
       className={`rounded-md py-[10px] px-[18px] cursor-pointer ${
         primary === true
           ? "bg-[#FFFFFF}] text-[#1570EF] border border-[#1570EF]"
-          : "bg-[#2E90FA]"
-      } text-white `}
+          : "bg-[#2E90FA] text-white"
+      }  `}
     >
       {title}
     </Link>

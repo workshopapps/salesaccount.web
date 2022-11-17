@@ -1,7 +1,7 @@
-import React from 'react'
-import logo from '../../assets/Logo Main Color.png'
+import React from "react";
+import logo from "../../assets/Logo Main Color.png";
 import { BsTwitter, BsFacebook, BsInstagram } from "react-icons/bs";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 
 const aboutUsData = [
@@ -103,6 +103,6 @@ const index = () => {
       </div>
     </footer>
   );
-}
+};
 
-export default index
+export default index;
