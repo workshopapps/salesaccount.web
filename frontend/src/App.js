@@ -1,14 +1,18 @@
 import React from "react";
 import NavigationBar from "./components/NavigationBar";
-import Footer from './components/Footer'
+import Footer from "./components/Footer";
 import Faq from "react-faq-component";
-import Button from './components/Button'
+import Button from "./components/Button";
+import getInTouch from "./assets/Get_in_touch.png";
+import { BsPlusCircle } from 'react-icons/bs'
+import { CiCircleMinus } from "react-icons/ci";
+
 const data = {
-  title: "Frequently asked questions",
+  title: "Frequently asked questions ",
   rows: [
     {
       title: "Is there a free trial available?",
-      content: `Yes, you can try us for free for 30 days. If you want, we’ll provide you with a free, personalized
+      content: `Yes, you can try us for free for 30 days. If you want, we'll provide you with a free, personalized
 30-minute onboarding call to get you up and running as soon as possible.`,
     },
     {
@@ -43,18 +47,19 @@ const styles = {
   rowContentColor: "#667085",
   rowContentTextSize: "16px",
   arrowColor: "#1570EF",
+  transitionDuration: "1s",
+  timingFunc: "ease",
 };
 
 const config = {
   animate: true,
   arrowIcon: "V",
   openOnload: 0,
-  expandIcon: "+",
-  collapseIcon: "-",
+  expandIcon: <BsPlusCircle />,
+  collapseIcon: <CiCircleMinus />,
 };
 
 function App() {
- 
   return (
     <>
       <NavigationBar />
@@ -70,17 +75,24 @@ function App() {
       </div>
       {/**FAQ */}
       <div className="bg-[#F9FAFB] py-[150px]">
-        <div>
+        <div className="px-[336px]">
           <Faq data={data} styles={styles} config={config} />
         </div>
-        <div>
-          <div className="bg-[#F2F4F7]">
-            <p>Still have questions?</p>
-            <p>
+        <div className="px-[182px] mt-[120px]">
+          <div className="bg-[#F2F4F7] rounded-3xl px-[217px] py-[26px] flex flex-col items-center">
+            <img
+              src={getInTouch}
+              alt="Get in touch"
+              className="max-w-[130px] h-[63px] object-contain"
+            />
+            <p className="text-[#101828] text-[13px] font-medium">
+              Still have questions?
+            </p>
+            <p className="font-normal text-[#101828] text-[13px] pb-[24px]">
               Can't find the answer you're looking for? Please chat to our
               friendly team.
             </p>
-            <Button title='Get in touch'/>
+            <Button title="Get in touch" />
           </div>
         </div>
       </div>
