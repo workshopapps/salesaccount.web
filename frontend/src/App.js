@@ -1,6 +1,12 @@
+import React from "react";
+import NavigationBar from "./components/NavigationBar";
 
 function App() {
-  return <h2 className="text-3xl font-bold underline">salesforce</h2>;
+  return (
+    <>
+      <NavigationBar />
+    </>
+  );
 }
 
 export default App;
