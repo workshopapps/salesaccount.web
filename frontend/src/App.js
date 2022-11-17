@@ -1,10 +1,10 @@
 import React from "react";
 import NavigationBar from "./components/NavigationBar";
-
+import Footer from './components/Footer'
 function App() {
   const planData = [
   {title: 'free'},
-  
+
   ]
   return (
     <>
@@ -19,6 +19,7 @@ function App() {
           your accounts & sales on a day - to - day basis
         </p>
       </div>
+      <Footer />
     </>
   );
 }
