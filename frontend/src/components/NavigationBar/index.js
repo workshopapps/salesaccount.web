@@ -23,17 +23,17 @@ const index = () => {
           </Link>
         ))}
       </div>
-      <div className="flex items-center">
-        <div className="pr-[50px] w-[14px] h-[14px]">
+      <div className="flex items-center space-x-5">
+        <div className="w-[14px] h-[14px] cursor-pointer">
           <BsSearch />
         </div>
 
-        <div className="flex items-center">
+        <div className="flex items-center h-[20px] cursor-pointer">
           <TbWorld />
           <MdOutlineKeyboardArrowDown />
         </div>
         <Button title="Sign up" path="/signup" primary />
-        <Button title="Login" path="/login" />
+        <Button title="Sign in" path="/signin" />
       </div>
     </nav>
   );

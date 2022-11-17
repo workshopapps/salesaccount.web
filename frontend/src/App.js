@@ -5,6 +5,9 @@ function App() {
   return (
     <>
       <NavigationBar />
+      <div>
+        
+      </div>
     </>
   );
 }
