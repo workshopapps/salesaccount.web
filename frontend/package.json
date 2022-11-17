@@ -14,9 +14,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "lint": "eslint . --fix --max-warnings=0",
-    "format": "prettier . --write",
-    "prepare": "cd .. && husky install front/.husky"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
   },
   "eslintConfig": {
     "extends": [
