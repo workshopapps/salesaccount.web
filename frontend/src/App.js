@@ -6,7 +6,7 @@ import Button from "./components/Button";
 import getInTouch from "./assets/Get_in_touch.png";
 import { BsPlusCircle } from 'react-icons/bs'
 import { CiCircleMinus } from "react-icons/ci";
-
+import user_image from './assets/what_our_users_are_saying.png'
 const data = {
   title: "Frequently asked questions ",
   rows: [
@@ -72,12 +72,42 @@ function App() {
           your accounts & sales on a day - to - day basis
         </p>
       </div>
+
+      {/**Important features */}
+
+      {/**What our users are saying */}
+      <div className="bg-[#F9FAFB] px-[220px] py-[100px] flex flex-col items-center">
+        <h1 className="text-[#000000] font-semibold text-[36px] text-center pb-[32px]">
+          What our users are saying
+        </h1>
+        <div className="w-[450px] h-[150px] rounded-2xl border border-[#98A2B3] flex flex-col items-center gap-[5px]">
+          <span className="text-[#667085] text-[10px] font-medium px-[10px] pt-[20px]">
+            As an account that struggles to balance account statement
+            accurately, account Pal has made life better for me. Now I can sum
+            all transaction easily, spot duplicate transactions reconcile
+            transactions easily
+          </span>
+          <p className="font-semibold text-[12px] text-[#101828] tracking-tighter">
+            Uche Donald
+          </p>
+          <span className="font-normal text-[12px] text-[#667085]">-Zuri</span>
+        </div>
+        <img
+          src={user_image}
+          alt="What our users are saying"
+          className="object-contain pt-[140px]"
+        />
+      </div>
       {/**Start free trial */}
       <div className="bg-[#F2F4F7]">
-        <div>
-          <h2>Start your free trials</h2>
-          <p>Join over 4,000+ startups already growing with Account Pal.</p>
-          <div>
+        <div className="py-[70px] px-[336px] flex flex-col items-center">
+          <h2 className="text-[#000000] font-semibold text-center text-[36px]">
+            Start your free trials
+          </h2>
+          <p className="pb-[60px] text-[#667085] text-[15px]">
+            Join over 4,000+ startups already growing with Account Pal.
+          </p>
+          <div className="flex gap-[64px]">
             <Button title="Learn More" primary />
             <Button title="Get in touch" />
           </div>
