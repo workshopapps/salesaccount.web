@@ -111,8 +111,10 @@ function App() {
       </div>
       <div className="bg-black h-[30px]"></div>
       {/**Cutting edge feature */}
-      <div className="bg-[#F5F5F5]">
-        <h2>Cutting-edge features for advanced analytics</h2>
+      <div className="bg-[#D1E9FF]">
+        <h2 className="text-[#101828] pt-[108px] font-semibold">
+          Cutting-edge features for advanced analytics
+        </h2>
         <p>
           Powerful, self-serve product and growth analytics to help you convert,
           match sales. Trusted by over 4,000 startups.
