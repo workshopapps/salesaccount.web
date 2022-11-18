@@ -48,7 +48,6 @@ const styles = {
   rowContentTextSize: "16px",
   arrowColor: "#1570EF",
   transitionDuration: "1s",
-  timingFunc: "ease",
 };
 
 const config = {
@@ -72,6 +71,17 @@ function App() {
           Run your business effectively with a simplified solution to reconcile
           your accounts & sales on a day - to - day basis
         </p>
+      </div>
+      {/**Start free trial */}
+      <div className="bg-[#F2F4F7]">
+        <div>
+          <h2>Start your free trials</h2>
+          <p>Join over 4,000+ startups already growing with Account Pal.</p>
+          <div>
+            <Button title="Learn More" primary />
+            <Button title="Get in touch" />
+          </div>
+        </div>
       </div>
       {/**FAQ */}
       <div className="bg-[#F9FAFB] py-[150px]">
