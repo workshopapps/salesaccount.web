@@ -23,7 +23,7 @@ class CareersPage extends React.Component {
       },
       {
         name: "Finance",
-        logo: dollar - coin,
+        logo: dollar_coin,
       },
     ];
 
@@ -48,12 +48,14 @@ class CareersPage extends React.Component {
             OUR TEAMS
           </h1>
           <div className="flex">
-            {teams.map((el)=>{
-                <div className="flex space-around">
-                    <h2 className="text-center text-[48px] leading-[60px">{el.name}</h2>
-                    <img src={el.logo} alt="team_logo" />
-                </div>
-            })}
+            {teams.map((el) => (
+              <div className="flex space-around">
+                <h2 className="text-center text-[48px] leading-[60px">
+                  {el.name}
+                </h2>
+                <img src={el.logo} alt="team_logo" />
+              </div>
+            ))}
           </div>
         </div>
       </div>
