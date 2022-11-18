@@ -4,9 +4,9 @@ import Footer from "./components/Footer";
 import Faq from "react-faq-component";
 import Button from "./components/Button";
 import getInTouch from "./assets/Get_in_touch.png";
-import { BsPlusCircle } from 'react-icons/bs'
+import { BsPlusCircle } from "react-icons/bs";
 import { CiCircleMinus } from "react-icons/ci";
-import user_image from './assets/what_our_users_are_saying.png'
+import user_image from "./assets/what_our_users_are_saying.png";
 const data = {
   title: "Frequently asked questions ",
   rows: [
@@ -58,6 +58,43 @@ const config = {
   collapseIcon: <CiCircleMinus />,
 };
 
+const importantFeaturesData = [
+  {
+    number: "1",
+    content:
+      "Authenticate and balance account and sales statement automatically",
+  },
+  {
+    number: "2",
+    content:
+      "Authenticate and balance account and sales statement automatically",
+  },
+  {
+    number: "3",
+    content:
+      "Compare independent financial records to internal financial records and ledger",
+  },
+];
+
+const whatAccountPalDoesData = [
+  {
+    title: "Spot Errors",
+    content:
+      "Now you can seamlessly compile account statement and sales effectively",
+  },
+  {
+    title: "Balances your account statement in minutes",
+    content:
+      "Automate Your bookkeeping easier with Account Pal to focus on what matters most, Your business",
+  },
+  {
+    title: "Track expenditure better",
+    content:
+      "Never worry about income vs expenditure sheets. Account Pal there for you",
+  },
+  { title: "Stuck with a business idea?", content: "Our Open AI model combined with your business data can forecast future cost and predict if a new product will be profitable" },
+];
+
 function App() {
   return (
     <>
@@ -72,8 +109,54 @@ function App() {
           your accounts & sales on a day - to - day basis
         </p>
       </div>
-
+      <div className="bg-black h-[30px]"></div>
+      {/**Cutting edge feature */}
+      <div className="bg-[#F5F5F5]">
+        <h2>Cutting-edge features for advanced analytics</h2>
+        <p>
+          Powerful, self-serve product and growth analytics to help you convert,
+          match sales. Trusted by over 4,000 startups.
+        </p>
+      </div>
+      {/**What account pal does for you */}
+      <div className="bg-[#F9FAFB]">
+        <h1 className="text-[#101828] font-semibold text-center text-[36px] pt-[30px]">
+          What Account Pal Does for You
+        </h1>
+        <p className="text-[#667085] font-normal text-center text-[20px] py-[12px]">
+          Important Features
+        </p>
+        <div className="flex  items-center gap-[100px] px-[78px]">
+          {whatAccountPalDoesData.map((item) => (
+            <div className="w-[250px] ">
+              <h2 className="font-semibold text-[#101828] text-[15px] text-center">
+                {item.title}
+              </h2>
+              <p className="text-[#667085] font-normal text-[13px]">
+                {item.content}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
       {/**Important features */}
+      <div className="bg-[#F2F4F7]">
+        <h1 className="text-[#101828] font-semibold text-center text-[36px] pt-[56px]">
+          Important Features
+        </h1>
+        <div className="flex flex-row gap-[120px] px-[128px] pt-[93px] pb-[82px]">
+          {importantFeaturesData.map((item) => (
+            <div className="flex flex-col items-center ">
+              <h3 className="text-[#101828] font-bold text-[80px]">
+                {item.number}
+              </h3>
+              <p className="text-[#101828] font-semibold text-center text-[13px] ">
+                {item.content}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/**What our users are saying */}
       <div className="bg-[#F9FAFB] px-[220px] py-[100px] flex flex-col items-center">
@@ -118,7 +201,8 @@ function App() {
         <div className="px-[336px]">
           <Faq data={data} styles={styles} config={config} />
         </div>
-        <div className="px-[182px] mt-[120px]">
+        {/**Still has question */}
+        <div className="px-[282px] mt-[120px]">
           <div className="bg-[#F2F4F7] rounded-3xl px-[217px] py-[26px] flex flex-col items-center">
             <img
               src={getInTouch}
@@ -128,7 +212,7 @@ function App() {
             <p className="text-[#101828] text-[13px] font-medium">
               Still have questions?
             </p>
-            <p className="font-normal text-[#101828] text-[13px] pb-[24px]">
+            <p className="font-normal text-[#667085] text-[13px] pb-[24px]">
               Can't find the answer you're looking for? Please chat to our
               friendly team.
             </p>
