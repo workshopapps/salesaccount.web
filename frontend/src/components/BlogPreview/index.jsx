@@ -15,9 +15,9 @@ export default function BlogPreview() {
               <h4 className=" text-xl leading-snug font-semibold text-[#101828]">
                 Common Accounting Terms Explained
               </h4>
-              <figure className="w-6 h-6">
-                <img className="w-full" src="../arrow.svg" alt="arrow" />
-              </figure>
+              {/* <figure className="w-6 h-6"> */}
+                <img className="w-6 h-6" src="../arrow.svg" alt="arrow" />
+              {/* </figure> Removed bcz wrapping this icon was reducing the size on resize and i don't want that*/} 
             </div>
             <p className=" text-base leading-[25px] font-normal text-[#667085]">Do you feel lost when accounting jargons are used during sales conversations? Then, this is for you.</p>
           </div>

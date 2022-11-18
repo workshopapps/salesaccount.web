@@ -15,26 +15,35 @@ function Blog() {
         {/* <Search></Search>  Need to add Search bar here  */}
       </div>
       <div className="pt-6 pb-[278px]">
-        <div className=" px-20">
-          <div className="px-8 max-w-7xl w-full  mx-auto">
+        <div className=" px-20 max-sm:px-0">
+          <div className="px-8 max-w-7xl w-full  mx-auto max-[375px]:px-4">
             <div>
               <div className="flex flex-row flex-wrap gap-8 w-full justify-center items-center">
-                <div className=" w-[30%]">
+                <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
                   <BlogPreview />
                 </div>
-                <div className=" w-[30%]">
+                <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
                   <BlogPreview />
                 </div>
-                <div className=" w-[30%]">
+                <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
                   <BlogPreview />
                 </div>
-                <div className=" w-[30%]">
+                <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
                   <BlogPreview />
                 </div>
-                <div className=" w-[30%]">
+                <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
                   <BlogPreview />
                 </div>
-                <div className=" w-[30%]">
+                <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
+                  <BlogPreview />
+                </div>
+                <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
+                  <BlogPreview />
+                </div>
+                <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
+                  <BlogPreview />
+                </div>
+                <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
                   <BlogPreview />
                 </div>
               </div>
