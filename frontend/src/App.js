@@ -7,6 +7,8 @@ import getInTouch from "./assets/Get_in_touch.png";
 import { BsPlusCircle } from "react-icons/bs";
 import { CiCircleMinus } from "react-icons/ci";
 import user_image from "./assets/what_our_users_are_saying.png";
+import dashboard_image from "./assets/landing_dashbord.png";
+
 const data = {
   title: "Frequently asked questions ",
   rows: [
@@ -111,14 +113,15 @@ function App() {
       </div>
       <div className="bg-black h-[30px]"></div>
       {/**Cutting edge feature */}
-      <div className="bg-[#D1E9FF]">
-        <h2 className="text-[#101828] pt-[108px] font-semibold">
+      <div className="bg-[#D1E9FF] flex flex-col items-center">
+        <h2 className="text-[#101828] pt-[108px] font-semibold text-[36px]">
           Cutting-edge features for advanced analytics
         </h2>
         <p>
           Powerful, self-serve product and growth analytics to help you convert,
           match sales. Trusted by over 4,000 startups.
         </p>
+        <img src={dashboard_image} alt="Dashboard" className="pb-[30px]" />
       </div>
       {/**What account pal does for you */}
       <div className="bg-[#F9FAFB]">
