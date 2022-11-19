@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "../stories/Button";
 import hero from "./images/hero.png";
 import user_check from "./images/user-check.png";
 import code from "./images/code.png";
@@ -8,7 +9,10 @@ import clock from "./images/alarm.png";
 import earth from "./images/earth.png";
 import suitcase from "./images/suitcase.png";
 import gift from "./images/Gift.png";
-import heroMobile from "./images/heroMobile.png";
+import send from "./images/send.png";
+import brief_case from "./images/Suitcase 1.png"
+import location from "./images/location.png"
+// import heroMobile from "./images/heroMobile.png";
 
 class CareersPage extends React.Component {
   render() {
@@ -31,10 +35,80 @@ class CareersPage extends React.Component {
       },
     ];
 
-    const openings=[{
-      title:"ACCOUNT MANAGER",
-      
-    }];
+    const openings = [
+      {
+        short: "AM",
+        title: "ACCOUNT MANAGER",
+        type: "Full-time",
+        location: "Remote",
+      },
+      {
+        short: "A",
+        title: "ACCOUNT",
+        type: "Part-Time",
+        location: "Remote",
+      },
+      {
+        short: "PD",
+        title: "PRODUCT DESIGNER",
+        type: "Full-time",
+        location: "Remote",
+      },
+      {
+        short: "DO",
+        title: "DEVOPS",
+        type: "Full-time",
+        location: "Remote",
+      },
+      {
+        short: "FD",
+        title: "FRONT-END DEVELOPER",
+        type: "Full-time",
+        location: "Lagos",
+      },
+      {
+        short: "FM",
+        title: "FINANCE MANAGER",
+        type: "Full-time",
+        location: "Remote",
+      },
+      {
+        short: "MS",
+        title: "MARKETING SPECIALIST",
+        type: "Full-time",
+        location: "Remote",
+      },
+      {
+        short: "HA",
+        title: "HEAD ACCOUNTANT ",
+        type: "Full-time",
+        location: "Lagos",
+      },
+      {
+        short: "AM",
+        title: "ACCOUNT MANAGER",
+        type: "Full-time",
+        location: "Lagos",
+      },
+      {
+        short: "DA",
+        title: "DATA ANALIST",
+        type: "Part-time",
+        location: "Remote",
+      },
+      {
+        short: "PD",
+        title: "PRODUCT DESIGNER",
+        type: "Internship",
+        location: "Remote",
+      },
+      {
+        short: "SE",
+        title: "SALES EXECUTIVE",
+        type: "Full-time",
+        location: "Remote",
+      },
+    ];
 
     return (
       <div>
@@ -115,11 +189,47 @@ class CareersPage extends React.Component {
           </div>
         </div>
 
-        <div className="bg-gray-100">
-            <h1 className="text-8xl text-[#1849A9] text-center">CURRENT ONPENINGS</h1>
-          <div className="grid grid-cols-2">
-            {}
-          
+        <div className="bg-gray-100 px-5 pb-4">
+          <h1 className="text-8xl text-[#1849A9] text-center">
+            CURRENT OPENINGS
+          </h1>
+          <div className="px-10 grid grid-cols-2">
+            {openings.map((opening) => (
+              <div className="flex flex-row p-3">
+                <div className="basis-1/6 mx-4 text-[32px] border-4 border-solid pt-2 h-20 align-middle text-center border-sky-600 rounded-full">
+                  {opening.short}
+                </div>
+                <div className="basis-3/4">
+                  <h3 className="items-start text-3xl ml-1 mb-2 font-normal">
+                    {opening.title}
+                  </h3>
+                  <div className="grid grid-cols-2">
+                    <div className="flex align-middle">
+                      <img src={brief_case} alt="case" className="" />
+                      <span className="text-lg pt-1 pl-2">{opening.type}</span>
+                    </div>
+                    <div className="flex align-center">
+                      <img src={location} alt="location" className="" />
+                      <span className="text-lg pt-1 pl-2">{opening.location}</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="basis-1/5">
+                  <img src={send} alt="send" className="" />
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mx-12 my-4 py-2 border border-solid border-slate-400">
+            <h1 className="font-semibold text-5xl">Join Our Newsletter</h1>
+          </div>
+          <div className="flex flex-row mx-auto mb-7 max-w-[600px] items-center self-center">
+            <input
+              className="text-center h-9 w-full mx-3 px-10 py-3 border border-solid border-slate-400"
+              placeholder="Enter email"
+            />
+            {/* <button>Subscribe</button> */}
+            <Button primary size="medium" label="Subscribe" />
           </div>
         </div>
       </div>
