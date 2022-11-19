@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 
 const App = () => {
   return (
-    <div className="">
+    <div className=" font-[Lexend]">
       <Header />
       <main>
         <Hero />
