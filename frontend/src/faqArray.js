@@ -49,6 +49,11 @@ const faqArray = [
     answer:
       "Yes, Account Pal allows for upload of multiple files per transaction as needed.",
   },
+  {
+    id: "8",
+    question: "What are the advantages of using Account Pal?",
+    answer: "Default",
+  },
 ];
 
 export default faqArray;
