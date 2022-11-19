@@ -1,6 +1,6 @@
 import React from 'react';
-import { InputField } from '../InputField/InputField';
-import { TextareaField } from '../TextareaField/TextareaField';
+import { InputField } from "../contact-page/InputField/InputField"
+import { TextareaField } from '../contact-page/TextareaField/TextareaField';
 // import { Button } from './Button';
 
 export function Form() {

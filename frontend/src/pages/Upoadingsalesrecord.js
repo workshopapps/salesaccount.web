@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Upoadingsalesrecord = () => {
+function Upoadingsalesrecord () {
 	return <div>Upoadingsalesrecord</div>;
 };
 

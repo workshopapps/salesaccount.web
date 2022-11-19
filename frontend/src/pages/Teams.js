@@ -1,7 +1,7 @@
 import React from 'react';
 import Teamspage from '../components/teamspage';
 
-const Teams = () => {
+function Teams () {
 	return (
 		<div>
 			<Teamspage />

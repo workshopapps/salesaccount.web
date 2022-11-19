@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Accountbalancereport = () => {
+function Accountbalancereport () {
 	return <div>Accountbalancereport</div>;
-};
+}
 
 export default Accountbalancereport;

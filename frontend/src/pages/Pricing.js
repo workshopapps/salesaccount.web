@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Pricing = () => {
+function Pricing () {
 	return <div>Pricing</div>;
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Uploadaccountstatementready = () => {
+function Uploadaccountstatementready () {
 	return <div>Uploadaccountstatementready</div>;
 };
 
