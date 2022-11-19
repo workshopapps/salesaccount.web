@@ -8,7 +8,7 @@ import { BsPlusCircle } from "react-icons/bs";
 import { CiCircleMinus } from "react-icons/ci";
 import user_image from "./assets/what_our_users_are_saying.png";
 import dashboard_image from "./assets/landing_dashbord.png";
-
+import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 const data = {
   title: "Frequently asked questions ",
   rows: [
@@ -94,7 +94,50 @@ const whatAccountPalDoesData = [
     content:
       "Never worry about income vs expenditure sheets. Account Pal there for you",
   },
-  { title: "Stuck with a business idea?", content: "Our Open AI model combined with your business data can forecast future cost and predict if a new product will be profitable" },
+  {
+    title: "Stuck with a business idea?",
+    content:
+      "Our Open AI model combined with your business data can forecast future cost and predict if a new product will be profitable",
+  },
+];
+
+const pickPlanData = [
+  {
+    title: "FREE",
+    icon1: <AiOutlineCheck />,
+    content1: "100 free downloads",
+    icon2: <AiOutlineClose />,
+    content2: "100 free downloads",
+    icon3: <AiOutlineClose />,
+    content3: "100 free downloads",
+    icon4: <AiOutlineClose />,
+    content4: "100 free downloads",
+    button_content: "Choose Free  Plan",
+  },
+  {
+    title: "BASIC",
+    icon1: <AiOutlineCheck />,
+    content1: "100 free downloads",
+    icon2: <AiOutlineCheck />,
+    content2: "100 free downloads",
+    icon3: <AiOutlineClose />,
+    content3: "100 free downloads",
+    icon4: <AiOutlineClose />,
+    content4: "100 free downloads",
+    button_content: "Choose Basic  Plan",
+  },
+  {
+    title: "PRO",
+    icon1: <AiOutlineCheck />,
+    content1: "100 free downloads",
+    icon2: <AiOutlineCheck />,
+    content2: "100 free downloads",
+    icon3: <AiOutlineCheck />,
+    content3: "100 free downloads",
+    icon4: <AiOutlineCheck />,
+    content4: "100 free downloads",
+    button_content: "Choose Pro  Plan",
+  },
 ];
 
 function App() {
@@ -111,13 +154,59 @@ function App() {
           your accounts & sales on a day - to - day basis
         </p>
       </div>
-      <div className="bg-black h-[30px]"></div>
+      {/**Trusted by */}
+      <div className="bg-[#F9FAFB]">
+        <h2>Trusted By 100,000+ companies in 179 countries</h2>
+        <div></div>
+      </div>
+      {/**Pick your plan */}
+      <div className="bg-[#F9FAFB]">
+        <div className="pt-[20px] text-center">
+          <h1 className="text-[#101828] font-semibold text-[30px]">
+            Pick your Plan
+          </h1>
+          <p className="text-[#667085]">
+            Choose a Plan that suits your Business
+          </p>
+        </div>
+        <div className="flex flex-row gap-[64px] pt-[30px] items-center justify-center">
+          {pickPlanData.map((item) => (
+            <div className="flex flex-col border text-center pb-[20px] mb-[30px] px-[50px]">
+              <h3 className=" text-[#101828] font-semibold pt-[15px]">
+                {item.title}
+              </h3>
+              <div className="px-[35px] py-[25px] pt-[15px] font-normal text-[#858585]">
+                <div className="flex items-center ">
+                  <span className="pr-[6px]">{item.icon1}</span>
+                  <span>{item.content1}</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="pr-[6px] py-[10px]">{item.icon2}</span>
+                  <span>{item.content2}</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="pr-[6px]">{item.icon3}</span>
+                  <span>{item.content3}</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="pr-[6px] py-[10px]">{item.icon4}</span>
+                  <span>{item.content4}</span>
+                </div>
+              </div>
+              <div className="cursor-pointer text-[#101828] font-semibold text-[15px] text-[12px] border border-[#101828] p-[5px] rounded-md">
+                {item.button_content}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/**Cutting edge feature */}
       <div className="bg-[#D1E9FF] flex flex-col items-center">
         <h2 className="text-[#101828] pt-[108px] font-semibold text-[36px]">
           Cutting-edge features for advanced analytics
         </h2>
-        <p>
+        <p className="font-normal text-[#667085] pb-[20px]">
           Powerful, self-serve product and growth analytics to help you convert,
           match sales. Trusted by over 4,000 startups.
         </p>
