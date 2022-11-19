@@ -1,9 +1,10 @@
+
+
 import React from "react";
 import ourteam from "../assets/ourteam.png"; 
 import leader from "../assets/leader.png";
 import designer from "../assets/designer.png";
-import developer from "../assets/developer.png";
-import marketer from "../assets/marketer.png";
+
 import twitterlogo from "../assets/twitterlogo.png";
 import facebooklogo from "../assets/facebooklogo.png";
 import linkedinlogo from "../assets/linkedinlogo.png";
@@ -57,4 +58,4 @@ const teamspage = () => {
   );
 };
 
-export default teamspage;
+export default teamspage;  
