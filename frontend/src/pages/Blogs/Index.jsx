@@ -1,6 +1,8 @@
 import React from "react";
-import BlogPreview from "../../components/BlogPreview";
+
 import { FaArrowDown } from "react-icons/fa";
+import BlogPreview from "../../components/BlogPreview";
+
 function Blogs() {
   return (
     <>
@@ -48,7 +50,7 @@ function Blogs() {
                 </div>
               </div>
               <div className="flex justify-center items-center mt-16">
-                <button className="text-[#175CD3] flex items-center justify-center gap-2 py-3 px-5 bg-[#F2F4F7] rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] "><FaArrowDown className=" text-[#175CD3]"/>Load more</button>
+                <button type="button" className="text-[#175CD3] flex items-center justify-center gap-2 py-3 px-5 bg-[#F2F4F7] rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] "><FaArrowDown className=" text-[#175CD3]"/>Load more</button>
               </div>
             </div>
           </div>
