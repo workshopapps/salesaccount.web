@@ -36,14 +36,6 @@ export function Form() {
 				placeholder="olivia@zuri.com"
 				val="email"
 			/>
-			<InputField
-				id="phone"
-				type="tel"
-				label="Phone number"
-				name="phone number"
-				placeholder="+2345456464"
-				val="phone"
-			/>
 
 			<TextareaField id="message" label="Message" val="message" />
 

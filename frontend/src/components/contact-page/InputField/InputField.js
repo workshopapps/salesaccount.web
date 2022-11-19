@@ -5,9 +5,9 @@ export function InputField({ id, resDesign, type, label, name, placeholder }) {
 	return (
 		<div
 			className={`form-control ${resDesign} ${
-				type === 'checkbox' &&
+				type === 'checkbox' ?
 				'flex flex-row-reverse justify-end items-stretch gap-5 text-gray-500'
-			} pb-4`}
+			: ''} pb-4`}
 		>
 			<label htmlFor={id} className="block pb-1 text-sm">
 				{' '}
@@ -17,8 +17,8 @@ export function InputField({ id, resDesign, type, label, name, placeholder }) {
 			<input
 				id={id}
 				className={`${
-					type === 'checkbox' && 'w-[32px]'
-				}  w-full px-2.5 py-3.5 rounded-lg border border-gray-300 text-base`}
+					type === 'checkbox' ? 'w-[32px]'
+				: ''}  w-full px-2.5 py-3.5 rounded-lg border border-gray-300 text-base`}
 				type={type}
 				name={name}
 				placeholder={placeholder}

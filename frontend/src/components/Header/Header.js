@@ -2,6 +2,9 @@ import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import LanguageIcon from '@mui/icons-material/Language';
+import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import logo from '../../assets/logo.png';
 
 export function Header() {
@@ -48,10 +51,10 @@ export function Header() {
 						</ul>
 						<div className="mt-[2em] pb-6">
 							<button
-								className="button1 px-[1em] py-[0.5em] rounded-lg"
+								className=" text-base px-4 py-2 h-[44px] rounded-lg text-white bg-dark-blue"
 								type="button"
 							>
-								Dashboard
+								Get Started
 							</button>
 						</div>
 					</div>
@@ -67,6 +70,7 @@ export function Header() {
 				</div>
 				{/* logo ends here */}
 
+				{/* Nav Links */}
 				<div className="">
 					<ul className="desktop-nav flex space-x-[1em] lg:space-x-[2em] marker: text-sm lg:text-xs">
 						<Link to="/" onClick={() => setIsClicked(true)}>
@@ -89,12 +93,30 @@ export function Header() {
 						</Link>
 					</ul>
 				</div>
-				<div className="Nav-button ">
+				{/* Nav Links End Here */}
+
+				<div className="flex gap-4 ">
+					<div className="flex gap-5 justify-center items-center">
+						<SearchRoundedIcon className='cursor-pointer' />
+
+						<div>
+							<LanguageIcon className='cursor-pointer' />
+							<ExpandMoreRoundedIcon className='cursor-pointer' />
+						</div>
+					</div>
+
 					<button
-						className="text-lg px-[1em] py-[0.5em] rounded-lg"
+						className=" w-[90px] py-2 text-base font-medium border border-dark-blue rounded-lg text-dark-blue bg-white"
 						type="button"
 					>
-						Dashboard
+						Sign up
+					</button>
+
+					<button
+						className=" w-[90px] py-2 text-base  rounded-lg text-white bg-dark-blue"
+						type="button"
+					>
+						Login
 					</button>
 				</div>
 			</div>
