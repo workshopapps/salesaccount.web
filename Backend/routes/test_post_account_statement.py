@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """ TEST FOR POST METHOD FOR ACCOUNT STATEMENT """
 from fastapi.testclient import TestClient
-from .post_account_statement import app
+from .post_account_statement import router
 
-client = TestClient(app)
+client = TestClient(router)
 
 
 def test_upload_file_success():
