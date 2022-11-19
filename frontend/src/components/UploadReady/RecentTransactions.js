@@ -3,52 +3,47 @@ import React, {useState}from 'react'
 import data from './mockdata.json'
 import SearchBar from './searchBar';
 
-import * as XLSX from "xlsx";
+
 
 const RecentTransactions = () => {
     const [contacts, setContacts] = useState( data );
 
-    //lets try this: see below
- /*
-    const readExcel = (file) => {
-        const promise = new Promise((resolve, reject) => {
-          const fileReader = new FileReader();
-          fileReader.readAsArrayBuffer(file);
-    
-          fileReader.onload = (e) => {
-            const bufferArray = e.target.result;
-    
-            const wb = XLSX.read(bufferArray, { type: "buffer" });
-    
-            const wsname = wb.SheetNames[0];
-    
-            const ws = wb.Sheets[wsname];
-    
-            const data = XLSX.utils.sheet_to_json(ws);
-    
-            resolve(data);
-          };
-    
-          fileReader.onerror = (error) => {
-            reject(error);
-          };
-        });
-    
-        promise.then((d) => {
-          setContacts( d );
-        });
-      }; */
-     //the code above should be in the page Upload Data
 
     return (
         <div className='flex flex-col gap-4 py-4 mt-3'>
-           {/*<input
-                type="file"
-                onChange={(e) => {
-                const file = e.target.files[0];
-                readExcel(file);
-                }}
-            /> */}
+          
+            <div className="flex justify-between w-full mt-5">
+				<div className="flex items-center">
+					<label htmlFor="display" className="mr-2 text-base font-medium text-borderB font-Lexend">
+						Display
+					</label>
+                    <select
+						name=""
+						id="display"
+						className=" border border-[#939393] rounded-xl p-2 w-80 h-9 mr-2 text-base font-medium text-borderB font-Lexend">
+						<option className=' w-96 h-20 bg bg-[#EFF8FF] bg-opacity-30 font-Lexend font-normal text-lg leading-10 text' value="">All</option>
+						<option className=' w-96 h-20 bg bg-[#EFF8FF] bg-opacity-30 font-Lexend font-normal text-lg leading-7 text' value="">Recent Transactions</option>
+						<option className=' w-96 h-20 bg bg-[#EFF8FF] bg-opacity-30 font-Lexend font-normal text-lg leading-7 text' value="">Date</option>
+						<option className=' w-96 h-20 bg bg-[#EFF8FF] bg-opacity-30 font-Lexend font-normal text-lg leading-7 text' value="">Amount</option>
+                        <option className=' w-96 h-20 bg bg-[#EFF8FF] bg-opacity-30 font-Lexend font-normal text-sm text-deposit leading-7 text' value="">close</option>
+					</select>
+				</div>
+
+				
+                <div >
+                <select
+						name=""
+						id="display"
+						className=" border border-[#939393] rounded-xl p-2 w-80 h-9 mr-2 text-base font-medium text-borderB font-Lexend">
+						<option className=' w-96 h-20 bg bg-[#EFF8FF] bg-opacity-30 font-Lexend font-normal text-lg leading-10 text' value="">All</option>
+						<option className=' w-96 h-20 bg bg-[#EFF8FF] bg-opacity-30 font-Lexend font-normal text-lg leading-7 text' value="">Recent Transactions</option>
+						<option className=' w-96 h-20 bg bg-[#EFF8FF] bg-opacity-30 font-Lexend font-normal text-lg leading-7 text' value="">Date</option>
+						<option className=' w-96 h-20 bg bg-[#EFF8FF] bg-opacity-30 font-Lexend font-normal text-lg leading-7 text' value="">Amount</option>
+                        <option className=' w-96 h-20 bg bg-[#EFF8FF] bg-opacity-30 font-Lexend font-normal text-sm text-deposit leading-7 text' value="">close</option>
+					</select>
+				</div>
+			</div>
+            {/* TESTING 1,2,3*/}
             <table className='w-full border-collapse bg-searchBar rounded-xl '> 
                 <thead>
                     <tr className='w-full '>
