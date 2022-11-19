@@ -1,9 +1,11 @@
 
+import UploadReady from "./pages/uploadReady";
 
 function App() {
   return (
     <>
-      Hello
+      <UploadReady />
+      
     </>
   )
 }
