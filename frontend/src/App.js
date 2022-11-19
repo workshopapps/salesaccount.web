@@ -173,7 +173,7 @@ const trustedByFeaturesData = [
 function App() {
   return (
     <div>
-      {/**<NavigationBar /> */}
+      <NavigationBar /> 
       <div className="bg-[#EFF8FF] flex flex-col items-center justify-center gap-y-[8px] md:gap-y-[16px] z-40 relative w-full">
         <div className=" w-[273px] lg:w-[1085px] lg:leading-[92px] pt-[50px] ">
           <h1 className="text-[#101828] text-[28px] md:text-[72px] font-semibold text-center">
