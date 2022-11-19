@@ -9,9 +9,13 @@ const Faq = () => {
   const content = useRef(null);
 
   const toggleAccordion = () => {
-    setActiveState(setActive == "" ? "text-blue underline" : "");
-    setHeightState(setActive == "" ? "max-h-96" : "max-h-0 overflow-hidden");
-    setRotate(setActive === "" ? "rotate-180" : "");
+    setActiveState(setActive === "" ? "text-blue underline" : "");
+    setHeightState(
+      setActive === "" ? "max-h-96 transition-all" : "max-h-0 overflow-hidden"
+    );
+    setRotate(
+      setActive === "" ? "rotate-180 transition-all" : "transition-all"
+    );
   };
 
   return (
@@ -23,10 +27,15 @@ const Faq = () => {
               Frequently Asked Questions
             </h2>
 
-            {faqArray.map((qna) => (
+            {faqArray.map((qna, key) => (
               <div className="w-[1000px]">
-                <div className="flex items-center relative ">
-                  <h3 className={`text-lg ${setActive} leading-9 font-normal`}>
+                <div className="flex items-center relative" key={qna.id}>
+                  <h3
+                    className={`text-lg ${() =>
+                      key === "0"
+                        ? "text-blue underline"
+                        : ""} leading-9 font-normal`}
+                  >
                     {qna.question}
                   </h3>
                   <i
