@@ -1,6 +1,7 @@
 import React from 'react';
 import BlogPreview from '../../components/BlogPreview';
 
+
 function Blog() {
 	return (
     <>

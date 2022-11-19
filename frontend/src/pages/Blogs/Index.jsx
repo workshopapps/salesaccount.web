@@ -1,7 +1,7 @@
 import React from "react";
-
 import { FaArrowDown } from "react-icons/fa";
 import BlogPreview from "../../components/BlogPreview";
+import blogList from "./fakedata/index";
 
 function Blogs() {
   return (
@@ -21,33 +21,20 @@ function Blogs() {
           <div className="px-8 max-w-7xl w-full  mx-auto max-[375px]:px-4">
             <div>
               <div className="flex flex-row flex-wrap gap-8 w-full justify-center items-center">
-                <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
-                  <BlogPreview />
-                </div>
-                <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
-                  <BlogPreview />
-                </div>
-                <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
-                  <BlogPreview />
-                </div>
-                <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
-                  <BlogPreview />
-                </div>
-                <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
-                  <BlogPreview />
-                </div>
-                <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
-                  <BlogPreview />
-                </div>
-                <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
-                  <BlogPreview />
-                </div>
-                <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
-                  <BlogPreview />
-                </div>
-                <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
-                  <BlogPreview />
-                </div>
+              {blogList.map((blogs) => (
+                    <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
+                    <BlogPreview
+                      key={blogs.id}
+                      slug={blogs.slug}
+                      title={blogs.title}
+                      category={blogs.category}
+                      highlight={blogs.higlight}
+                      author={blogs.author}
+                      dateCreated={blogs.dateCreated}
+                      thumbnail={blogs.thumbnail} 
+                    />
+                    </div>
+                  ))}
               </div>
               <div className="flex justify-center items-center mt-16">
                 <button type="button" className="text-[#175CD3] flex items-center justify-center gap-2 py-3 px-5 bg-[#F2F4F7] rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] "><FaArrowDown className=" text-[#175CD3]"/>Load more</button>

@@ -1,7 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 export default function BlogPreview() {
   return (
+    <Link to="/blog/slug">
       <div className="px-6 pt-6 pb-8 shadow-[0px_12px_16px_-4px_rgba(16,24,40,0.08),0px_4px_6px_-2px_rgba(16,24,40,0.03)] bg-[#FFFFFF]">
         <div>
           <figure>
@@ -32,6 +35,6 @@ export default function BlogPreview() {
           </div>
         </div>
       </div>
-    
+      </Link>    
   );
 }
