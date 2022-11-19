@@ -14,5 +14,5 @@ app.add_middleware(
 )
 
 @app.get("/", status_code=200)
-def home():
-    return {"message": "Hello World"}
+def landing_page():
+    return {"message": "Connection Successful"}
