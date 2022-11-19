@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import faqArray from "../faqArray";
 
 const Faq = () => {
+  const [setActive, setActiveState] = useState("");
+  const [setHeight, setHeightState] = useState("max-h-0 overflow-hidden");
+  const [rotate, setRotate] = useState("fa-chevron-down");
+
+  const content = useRef(null);
+
+  const toggleAccordion = () => {
+    setActiveState(setActive == "" ? "text-blue underline" : "");
+    setHeightState(setActive == "" ? "max-h-96" : "max-h-0 overflow-hidden");
+    setRotate(setActive === "" ? "rotate-180" : "");
+  };
+
   return (
     <>
       <div className="bg-likewhite h-[1600px]">
@@ -14,18 +26,24 @@ const Faq = () => {
             {faqArray.map((qna) => (
               <div className="w-[1000px]">
                 <div className="flex items-center relative ">
-                  <h3 className="text-gray text-lg  leading-9 font-normal">
+                  <h3 className={`text-lg ${setActive} leading-9 font-normal`}>
                     {qna.question}
                   </h3>
-                  <i className="text-blue absolute right-0 fa-solid fa-chevron-down cursor-pointer"></i>
+                  <i
+                    onClick={toggleAccordion}
+                    className={`text-blue ${rotate} absolute right-0 fa-solid fa-chevron-down cursor-pointer`}
+                  ></i>
                 </div>
-                <p className="text-lg text-gray w-[1000px] break-normal">
+                <p
+                  ref={content}
+                  className={`text-lg text-gray ${setHeight} w-[1000px] break-normal`}
+                >
                   {qna.answer}
                 </p>
               </div>
             ))}
 
-            <div className="flex w-[1000px] space-x-96">
+            <div className="relative flex w-[1000px] space-x-96">
               <div className="flex space-x-1">
                 <button className="text-blue  w-[73.27px] h-[73.27px] rounded-full bg-slate-300">
                   1
@@ -34,7 +52,7 @@ const Faq = () => {
                   2
                 </button>
               </div>
-              <button className="border-slate-800 w-[161px] h-[66px] border-2 rounded-2xl bg-white">
+              <button className="absolute right-0 border-slate-800 w-[161px] h-[66px] border-2 rounded-2xl bg-white">
                 Next<i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
