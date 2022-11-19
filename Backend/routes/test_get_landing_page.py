@@ -1,7 +1,8 @@
 from fastapi.testclient import TestClient
-from .get_landing_page import app
+from .get_landing_page import router
 
-client = TestClient(app)
+
+client = TestClient(router)
 
 
 def test_landing_page():
