@@ -1,3 +1,4 @@
+
 import React from "react";
 import NavigationBar from "./components/NavigationBar";
 import Footer from "./components/Footer";
@@ -412,6 +413,8 @@ function App() {
       <Footer />
     </div>
   );
+
+
 }
 
 export default App;
