@@ -1,9 +1,10 @@
 ---
-title: Account Pal Backend application 
-description:A Backend application build using the FASTAPI framework
-:
-  - fastapigit
-  - python
+title: Account Pal Backend application Docs
+description: A Backend application build using the FASTAPI framework
+tags:
+  - FASTAPI
+  - Python3
+  - SQLALCHEMY
 ---
 
 ## 💁‍♀️ How to use
