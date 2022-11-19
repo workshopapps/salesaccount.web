@@ -9,33 +9,40 @@ import { CiCircleMinus } from "react-icons/ci";
 import user_image from "./assets/what_our_users_are_saying.png";
 import dashboard_image from "./assets/landing_dashbord.png";
 import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
+import company_logo from './assets/company_images.png'
+import header_image from './assets/header_image.png'
+import cutting_image from './assets/cutting edge.png'
+
 const data = {
   title: "Frequently asked questions ",
   rows: [
     {
-      title: "Is there a free trial available?",
-      content: `Yes, you can try us for free for 30 days. If you want, we'll provide you with a free, personalized
-30-minute onboarding call to get you up and running as soon as possible.`,
+      title: "What is Account Pal and how does it work?",
+      content: `Account Pal is a web application that compares third-party and independent financial statements and records with internal financial records and ledgers. `,
     },
     {
-      title: "Can I change my plan later?",
-      content: ``,
+      title:
+        "Why should I make use of Account Pal to match my account statement to sales?",
+      content: `Account Pal for SME'S and SMBs helps save time that would otherwise be spent manually matching accounts statements to sales. 
+With this Web application, you can be sure to eliminate human errors and fraudulent risks associated with account reconciliation. 
+`,
     },
     {
-      title: "What is your cancellation Policy?",
-      content: ``,
+      title: "How do I receive an overview of my report?",
+      content: `Account Pal allows users to import sales and bank statements. These documents will then be processed and you'll receive a file with the analysis and reconciliation.`,
     },
     {
-      title: "Can another info be added to an invoice?",
-      content: ``,
+      title: "What are account statements?",
+      content: `It is a periodic summary of account activity within a defined period. `,
     },
     {
-      title: "How does billing work?",
-      content: ``,
+      title: "Is Account Pal free for first-time users?",
+      content: `Account Pal has a free 1-month trial period. When this expires, you can continue using the site for a small subscription fee.`,
     },
     {
-      title: "How do I change my account email?",
-      content: ``,
+      title:
+        "Is there a cap on the maximum number of transactions I can do weekly or monthly?",
+      content: `There is no cap on the number of transactions one can carry out using Account Pal.`,
     },
   ],
 };
@@ -49,7 +56,6 @@ const styles = {
   rowContentColor: "#667085",
   rowContentTextSize: "16px",
   arrowColor: "#1570EF",
-  transitionDuration: "1s",
 };
 
 const config = {
@@ -85,7 +91,7 @@ const whatAccountPalDoesData = [
       "Now you can seamlessly compile account statement and sales effectively",
   },
   {
-    title: "Balances your account statement in minutes",
+    title: "Balances your account statement",
     content:
       "Automate Your bookkeeping easier with Account Pal to focus on what matters most, Your business",
   },
@@ -140,61 +146,121 @@ const pickPlanData = [
   },
 ];
 
+const trustedByFeaturesData = [
+  {
+    number: "1",
+    title: "Visit Account Pal",
+    content:
+      "Create the stage for accurate account balance with our exiting template. Add your sales or import them automatically from a spreadsheet . ",
+  },
+  {
+    number: "2",
+    title: "Upload Sales Record",
+    content:
+      "Import or upload your sales Record with our exiting template. Add your sales or import them automatically from a spreadsheet. ",
+  },
+  {
+    number: "3",
+    title: "Download File ",
+    content:
+      "After the import and matching the sales record the syatem with the AI system, balance your Account statement and Download ",
+  },
+];
+
 function App() {
   return (
-    <>
+    <div>
       <NavigationBar />
-      <div className="bg-[#F5F5F5] w-full px-[178px] items-center leading-[100px] top-[193px]">
-        <h1 className="text-[#000000] text-[72px] font-semibold text-center">
-          An easy <span className="text-[#1570EF]">Sales and Accounting</span>
-          system made for you
-        </h1>
-        <p className="text-[#101828] font-normal text-[20px] text-center leading-[35px]">
-          Run your business effectively with a simplified solution to reconcile
-          your accounts & sales on a day - to - day basis
-        </p>
+      <div className="bg-[#EFF8FF] flex flex-col items-center justify-center:gap-y-[8px] md:gap-y-[16px] z-40 relative w-full">
+        <div className=" w-[273px] md:w-[1085px] leading-[92px] pt-[50px] ">
+          <h1 className="text-[#101828] text-[28px] md:text-[72px] font-semibold text-center">
+            An easy <span className="text-[#1570EF]">Sales and Accounting</span>{" "}
+            system made for you
+          </h1>
+        </div>
+        <div className=" w-[850px] pb-[24px]">
+          <p className="text-[#101828] font-normal text-[20px] text-center">
+            Run your business effectively with a simplified solution to
+            reconcile your accounts & sales on a day - to - day basis
+          </p>
+        </div>
+
+        <Button title="Dashboard" path="/" />
+        <img src={header_image} alt="Dashboard" className="w-[500px]" />
       </div>
       {/**Trusted by */}
-      <div className="bg-[#F9FAFB]">
-        <h2>Trusted By 100,000+ companies in 179 countries</h2>
-        <div></div>
+      <div className="bg-[#F9FAFB] flex flex-col  gap-y-[30px] mt-[-160px] z-50 relative">
+        <h2 className="pt-[25px] font-semibold text-[20px] text-[#344054] text-center">
+          Trusted By 100,000+ companies in 179 countries
+        </h2>
+        <div className="w-full px-[110px] pt-[26px] pb-[66px]">
+          <img src={company_logo} alt="company" className="w-screen" />
+        </div>
+
+        <div className="flex flex-col gap-y-[1px] items-center">
+          <h1 className="font-semibold text-[#101828] text-[36px]">
+            Balance your account in 3 easy steps
+          </h1>
+          <p className="text-[#667085] text-[20px] font-normal">
+            Balance your account in 3 Steps
+          </p>
+        </div>
+        <div className="flex flex-row gap-[120px] px-[110px] pb-[68px]">
+          {trustedByFeaturesData.map((item) => (
+            <div className="flex flex-col items-center w-full ">
+              <h3 className="text-[#101828] font-bold text-[80px]">
+                {item.number}
+              </h3>
+              <h3 className="text-[#101828] font-semibold text-center text-[20px]">
+                {item.title}
+              </h3>
+              <div className="w-[300px] text-center">
+                <p className="text-[#667085] font-normal text-[16px] ">
+                  {item.content}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
       {/**Pick your plan */}
       <div className="bg-[#F9FAFB]">
-        <div className="pt-[20px] text-center">
-          <h1 className="text-[#101828] font-semibold text-[30px]">
-            Pick your Plan
+        <div className="pt-[48px] text-center">
+          <h1 className="text-[#101828] font-semibold text-[36px]">
+            Pick Your Plan
           </h1>
           <p className="text-[#667085]">
-            Choose a Plan that suits your Business
+            Choose a plan that suits your Business
           </p>
         </div>
-        <div className="flex flex-row gap-[64px] pt-[30px] items-center justify-center">
+        <div className="flex flex-row gap-[64px] pt-[60px] items-center justify-center px-[110px] pb-[92px]">
           {pickPlanData.map((item) => (
-            <div className="flex flex-col border text-center pb-[20px] mb-[30px] px-[50px]">
-              <h3 className=" text-[#101828] font-semibold pt-[15px]">
-                {item.title}
-              </h3>
-              <div className="px-[35px] py-[25px] pt-[15px] font-normal text-[#858585]">
-                <div className="flex items-center ">
-                  <span className="pr-[6px]">{item.icon1}</span>
-                  <span>{item.content1}</span>
+            <div className="flex flex-col border border-[#D0D5DD] text-center w-full ">
+              <div className="h-[444px] w-[300px] flex flex-col items-center">
+                <h2 className=" text-[#101828] font-semibold pt-[41px] text-[24px]">
+                  {item.title}
+                </h2>
+                <div className=" font-normal text-[#858585] flex flex-col items-center gap-y-[20px] pt-[30px]">
+                  <div className="flex items-center ">
+                    <p className="pr-[8px]">{item.icon1}</p>
+                    <p className="text-[16px]">{item.content1}</p>
+                  </div>
+                  <div className="flex items-center">
+                    <p className="pr-[8px] ">{item.icon2}</p>
+                    <p className="text-[16px]">{item.content2}</p>
+                  </div>
+                  <div className="flex items-center">
+                    <p className="pr-[8px]">{item.icon3}</p>
+                    <p className="text-[16px]">{item.content3}</p>
+                  </div>
+                  <div className="flex items-center">
+                    <p className="pr-[8px] ">{item.icon4}</p>
+                    <p className="text-[16px]">{item.content4}</p>
+                  </div>
+                  <div className="cursor-pointer text-[#101828] font-semibold text-[14px] border border-[#858585] px-[28px] py-[16px] rounded-md mt-[18px]">
+                    {item.button_content}
+                  </div>
                 </div>
-                <div className="flex items-center">
-                  <span className="pr-[6px] py-[10px]">{item.icon2}</span>
-                  <span>{item.content2}</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="pr-[6px]">{item.icon3}</span>
-                  <span>{item.content3}</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="pr-[6px] py-[10px]">{item.icon4}</span>
-                  <span>{item.content4}</span>
-                </div>
-              </div>
-              <div className="cursor-pointer text-[#101828] font-semibold text-[15px] text-[12px] border border-[#101828] p-[5px] rounded-md">
-                {item.button_content}
               </div>
             </div>
           ))}
@@ -202,31 +268,34 @@ function App() {
       </div>
 
       {/**Cutting edge feature */}
-      <div className="bg-[#D1E9FF] flex flex-col items-center">
+      <div className="bg-[#EFF8FF] flex flex-col items-center">
         <h2 className="text-[#101828] pt-[108px] font-semibold text-[36px]">
           Cutting-edge features for advanced analytics
         </h2>
-        <p className="font-normal text-[#667085] pb-[20px]">
-          Powerful, self-serve product and growth analytics to help you convert,
-          match sales. Trusted by over 4,000 startups.
-        </p>
-        <img src={dashboard_image} alt="Dashboard" className="pb-[30px]" />
+        <div className="w-[700px] pb-[64px]">
+          <p className="font-normal text-[#667085] text-center text-[20px] pt-[8px]">
+            Powerful, self-serve product and growth analytics to help you
+            convert, match sales. Trusted by over 4,000 startups.
+          </p>
+        </div>
+        <div></div>
+        <img src={cutting_image} alt="Dashboard" className="pb-[48px]" />
       </div>
       {/**What account pal does for you */}
       <div className="bg-[#F9FAFB]">
-        <h1 className="text-[#101828] font-semibold text-center text-[36px] pt-[30px]">
+        <h1 className="text-[#101828] font-semibold text-center text-[36px] pt-[48px]">
           What Account Pal Does for You
         </h1>
-        <p className="text-[#667085] font-normal text-center text-[20px] py-[12px]">
+        <p className="text-[#667085] font-normal text-center text-[20px] pt-[8px] pb-[24px]">
           Important Features
         </p>
-        <div className="flex  items-center gap-[100px] px-[78px]">
+        <div className="flex flex-row items-center gap-[100px] px-[110px]">
           {whatAccountPalDoesData.map((item) => (
-            <div className="w-[250px] ">
-              <h2 className="font-semibold text-[#101828] text-[15px] text-center">
+            <div className="w-[400px] ">
+              <h2 className="font-semibold text-[#101828] text-[16px] pb-[4px] text-center">
                 {item.title}
               </h2>
-              <p className="text-[#667085] font-normal text-[13px]">
+              <p className="text-[#667085] font-normal text-[14px] text-center pb-[48px]">
                 {item.content}
               </p>
             </div>
@@ -235,53 +304,54 @@ function App() {
       </div>
       {/**Important features */}
       <div className="bg-[#F2F4F7]">
-        <h1 className="text-[#101828] font-semibold text-center text-[36px] pt-[56px]">
+        <h1 className="text-[#101828] font-semibold text-center text-[36px] pt-[48px]">
           Important Features
         </h1>
-        <div className="flex flex-row gap-[120px] px-[128px] pt-[93px] pb-[82px]">
+        <div className="flex flex-row gap-[120px] px-[110px] pt-[64px] pb-[82px]">
           {importantFeaturesData.map((item) => (
             <div className="flex flex-col items-center ">
               <h3 className="text-[#101828] font-bold text-[80px]">
                 {item.number}
               </h3>
-              <p className="text-[#101828] font-semibold text-center text-[13px] ">
+
+              <h4 className="text-[#101828] font-normal text-center text-[16px] ">
                 {item.content}
-              </p>
+              </h4>
             </div>
           ))}
         </div>
       </div>
 
       {/**What our users are saying */}
-      <div className="bg-[#F9FAFB] px-[220px] py-[100px] flex flex-col items-center">
-        <h1 className="text-[#000000] font-semibold text-[36px] text-center pb-[32px]">
+      <div className="bg-[#F9FAFB] flex flex-col items-center">
+        <h1 className="text-[#101828] font-semibold text-[36px] text-center pb-[32px] pt-[48px]">
           What our users are saying
         </h1>
-        <div className="w-[450px] h-[150px] rounded-2xl border border-[#98A2B3] flex flex-col items-center gap-[5px]">
-          <span className="text-[#667085] text-[10px] font-medium px-[10px] pt-[20px]">
+        <div className="w-[540px] h-[206px] rounded-2xl border border-[#98A2B3] flex flex-col items-center gap-[6px]">
+          <p className="text-[#667085] text-[16px] font-medium px-[8px] pt-[18px] text-center">
             As an account that struggles to balance account statement
             accurately, account Pal has made life better for me. Now I can sum
             all transaction easily, spot duplicate transactions reconcile
-            transactions easily
-          </span>
-          <p className="font-semibold text-[12px] text-[#101828] tracking-tighter">
+            transactions easily.
+          </p>
+          <p className="font-semibold text-[16px] text-[#101828] tracking-tighter pt-[15px]">
             Uche Donald
           </p>
-          <span className="font-normal text-[12px] text-[#667085]">-Zuri</span>
+          <span className="font-normal text-[14px] text-[#667085]">-Zuri</span>
         </div>
         <img
           src={user_image}
           alt="What our users are saying"
-          className="object-contain pt-[140px]"
+          className="object-contain py-[84px]"
         />
       </div>
       {/**Start free trial */}
       <div className="bg-[#F2F4F7]">
-        <div className="py-[70px] px-[336px] flex flex-col items-center">
-          <h2 className="text-[#000000] font-semibold text-center text-[36px]">
+        <div className="py-[84px]  flex flex-col items-center">
+          <h2 className="text-[#101828] font-semibold text-center text-[36px]">
             Start your free trials
           </h2>
-          <p className="pb-[60px] text-[#667085] text-[15px]">
+          <p className="pb-[60px] text-[#667085] text-[20px]">
             Join over 4,000+ startups already growing with Account Pal.
           </p>
           <div className="flex gap-[64px]">
@@ -291,7 +361,7 @@ function App() {
         </div>
       </div>
       {/**FAQ */}
-      <div className="bg-[#F9FAFB] py-[150px]">
+      <div className="bg-[#F9FAFB] py-[84px]">
         <div className="px-[336px]">
           <Faq data={data} styles={styles} config={config} />
         </div>
@@ -303,10 +373,10 @@ function App() {
               alt="Get in touch"
               className="max-w-[130px] h-[63px] object-contain"
             />
-            <p className="text-[#101828] text-[13px] font-medium">
+            <p className="text-[#101828] text-[18px] font-medium">
               Still have questions?
             </p>
-            <p className="font-normal text-[#667085] text-[13px] pb-[24px]">
+            <p className="font-normal text-[#667085] text-[18px] pb-[24px]">
               Can't find the answer you're looking for? Please chat to our
               friendly team.
             </p>
@@ -315,7 +385,7 @@ function App() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

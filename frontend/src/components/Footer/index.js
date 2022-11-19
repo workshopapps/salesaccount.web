@@ -54,48 +54,48 @@ const ProductData = [
 
 const index = () => {
   return (
-    <footer className="bg-[#D1E9FF] w-full flex justify-between py-[100px] pl-[116px] pr-[307px]">
+    <footer className="bg-[#D1E9FF] w-full flex justify-between py-[100px] pl-[110px] pr-[307px]">
       <div>
         <img src={logo} alt="Company logo" />
         <div className="pt-[4px] mb-[18px] w-[230px]">
-          <p className="text-[#344054] font-normal text-[15px]">
+          <p className="text-[#344054] font-normal text-[20px]">
             This is a website that can help you balance your sales account
           </p>
         </div>
         <div className="text-[#98A2B3] flex space-x-[20px]">
-          <BsTwitter />
-          <BsFacebook />
-          <BsInstagram />
+          <BsTwitter size={32} />
+          <BsFacebook size={32} />
+          <BsInstagram size={32} />
         </div>
       </div>
       <div className="flex flex-col">
-        <h3 className="font-medium text-[#344054] text-[20px]">About Us</h3>
+        <h3 className="font-medium text-[#344054] text-[28px]">About Us</h3>
         {aboutUsData.map((item) => (
           <Link
             to={item.path}
-            className="text-[#344054] font-normal text-[15px] py-[4px]"
+            className="text-[#344054] font-normal text-[20px] py-[4px]"
           >
             {item.name}
           </Link>
         ))}
       </div>
       <div className="flex flex-col">
-        <h3 className="font-medium text-[#344054] text-[20px]">Resources</h3>
+        <h3 className="font-medium text-[#344054] text-[28px]">Resources</h3>
         {resourcesData.map((item) => (
           <Link
             to={item.path}
-            className="text-[#344054] font-normal text-[15px] py-[4px]"
+            className="text-[#344054] font-normal text-[20px] py-[4px]"
           >
             {item.name}
           </Link>
         ))}
       </div>
       <div className="flex flex-col">
-        <h3 className="font-medium text-[#344054] text-[20px]">Product</h3>
+        <h3 className="font-medium text-[#344054] text-[28px]">Product</h3>
         {ProductData.map((item) => (
           <Link
             to={item.path}
-            className="text-[#344054] font-normal text-[15px] py-[4px]"
+            className="text-[#344054] font-normal text-[20px] py-[4px]"
           >
             {item.name}
           </Link>
