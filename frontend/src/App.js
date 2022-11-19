@@ -1,6 +1,13 @@
-
+import Navbar from './components/UploadData/UploadNav'
+//import Sidebar from './components/UploadData/UplaodSidebar'
+import Data from './components/Data'
 function App() {
-  return <h2 className="text-3xl font-bold underline">salesforce</h2>;
+  return (
+    <main>
+      <Navbar />
+      <Data />
+    </main>
+  )
 }
 
-export default App;
+export default App
