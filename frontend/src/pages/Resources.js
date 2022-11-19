@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Resources = () => {
+function Resources() {
   return (
     <div>Resources</div>
   )

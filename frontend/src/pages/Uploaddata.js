@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Uploaddata = () => {
+function Uploaddata() {
   return (
     <div>Uploaddata</div>
   )

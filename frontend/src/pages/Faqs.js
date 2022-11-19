@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Faqs = () => {
+function Faqs() {
   return (
     <div>Faqs</div>
   )

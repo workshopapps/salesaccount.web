@@ -1,6 +1,6 @@
 import React from 'react'
 
-const History = () => {
+function History() {
   return (
     <div>History</div>
   )

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Privacyandhelp = () => {
+function Privacyandhelp() {
   return (
     <div>Privacyandhelp</div>
   )
