@@ -1,0 +1,66 @@
+version: '3.9'
+
+services:
+  backend:
+    build:
+      context: ./Backend
+    volumes:
+      - type: bind
+        source: ./Backend
+        target: /app
+    networks:
+      - appnet
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: postgres
+    ports:
+      - "8001:8001"
+    depends_on:
+      - db
+
+  #frontend
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3001:3000"
+    networks:
+      - appnet
+    restart: always
+
+  # database  
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
+    volumes: 
+      - db:/var/lib/postgresql/data
+    networks:
+      - appnet
+
+# used to have a UI for the database  
+  adminer:
+    image: adminer
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 8081:8080
+    networks:
+      - appnet
+
+# link all docker containers to the same image
+networks:
+  appnet:
+    driver: bridge
+# bind volumes
+volumes:
+  db:
+    driver: local
