@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Blogs from './pages/Blogs/Index';
 import Blog from './pages/Blog/Index';
 
 const router = createBrowserRouter([
@@ -12,7 +13,11 @@ const router = createBrowserRouter([
     element: <App />
   },
   {
-    path: "/blog",
+    path: "/blogs",
+    element: <Blogs />
+  },
+  {
+    path: "/blog/:slug",
     element: <Blog />
   },
 ]);
