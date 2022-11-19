@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import faqArray from "../faqArray";
+import Accordion from "../components/faq-component";
 
 const Faq = () => {
   const [setActive, setActiveState] = useState("");
@@ -11,11 +12,14 @@ const Faq = () => {
   const toggleAccordion = () => {
     setActiveState(setActive === "" ? "text-blue underline" : "");
     setHeightState(
-      setActive === "" ? "max-h-96 transition-all" : "max-h-0 overflow-hidden"
+      setActive === ""
+        ? "max-h-96 transition-all overflow-visible"
+        : "max-h-0 overflow-hidden"
     );
     setRotate(
       setActive === "" ? "rotate-180 transition-all" : "transition-all"
     );
+    return;
   };
 
   return (
@@ -27,28 +31,9 @@ const Faq = () => {
               Frequently Asked Questions
             </h2>
 
-            {faqArray.map((qna, key) => (
+            {faqArray.map((qna) => (
               <div className="w-[1000px]">
-                <div className="flex items-center relative" key={qna.id}>
-                  <h3
-                    className={`text-lg ${() =>
-                      key === "0"
-                        ? "text-blue underline"
-                        : ""} leading-9 font-normal`}
-                  >
-                    {qna.question}
-                  </h3>
-                  <i
-                    onClick={toggleAccordion}
-                    className={`text-blue ${rotate} absolute right-0 fa-solid fa-chevron-down cursor-pointer`}
-                  ></i>
-                </div>
-                <p
-                  ref={content}
-                  className={`text-lg text-gray ${setHeight} w-[1000px] break-normal`}
-                >
-                  {qna.answer}
-                </p>
+                <Accordion question={qna.question} answer={qna.answer} />
               </div>
             ))}
 
