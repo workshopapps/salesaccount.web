@@ -30,26 +30,14 @@ export const Topnav = () => {
         </div>
 
         <div className='flex w-36 ml-auto'>
-          <div className='md:bg-white  w-10 h-10 flex mr-2 items-center justify-center rounded-lg'>
-            <img
-              src={Bell}
-              alt='Bell icon '
-              className='sepia invert md:filter-none'
-            />
+          <div className='bg-white-500  w-10 h-10 flex mr-2 items-center justify-center rounded-lg'>
+            <img src={Bell} alt='Bell icon ' />
           </div>
-          <div className='md:bg-white w-10 h-10 flex mr-2 items-center justify-center rounded-lg'>
-            <img
-              src={Moon}
-              alt='Moon icon '
-              className='sepia invert md:filter-none'
-            />
+          <div className='bg-white-500 w-10 h-10 flex mr-2 items-center justify-center rounded-lg'>
+            <img src={Moon} alt='Moon icon ' />
           </div>
-          <div className='md:bg-white w-10 h-10 flex mr-2 items-center justify-center rounded-lg'>
-            <img
-              src={Grid}
-              alt='Grid icon'
-              className='sepia invert md:filter-none'
-            />
+          <div className='bg-white-500 w-10 h-10 flex mr-2 items-center justify-center rounded-lg'>
+            <img src={Grid} alt='Grid icon' />
           </div>
         </div>
       </div>

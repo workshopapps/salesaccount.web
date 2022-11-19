@@ -10,6 +10,9 @@ module.exports = {
         grey: {
           500: '#EFF8FF',
         },
+        white: {
+          500: '#F9FAFB',
+        },
       },
       boxShadow: {
         '3xl': '0px 2px 8px -1px rgba(0, 0, 0, 0.1)',
