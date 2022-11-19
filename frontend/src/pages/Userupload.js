@@ -1,9 +1,7 @@
 import React from 'react';
 
-function Userupload () {
+function Userupload() {
 	return <div>Userupload</div>;
-};
-
-
+}
 
 export default Userupload;

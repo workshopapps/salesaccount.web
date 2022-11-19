@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Uploaddata () {
+function Uploaddata() {
 	return <div>Uploaddata</div>;
-};
+}
 
 export default Uploaddata;

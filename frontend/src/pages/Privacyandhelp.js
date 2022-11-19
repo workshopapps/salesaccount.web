@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Privacyandhelp () {
+function Privacyandhelp() {
 	return <div>Privacyandhelp</div>;
-};
+}
 
 export default Privacyandhelp;

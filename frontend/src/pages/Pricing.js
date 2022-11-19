@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Pricing () {
+function Pricing() {
 	return <div>Pricing</div>;
-};
+}
 
 export default Pricing;

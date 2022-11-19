@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Aboutus () {
+function Aboutus() {
 	return <div>Aboutus</div>;
 }
 

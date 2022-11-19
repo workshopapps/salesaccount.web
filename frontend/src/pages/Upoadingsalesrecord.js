@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Upoadingsalesrecord () {
+function Upoadingsalesrecord() {
 	return <div>Upoadingsalesrecord</div>;
-};
+}
 
 export default Upoadingsalesrecord;

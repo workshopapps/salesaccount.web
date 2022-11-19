@@ -1,11 +1,14 @@
 import React from 'react';
 import { Form } from '../components/contact-page/ContactForm/Form';
 import ContactUsImage from '../assets/contact-page-image.png';
+import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
 
 function ContactUs() {
 	return (
 		<>
+			<Header />
+
 			<main className="bg-very-light-blue min-h-[100vh] flex flex-col items-center py-[50px] px-[30px] ">
 				<div className="info-container lg:flex lg:flex-row lg:gap-7 xl:max-w-[1024px] xl:gap-14 min-[1440px]:max-w-[1280px] min-[1440px]:justify-around ">
 					<div className="lg:w-[70%] xl:w-[60%] pt-[35px] min-[1440px]:w-[50%]">
