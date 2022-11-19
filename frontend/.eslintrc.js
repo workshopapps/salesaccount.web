@@ -12,7 +12,16 @@ module.exports = {
 	plugins: ['react'],
 	rules: {
 		'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
-		'react/function-component-definition': 'off',
-		
+		'react/function-component-definition': [
+			'enabled',
+			{
+				namedComponents: [
+					'function-declaration',
+					'function-expression',
+					'arrow-function',
+				],
+				unnamedComponents: ['function-expression', 'arrow-function'],
+			},
+		],
 	},
 };
