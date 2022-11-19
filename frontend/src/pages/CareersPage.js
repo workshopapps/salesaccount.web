@@ -10,9 +10,9 @@ import earth from "./images/earth.png";
 import suitcase from "./images/suitcase.png";
 import gift from "./images/Gift.png";
 import send from "./images/send.png";
-import brief_case from "./images/Suitcase 1.png"
-import location from "./images/location.png"
-// import heroMobile from "./images/heroMobile.png";
+import brief_case from "./images/Suitcase 1.png";
+import location from "./images/location.png";
+import heroMobile from "./images/heroMobile.png";
 
 class CareersPage extends React.Component {
   render() {
@@ -112,13 +112,15 @@ class CareersPage extends React.Component {
 
     return (
       <div>
-        <div className="relative text-center bg-opacity-50 hero">
-          <img src={hero} alt="hero" className="sm-hidden " />
-          {/* <img src={heroMobile} alt="heroMobile" className="sm-block md-hidden lg-hidden xl-hidden " /> */}{" "}
-          <h1 className="absolute text-5xl top-1/2 my-auto">Careers</h1>
+        <div className="text-center">
+          <img src={hero} alt="hero" className="lg:block md:block sm:hidden " />
+          <img src={heroMobile} alt="heroMobile" className="sm-block md:hidden lg:hidden xl-hidden " />{" "}
+          <div className="relative bg-black bottom-0 opacity-50 w-full h-inherit">
+            <h1 className="text-5xl text-white top-1/2 my-auto">Careers</h1>
+          </div>
         </div>
-        <div className="px-6 py-7">
-          <div>
+        <div>
+          <div className="mx-16 py-8 sm:w-full sm:px-10">
             <h1 className="text-center text-5xl font-bold text-[#1849A9] font-normal">
               JOIN US
             </h1>
@@ -129,13 +131,13 @@ class CareersPage extends React.Component {
           </div>
         </div>
 
-        <div classname="w-full px-12 pt-7 bg-gray-100 ">
-          <h1 className="text-center bg-gray-100 pb-7 mx-auto text-8xl font-normal pt-10 text-[#1849A9] leading-6">
+        <div classname="w-full px-12 pt-10 bg-gray-100 sm:px-6">
+          <h1 className="text-center bg-gray-100 pb-7 mx-auto lg:text-8xl md:text-5xl sm:text-2xl font-normal lg:pt-12 md:pt-8 sm:pt-6 text-[#1849A9] leading-6">
             OUR TEAMS
           </h1>
-          <div className="bg-gray-100 pt-5 grid grid-cols-4">
+          <div className="bg-gray-100 pt-5 md:grid md:grid-cols-2 lg:grid lg:grid-cols-4 sm:grid sm:grid-cols-2">
             {teams.map((team) => (
-              <div className="flex flex-col my-7 max-w-7xl">
+              <div className="flex flex-col my-7 max-w-7xl sm:w-full">
                 <h2 className="text-center text-[48px] leading-[60px]">
                   {team.name}
                 </h2>
@@ -149,7 +151,7 @@ class CareersPage extends React.Component {
             ))}
           </div>
           <div className="px-15 bg-gray-100 text-center py-4">
-            <p className="text-center mx-auto text-[40px] font-normal leading-[50px] max-w-7xl">
+            <p className="text-center mx-auto text-[40px] font-normal pb-6 leading-[50px] max-w-7xl">
               We are a global company with root spread worldwide, and our team
               reflects that. The Account Pal team is building the future of AI
               technology to help improve efficiency and boost productivity.
@@ -157,11 +159,11 @@ class CareersPage extends React.Component {
           </div>
         </div>
 
-        <div className="py-5 pt-7">
+        <div className="py-10 pt-7">
           <h1 className="text-8xl font-normal text-center text-[#1849A9] mx-20">
             BENEFITS
           </h1>
-          <div className="pl-60 pt-7">
+          <div className="lg:pl-60 pt-7 md:pl-30 sm:pl:10">
             <span className="inline-flex items-center my-2">
               <img src={clock} alt="clock" className="self-center m-2" />{" "}
               <span className="text-[40px] text-[#101828]">
@@ -189,13 +191,13 @@ class CareersPage extends React.Component {
           </div>
         </div>
 
-        <div className="bg-gray-100 px-5 pb-4">
-          <h1 className="text-8xl text-[#1849A9] text-center">
+        <div className="bg-gray-100 px-5 py-4">
+          <h1 className="lg:text-8xl md:text-5xl sm:text-3xl text-[#1849A9] text-center">
             CURRENT OPENINGS
           </h1>
-          <div className="px-10 grid grid-cols-2">
+          <div className="px-14 pt-14 grid grid-cols-2">
             {openings.map((opening) => (
-              <div className="flex flex-row p-3">
+              <div className="flex flex-row gap-4 p-4">
                 <div className="basis-1/6 mx-4 text-[32px] border-4 border-solid pt-2 h-20 align-middle text-center border-sky-600 rounded-full">
                   {opening.short}
                 </div>
@@ -210,7 +212,9 @@ class CareersPage extends React.Component {
                     </div>
                     <div className="flex align-center">
                       <img src={location} alt="location" className="" />
-                      <span className="text-lg pt-1 pl-2">{opening.location}</span>
+                      <span className="text-lg pt-1 pl-2">
+                        {opening.location}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -225,11 +229,10 @@ class CareersPage extends React.Component {
           </div>
           <div className="flex flex-row mx-auto mb-7 max-w-[600px] items-center self-center">
             <input
-              className="text-center h-9 w-full mx-3 px-10 py-3 border border-solid border-slate-400"
+              className="text-center text-2xl  w-full mx-3 px-10 py-1 border border-solid border-slate-400"
               placeholder="Enter email"
             />
-            {/* <button>Subscribe</button> */}
-            <Button primary size="medium" label="Subscribe" />
+            <Button primary size="large" label="Subscribe" />
           </div>
         </div>
       </div>
