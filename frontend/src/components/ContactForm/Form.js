@@ -1,12 +1,11 @@
 import React from 'react';
-import { InputField } from './InputField';
-import { TextareaField } from './TextareaField';
+import { InputField } from '../InputField/InputField';
+import { TextareaField } from '../TextareaField/TextareaField';
 // import { Button } from './Button';
 
 export function Form() {
 	const onSubmit = (e) => {
 		e.preventDefault();
-		
 	};
 
 	return (
@@ -18,7 +17,7 @@ export function Form() {
 				label="First Name"
 				name="first name"
 				placeholder="First Name"
-                val="firstName"
+				val="firstName"
 			/>
 			<InputField
 				id="last-name"
@@ -27,7 +26,7 @@ export function Form() {
 				label="Last Name"
 				name="last name"
 				placeholder="Last Name"
-                val="lastName"
+				val="lastName"
 			/>
 			<InputField
 				id="email"
@@ -35,7 +34,7 @@ export function Form() {
 				label="Email"
 				name="email"
 				placeholder="olivia@zuri.com"
-                val="email"
+				val="email"
 			/>
 			<InputField
 				id="phone"
@@ -43,21 +42,17 @@ export function Form() {
 				label="Phone number"
 				name="phone number"
 				placeholder="+2345456464"
-                val="phone"
+				val="phone"
 			/>
 
-			<TextareaField
-				id="message"
-				label="Message"
-                val="message"
-			/>
+			<TextareaField id="message" label="Message" val="message" />
 
 			<InputField
 				id="checkbox"
 				type="checkbox"
 				label="You agree to our friendly privacy policy"
 				name="phone number"
-                val="permission"
+				val="permission"
 			/>
 
 			<button
