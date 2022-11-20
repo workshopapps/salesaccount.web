@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-function Guides() {
-	return <div>Guides</div>;
-}
+const Guides = () => (
+    <div>Guides</div>
+  )
 
 export default Guides;

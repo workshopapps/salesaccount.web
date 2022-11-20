@@ -3,7 +3,7 @@ import { InputField } from '../InputField/InputField';
 import { TextareaField } from '../TextareaField/TextareaField';
 // import { Button } from './Button';
 
-export function Form() {
+export const Form = () => {
 	const onSubmit = (e) => {
 		e.preventDefault();
 	};

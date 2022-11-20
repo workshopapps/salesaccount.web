@@ -1,8 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
-export function TextareaField({ id, resDesign, label, placeholder }) {
-	return (
+export const TextareaField = ({ id, resDesign, label, placeholder }) => (
 		<div className={`form-control ${resDesign} pb-4`}>
 			<label htmlFor={id} className="block pb-1 text-sm">
 				{' '}
@@ -15,8 +14,7 @@ export function TextareaField({ id, resDesign, label, placeholder }) {
 				placeholder={placeholder}
 			/>
 		</div>
-	);
-}
+	)
 
 TextareaField.defaultProps = {
 	placeholder: '',

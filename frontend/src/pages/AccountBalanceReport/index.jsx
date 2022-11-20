@@ -1,5 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-const AccountBalanceReport = () => <div>AccountBalanceReport</div>;
+const  AccountBalanceReport= () => (
+    <div>AccountBalanceReport</div>
+  )
 
 export default AccountBalanceReport;

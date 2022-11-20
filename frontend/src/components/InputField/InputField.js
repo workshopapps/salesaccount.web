@@ -1,8 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
-export function InputField({ id, resDesign, type, label, name, placeholder }) {
-	return (
+export const InputField = ({ id, resDesign, type, label, name, placeholder }) => (
 		<div
 			className={`form-control ${resDesign} ${
 				type === 'checkbox'
@@ -28,8 +27,7 @@ export function InputField({ id, resDesign, type, label, name, placeholder }) {
 				placeholder={placeholder}
 			/>
 		</div>
-	);
-}
+	)
 
 InputField.defaultProps = {
 	placeholder: '',

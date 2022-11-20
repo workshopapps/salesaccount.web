@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-function Documentation() {
-	return <div>Documentation</div>;
-}
+const Documentation = () => (
+    <div>Documentation</div>
+  )
 
 export default Documentation;

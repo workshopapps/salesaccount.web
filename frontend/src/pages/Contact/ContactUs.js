@@ -4,8 +4,7 @@ import ContactUsImage from '../../assets/contact-page-images/contact-page-image.
 import NavigationBar from '../../components/NavigationBar/index';
 import Footer from '../../components/Footer/index';
 
-function ContactUs() {
-	return (
+const ContactUs = () => (
 		<>
 			<NavigationBar />
 
@@ -39,7 +38,6 @@ function ContactUs() {
 
 			<Footer />
 		</>
-	);
-}
+	)
 
 export default ContactUs;
