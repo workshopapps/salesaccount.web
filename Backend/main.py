@@ -14,7 +14,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(test_get_landing_page.router)
 app.include_router(get_landing_page.router)
 
 

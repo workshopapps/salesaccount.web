@@ -2,9 +2,8 @@
 from fastapi import FastAPI, File
 from fastapi.exceptions import HTTPException
 
-app = FastAPI()
 
-@app.delete("/delete/{id}")
+@app.delete("/delete_statement/{id}")
 def delete(id:int):
     the_file = File.get(id)
     if not the_file:
