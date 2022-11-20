@@ -1,0 +1,48 @@
+.logo img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  margin-right: 0.1em;
+}
+.mobile-nav {
+  border-bottom: 1px solid #ccc;
+}
+
+.nav-items {
+  height: auto;
+  padding: 2em;
+  border-bottom: 3px solid #ccc;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.nav-items ul li {
+  padding-bottom: 0.5em;
+  width: 80%;
+}
+
+.ham:active,
+.ham:hover {
+  color: #2e90fa;
+}
+
+.desktop-nav ul li:active,
+.desktop-nav ul li:hover {
+  color: #2e90fa;
+}
+.side-bar {
+  border-right: 1px solid #ccc;
+}
+.side-bar ul li {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5em;
+  margin: 1em 0;
+  width: 100%;
+}
+.side-bar ul li:hover,
+.side-bar ul li:active,
+.side-bar ul li:focus {
+  color: #1570ef;
+  background-color: #d1e9ff;
+  padding: 0.4em;
+}
