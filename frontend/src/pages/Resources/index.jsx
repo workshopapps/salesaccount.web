@@ -1,9 +1,7 @@
 import React from 'react'
 
-const Resources = () => {
-  return (
+const Resources = () => (
     <div>Resources</div>
   )
-}
 
 export default Resources;
