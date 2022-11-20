@@ -1,22 +1,19 @@
-from typing import Union
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from routes import get_landing_page, post_account_statement, delete
+
 
 app = FastAPI()
 
-origins = [
-    "http://localhost:3000",
-    "localhost:3000"
-]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"]
+    allow_headers=["*"],
 )
 
-@app.get("/", status_code=200)
-def home():
-    return {"message": "Hello World"}
+app.include_router(get_landing_page.router)
+app.include_router(post_account_statement.router)
+app.include_router(delete.router)

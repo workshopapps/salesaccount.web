@@ -1,0 +1,71 @@
+version: '3.9'
+
+services:
+#Nginx Config
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+  
+  #Backend Config
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    container_name: backend
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: postgres
+    # ports:
+    #   - "8001:8001"
+    # # depends_on:
+    # #   - db
+
+  #frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: client
+    # networks:
+    #   - appnet
+    # # restart: always
+    # ports:
+    #   - "3000:3000"
+
+  # database  
+  db:
+    image: postgres:latest
+    container_name: postgres-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
+    volumes: 
+      - db:/var/lib/postgresql/data
+
+# used to have a UI for the database  
+  adminer:
+    image: adminer
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 8081:8080
+    # networks:
+    #   - appnet
+
+# link all docker containers to the same image
+# networks:
+#   appnet:
+#     driver: bridge
+# bind volumes
+volumes:
+  db:
+    driver: local
