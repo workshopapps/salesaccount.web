@@ -8,7 +8,7 @@ import AccountBalanceReport from './pages/AccountBalanceReport';
 import BlogPost from './pages/BlogPost';
 import Careers from './pages/Careers';
 import Company from './pages/Company';
-import ContactUs from './pages/Contact/ContactUs';
+import ContactUs from './pages/Contact';
 import Documentation from './pages/Documentation';
 import Faqs from './pages/Faqs';
 import Guides from './pages/Guides';
