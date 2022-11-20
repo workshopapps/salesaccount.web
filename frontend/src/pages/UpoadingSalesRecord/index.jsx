@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const UpoadingSalesRecord = () => {
-  return (
-    <div>UpoadingSalesRecord</div>
-  )
-}
+	return <div>UpoadingSalesRecord</div>;
+};
 
 export default UpoadingSalesRecord;

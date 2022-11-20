@@ -15,10 +15,8 @@ const Button = ({ path, isPrimary, title }) => (
 );
 export default Button;
 
-
 Button.propTypes = {
 	path: PropTypes.string.isRequired,
 	isPrimary: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
 };
-

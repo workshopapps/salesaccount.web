@@ -8,16 +8,12 @@ import uuid from 'react-uuid';
 import Button from '../Button';
 import logo from '../../assets/images/landingPage/logo.png';
 
-
-
 const navLinks = [
 	{ name: 'Pricing', path: '/pricing' },
 	{ name: 'About us', path: '/about' },
 	{ name: 'Resources', path: '/resources' },
 	{ name: 'Company', path: '/company' },
 ];
-
-
 
 function NavigationBar() {
 	const [nav, setNav] = useState(false);
@@ -80,8 +76,8 @@ function NavigationBar() {
 					<BsGlobe2 size={24} />
 					<MdOutlineKeyboardArrowDown size={24} />
 				</div>
-				<Button title="Sign up" path="/" isPrimary/>
-				<Button title="Sign in" path="/"  />
+				<Button title="Sign up" path="/" isPrimary />
+				<Button title="Sign in" path="/" />
 			</div>
 		</nav>
 	);

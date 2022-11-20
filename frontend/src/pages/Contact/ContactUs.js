@@ -1,13 +1,13 @@
 import React from 'react';
-import { Form } from '../components/contact-page/ContactForm/Form';
-import ContactUsImage from '../assets/contact-page-image.png';
-import { Header } from '../components/Header/Header';
-import { Footer } from '../components/Footer/Footer';
+import { Form } from '../../components/ContactForm/Form';
+import ContactUsImage from '../../assets/contact-page-image.png';
+import NavigationBar from '../../components/NavigationBar/index';
+import Footer from '../../components/Footer/index';
 
 function ContactUs() {
 	return (
 		<>
-			<Header />
+			<NavigationBar />
 
 			<main className="bg-very-light-blue min-h-[100vh] flex flex-col items-center py-[50px] px-[30px] ">
 				<div className="info-container lg:flex lg:flex-row lg:gap-7 xl:max-w-[1024px] xl:gap-14 min-[1440px]:max-w-[1280px] min-[1440px]:justify-around ">
