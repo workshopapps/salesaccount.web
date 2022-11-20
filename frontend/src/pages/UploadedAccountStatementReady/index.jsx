@@ -1,9 +1,7 @@
 import React from 'react'
 
-const UploadedAccountStatementRead = () => {
-  return (
+const UploadedAccountStatementRead = () => (
     <div>UploadedAccountStatementRead</div>
   )
-}
 
 export default UploadedAccountStatementRead;
