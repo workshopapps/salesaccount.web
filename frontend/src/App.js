@@ -1,13 +1,14 @@
 import CareersPage from "./pages/CareersPage";
-import Header from "./components/Header";
-// import Footer from "./components/Footer";
+import Navbar from "./components/Navbar"
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div>
-      <Header />
+    
+      <Navbar />
       <CareersPage />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

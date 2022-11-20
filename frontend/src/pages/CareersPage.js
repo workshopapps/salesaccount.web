@@ -1,16 +1,16 @@
 import React from "react";
 import { Button } from "../stories/Button";
-import user_check from "./images/user-check.png";
-import code from "./images/code.png";
-import headset_mic from "./images/headset-mic.png";
-import dollar_coin from "./images/dollarCoin.png";
-import clock from "./images/alarm.png";
-import earth from "./images/earth.png";
-import suitcase from "./images/suitcase.png";
-import gift from "./images/Gift.png";
-import send from "./images/send.png";
-import brief_case from "./images/Suitcase 1.png";
-import location from "./images/location.png";
+import user_check from "../assets/user-check.png";
+import code from "../assets/code.png";
+import headset_mic from "../assets/headset-mic.png";
+import dollar_coin from "../assets/dollarCoin.png";
+import clock from "../assets/alarm.png";
+import earth from "../assets/earth.png";
+import suitcase from "../assets/suitcase.png";
+import gift from "../assets/Gift.png";
+import send from "../assets/send.png";
+import brief_case from "../assets/Suitcase 1.png";
+import location from "../assets/location.png";
 
 class CareersPage extends React.Component {
   render() {
@@ -110,17 +110,17 @@ class CareersPage extends React.Component {
 
     return (
       <div>
-        <div className="text-center bg-hero bg-no-repeat h-[460px] md:h-[600px] bg-center">
+        <div className="text-center bg-hero bg-cover bg-no-repeat h-[460px] md:h-[600px] bg-center">
           <div className="relative bg-black bottom-0 bg-opacity-60 h-full w-full">
             <h1 className="relative text-6xl text-white top-1/2 mx-auto">CAREERS</h1>
           </div>
         </div>
         <div>
-          <div className="mx-16 py-8 sm:w-full sm:px-10">
-            <h1 className="text-center text-4xl font-bold text-[#1849A9] font-normal">
+          <div className="mx-16 py-8 sm:w-full sm:px-10 md:mx-auto">
+            <h1 className="text-center text-4xl md:text-5xl font-bold text-[#1849A9] font-normal">
               JOIN US
             </h1>
-            <p className="text-center text-xl leading-[25px] md:leading-[50px] w-50">
+            <p className="text-center text-xl leading-[25px] md:text-[40px] md:leading-[50px] w-50">
               Want to join an exciting work environment operating at the
               forefront of AI technology development for accounting software?
             </p>
