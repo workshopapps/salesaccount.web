@@ -9,7 +9,7 @@ const SalesRecords = () => {
 
 
     return (
-        <div className='flex flex-col gap-4 py-4 mt-3'>
+        <div className='flex flex-col h-screen gap-4 py-4 mt-3 '>
            
            <div className="flex justify-between w-full mt-5">
 				<div className="flex items-center">
@@ -46,41 +46,7 @@ const SalesRecords = () => {
                     
 				</div>
 			</div>
-            <table className='w-[320px] h-[421px] sm:w-[320px] lg:w-full border-collapse bg-searchBar rounded-xl '> 
-                <thead>
-                    <tr className='w-full '>
-                    <th className='w-fit'><p className='py-5 pl-4 text-base font-semibold text-left sm:text-sm whitespace-nowrap md:text-lg lg:text-xl h-14 top-2 font-Lexend '>Recent Transactions</p></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th className='w-fit'><SearchBar /></th>.
-                    </tr>
-                    <tr className='py-6 bg-thead w-80'>
-                        <th className= 'h-5 py-5 pl-4 text-sm font-semibold leading-5 text-left font-Lexend border-spacing-2 w-80' >Name</th>
-                        <th className= 'h-5 py-5 pl-4 text-sm font-semibold leading-5 text-left font-Lexend border-spacing-2 w-80' >Description</th>
-                        <th className= 'h-5 py-5 pl-4 text-sm font-semibold leading-5 text-left font-Lexend border-spacing-2 w-80' >Withdrawals</th>
-                        <th className= 'h-5 py-5 pl-4 text-sm font-semibold leading-5 text-left font-Lexend border-spacing-2 w-80' >Deposits</th>
-                        <th className= 'h-5 py-5 pl-4 text-sm font-semibold leading-5 text-left font-Lexend border-spacing-2 w-80' >Date</th>
-                        <th className= 'h-5 py-5 pl-4 text-sm font-semibold leading-5 text-left font-Lexend border-spacing-2 w-80' >Balance</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    { contacts.map(( contacts )=> (
-                            <tr className='border-b border-b-search border-opacity-20 '>
-                                <td className= 'py-6 pl-4 text-sm font-normal leading-5 text-left border-spacing-2 w-80 font-Lexend'>{contacts.Name}</td>
-                                <td className= 'py-6 pl-4 text-sm font-normal leading-5 text-left border-b-borderB border-spacing-2 w-80 font-Lexend'>{contacts.Description}</td>
-                                <td className= 'py-6 pl-4 text-sm font-normal leading-5 text-left border-b-borderB border-spacing-2 w-80 font-Lexend text-withdraw'>{contacts.Withdrawals}</td>
-                                <td className= 'py-6 pl-4 text-sm font-normal leading-5 text-left border-b-borderB border-spacing-2 w-80 font-Lexend text-deposit'>{contacts.Deposits}</td>
-                                <td className= 'py-6 pl-4 text-sm font-normal leading-5 text-left border-b-borderB border-spacing-2 w-80 font-Lexend'>{contacts.Date}</td>
-                                <td className= 'py-6 pl-4 text-sm font-normal leading-5 text-left border-b-borderB border-spacing-2 w-80 font-Lexend'>{contacts.Balance}</td>
-                            </tr>
-                        )
-                    )}
-                
-                    
-                </tbody>
-            </table>
+           
 
 
 

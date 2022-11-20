@@ -9,9 +9,9 @@ function UploadReady() {
 
 		<PageLayout>
 			<AcctStatement />
-      <SalesStatement />
+      		<SalesStatement />
 
-      <ReconcileButton />
+      		<ReconcileButton />
 
 			
 		</PageLayout>
