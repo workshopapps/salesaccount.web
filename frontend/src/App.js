@@ -1,13 +1,13 @@
 import CareersPage from "./pages/CareersPage";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
+// import Footer from "./components/Footer";
 
 function App() {
   return (
     <div>
       <Header />
       <CareersPage />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

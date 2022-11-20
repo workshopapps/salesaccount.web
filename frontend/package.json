@@ -53,7 +53,7 @@
     "allowedHosts": ["localhost", ".localhost"],
     "proxy": "https://loclahost.8000"
   },
- 
+  
   "devDependencies": {
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-essentials": "^6.5.13",
