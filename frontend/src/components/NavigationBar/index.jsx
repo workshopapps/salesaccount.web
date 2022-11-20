@@ -12,7 +12,7 @@ import logo from '../../assets/images/landingPage/logo.png';
 
 const navLinks = [
 	{ name: 'Pricing', path: '/pricing' },
-	{ name: 'About us', path: '/about' },
+	{ name: 'About us', path: '/aboutus' },
 	{ name: 'Resources', path: '/resources' },
 	{ name: 'Company', path: '/company' },
 ];
@@ -26,11 +26,13 @@ function NavigationBar() {
 	};
 	return (
 		<nav className="w-full h-[48px] md:h-[96px] px-[44px] xl:px-[72px] flex items-center justify-between">
-			<img
-				src={logo}
-				alt="Company logo"
-				className="h-[50px] w-[50px] md:h-[100px] md:w-[100px] cursor-pointer"
-			/>
+			<Link to="/">
+				<img
+					src={logo}
+					alt="Company logo"
+					className="h-[50px] w-[50px] md:h-[100px] md:w-[100px] cursor-pointer"
+				/>
+			</Link>
 
 			<div className="hidden xl:block text-[20px]">
 				{navLinks.map((item) => (
@@ -80,8 +82,8 @@ function NavigationBar() {
 					<BsGlobe2 size={24} />
 					<MdOutlineKeyboardArrowDown size={24} />
 				</div>
-				<Button title="Sign up" path="/" isPrimary/>
-				<Button title="Sign in" path="/"  />
+				<Button title="Sign up" path="/" isPrimary />
+				<Button title="Sign in" path="/" />
 			</div>
 		</nav>
 	);

@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """ POST ENDPOINT FOR ACCOUNT STATEMENT """
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile, APIRouter
 # from models import Account_statement
 
-app = FastAPI()
+router = APIRouter()
 
 
-@app.post("/upload")
+@router.post("/upload")
 def upload(file: UploadFile = File(...)):
     """ Uploads file to database """
     try:

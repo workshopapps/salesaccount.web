@@ -1,7 +1,5 @@
 import React from 'react'
 
-const PrivacyAndHelp = () => {
-  return <div>PrivacyAndHelp</div>;
-}
+const PrivacyAndHelp = () => <div>PrivacyAndHelp</div>
 
 export default PrivacyAndHelp;
