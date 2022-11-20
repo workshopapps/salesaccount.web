@@ -4,7 +4,7 @@ import { FaSearch } from 'react-icons/fa'
 
 function SearchBar() {
   return (
-    <div className='flex justify-between w-48 sm:w-fit md:w-fit lg:w-fit'>
+    <div className='flex justify-between w-48 sm:w-fit md:w-fit lg:w-fit '>
         <form className='w-full max-w-md ' action=''>
 
           <div className='relative flex items-center text-search ' >
@@ -13,7 +13,7 @@ function SearchBar() {
                     name='search'
                     placeholder='search'
                     aria-label='search'
-                    className='w-full py-3 pl-10 pr-3 font-light text-black border border-opacity-25 border-deposit h-11 placeholder-search rounded-xl ' /> 
+                    className='w-full py-3 pl-10 pr-3 font-light text-black h-11 placeholder-search rounded-xl ' /> 
           </div>
         </form>
     </div>

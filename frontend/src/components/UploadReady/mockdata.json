@@ -2,7 +2,7 @@
     {
         "id": 1,
         "Name" : "James Kirk",
-        "Description" : " ",
+        "Description" : "ordered 12 macbook pro",
         "Withdrawals" : "$12,000",
         "Deposits": "$12,000",
         "Date" : "3/22/22",
@@ -60,7 +60,7 @@
     {
         "id": 5,
         "Name" : "James Kirk",
-        "Description" : " ",
+        "Description" : " ordered 12 macbook pro",
         "Withdrawals" : "$12,000",
         "Deposits": "$12,000",
         "Date" : "3/22/22",
@@ -83,8 +83,5 @@
         "id": 7,
         "Description": "Total Balance",
         "Balance" : "$144,000"
-    },
-    {
-        "id":8
     }
 ]

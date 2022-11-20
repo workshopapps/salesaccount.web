@@ -12,7 +12,7 @@ const RecentTransactions = () => {
     return (
         <div className='flex flex-col gap-4 py-4 mt-3'>
           
-            <div className="flex justify-between w-full mt-5">
+          <div className="flex justify-between w-full mt-5">
 				<div className="flex items-center">
 					<label htmlFor="display" className="mr-2 text-base font-medium text-borderB font-Lexend">
 						Display
@@ -31,20 +31,24 @@ const RecentTransactions = () => {
 
 				
                 <div >
-                <select
-						name=""
-						id="display"
-						className=" border border-[#939393] rounded-xl p-2 w-80 h-9 mr-2 text-base font-medium text-borderB font-Lexend">
-						<option className=' w-96 h-20 bg bg-[#EFF8FF] bg-opacity-30 font-Lexend font-normal text-lg leading-10 text' value="">All</option>
+               
+                    <select
+                        name=""
+                        id=""
+                        className=" border border-[#939393] justify-center p-2 pb-0 w-48 h-9 mr-2 text-base font-medium text-borderB font-Lexend overflow-hidden rounded-xl"
+                    >
+                        <option className=' w-96 h-20 bg bg-[#EFF8FF] bg-opacity-30 font-Lexend font-normal text-lg leading-10 text' value="">Sort By</option>
+                        <option className=' w-96 h-20 bg bg-[#EFF8FF] bg-opacity-30 font-Lexend font-normal text-lg leading-10 text' value="">All</option>
 						<option className=' w-96 h-20 bg bg-[#EFF8FF] bg-opacity-30 font-Lexend font-normal text-lg leading-7 text' value="">Recent Transactions</option>
 						<option className=' w-96 h-20 bg bg-[#EFF8FF] bg-opacity-30 font-Lexend font-normal text-lg leading-7 text' value="">Date</option>
 						<option className=' w-96 h-20 bg bg-[#EFF8FF] bg-opacity-30 font-Lexend font-normal text-lg leading-7 text' value="">Amount</option>
                         <option className=' w-96 h-20 bg bg-[#EFF8FF] bg-opacity-30 font-Lexend font-normal text-sm text-deposit leading-7 text' value="">close</option>
-					</select>
+                    </select>
+                    
 				</div>
 			</div>
             {/* TESTING 1,2,3*/}
-            <table className='w-full border-collapse bg-searchBar rounded-xl '> 
+            <table className="w-full table-auto bg-searchBar rounded-xl" > 
                 <thead>
                     <tr className='w-full '>
                     <th className='w-fit'><p className='py-5 pl-4 text-base font-semibold text-left sm:text-sm whitespace-nowrap md:text-lg lg:text-xl h-14 top-2 font-Lexend '>Recent Transactions</p></th>
