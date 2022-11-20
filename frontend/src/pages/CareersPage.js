@@ -127,7 +127,7 @@ class CareersPage extends React.Component {
           </div>
         </div>
 
-        <div classname="w-full px-12 pt-10 bg-gray-100 sm:px-6">
+        <div className="w-full px-6 sm:px-12 pt-10 bg-gray-100">
           <h1 className="text-center text-4xl bg-gray-100 pt-4 pb-7 mx-auto lg:text-8xl md:text-5xl sm:text-2xl font-normal lg:pt-12 md:pt-8 sm:pt-6 text-[#1849A9] leading-6">
             OUR TEAMS
           </h1>
@@ -147,7 +147,7 @@ class CareersPage extends React.Component {
             ))}
           </div>
           <div className="px-5 bg-gray-100 text-center py-4">
-            <p className="text-center mx-auto text-xl leading-[25px] md:text-[40px] font-normal pb-6 leading-[50px] max-w-7xl">
+            <p className="text-center mx-auto text-xl md:text-[40px] font-normal pb-6 sm:leading-[50px] max-w-7xl">
               We are a global company with root spread worldwide, and our team
               reflects that. The Account Pal team is building the future of AI
               technology to help improve efficiency and boost productivity.
