@@ -23,6 +23,7 @@ import UserUpload from './pages/UserUpload';
 import Teams from './pages/Teams';
 import History from './pages/History';
 import reportWebVitals from './reportWebVitals';
+import Gpt3 from './pages/Gpt-3';
 
 const router = createBrowserRouter([
 	{
@@ -123,6 +124,10 @@ const router = createBrowserRouter([
 	{
 		path: '/userupload',
 		element: <UserUpload />,
+	},
+	{
+		path: '/Gpt-3',
+		element: <Gpt3 />,
 	},
 ]);
 
