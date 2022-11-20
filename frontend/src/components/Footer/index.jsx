@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import uuid from 'react-uuid';
 import logo from '../../assets/images/landingPage/logo.png';
 
-
 const aboutUsData = [
 	{
 		name: 'History',
@@ -16,7 +15,7 @@ const aboutUsData = [
 	},
 	{
 		name: 'Contact Us',
-		path: '/aboutus',
+		path: '/contact',
 	},
 ];
 const resourcesData = [

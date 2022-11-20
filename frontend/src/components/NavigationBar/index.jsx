@@ -8,16 +8,12 @@ import uuid from 'react-uuid';
 import Button from '../Button';
 import logo from '../../assets/images/landingPage/logo.png';
 
-
-
 const navLinks = [
 	{ name: 'Pricing', path: '/pricing' },
 	{ name: 'About us', path: '/aboutus' },
 	{ name: 'Resources', path: '/resources' },
 	{ name: 'Company', path: '/company' },
 ];
-
-
 
 function NavigationBar() {
 	const [nav, setNav] = useState(false);
