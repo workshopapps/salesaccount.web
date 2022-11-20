@@ -12,7 +12,7 @@ const Faq = () => {
 	return (
 		<>
 			<NavigationBar className="bg-blue" />
-			<div className="bg-likewhite sm:h-[2000px] h-[800px]">
+			<div className="bg-likewhite">
 				<div className="sm:h-[1055px] h-[500px] min-w-[375px] sm:w-[1228px] justify-center flex font-body sm">
 					<div className="flex-col space-y-[25px] sm:space-y-[72px]">
 						{smallFAQ ? (
@@ -150,15 +150,20 @@ const Faq = () => {
 
 						{nextDisplay === true ? (
 							<div className="justify-center flex">
-								<div className="sm:w-[672px] text-[36px] text-center">
+								<div className="w-[223px] text-[12px] sm:w-[672px] sm:text-[36px] text-center mt-16">
 									<p className="text-blue">Did you find this useful?</p>
-									<input type="checkbox" className="w-[38.56px] h-[38.56px]" />
-									Yes
-									<input
-										type="checkbox"
-										className="w-[38.56px] h-[38.56px] rounded-full"
-									/>
-									No
+									<div className="space-x-4 sm:space-x-14">
+										<input
+											type="checkbox"
+											className="w-[20px] sm:w-[38.56px] h-[20px] sm:h-[38.56px]"
+										/>
+										Yes
+										<input
+											type="checkbox"
+											className="w-[20px] sm:w-[38.56px] h-[20px] sm:h-[38.56px]"
+										/>
+										No
+									</div>
 								</div>
 							</div>
 						) : (
