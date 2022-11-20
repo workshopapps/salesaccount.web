@@ -15,6 +15,7 @@ import Pricing from './pages/Pricing';
 import PrivacyAndHelp from './pages/PrivacyAndHelp';
 import Resources  from './pages/Resources';
 import UploadAccountsStatementReady from './pages/UploadAccountsStatementReady';
+import NotificationsPage from './pages/NotificationsPage/NotificationsPage';
 import UploadData from './pages/UploadData';
 import UploadedAccountStatementReady from './pages/UploadedAccountStatementReady';
 import UpoadingSalesRecord from './pages/UpoadingSalesRecord';
@@ -118,13 +119,17 @@ const router = createBrowserRouter([
 		path: '/userupload',
 		element: <UserUpload />,
 	},
+	{
+		path: '/notification',
+		element: <NotificationsPage />,
+	},
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+	<React.StrictMode>
+		<RouterProvider router={router} />
+	</React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
