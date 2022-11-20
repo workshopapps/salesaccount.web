@@ -1,10 +1,10 @@
-""" DELETE ENDPOINT FOR ACCOUNT STATEMENT """
-from fastapi import FastAPI, File, APIRouter
+""" DELETE ENDPOINT FOR SALES ENDPOINT """
+from fastapi import FastAPI, File
 from fastapi.exceptions import HTTPException
 
-router = APIRouter()
+app = FastAPI()
 
-@router.delete("/delete/{id}")
+@app.delete("/delete_sales/{id}")
 def delete(id:int):
     the_file = File.get(id)
     if not the_file:
@@ -15,5 +15,3 @@ def delete(id:int):
         return {"message": "Successfully deleted"}
     except Exception:
         return {"message": "There was an error deleting the file"}
-
-
