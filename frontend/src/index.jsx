@@ -22,6 +22,7 @@ import UserUpload from './pages/UserUpload';
 import Teams from './pages/Teams';
 import History from './pages/History';
 import reportWebVitals from './reportWebVitals';
+import UploadResultMatch from './pages/UploadResult/UploadResultMatch';
 
 const router = createBrowserRouter([
 	{
@@ -117,6 +118,10 @@ const router = createBrowserRouter([
 	{
 		path: '/userupload',
 		element: <UserUpload />,
+	},
+	{
+		path: '/dashboard/upload/match/result',
+		element: <UploadResultMatch />,
 	},
 ]);
 
