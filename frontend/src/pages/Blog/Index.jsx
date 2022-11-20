@@ -25,7 +25,7 @@ function Blog() {
 					have witnessed firsthand the potential effectiveness of the three debt
 					management techniques exxplained in this piece.
 				</p>
-				<img src="../assets/dummyBlogThumb.svg" alt="thumbnail" />
+				<img src="../assets/images/blog/dummyBlogThumb.svg" alt="thumbnail" />
 			</div>
 			<div className="flex flex-col gap-12 mb-[30px]">
 				<p className="font-normal leading-[30px] text-lg text-[#667085] max-[675px]:text-base max-[675px]:leading-[25px]">
@@ -136,7 +136,7 @@ function Blog() {
 							<figure className=" w-10 h-10 ">
 								<img
 									className=" rounded-full w-full"
-									src="../assets/avatar-full.svg"
+									src="../assets/images/avatar-full.svg"
 									alt=""
 								/>
 							</figure>
@@ -157,13 +157,13 @@ function Blog() {
 								<img src="../assets/copy.svg" alt="" /> Copy Link
 							</button>
 							<div className=" w-10 h-10 cursor-pointer text-[#344054] px-[10px] py-[10px] flex gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border-solid  border-[1px] border-[#D0D5DD]">
-								<img className='w-full' src="../assets/twitter.svg" alt="" />
+								<img className='w-full' src="../assets/images/blog/twitter.svg" alt="" />
 							</div>
 							<div className=" w-10 h-10 cursor-pointer text-[#344054] px-[10px] py-[10px] flex gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border-solid  border-[1px] border-[#D0D5DD]">
-								<img className='w-full' src="../assets/fb.svg" alt="" />
+								<img className='w-full' src="../assets/images/blog/fb.svg" alt="" />
 							</div>
 							<div className=" w-10 h-10 cursor-pointer text-[#344054] px-[10px] py-[10px] flex gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border-solid  border-[1px] border-[#D0D5DD]">
-								<img className='w-full' src="../assets/linkedin.svg" alt="" />
+								<img className='w-full' src="../assets/images/blog/linkedin.svg" alt="" />
 							</div>
 						</div>
 					</div>
@@ -172,12 +172,12 @@ function Blog() {
 					<hr className=" border-solid border-[1px] border-[#EAECF0] mb-[30.5px]" />
 					<div className="flex justify-between items-center mb-[10.5px] mx-[21px]">
 						<div className=" cursor-pointer text-[#667085] flex gap-2">
-							<img src="../assets/arrow-left.svg" alt="" />
+							<img src="../assets/images/blog/arrow-left.svg" alt="" />
 							Previous
 						</div>
 						<div className=" cursor-pointer text-[#667085] flex gap-2">
 							Next
-							<img src="../assets/arrow-right.svg" alt="" />
+							<img src="../assets/images/blog/arrow-right.svg" alt="" />
 						</div>
 					</div>
 				</div>
