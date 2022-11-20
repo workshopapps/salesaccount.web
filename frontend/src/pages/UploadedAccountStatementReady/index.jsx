@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const UploadedAccountStatementRead = () => (
-    <div>UploadedAccountStatementRead</div>
-  )
+	<div>UploadedAccountStatementRead</div>
+);
 
 export default UploadedAccountStatementRead;
