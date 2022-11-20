@@ -54,10 +54,32 @@ const Resources = () => (
 					you’d like to explore.
 				</p>
 
-const Resources = () => {
-  return (
-    <div>Resources</div>
-  )
-}
+			<div className=" text-center">
+					<img
+						className=" mx-auto max-h-20 md:max-h-32"
+						src={resourcesheaderimg}
+						alt=""
+					/>
+				</div>
+			</div>
+		</div>
+
+		<div className=" px-7 flex py-5 flex-wrap gap-4 justify-center mb px:10 md:px-11 lg:px-6 xl:px-36">
+			{data.map((item) => (
+				<div key={item.id}>
+					<div className=" ">
+						<div className=" w-72 p-5 rounded-md drop-shadow border ">
+							<img src={item.image} alt="" />
+							<p className=" text-md text-blue-500 pt-2">{item.header}</p>
+							<h1 className=" font-semibold py-3">{item.subtext}</h1>
+							<img src={arrowright} alt="" />
+						</div>
+					</div>
+				</div>
+			))}
+		</div>
+		<Footer />
+	</div>
+);
 
 export default Resources;
