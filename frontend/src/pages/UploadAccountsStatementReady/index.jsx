@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const UploadAccountsStatementReady = () => (
-    <div>UploadAccountsStatementReady</div>
-  )
+	<div>UploadAccountsStatementReady</div>
+);
 
 export default UploadAccountsStatementReady;

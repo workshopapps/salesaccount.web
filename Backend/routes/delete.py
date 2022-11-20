@@ -1,10 +1,10 @@
 """ DELETE ENDPOINT FOR ACCOUNT STATEMENT """
-from fastapi import FastAPI, File
+from fastapi import FastAPI, File, APIRouter
 from fastapi.exceptions import HTTPException
 
-app = FastAPI()
+router = APIRouter()
 
-@app.delete("/delete/{id}")
+@router.delete("/delete/{id}")
 def delete(id:int):
     the_file = File.get(id)
     if not the_file:
