@@ -37,7 +37,7 @@ const data = [
 		image: FAQ,
 		header: 'FAQ',
 		subtext: 'Frequently Asked Questions',
-		to: `/faq`,
+		to: `/faqs`,
 	},
 	{
 		id: 5,
