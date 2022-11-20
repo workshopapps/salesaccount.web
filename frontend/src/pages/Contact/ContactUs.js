@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form } from '../../components/ContactForm/Form';
-import ContactUsImage from '../../assets/contact-page-image.png';
+import ContactUsImage from '../../assets/contact-page-images/contact-page-image.png';
 import NavigationBar from '../../components/NavigationBar/index';
 import Footer from '../../components/Footer/index';
 

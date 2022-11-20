@@ -1,7 +1,7 @@
 import React from 'react';
 
-const UpoadingSalesRecord = () => {
+function UpoadingSalesRecord() {
 	return <div>UpoadingSalesRecord</div>;
-};
+}
 
 export default UpoadingSalesRecord;

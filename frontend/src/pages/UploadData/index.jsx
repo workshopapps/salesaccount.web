@@ -1,7 +1,7 @@
 import React from 'react';
 
-const UploaData = () => {
+function UploaData() {
 	return <div>UploaData</div>;
-};
+}
 
 export default UploaData;
