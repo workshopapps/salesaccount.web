@@ -54,7 +54,7 @@ const Resources = () => (
 					you’d like to explore.
 				</p>
 
-				<div className=" text-center">
+			<div className=" text-center">
 					<img
 						className=" mx-auto max-h-20 md:max-h-32"
 						src={resourcesheaderimg}
@@ -63,7 +63,8 @@ const Resources = () => (
 				</div>
 			</div>
 		</div>
-		<div className=" px-7 flex py-5 flex-wrap gap-4 justify-center px:10 md:px-11 lg:px-6 xl:px-36">
+
+		<div className=" px-7 flex py-5 flex-wrap gap-4 justify-center mb px:10 md:px-11 lg:px-6 xl:px-36">
 			{data.map((item) => (
 				<div key={item.id}>
 					<div className=" ">

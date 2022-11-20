@@ -6,48 +6,48 @@ import logo from '../../assets/images/landingPage/logo.png';
 
 const aboutUsData = [
 	{
-		name: 'Our story',
-		path: '/',
+		name: 'History',
+		path: '/history',
 	},
 	{
-		name: 'Work Enviroment',
-		path: '/',
+		name: 'Team',
+		path: '/teams',
 	},
 	{
-		name: 'Email Us',
+		name: 'Contact Us',
 		path: '/contact',
 	},
 ];
 const resourcesData = [
 	{
-		name: 'Help Center',
-		path: '/',
+		name: 'Privacy & Help',
+		path: '/privacyandhelp',
 	},
 	{
-		name: 'Support',
-		path: '/',
+		name: 'Careers',
+		path: '/careers',
 	},
 	{
 		name: 'FAQs',
-		path: '/',
+		path: '/faqs',
 	},
 ];
 const ProductData = [
 	{
 		name: 'Pricing',
-		path: '/',
+		path: '/pricing',
 	},
 	{
 		name: 'How it works',
-		path: '/',
+		path: '/guides',
 	},
 	{
 		name: 'Features',
-		path: '/',
+		path: '/resources',
 	},
 	{
-		name: 'Start for free',
-		path: '/',
+		name: 'Documentation',
+		path: '/documentation',
 	},
 ];
 
