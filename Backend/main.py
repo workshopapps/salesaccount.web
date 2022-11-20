@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import test_get_landing_page, get_landing_page
+from routes import test_get_landing_page, get_landing_page, delete
 
 
 app = FastAPI()
@@ -16,5 +16,6 @@ app.add_middleware(
 
 app.include_router(test_get_landing_page.router)
 app.include_router(get_landing_page.router)
+app.include_router(delete.router)
 
 
