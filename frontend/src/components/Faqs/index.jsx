@@ -1,4 +1,4 @@
-import React, { useState, ReactPropTypes } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const Accordion = ({ question, answer, id }) => {
