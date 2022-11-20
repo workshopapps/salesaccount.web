@@ -22,7 +22,7 @@ const Accordion = ({ question, answer, id }) => {
   };
   return (
     <>
-      <div className="pr-[25px] pl-[25px] sm:p-0 w-[375px] sm:w-[1000px]">
+      <div className="pr-[25px] pl-[25px] sm:p-0 w-[375px] sm:w-[1000px] ">
         <div className="flex items-center relative " key={id}>
           <h3
             className={`sm:text-lg text-xs  ${setActive} sm:leading-9 leading-[25px] font-normal w-[247px] `}

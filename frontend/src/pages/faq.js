@@ -3,24 +3,11 @@ import faqArray from "../faqArray";
 import Accordion from "../components/faq-component";
 
 const Faq = () => {
-  const [setActive, setActiveState] = useState("");
-  const [setHeight, setHeightState] = useState("max-h-0 overflow-hidden");
-  const [rotate, setRotate] = useState("fa-chevron-down");
+  const [faqs, setFaqs] = useState([]);
 
-  const content = useRef(null);
+  const [currentPosts, setCurrentPosts] = useState(faqArray.slice(0, 9));
 
-  const toggleAccordion = () => {
-    setActiveState(setActive === "" ? "text-blue underline" : "");
-    setHeightState(
-      setActive === ""
-        ? "max-h-96 transition-all overflow-visible"
-        : "max-h-0 overflow-hidden"
-    );
-    setRotate(
-      setActive === "" ? "rotate-180 transition-all" : "transition-all"
-    );
-    return;
-  };
+  const displayPrevBtn = () => {};
 
   return (
     <>
@@ -31,7 +18,7 @@ const Faq = () => {
               Frequently Asked Questions
             </h2>
 
-            {faqArray.map((qna) => (
+            {currentPosts.map((qna) => (
               <div className="w-[375px] sm:w-[1000px]">
                 <Accordion question={qna.question} answer={qna.answer} />
               </div>
@@ -39,16 +26,33 @@ const Faq = () => {
 
             <div className="relative flex w-[375px] sm:w-[1000px] text-sm space-x-96">
               <div className="flex space-x-1">
-                <button className="text-blue  w-[73.27px] h-[73.27px] rounded-full bg-slate-300">
+                <button
+                  onClick={() => setCurrentPosts(faqArray.slice(0, 9))}
+                  className="text-blue  w-[73.27px] h-[73.27px] rounded-full bg-slate-300"
+                >
                   1
                 </button>
-                <button className="text-gray w-[73.27px] h-[73.27px] rounded-full bg-white">
+                <button
+                  onClick={() => setCurrentPosts(faqArray.slice(9, 13))}
+                  className="text-gray w-[73.27px] h-[73.27px] rounded-full bg-white"
+                >
                   2
                 </button>
               </div>
-              <button className="absolute right-0 border-slate-800 w-[95px] h-[43px] sm:w-[161px] sm:h-[66px] border-2 border-gray-800 rounded-2xl bg-white">
+              <button
+                onClick={() => setCurrentPosts(faqArray.slice(9, 13))}
+                className="absolute right-0 border-slate-800 w-[95px] h-[43px] sm:w-[161px] sm:h-[66px] border-2 border-gray-800 rounded-2xl bg-white"
+              >
                 Next<i class="fa-solid fa-arrow-right"></i>
               </button>
+            </div>
+
+            <div>
+              <p className="text-blue">Did you find this useful?</p>
+              <input type="checkbox" />
+              Yes
+              <input type="checkbox" />
+              No
             </div>
           </div>
         </div>

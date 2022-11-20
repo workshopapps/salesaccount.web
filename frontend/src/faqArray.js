@@ -52,7 +52,25 @@ const faqArray = [
   {
     id: "8",
     question: "What are the advantages of using Account Pal?",
-    answer: "Default",
+    answer:
+      "Account Pal has multiple features to help you with smooth financial transactions.",
+  },
+  {
+    id: "9",
+    question: "Can everyone view my my report/account?",
+    answer:
+      "The details in your account are your private information and can only be shared by you, unless access is granted to your collaborators..",
+  },
+  {
+    id: "10",
+    question: "What are account statements?",
+    answer:
+      "Account statements are periodic summaries of account activity within a defined period",
+  },
+  {
+    id: "11",
+    question: "How do I get my income statement?",
+    answer: "Account Pal provides you with your income statement upon request.",
   },
 ];
 
