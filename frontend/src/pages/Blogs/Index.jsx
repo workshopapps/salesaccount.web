@@ -2,10 +2,14 @@ import React from "react";
 import { FaArrowDown } from "react-icons/fa";
 import BlogPreview from "../../components/BlogPreview";
 import blogList from "./fakedata/index";
+import NavigationBar from '../../components/NavigationBar';
+import Footer from '../../components/Footer';
+
 
 function Blogs() {
   return (
     <>
+    <NavigationBar/>
       <div className=" bg-[#D1E9FF] pt-16 pb-16">
         <h1 className="text-[#101828] font-semibold leading-[60px] text-5xl text-center">
           Our Blog
@@ -43,6 +47,7 @@ function Blogs() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

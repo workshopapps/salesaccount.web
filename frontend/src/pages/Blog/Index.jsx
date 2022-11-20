@@ -1,10 +1,13 @@
 import React from 'react';
 import BlogPreview from '../../components/BlogPreview';
+import NavigationBar from '../../components/NavigationBar';
+import Footer from '../../components/Footer';
 
 
 function Blog() {
 	return (
     <>
+	<NavigationBar/>
 		<div className=" px-[72px] max-[675px]:px-6">
 			<div className="flex flex-col justify-center items-center mt-[102px] mb-[72px]">
 				<h1 className=" font-semibold text-[56px] leading-[70px] text-[#101828] text-center max-w-[20ch] max-[675px]:text-[36px]">
@@ -204,6 +207,7 @@ function Blog() {
   </div>
 </div>
 <div className='flex justify-center items-center mb-6'><div className=' bg-[#1570EF] border-[1px] border-solid border-[#1570EF] shadow-[0px_1px_2px_rgba(16,24,40,0.05)] rounded-lg  py-3 px-5 text-[#FFFFFF]'>View all posts</div></div>
+<Footer/>
 </>
 	);
 }

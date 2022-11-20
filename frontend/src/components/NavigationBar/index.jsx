@@ -12,7 +12,7 @@ import logo from '../../assets/images/landingPage/logo.png';
 
 const navLinks = [
 	{ name: 'Pricing', path: '/pricing' },
-	{ name: 'About us', path: '/about' },
+	{ name: 'About us', path: '/aboutus' },
 	{ name: 'Resources', path: '/resources' },
 	{ name: 'Company', path: '/company' },
 ];
