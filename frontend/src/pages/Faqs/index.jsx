@@ -1,9 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-function Faqs() {
-  return (
-    <div>Faqs</div>
-  )
-}
+const Faqs = () => <div>Faqs</div>;
 
 export default Faqs;

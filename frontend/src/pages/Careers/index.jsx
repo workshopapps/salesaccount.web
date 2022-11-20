@@ -1,9 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-function Careers() {
-  return (
-    <div>Careers</div>
-  )
-}
+const Careers = () => <div>Careers</div>;
 
-export default Careers
+export default Careers;
