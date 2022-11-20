@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-const UserUpload = () => (
-    <div>UserUpload</div>
-  )
+const UserUpload = () => <div>UserUpload</div>;
 
 export default UserUpload;
