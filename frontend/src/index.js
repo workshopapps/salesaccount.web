@@ -9,7 +9,7 @@ import Pricing from "./pages/Pricing";
 import Teams from "./pages/Teams";
 import Aboutus from "./pages/Aboutus";
 import Accountbalancereport  from "./pages/AccountBalanceReport";
-import Blogpost from "./pages/BlogPost";
+import BlogPost from "./pages/BlogPost/Index";
 import Careers from "./pages/Careers";
 import Company from "./pages/Company";
 import Documentation from "./pages/Documentation";
@@ -25,7 +25,6 @@ import Upoadingsalesrecord from "./pages/UpoadingSalesRecord";
 import Userupload from "./pages/UserUpload"
 
 import Blogs from './pages/Blogs/Index';
-import Blog from './pages/Blog/Index';
 
 const router = createBrowserRouter([
   {
@@ -44,8 +43,8 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/blogpost",
-    element: <Blogpost/>
+    path: "/blog/:slug",
+    element: <BlogPost/>
   },
 
   {
@@ -126,11 +125,6 @@ const router = createBrowserRouter([
     path: "/blogs",
     element: <Blogs />
   },
-  {
-    path: "/blog/:slug",
-    element: <Blog />
-  },
-
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
