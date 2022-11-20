@@ -4,4 +4,4 @@ function Careers() {
 	return <div>Careers</div>;
 }
 
-export default Careers;
+export default Careers
