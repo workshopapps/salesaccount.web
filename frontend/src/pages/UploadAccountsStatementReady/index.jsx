@@ -1,9 +1,7 @@
 import React from 'react'
 
-const UploadAccountsStatementReady = () => {
-  return (
+const UploadAccountsStatementReady = () => (
     <div>UploadAccountsStatementReady</div>
   )
-}
 
 export default UploadAccountsStatementReady;
