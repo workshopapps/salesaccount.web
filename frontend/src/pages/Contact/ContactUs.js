@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form } from '../../components/ContactForm/Form';
-import ContactUsImage from '../../assets/contact-page-images/contact-page-image.png';
+import ContactUsImage from '../../assets/images/contact-page-images/contact-page-image.png';
 import NavigationBar from '../../components/NavigationBar/index';
 import Footer from '../../components/Footer/index';
 
@@ -8,7 +8,7 @@ const ContactUs = () => (
 		<>
 			<NavigationBar />
 
-			<main className="bg-very-light-blue min-h-[100vh] flex flex-col items-center py-[50px] px-[30px] ">
+			<main className="bg-very-light-blue flex flex-col justify-center items-center py-[50px] px-[30px] ">
 				<div className="info-container lg:flex lg:flex-row lg:gap-7 xl:max-w-[1024px] xl:gap-14 min-[1440px]:max-w-[1280px] min-[1440px]:justify-around ">
 					<div className="lg:w-[70%] xl:w-[60%] pt-[35px] min-[1440px]:w-[50%]">
 						<h1 className=" text-4xl font-semibold w-full font-sans pb-3">
