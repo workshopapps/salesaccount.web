@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-import Aboutus from './pages/AboutUs';
+import Aboutus from './pages/AboutUs/index';
 import AccountBalanceReport from './pages/AccountBalanceReport';
 import BlogPost from './pages/BlogPost';
 import Careers from './pages/Careers';
@@ -19,11 +19,12 @@ import UploadAccountsStatementReady from './pages/UploadAccountsStatementReady';
 import UploadData from './pages/UploadData';
 import UploadedAccountStatementReady from './pages/UploadedAccountStatementReady';
 import UpoadingSalesRecord from './pages/UpoadingSalesRecord';
-import UserUpload from './pages/UserUpload';
+import UserUpload from './pages/UserUpload/index';
 import Teams from './pages/Teams';
 import History from './pages/History';
 import reportWebVitals from './reportWebVitals';
 import Gpt3 from './pages/Gpt-3';
+import Blogs from './pages/Blogs/Index';
 
 const router = createBrowserRouter([
 	{
@@ -42,9 +43,9 @@ const router = createBrowserRouter([
 	},
 
 	{
-		path: '/blogpost',
-		element: <BlogPost />,
-	},
+		path: "/blog/:slug",
+		element: <BlogPost/>
+	  },
 
 	{
 		path: '/careers',
@@ -129,6 +130,10 @@ const router = createBrowserRouter([
 		path: '/Gpt-3',
 		element: <Gpt3 />,
 	},
+	{
+		path: "/blogs",
+		element: <Blogs />
+	  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
