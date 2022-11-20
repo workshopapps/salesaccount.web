@@ -1,19 +1,20 @@
 import React from 'react';
-import NavigationBar from './components/NavigationBar';
-import Footer from './components/Footer';
 import Faq from 'react-faq-component';
-import Button from './components/Button';
-import getInTouch from './assets/Get_in_touch.png';
 import { BsPlusCircle } from 'react-icons/bs';
 import { CiCircleMinus } from 'react-icons/ci';
-import user_image from './assets/what_our_users_are_saying.png';
 import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
-import company_logo from './assets/company_images.png';
-import header_image from './assets/header_image.png';
-import cutting_image from './assets/cutting edge.png';
-import mobile_dashboard from './assets/mobile_dashboard.png';
-import mobile_company from './assets/mobile_company.png';
-import iphone_screen from './assets/iPhone 12 Pro mockup.png';
+import uuid from 'react-uuid';
+import NavigationBar from '../../components/NavigationBar';
+import Footer from '../../components/Footer';
+import Button from '../../components/Button';
+import getInTouch from '../../assets/images/landingPage/landingpage__intouch.png';
+import userImage from '../../assets/images/landingPage/what_our_users_are_saying.png';
+import companyLogo from '../../assets/images/landingPage/landingpage_company_img.png';
+import headerImage from '../../assets/images/landingPage/landingpage__header.png';
+import cuttingImage from '../../assets/images/landingPage/landingpage__cutting.png';
+import mobileDashboard from '../../assets/images/landingPage/mobile_dashboard.png';
+import mobileCompany from '../../assets/images/landingPage/mobile_company.png';
+import iphoneScreen from '../../assets/images/landingPage/landingpage__iphone.png';
 
 
 const data = {
@@ -170,8 +171,10 @@ const trustedByFeaturesData = [
 	},
 ];
 
-const Landing = () => {
-	return (
+
+
+function LandingPage() {
+ return (
 		<div>
 			<NavigationBar />
 			<div className="bg-[#EFF8FF] flex flex-col items-center justify-center gap-y-[8px] md:gap-y-[16px] z-40 relative w-full">
@@ -190,25 +193,25 @@ const Landing = () => {
 
 				<Button title="Dashboard" path="/" />
 				<img
-					src={header_image}
+					src={headerImage}
 					alt="Dashboard"
 					className=" hidden md:flex w-[500px]"
 				/>
-				<img src={mobile_dashboard} alt="Dashboard" className=" md:hidden" />
+				<img src={mobileDashboard} alt="Dashboard" className=" md:hidden" />
 			</div>
-			{/**Trusted by */}
+
 			<div className="bg-[#F9FAFB] flex flex-col gap-y-[24px]  md:gap-y-[30px] md:mt-[-160px] md:z-50 md:relative">
 				<h2 className="md:pt-[25px] pt-[20px] font-semibold md:text-[20px] text-[12px] text-[#344054] text-center">
 					Trusted By 100,000+ companies in 179 countries
 				</h2>
 				<div className="w-full px-[44px] md:px-[110px] md:pt-[26px] pt-[24px] pb-[40px] md:pb-[66px]">
 					<img
-						src={company_logo}
+						src={companyLogo}
 						alt="company"
 						className="w-screen hidden md:flex"
 					/>
 					<img
-						src={mobile_company}
+						src={mobileCompany}
 						alt="company"
 						className="w-screen md:hidden"
 					/>
@@ -240,7 +243,7 @@ const Landing = () => {
 					))}
 				</div>
 			</div>
-			{/**Pick your plan */}
+
 			<div className="bg-[#F9FAFB]">
 				<div className="pt-[48px] text-center">
 					<h1 className="text-[#101828] font-semibold text-[28px] md:text-[36px]">
@@ -252,7 +255,10 @@ const Landing = () => {
 				</div>
 				<div className="flex flex-col xl:flex-row gap-[64px] pt-[60px] items-center px-[44px] xl:px-[110px]  pb-[57px] xl:pb-[92px]">
 					{pickPlanData.map((item) => (
-						<div className="flex flex-col border border-[#D0D5DD] items-center text-center ">
+						<div
+							className="flex flex-col border border-[#D0D5DD] items-center text-center "
+							key={uuid()}
+						>
 							<div className=" h-[330px] xl:h-[444px] xl:w-[350px]  w-[300px] md:h-[400px] flex flex-col items-center">
 								<h2 className=" text-[#101828] font-semibold md:pt-[41px] pt-[30px] text-[21px] md:text-[24px]">
 									{item.title}
@@ -284,7 +290,6 @@ const Landing = () => {
 				</div>
 			</div>
 
-			{/**Cutting edge feature */}
 			<div className="bg-[#EFF8FF] flex flex-col items-center px-[44px] xl:px-0">
 				<h2 className="text-[#101828] md:pt-[108px] text-center font-medium md:font-semibold text-[24px] xl:text-[36px]">
 					Cutting-edge features for advanced analytics
@@ -296,17 +301,17 @@ const Landing = () => {
 					</p>
 				</div>
 				<img
-					src={cutting_image}
+					src={cuttingImage}
 					alt="Dashboard"
 					className="hidden md:flex pb-[48px]"
 				/>
 				<img
-					src={iphone_screen}
+					src={iphoneScreen}
 					alt="Dashboard"
 					className="md:hidden pb-[48px]"
 				/>
 			</div>
-			{/**What account pal does for you */}
+
 			<div className=" bg-[#F9FAFB] relative mt-[-200px] md:mt-0">
 				<h1 className="text-[#101828] font-semibold text-center text-[28px] md:text-[36px] pt-[24px] md:pt-[48px] px-[44px] md:px-0">
 					What Account Pal Does for You
@@ -316,7 +321,7 @@ const Landing = () => {
 				</p>
 				<div className="flex flex-col xl:flex-row items-center xl:gap-[100px] px-[44px] md:px-[110px]">
 					{whatAccountPalDoesData.map((item) => (
-						<div className="md:w-[400px] ">
+						<div className="md:w-[400px]" key={uuid()}>
 							<h2 className="font-semibold text-[#101828] text-[16px] pb-[4px] text-center">
 								{item.title}
 							</h2>
@@ -327,14 +332,17 @@ const Landing = () => {
 					))}
 				</div>
 			</div>
-			{/**Important features */}
+
 			<div className="bg-[#F2F4F7] hidden md:flex flex-col">
 				<h1 className="text-[#101828] font-semibold text-center md:text-[24px] xl:text-[36px] pt-[48px]">
 					Important Features
 				</h1>
 				<div className="flex md:flex-col xl:flex-row md:gap-[60px] xl:gap-[120px] xl:px-[110px] pt-[64px] pb-[82px]  items-center">
 					{importantFeaturesData.map((item) => (
-						<div className="flex flex-col items-center md:w-[300px] xl:w-[600px]">
+						<div
+							className="flex flex-col items-center md:w-[300px] xl:w-[600px]"
+							key={uuid()}
+						>
 							<h3 className="text-[#101828] font-bold text-[80px]">
 								{item.number}
 							</h3>
@@ -347,7 +355,6 @@ const Landing = () => {
 				</div>
 			</div>
 
-			{/**What our users are saying */}
 			<div className="bg-[#F9FAFB] flex flex-col items-center">
 				<h1 className="text-[#101828] font-semibold text-[24px] md:text-[36px] text-center pb-[24px] md:pb-[32px] pt-[48px]">
 					What our users are saying
@@ -365,17 +372,17 @@ const Landing = () => {
 					<span className="font-normal text-[14px] text-[#667085]">-Zuri</span>
 				</div>
 				<img
-					src={user_image}
+					src={userImage}
 					alt="What our users are saying"
 					className="hidden md:flex object-contain md:pt-[15px] md:px-[54px] xl:px-0 xl:py-[84px]"
 				/>
 				<img
-					src={user_image}
+					src={userImage}
 					alt="What our users are saying"
 					className=" md:hidden object-contain py-[24px] px-[44px]"
 				/>
 			</div>
-			{/**Start free trial */}
+
 			<div className="bg-[#F2F4F7]">
 				<div className="md:py-[84px] py-[24px]  flex flex-col items-center">
 					<h2 className="text-[#101828] font-semibold text-center text-[24px] md:text-[36px]">
@@ -385,17 +392,17 @@ const Landing = () => {
 						Join over 4,000+ startups already growing with Account Pal.
 					</p>
 					<div className="flex gap-[64px]">
-						<Button title="Learn More" primary />
-						<Button title="Get in touch" />
+						<Button path="/" isPrimary title="Learn More" />
+						<Button path="/" title="Get in touch" />
 					</div>
 				</div>
 			</div>
-			{/**FAQ */}
+
 			<div className="bg-[#F9FAFB] md:py-[84px] py-[48px]">
 				<div className="xl:px-[336px]  px-[44px]">
 					<Faq data={data} styles={styles} config={config} />
 				</div>
-				{/**Still has question */}
+
 				<div className=" md:px-[54px] xl:px-[282px] mt-[120px]">
 					<div className="bg-[#F2F4F7] rounded-3xl px-[44px] md:px-[217px] py-[26px] flex flex-col items-center">
 						<img
@@ -407,16 +414,16 @@ const Landing = () => {
 							Still have questions?
 						</p>
 						<p className="font-normal text-[#667085] text-[10px] md:text-[18px] pb-[24px] text-center px-[44px] md:px-0">
-							Can't find the answer you're looking for? Please chat to our
-							friendly team.
+							Can&apos:t find the answer you&apos:re looking for? Please chat to
+							our friendly team.
 						</p>
-						<Button title="Get in touch" />
+						<Button path="/" title="Get in touch" />
 					</div>
 				</div>
 			</div>
 			<Footer />
 		</div>
-	);
-};
+ );
+}
 
-export default Landing;
+export default LandingPage

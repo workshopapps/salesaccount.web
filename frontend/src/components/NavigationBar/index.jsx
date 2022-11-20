@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { BsSearch } from 'react-icons/bs';
-import { BsGlobe2 } from 'react-icons/bs';
+import { BsSearch, BsGlobe2 } from 'react-icons/bs';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
-import Button from '../Button';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/Logo Main Color.png';
 import { FiMenu } from 'react-icons/fi';
 import { AiOutlineClose } from 'react-icons/ai';
+import uuid from 'react-uuid';
+import Button from '../Button';
+import logo from '../../assets/images/landingPage/logo.png';
 
-const [nav, setNav] = useState(false);
+
 
 const navLinks = [
 	{ name: 'Pricing', path: '/pricing' },
@@ -17,11 +17,13 @@ const navLinks = [
 	{ name: 'Company', path: '/company' },
 ];
 
-const toggle = () => {
-	setNav(!nav);
-};
 
-const NavigationBar = () => {
+
+function NavigationBar() {
+	const [nav, setNav] = useState(false);
+	const toggle = () => {
+		setNav(!nav);
+	};
 	return (
 		<nav className="w-full h-[48px] md:h-[96px] px-[44px] xl:px-[72px] flex items-center justify-between">
 			<img
@@ -32,7 +34,7 @@ const NavigationBar = () => {
 
 			<div className="hidden xl:block text-[20px]">
 				{navLinks.map((item) => (
-					<Link to={item.path} className="px-[30px]">
+					<Link to={item.path} className="px-[30px]" key={uuid()}>
 						{item.name}
 					</Link>
 				))}
@@ -44,12 +46,18 @@ const NavigationBar = () => {
 					<BsGlobe2 size={24} />
 					<MdOutlineKeyboardArrowDown size={24} />
 				</div>
-				<Button title="Sign up" path="/signup" primary />
+				<Button path="/signup" isPrimary title="Sign up" />
 				<Button title="Sign in" path="/signin" />
 			</div>
 
 			{/* Hamburger */}
-			<div className=" block xl:hidden" onClick={toggle}>
+			<div
+				className=" block xl:hidden"
+				onClick={() => {
+					toggle();
+				}}
+				aria-hidden="true"
+			>
 				{nav ? <AiOutlineClose size={28} /> : <FiMenu size={28} />}
 			</div>
 
@@ -61,7 +69,7 @@ const NavigationBar = () => {
 				}
 			>
 				{navLinks.map((item) => (
-					<Link to={item.path} className="px-[30px]">
+					<Link to={item.path} className="px-[30px]" key={uuid()}>
 						{item.name}
 					</Link>
 				))}
@@ -72,11 +80,11 @@ const NavigationBar = () => {
 					<BsGlobe2 size={24} />
 					<MdOutlineKeyboardArrowDown size={24} />
 				</div>
-				<Button title="Sign up" path="/" primary />
-				<Button title="Sign in" path="/" />
+				<Button title="Sign up" path="/" isPrimary/>
+				<Button title="Sign in" path="/"  />
 			</div>
 		</nav>
 	);
-};
+}
 
 export default NavigationBar;

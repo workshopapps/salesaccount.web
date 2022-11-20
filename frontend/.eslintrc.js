@@ -18,16 +18,8 @@ module.exports = {
 		'no-console': 'warn',
 		'func-names': 'off',
 		'object-shorthand': 'off',
-		'react/function-component-definition': [
-            'enabled',
-            {
-                namedComponents: [
-                    'function-declaration',
-                    'function-expression',
-                    'arrow-function',
-                ],
-                unnamedComponents: ['function-expression', 'arrow-function'],
-            },
-		]
+		'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
+		'react/function-component-definition': 'off',
+		'arrow-body-style': ['error', 'as-needed'],
 	},
 };

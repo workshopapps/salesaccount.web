@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Landing from './pages/Landing';
+import LandingPage from './pages/LandingPage';
 import Aboutus from './pages/AboutUs';
 import AccountBalanceReport from './pages/AccountBalanceReport'
 import BlogPost  from './pages/BlogPost';
@@ -26,7 +26,7 @@ import reportWebVitals from './reportWebVitals';
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Landing />,
+		element: <LandingPage />,
 	},
 
 	{

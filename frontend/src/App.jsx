@@ -1,9 +1,12 @@
 import React from 'react';
+import LandingPage from './pages/LandingPage';
 
-function App() {
-	return (
-<h2 className="text-3xl font-bold underline">salesforce</h2>
-  ) 
-}
 
-export default App;
+
+const App = () => (
+    <LandingPage />
+  )
+
+export default App
+
+ 

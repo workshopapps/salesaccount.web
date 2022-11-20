@@ -1,19 +1,24 @@
-import React from 'react'
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Button = ({ title, path, primary }) => 
-	(
-		<Link
-			to={path}
-			className={`rounded-md py-[10px] px-[18px] cursor-pointer text-[16px] ${
-				primary === true
-					? 'bg-[#FFFFFF}] text-[#1570EF] border border-[#1570EF]'
-					: 'bg-[#2E90FA] text-white'
-			}  `}
-		>
-			{title}
-		</Link>
-	);
+const Button = ({ path, isPrimary, title }) => (
+	<a
+		href={path}
+		className={`rounded-md py-[10px] px-[18px] cursor-pointer text-[16px] ${
+			isPrimary
+				? 'bg-[#FFFFFF}] text-[#1570EF] border border-[#1570EF]'
+				: 'bg-[#2E90FA] text-white'
+		}  `}
+	>
+		{title}
+	</a>
+);
+export default Button;
 
 
-export default Button
+Button.propTypes = {
+	path: PropTypes.string.isRequired,
+	isPrimary: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+};
+
