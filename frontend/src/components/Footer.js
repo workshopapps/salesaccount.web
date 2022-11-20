@@ -12,7 +12,7 @@ class Footer extends React.Component {
     return (
       <div classname="my-10 px-4 text-gray-700 bg-sky-100">
         <div className="px-2 align-center w-full bg-sky-100 text-[14px] flex flex-col md:flex-row justify-between">
-          <div className="inline-flex md:flex md:flex-col align-center space-between">
+          <div className="inline-flex md:flex md:flex-col align-center space-between cursor-pointer">
             <img src={logo} alt="logo" className="pt-0 mt-0 w-20 text-center" />
             <p className="text-[27px] font-semibold relative top-1 left-30">
               Account Pal
@@ -49,18 +49,18 @@ class Footer extends React.Component {
             ))}
           </div>
 
-          <div className="flex pb-6 justify-between w-[100px]">
-            <span>
-              <img src={twitter} alt="twitter" className="w-5 h-5" />
+        </div>
+          <div className="flex pb-6 bg-sky-100 w-full">
+            <span className="mr-3">
+              <img src={twitter} alt="twitter" className="w-5 h-5 cursor-pointer" />
             </span>
-            <span>
-              <img src={facebook} alt="facebook" className="w-5 h-5" />
+            <span className="mr-3">
+              <img src={facebook} alt="facebook" className="w-5 h-5 cursor-pointer" />
             </span>
-            <span>
-              <img src={instagram} alt="instagram" className="w-6 h-6" />
+            <span className="mr-3">
+              <img src={instagram} alt="instagram" className="w-6 h-6 cursor-pointer" />
             </span>
           </div>
-        </div>
       </div>
     );
   }

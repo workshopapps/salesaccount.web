@@ -116,7 +116,7 @@ class CareersPage extends React.Component {
           </div>
         </div>
         <div>
-          <div className="mx-16 py-8 sm:w-full sm:px-10 md:mx-auto">
+          <div className="mx-16 py-8 md:mx-auto">
             <h1 className="text-center text-4xl md:text-5xl font-bold text-[#1849A9] font-normal">
               JOIN US
             </h1>
@@ -191,9 +191,9 @@ class CareersPage extends React.Component {
           <h1 className="lg:text-8xl mx-2 md:text-5xl text-4xl text-[#1849A9] text-center">
             CURRENT OPENINGS
           </h1>
-          <div className="px-1 md:px-14 pt-14 grid md:grid-cols-2">
+          <div className="px-1 md:px-6 pt-14 grid md:grid-cols-2">
             {openings.map((opening) => (
-              <div className="flex flex-row mx-2 mt-2 gap-4 md:p-4">
+              <div className="flex flex-row mx-2 mt-2 gap-4 md:p-2">
                 <div className="basis-1/6 text-base md:mx-4 md:text-[32px] border-4 border-solid pt-1 sm:pt-2 h-10 w-18 align-middle text-center border-sky-600 rounded-full">
                   {opening.short}
                 </div>
@@ -203,11 +203,11 @@ class CareersPage extends React.Component {
                   </h3>
                   <div className="grid grid-cols-2">
                     <div className="flex align-middle">
-                      <img src={brief_case} alt="case" className="mt-1 w-5 h-5 " />
+                      <img src={brief_case} alt="case" className="mt-1 w-5 h-5 sm:h-8 sm:w-8" />
                       <span className="text-sm md:text-lg pt-1 pl-2">{opening.type}</span>
                     </div>
                     <div className="flex align-center">
-                      <img src={location} alt="location" className="ml-2 mt-1 h-5 w-5 sm:w-10 sm:h-10" />
+                      <img src={location} alt="location" className="ml-2 mt-1 h-5 w-5 sm:w-8 sm:h-8" />
                       <span className="text-sm md:text-lg pt-1 pl-2">
                         {opening.location}
                       </span>
