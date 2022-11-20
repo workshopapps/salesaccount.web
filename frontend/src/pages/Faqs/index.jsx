@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import faqArray from '../../components/Faq/faqArray';
-import Accordion from '../../components/Faq/index';
+import faqArray from '../../components/Faqs/faqArray';
+import Accordion from '../../components/Faqs/index';
 import Footer from '../../components/Footer';
 import NavigationBar from '../../components/NavigationBar';
 
@@ -12,7 +12,7 @@ const Faq = () => {
 	return (
 		<>
 			<NavigationBar className="bg-blue" />
-			<div className="bg-likewhite">
+			<div className="bg-[#F9FAFB]">
 				<div className="sm:h-[1055px] h-[500px] min-w-[375px] sm:w-[1228px] justify-center flex font-body sm">
 					<div className="flex-col space-y-[25px] sm:space-y-[72px]">
 						{smallFAQ ? (
@@ -20,7 +20,7 @@ const Faq = () => {
 								{'<'}FAQ
 							</h2>
 						) : (
-							<h2 className="sm:text-5xl text-sm text-blue sm:leading-[60px] leading-[25px] w-[279px] sm:w-[1000px] font-semibold pr-[25px] pl-[25px] sm:p-0">
+							<h2 className="sm:text-5xl text-sm text-[#1570EF] sm:leading-[60px] leading-[25px] w-[279px] sm:w-[1000px] font-semibold pr-[25px] pl-[25px] sm:p-0">
 								Frequently Asked Questions
 							</h2>
 						)}
@@ -35,77 +35,44 @@ const Faq = () => {
 						{nextDisplay ? (
 							''
 						) : (
-							<div className="relative flex w-[375px] sm:w-[1000px] text-sm space-x-96">
-								<div className="flex space-x-1">
-									<button
-										type="button"
-										onClick={() => {
-											setCurrentPosts(faqArray.slice(0, 9));
-											setNextDisplay(false);
-										}}
-										className="text-blue  w-[73.27px] h-[73.27px] rounded-full bg-slate-300"
-									>
-										1
-									</button>
+							<div className=" mb-96">
+								<div className="relative flex w-[375px] sm:w-[1000px] text-sm space-x-96">
+									<div className="flex space-x-1">
+										<button
+											type="button"
+											onClick={() => {
+												setCurrentPosts(faqArray.slice(0, 9));
+												setNextDisplay(false);
+											}}
+											className="text-blue  w-[73.27px] h-[73.27px] rounded-full bg-slate-300"
+										>
+											1
+										</button>
+										<button
+											type="button"
+											onClick={() => {
+												setCurrentPosts(faqArray.slice(9, 13));
+												setNextDisplay(true);
+											}}
+											className="text-gray w-[73.27px] h-[73.27px] rounded-full bg-white"
+										>
+											2
+										</button>
+									</div>
 									<button
 										type="button"
 										onClick={() => {
 											setCurrentPosts(faqArray.slice(9, 13));
 											setNextDisplay(true);
 										}}
-										className="text-gray w-[73.27px] h-[73.27px] rounded-full bg-white"
+										className="absolute right-0 border-slate-800 w-[95px] h-[43px] sm:w-[161px] sm:h-[66px] border-2 border-gray-800 rounded-2xl bg-white"
 									>
-										2
+										Next
+										<i className="fa-solid fa-arrow-right" />
 									</button>
 								</div>
-								<button
-									type="button"
-									onClick={() => {
-										setCurrentPosts(faqArray.slice(9, 13));
-										setNextDisplay(true);
-									}}
-									className="absolute right-0 border-slate-800 w-[95px] h-[43px] sm:w-[161px] sm:h-[66px] border-2 border-gray-800 rounded-2xl bg-white"
-								>
-									Next
-									<i className="fa-solid fa-arrow-right" />
-								</button>
 							</div>
 						)}
-						{/* <div className="relative flex w-[375px] sm:w-[1000px] text-sm space-x-96">
-							<div className="flex space-x-1">
-								<button
-									type="button"
-									onClick={() => {
-										setCurrentPosts(faqArray.slice(0, 9));
-										setNextDisplay(false);
-									}}
-									className="text-blue  w-[73.27px] h-[73.27px] rounded-full bg-slate-300"
-								>
-									1
-								</button>
-								<button
-									type="button"
-									onClick={() => {
-										setCurrentPosts(faqArray.slice(9, 13));
-										setNextDisplay(true);
-									}}
-									className="text-gray w-[73.27px] h-[73.27px] rounded-full bg-white"
-								>
-									2
-								</button>
-							</div>
-							<button
-								type="button"
-								onClick={() => {
-									setCurrentPosts(faqArray.slice(9, 13));
-									setNextDisplay(true);
-								}}
-								className="absolute right-0 border-slate-800 w-[95px] h-[43px] sm:w-[161px] sm:h-[66px] border-2 border-gray-800 rounded-2xl bg-white"
-							>
-								Next
-								<i className="fa-solid fa-arrow-right" />
-							</button>
-						</div> */}
 
 						{/* When on next page */}
 						{nextDisplay ? (
@@ -172,7 +139,9 @@ const Faq = () => {
 					</div>
 				</div>
 			</div>
-			<Footer />
+			<div className=" mt-[500px]">
+				<Footer />
+			</div>
 		</>
 	);
 };
