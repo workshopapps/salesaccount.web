@@ -2,11 +2,7 @@ import React from 'react';
 import Main from './Pages/Main';
 
 function ExGuide() {
-	return (
-		<div>
-			<Main />
-		</div>
-	);
+	return <div>ExGuide here</div>;
 }
 
 export default ExGuide;
