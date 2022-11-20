@@ -16,7 +16,6 @@ import mobileDashboard from '../../assets/images/landingPage/mobile_dashboard.pn
 import mobileCompany from '../../assets/images/landingPage/mobile_company.png';
 import iphoneScreen from '../../assets/images/landingPage/landingpage__iphone.png';
 
-
 const data = {
 	title: 'Frequently asked questions ',
 	rows: [
@@ -171,10 +170,8 @@ const trustedByFeaturesData = [
 	},
 ];
 
-
-
 function LandingPage() {
- return (
+	return (
 		<div>
 			<NavigationBar />
 			<div className="bg-[#EFF8FF] flex flex-col items-center justify-center gap-y-[8px] md:gap-y-[16px] z-40 relative w-full">
@@ -392,8 +389,8 @@ function LandingPage() {
 						Join over 4,000+ startups already growing with Account Pal.
 					</p>
 					<div className="flex gap-[64px]">
-						<Button path="/" isPrimary title="Learn More" />
-						<Button path="/" title="Get in touch" />
+						<Button path="/resources" isPrimary title="Learn More" />
+						<Button path="/aboutus" title="Get in touch" />
 					</div>
 				</div>
 			</div>
@@ -414,16 +411,16 @@ function LandingPage() {
 							Still have questions?
 						</p>
 						<p className="font-normal text-[#667085] text-[10px] md:text-[18px] pb-[24px] text-center px-[44px] md:px-0">
-							Can&apos:t find the answer you&apos:re looking for? Please chat to
+							Can&apos;t find the answer you&apos;re looking for? Please chat to
 							our friendly team.
 						</p>
-						<Button path="/" title="Get in touch" />
+						<Button path="/aboutus" title="Get in touch" />
 					</div>
 				</div>
 			</div>
 			<Footer />
 		</div>
- );
+	);
 }
 
-export default LandingPage
+export default LandingPage;
