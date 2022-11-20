@@ -1,9 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-const Documentation = () => {
-  return (
-    <div>Documentation</div>
-  )
-}
+const Documentation = () => <div>Documentation</div>;
 
 export default Documentation;

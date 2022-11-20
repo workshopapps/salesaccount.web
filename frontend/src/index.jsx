@@ -8,6 +8,7 @@ import AccountBalanceReport from './pages/AccountBalanceReport';
 import BlogPost from './pages/BlogPost';
 import Careers from './pages/Careers';
 import Company from './pages/Company';
+import ContactUs from './pages/Contact';
 import Documentation from './pages/Documentation';
 import Faqs from './pages/Faqs';
 import Guides from './pages/Guides';
@@ -22,7 +23,7 @@ import UserUpload from './pages/UserUpload';
 import Teams from './pages/Teams';
 import History from './pages/History';
 import reportWebVitals from './reportWebVitals';
-import ExGuide from './pages/Ex-Guide/ExGuide';
+import Section21 from './pages/Ex-Guide/Components/Section/Section2/Section2Outlets/section21/Section21';
 
 const router = createBrowserRouter([
 	{
@@ -56,6 +57,11 @@ const router = createBrowserRouter([
 	},
 
 	{
+		path: '/contact',
+		element: <ContactUs />,
+	},
+
+	{
 		path: '/documentation',
 		element: <Documentation />,
 	},
@@ -67,11 +73,11 @@ const router = createBrowserRouter([
 
 	{
 		path: '/guides',
-		element: <Guides />,
+		element: <Section21 />,
 	},
 	{
 		path: '/exguides',
-		element: <ExGuide />,
+		element: <Section21 />,
 	},
 
 	{
