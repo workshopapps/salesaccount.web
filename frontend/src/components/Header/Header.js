@@ -97,11 +97,11 @@ export function Header() {
 
 				<div className="flex gap-4 ">
 					<div className="flex gap-5 justify-center items-center">
-						<SearchRoundedIcon className='cursor-pointer' />
+						<SearchRoundedIcon className="cursor-pointer" />
 
 						<div>
-							<LanguageIcon className='cursor-pointer' />
-							<ExpandMoreRoundedIcon className='cursor-pointer' />
+							<LanguageIcon className="cursor-pointer" />
+							<ExpandMoreRoundedIcon className="cursor-pointer" />
 						</div>
 					</div>
 

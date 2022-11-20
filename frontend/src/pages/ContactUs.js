@@ -20,9 +20,10 @@ function ContactUs() {
 						</p>
 
 						<p className="font-normal text-base pb-2 text-gray-500">
-							Our support team is available 24/7 to attend to any and every issue you might have.
+							Our support team is available 24/7 to attend to any and every
+							issue you might have.
 						</p>
-						
+
 						<Form />
 					</div>
 

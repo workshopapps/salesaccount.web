@@ -7,11 +7,7 @@ export function Footer() {
 			<div className="md:flex md:justify-between xl:max-w-[1366px] 2xl:max-w-[1500px] mx-auto">
 				<div className="flex flex-col mb-6 md:mb-0 text-black ">
 					<div className="logo flex items-center">
-						<img
-							src={logo}
-							alt="logo"
-							className=""
-						/>
+						<img src={logo} alt="logo" className="" />
 						<h2 className="font-bold text-gray-700 text-lg md:text-2xl">
 							Account Pal
 						</h2>

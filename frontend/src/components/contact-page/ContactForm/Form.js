@@ -39,21 +39,21 @@ export function Form() {
 
 			<TextareaField id="message" label="Message" val="message" />
 
-			<InputField
-				id="checkbox"
-				type="checkbox"
-				label="You agree to our friendly privacy policy"
-				name="phone number"
-				val="permission"
-			/>
-
 			<button
-				className=" w-full text-lg mt-4 h-[44px] rounded-lg text-white bg-dark-blue"
+				className=" w-full text-lg my-4 h-[44px] rounded-lg text-white bg-dark-blue"
 				type="submit"
 				value="Send Message"
 			>
 				Send Message
 			</button>
+
+			<InputField
+				id="checkbox"
+				type="checkbox"
+				label="Subscribe to our newsletter"
+				name="newsletter"
+				val="permission"
+			/>
 		</form>
 	);
 }
