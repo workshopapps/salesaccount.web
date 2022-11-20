@@ -1,9 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-const Company = () => {
-  return (
-    <div>Company</div>
-  )
-}
+const Company = () => <div>Company</div>;
 
 export default Company;

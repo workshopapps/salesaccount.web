@@ -389,8 +389,8 @@ function LandingPage() {
 						Join over 4,000+ startups already growing with Account Pal.
 					</p>
 					<div className="flex gap-[64px]">
-						<Button path="/" isPrimary title="Learn More" />
-						<Button path="/" title="Get in touch" />
+						<Button path="/resources" isPrimary title="Learn More" />
+						<Button path="/aboutus" title="Get in touch" />
 					</div>
 				</div>
 			</div>
@@ -411,10 +411,10 @@ function LandingPage() {
 							Still have questions?
 						</p>
 						<p className="font-normal text-[#667085] text-[10px] md:text-[18px] pb-[24px] text-center px-[44px] md:px-0">
-							Can&apos:t find the answer you&apos:re looking for? Please chat to
+							Can&apos;t find the answer you&apos;re looking for? Please chat to
 							our friendly team.
 						</p>
-						<Button path="/" title="Get in touch" />
+						<Button path="/aboutus" title="Get in touch" />
 					</div>
 				</div>
 			</div>
