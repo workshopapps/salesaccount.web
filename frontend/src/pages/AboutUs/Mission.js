@@ -1,6 +1,6 @@
 import React from "react";
-import blueSquare from "../assets/blue-square.svg";
-import mission from "../assets/mission.svg";
+import blueSquare from "../../assets/images/AboutUs/blue-square.svg";
+import mission from "../../assets/images/AboutUs/mission.svg";
 
 const Mission = () => {
   return (

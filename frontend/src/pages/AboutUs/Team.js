@@ -1,8 +1,8 @@
 import React from "react";
-import Adeleke from "../assets/adeleke.svg";
-import Dolapo from "../assets/dolapo.svg";
-import Michael from "../assets/michael.svg";
-import Olanike from "../assets/olanike.svg";
+import Adeleke from "../../assets/images/AboutUs/adeleke.svg";
+import Dolapo from "../../assets/images/AboutUs/dolapo.svg";
+import Michael from "../../assets/images/AboutUs/michael.svg";
+import Olanike from "../../assets/images/AboutUs/olanike.svg";
 
 const Team = () => {
   return (

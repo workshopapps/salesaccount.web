@@ -1,9 +1,9 @@
 import React from "react";
 import SubFooter from "./SubFooter";
-import Logo from "../assets/Logo Main Color.svg";
-import facebook from "../assets/facebook.svg";
-import twitter from "../assets/twitter.svg";
-import insta from "../assets/ph_instagram-logo-fill.svg";
+import Logo from '../../assets/images/AboutUs/Logo Main Color.svg'
+import facebook from "../../assets/images/AboutUs/facebook.svg";
+import twitter from "../../assets/images/AboutUs/twitter.svg";
+import insta from "../../assets/images/AboutUs/ph_instagram-logo-fill.svg";
 
 const Footer = () => {
   return (

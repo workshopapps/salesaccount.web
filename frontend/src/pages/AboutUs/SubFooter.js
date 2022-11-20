@@ -1,7 +1,7 @@
 import React from "react";
-import facebook from "../assets/facebook.svg";
-import twitter from "../assets/twitter.svg";
-import insta from "../assets/ph_instagram-logo-fill.svg";
+import facebook from "../../assets/images/AboutUs/facebook.svg";
+import twitter from "../../assets/images/AboutUs/twitter.svg";
+import insta from "../../assets/images/AboutUs/ph_instagram-logo-fill.svg";
 const SubFooter = () => {
   return (
     <div className="grid gap-5  grid-cols-2 ">

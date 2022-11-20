@@ -1,6 +1,6 @@
 import React from "react";
-import blueSquare from "../assets/blue-square.svg";
-import valueImg from "../assets/values.svg";
+import blueSquare from "../../assets/images/AboutUs/blue-square.svg";
+import valueImg from "../../assets/images/AboutUs/values.svg";
 const Values = () => {
   return (
     <section className=" px-6 pt-6 md:pt-0 md:pb-[138px] md:px-[120px]">

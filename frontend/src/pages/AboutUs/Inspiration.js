@@ -1,7 +1,7 @@
 import React from "react";
-import slack from "../assets/Slack logo.svg";
-import github from "../assets/Github logo.svg";
-import webflow from "../assets/Webflow logo.svg";
+import slack from "../../assets/images/AboutUs/Slack logo.svg";
+import github from "../../assets/images/AboutUs/Github logo.svg";
+import webflow from "../../assets/images/AboutUs/Webflow logo.svg";
 
 const Inspiration = () => {
   return (
