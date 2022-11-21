@@ -1,0 +1,12 @@
+:root {
+	--color-primary-blue: #1570ef;
+	--color-white: #f9fafb;
+}
+
+.dashboard-main-cont {
+	display: grid;
+	grid-template-columns: 2fr 8fr;
+}
+
+@media screen and (max-width: 400px) {
+}

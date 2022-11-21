@@ -1,0 +1,11 @@
+.dashboard-side-board {
+	height: 100vh;
+	background-color: var(--color-primary-blue);
+	display: flex;
+	flex-direction: column;
+}
+
+.sideBarBtnLink {
+	/* display: inline-block; */
+	gap: 2rem;
+}

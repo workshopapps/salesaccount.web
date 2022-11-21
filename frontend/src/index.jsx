@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import Aboutus from './pages/AboutUs';
-import AccountBalanceReport from './pages/AccountBalanceReport'
-import BlogPost  from './pages/BlogPost';
+import AccountBalanceReport from './pages/AccountBalanceReport';
+import BlogPost from './pages/BlogPost';
 import Careers from './pages/Careers';
 import Company from './pages/Company';
 import Documentation from './pages/Documentation';
@@ -13,15 +13,16 @@ import Faqs from './pages/Faqs';
 import Guides from './pages/Guides';
 import Pricing from './pages/Pricing';
 import PrivacyAndHelp from './pages/PrivacyAndHelp';
-import Resources  from './pages/Resources';
+import Resources from './pages/Resources';
 import UploadAccountsStatementReady from './pages/UploadAccountsStatementReady';
-import UploadData from './pages/UploadData';
+import Userupload from './pages/UploadData';
 import UploadedAccountStatementReady from './pages/UploadedAccountStatementReady';
 import UpoadingSalesRecord from './pages/UpoadingSalesRecord';
 import UserUpload from './pages/UserUpload';
 import Teams from './pages/Teams';
 import History from './pages/History';
 import reportWebVitals from './reportWebVitals';
+import DashBoard from './pages/Dashboard';
 
 const router = createBrowserRouter([
 	{
@@ -33,7 +34,10 @@ const router = createBrowserRouter([
 		path: '/aboutus',
 		element: <Aboutus />,
 	},
-
+	{
+		path: '/Dashboard',
+		element: <DashBoard />,
+	},
 	{
 		path: '/accountbalancereport',
 		element: <AccountBalanceReport />,
@@ -100,8 +104,8 @@ const router = createBrowserRouter([
 	},
 
 	{
-		path: '/uploaddata',
-		element: <UploadData />,
+		path: 'userupload',
+		element: <Userupload/>,
 	},
 
 	{
@@ -122,15 +126,12 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+	<React.StrictMode>
+		<RouterProvider router={router} />
+	</React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
-
-

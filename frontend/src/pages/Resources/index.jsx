@@ -54,7 +54,7 @@ const Resources = () => (
 					you’d like to explore.
 				</p>
 
-			<div className=" text-center">
+				<div className=" text-center">
 					<img
 						className=" mx-auto max-h-20 md:max-h-32"
 						src={resourcesheaderimg}
