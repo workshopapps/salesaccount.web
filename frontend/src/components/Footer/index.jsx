@@ -15,8 +15,9 @@ const aboutUsData = [
 	},
 	{
 		name: 'Contact Us',
-		path: '/aboutus',
+		path: '/contact',
 	},
+
 ];
 const resourcesData = [
 	{

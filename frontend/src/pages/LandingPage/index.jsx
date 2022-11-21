@@ -250,7 +250,7 @@ function LandingPage() {
 						Choose a plan that suits your Business
 					</p>
 				</div>
-				<div className="flex flex-col xl:flex-row gap-[64px] pt-[60px] items-center px-[44px] xl:px-[110px]  pb-[57px] xl:pb-[92px] 2xl:px-[640px]">
+				<div className="flex flex-col xl:flex-row gap-[64px] pt-[60px] items-center px-[44px] xl:px-[110px]  pb-[57px] xl:pb-[92px]">
 					{pickPlanData.map((item) => (
 						<div
 							className="flex flex-col border border-[#D0D5DD] items-center text-center "

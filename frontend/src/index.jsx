@@ -8,6 +8,7 @@ import AccountBalanceReport from './pages/AccountBalanceReport';
 import BlogPost from './pages/BlogPost';
 import Careers from './pages/Careers';
 import Company from './pages/Company';
+import ContactUs from './pages/Contact';
 import Documentation from './pages/Documentation';
 import Faqs from './pages/Faqs';
 import Guides from './pages/Guides';
@@ -18,11 +19,13 @@ import UploadAccountsStatementReady from './pages/UploadAccountsStatementReady';
 import Userupload from './pages/UploadData';
 import UploadedAccountStatementReady from './pages/UploadedAccountStatementReady';
 import UpoadingSalesRecord from './pages/UpoadingSalesRecord';
-import UserUpload from './pages/UserUpload';
+import UserUpload from './pages/UserUpload/index';
 import Teams from './pages/Teams';
 import History from './pages/History';
 import reportWebVitals from './reportWebVitals';
 import DashBoard from './pages/Dashboard';
+import Gpt3 from './pages/Gpt-3';
+import Blogs from './pages/Blogs/Index';
 
 const router = createBrowserRouter([
 	{
@@ -44,9 +47,9 @@ const router = createBrowserRouter([
 	},
 
 	{
-		path: '/blogpost',
-		element: <BlogPost />,
-	},
+		path: "/blog/:slug",
+		element: <BlogPost/>
+	  },
 
 	{
 		path: '/careers',
@@ -56,6 +59,11 @@ const router = createBrowserRouter([
 	{
 		path: '/company',
 		element: <Company />,
+	},
+
+	{
+		path: '/contact',
+		element: <ContactUs />,
 	},
 
 	{
@@ -122,6 +130,14 @@ const router = createBrowserRouter([
 		path: '/userupload',
 		element: <UserUpload />,
 	},
+	{
+		path: '/Gpt-3',
+		element: <Gpt3 />,
+	},
+	{
+		path: "/blogs",
+		element: <Blogs />
+	  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

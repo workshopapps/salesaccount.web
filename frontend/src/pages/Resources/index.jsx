@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import NavigationBar from '../../components/NavigationBar';
 import resourcesheaderimg from '../../assets/images/resources/Capa 1.png';
 import arrowright from '../../assets/images/resources/arrowright.svg';
@@ -15,30 +16,35 @@ const data = [
 		image: Help,
 		header: 'Help Center/Support',
 		subtext: 'The Corner Stone of Customer Support',
+		to: `/help`,
 	},
 	{
 		id: 2,
 		image: Privacy,
 		header: 'Privacy Policy',
 		subtext: 'Turn data privacy to an opportunity to enhance',
+		to: `/privacy`,
 	},
 	{
 		id: 3,
 		image: Blogs,
 		header: 'Blogs',
 		subtext: 'Common Accounting Terms Explained',
+		to: `/blogs`,
 	},
 	{
 		id: 4,
 		image: FAQ,
 		header: 'FAQ',
 		subtext: 'Frequently Asked Questions',
+		to: `/faqs`,
 	},
 	{
 		id: 5,
 		image: Contact,
 		header: 'Contact',
 		subtext: 'Get in touch with us',
+		to: `/contact`,
 	},
 ];
 
@@ -72,7 +78,9 @@ const Resources = () => (
 							<img src={item.image} alt="" />
 							<p className=" text-md text-blue-500 pt-2">{item.header}</p>
 							<h1 className=" font-semibold py-3">{item.subtext}</h1>
-							<img src={arrowright} alt="" />
+							<Link to={item.to}>
+								<img src={arrowright} alt="" />
+							</Link>
 						</div>
 					</div>
 				</div>
