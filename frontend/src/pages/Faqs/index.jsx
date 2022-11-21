@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-
-const Faqs = () => <div>Faqs</div>;
-
-export default Faqs;
-=======
 import React, { useState } from 'react';
 import faqArray from '../../components/Faqs/faqArray';
 import Accordion from '../../components/Faqs/index';
@@ -154,4 +147,3 @@ const Faq = () => {
 };
 
 export default Faq;
->>>>>>> 79f45c8c83b008f7129ebfb403e6778ab21acd3e

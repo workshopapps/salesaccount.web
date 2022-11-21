@@ -1,8 +1,4 @@
 import React from 'react';
-
-
-
-import Header from '../../stories/Header';
 import Footer from '../../components/Footer';
 import heroImg from '../../assets/images/about-us/hero-img.svg';
 import slack from '../../assets/images/about-us/Slack logo.svg';
@@ -16,10 +12,11 @@ import Adeleke from '../../assets/images/about-us/adeleke.svg';
 import Dolapo from '../../assets/images/about-us/dolapo.svg';
 import Michael from '../../assets/images/about-us/michael.svg';
 import Olanike from '../../assets/images/about-us/olanike.svg';
+import NavigationBar from '../../components/NavigationBar';
 
 const AboutUs = () => (
 	<div>
-		<Header />
+		<NavigationBar />
 		<section className="px-6 md:mb-[90px] md:px-[120px] ">
 			<div className="flex flex-col gap-x-[130px]  items-center mb-[70px] md:mt-[110px] md:mb-0 md:flex-row">
 				<div className="">
@@ -214,7 +211,7 @@ const AboutUs = () => (
 			</div>
 			<button
 				type="button"
-				type='botton'className="bg-[#2E90FA] mx-auto shadow-[0px_1px_2px_rgba(16,_24,_40,_0.05)] rounded-lg px-[18px] py-[10px] text-white whitespace-nowrap w-[121px] h-[44px] md:w-[128px] md:h-[60px] md:px-7 md:py-4 md:text-lg"
+				className="bg-[#2E90FA] mx-auto shadow-[0px_1px_2px_rgba(16,_24,_40,_0.05)] rounded-lg px-[18px] py-[10px] text-white whitespace-nowrap w-[121px] h-[44px] md:w-[128px] md:h-[60px] md:px-7 md:py-4 md:text-lg"
 			>
 				View more
 			</button>
