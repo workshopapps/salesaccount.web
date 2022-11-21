@@ -86,7 +86,7 @@ const Userupload = () => (
 				>
 					<a href="/" className="mb-6 flex items-center">
 						<span className="mr-2">
-							<CgProfile />{' '}
+							<CgProfile />
 						</span>
 						Privacy
 					</a>
