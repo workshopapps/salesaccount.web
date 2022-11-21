@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../../stories/Header';
+import {Header} from '../../stories/Header';
 import Footer from '../../components/Footer';
 import heroImg from '../../assets/images/about-us/hero-img.svg';
 import slack from '../../assets/images/about-us/Slack logo.svg';

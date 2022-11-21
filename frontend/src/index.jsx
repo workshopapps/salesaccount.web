@@ -43,9 +43,9 @@ const router = createBrowserRouter([
 	},
 
 	{
-		path: "/blog/:slug",
-		element: <BlogPost/>
-	  },
+		path: '/blog/:slug',
+		element: <BlogPost />,
+	},
 
 	{
 		path: '/careers',
@@ -131,9 +131,9 @@ const router = createBrowserRouter([
 		element: <Gpt3 />,
 	},
 	{
-		path: "/blogs",
-		element: <Blogs />
-	  },
+		path: '/blogs',
+		element: <Blogs />,
+	},
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

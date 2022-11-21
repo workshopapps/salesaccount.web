@@ -1,16 +1,17 @@
 import React from 'react';
-import { Button } from '../stories/Button';
-import user_check from '../assets/user-check.png';
-import code from '../assets/code.png';
-import headset_mic from '../assets/headset-mic.png';
-import dollar_coin from '../assets/dollarCoin.png';
-import clock from '../assets/alarm.png';
-import earth from '../assets/earth.png';
-import suitcase from '../assets/suitcase.png';
-import gift from '../assets/Gift.png';
-import send from '../assets/send.png';
-import brief_case from '../assets/Suitcase 1.png';
-import location from '../assets/location.png';
+// import  {Button}  from '../stories/Button';
+import Button from "../../components/Button"
+import userCheck from '../../assets/user-check.png';
+import code from '../../assets/code.png';
+import headsetMic from '../../assets/headset-mic.png';
+import dollarCoin from '../../assets/dollarCoin.png';
+import clock from '../../assets/alarm.png';
+import earth from '../../assets/earth.png';
+import suitcase from '../../assets/suitcase.png';
+import gift from '../../assets/Gift.png';
+import send from '../../assets/send.png';
+import briefCase from '../../assets/Suitcase 1.png';
+import location from '../../assets/location.png';
 import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
 
@@ -18,7 +19,7 @@ const Careers = () => {
 	const teams = [
 		{
 			name: 'Product',
-			logo: user_check,
+			logo: userCheck,
 		},
 		{
 			name: 'Engineering',
@@ -26,11 +27,11 @@ const Careers = () => {
 		},
 		{
 			name: 'Marketing',
-			logo: headset_mic,
+			logo: headsetMic,
 		},
 		{
 			name: 'Finance',
-			logo: dollar_coin,
+			logo: dollarCoin,
 		},
 	];
 
@@ -213,7 +214,7 @@ const Careers = () => {
 									<div className="grid grid-cols-2">
 										<div className="flex align-middle">
 											<img
-												src={brief_case}
+												src={briefCase}
 												alt="case"
 												className="mt-1 w-5 h-5 sm:h-8 sm:w-8"
 											/>
@@ -246,10 +247,11 @@ const Careers = () => {
 					</div>
 					<div className="flex flex-row mx-auto md:mb-7 max-w-[300px] sm:max-w-[600px] items-center self-center">
 						<input
+							type="email"
 							className="text-center text-base md:text-xl w-full mx-1 sm:mx-3 px-8 md:px-10 py-1 border border-solid border-slate-900"
 							placeholder="Enter email"
 						/>
-						<Button primary size="medium" label="Subscribe" />
+						<Button isPrimary path="#" title="Subscribe" />
 					</div>
 				</div>
 			</div>
