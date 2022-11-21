@@ -38,7 +38,7 @@ const router = createBrowserRouter([
 		element: <AboutUs />,
 	},
 	{
-		path: '/Dashboard',
+		path: '/dashboard',
 		element: <DashBoard />,
 	},
 	{
@@ -47,9 +47,9 @@ const router = createBrowserRouter([
 	},
 
 	{
-		path: "/blog/:slug",
-		element: <BlogPost/>
-	  },
+		path: '/blog/:slug',
+		element: <BlogPost />,
+	},
 
 	{
 		path: '/careers',
@@ -113,7 +113,7 @@ const router = createBrowserRouter([
 
 	{
 		path: 'userupload',
-		element: <Userupload/>,
+		element: <Userupload />,
 	},
 
 	{
@@ -135,9 +135,9 @@ const router = createBrowserRouter([
 		element: <Gpt3 />,
 	},
 	{
-		path: "/blogs",
-		element: <Blogs />
-	  },
+		path: '/blogs',
+		element: <Blogs />,
+	},
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

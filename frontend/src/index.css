@@ -1,19 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Lexend&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< HEAD
-body {
-	font-family: 'Lexend', sans-serif;
-=======
 @layer base {
-    * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-    	font-family: 'Lexend', sans-serif;
-    }
->>>>>>> 79f45c8c83b008f7129ebfb403e6778ab21acd3e
+	* {
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+		font-family: 'Lexend', sans-serif;
+	}
 }
