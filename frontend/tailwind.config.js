@@ -10,6 +10,8 @@ module.exports = {
 				'gray-300': '#D0D5DD',
 				'gray-500': '#667085',
 				'gray-700': '#344054',
+				'withdraw' : "#F04438",
+      			'deposit' : "#12B76A",
 			},
 			fontFamily: {
 				sans: ['Lexend', 'system-ui'],

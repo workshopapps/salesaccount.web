@@ -1,8 +1,8 @@
-from fastapi import FastAPI, File, UploadFile
+from fastapi import APIRouter, File, UploadFile
 
-app = FastAPI()
+router = APIRouter()
 
-@app.post("/upload-record")
+@router.post("/upload-record")
 def upload(file: UploadFile = File(...)):
     try:
         contents = file.file.read()
