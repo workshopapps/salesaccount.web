@@ -7,7 +7,7 @@ const Accordion = ({ question, answer, id }) => {
 	const [rotate, setRotate] = useState('fa-chevron-down');
 
 	const toggleAccordion = () => {
-		setActiveState(setActive === '' ? 'text-blue underline' : '');
+		setActiveState(setActive === '' ? 'text-[#1570EF] underline' : '');
 		setHeightState(
 			setActive === ''
 				? 'max-h-96 transition-all overflow-visible'
@@ -39,7 +39,7 @@ const Accordion = ({ question, answer, id }) => {
 					onClick={toggleAccordion}
 					onKeyDown={handleKeyDown}
 					role="presentation"
-					className={`${rotate} text-blue absolute right-0 fa-solid fa-chevron-down cursor-pointer `}
+					className={`${rotate} text-[#1570EF] absolute right-0 fa-solid fa-chevron-down cursor-pointer `}
 				/>
 			</div>
 			<p
