@@ -29,28 +29,28 @@ const AboutUs = () => (
 					<p className="text-sm text-[#1D2939] text-center mb-[38px] md:text-left md:mb-0 md:h-[180px] md:w-[535px] md:text-xl">
 						We are a team of professionals whose aim is to give you and amazing
 						user experience. We are not only professionals but a family where
-						everybody works together with each other's interest of growth and
-						succeeding at heart.
+						everybody works together with each other&apos;s interest of growth
+						and succeeding at heart.
 					</p>
 				</div>
 				<div className="relative">
-					<img
-						src={heroImg}
-						alt="Hero Showing a Person Working on a Macbook"
-					/>
+					<img src={heroImg} alt="Hero" />
 					<img
 						className="absolute -z-10 -right-[43px] -top-[30px]"
 						src={blueSquare}
-						alt=' '
+						alt="blue-square"
 					/>
 					<img
 						className="absolute -z-10 -left-[41px] -bottom-[49px]"
 						src={blueSquare}
-						alt=''
+						alt="blue-square"
 					/>
 				</div>
 			</div>
-			<button type='botton'className="w-[118px] h-[44px] mb-12 bg-[#2E90FA] rounded-lg font-semibold text-white md:hidden">
+			<button
+				type="button"
+				className="w-[118px] h-[44px] mb-12 bg-[#2E90FA] rounded-lg font-semibold text-white md:hidden"
+			>
 				Try it Free
 			</button>
 		</section>
@@ -212,7 +212,10 @@ const AboutUs = () => (
 					</div>
 				</div>
 			</div>
-			<button type='botton'className="bg-[#2E90FA] mx-auto shadow-[0px_1px_2px_rgba(16,_24,_40,_0.05)] rounded-lg px-[18px] py-[10px] text-white whitespace-nowrap w-[121px] h-[44px] md:w-[128px] md:h-[60px] md:px-7 md:py-4 md:text-lg">
+			<button
+				type="button"
+				type='botton'className="bg-[#2E90FA] mx-auto shadow-[0px_1px_2px_rgba(16,_24,_40,_0.05)] rounded-lg px-[18px] py-[10px] text-white whitespace-nowrap w-[121px] h-[44px] md:w-[128px] md:h-[60px] md:px-7 md:py-4 md:text-lg"
+			>
 				View more
 			</button>
 		</section>
@@ -225,7 +228,10 @@ const AboutUs = () => (
 				accountants to prepare and present their financial information to
 				management.
 			</p>
-			<button type='botton'className="bg-white rounded-lg border border-[#D0D5DD] shadow-[0px_1px_2px_rgba(16,_24,_40,_0.05)] text-[#344054] w-[96px] h-[44px] flex  items-center justify-center md:text-lg md:w-[164px] md:h-[60px]">
+			<button
+				type="button"
+				className="bg-white rounded-lg border border-[#D0D5DD] shadow-[0px_1px_2px_rgba(16,_24,_40,_0.05)] text-[#344054] w-[96px] h-[44px] flex  items-center justify-center md:text-lg md:w-[164px] md:h-[60px]"
+			>
 				Join us now
 			</button>
 		</section>
@@ -307,10 +313,16 @@ const AboutUs = () => (
 				</p>
 			</div>
 			<div className=" flex gap-x-[52px]">
-				<button type='botton'className="bg-[#2E90FA] text-center rounded-lg px-[18px] py-[10px] font-semibold">
+				<button
+					type="button"
+					className="bg-[#2E90FA] text-center rounded-lg px-[18px] py-[10px] font-semibold"
+				>
 					Join us now
 				</button>
-				<button type='botton'className="bg-white shadow-[0px_1px_2px_rgba(16,_24,_40,_0.05)] text-[#344054] rounded-lg px-[18px] py-[10px]">
+				<button
+					type="button"
+					className="bg-white shadow-[0px_1px_2px_rgba(16,_24,_40,_0.05)] text-[#344054] rounded-lg px-[18px] py-[10px]"
+				>
 					Find out more
 				</button>
 			</div>

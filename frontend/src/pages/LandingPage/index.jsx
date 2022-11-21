@@ -3,7 +3,6 @@ import Faq from 'react-faq-component';
 import { BsPlusCircle } from 'react-icons/bs';
 import { CiCircleMinus } from 'react-icons/ci';
 import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
-import uuid from 'react-uuid';
 import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
@@ -20,10 +19,12 @@ const data = {
 	title: 'Frequently asked questions ',
 	rows: [
 		{
+			id: 1,
 			title: 'What is Account Pal and how does it work?',
 			content: `Account Pal is a web application that compares third-party and independent financial statements and records with internal financial records and ledgers. `,
 		},
 		{
+			id: 2,
 			title:
 				'Why should I make use of Account Pal to match my account statement to sales?',
 			content: `Account Pal for SME'S and SMBs helps save time that would otherwise be spent manually matching accounts statements to sales. 
@@ -31,18 +32,22 @@ With this Web application, you can be sure to eliminate human errors and fraudul
 `,
 		},
 		{
+			id: 3,
 			title: 'How do I receive an overview of my report?',
 			content: `Account Pal allows users to import sales and bank statements. These documents will then be processed and you'll receive a file with the analysis and reconciliation.`,
 		},
 		{
+			id: 4,
 			title: 'What are account statements?',
 			content: `It is a periodic summary of account activity within a defined period. `,
 		},
 		{
+			id: 5,
 			title: 'Is Account Pal free for first-time users?',
 			content: `Account Pal has a free 1-month trial period. When this expires, you can continue using the site for a small subscription fee.`,
 		},
 		{
+			id: 6,
 			title:
 				'Is there a cap on the maximum number of transactions I can do weekly or monthly?',
 			content: `There is no cap on the number of transactions one can carry out using Account Pal.`,
@@ -71,17 +76,17 @@ const config = {
 
 const importantFeaturesData = [
 	{
-		number: '1',
+		number: '11',
 		content:
 			'Authenticate and balance account and sales statement automatically',
 	},
 	{
-		number: '2',
+		number: '22',
 		content:
 			'Authenticate and balance account and sales statement automatically',
 	},
 	{
-		number: '3',
+		number: '33',
 		content:
 			'Compare independent financial records to internal financial records and ledger',
 	},
@@ -89,21 +94,25 @@ const importantFeaturesData = [
 
 const whatAccountPalDoesData = [
 	{
+		id: 111,
 		title: 'Spot Errors',
 		content:
 			'Now you can seamlessly compile account statement and sales effectively',
 	},
 	{
+		id: 222,
 		title: 'Balances your account statement',
 		content:
 			'Automate Your bookkeeping easier with Account Pal to focus on what matters most, Your business',
 	},
 	{
+		id: 333,
 		title: 'Track expenditure better',
 		content:
 			'Never worry about income vs expenditure sheets. Account Pal there for you',
 	},
 	{
+		id: 444,
 		title: 'Stuck with a business idea?',
 		content:
 			'Our Open AI model combined with your business data can forecast future cost and predict if a new product will be profitable',
@@ -112,6 +121,7 @@ const whatAccountPalDoesData = [
 
 const pickPlanData = [
 	{
+		id: 11111,
 		title: 'FREE',
 		icon1: <AiOutlineCheck />,
 		content1: '100 free downloads',
@@ -124,6 +134,7 @@ const pickPlanData = [
 		button_content: 'Choose Free  Plan',
 	},
 	{
+		id: 22222,
 		title: 'BASIC',
 		icon1: <AiOutlineCheck />,
 		content1: '100 free downloads',
@@ -136,6 +147,7 @@ const pickPlanData = [
 		button_content: 'Choose Basic  Plan',
 	},
 	{
+		id: 33333,
 		title: 'PRO',
 		icon1: <AiOutlineCheck />,
 		content1: '100 free downloads',
@@ -251,10 +263,10 @@ function LandingPage() {
 					</p>
 				</div>
 				<div className="flex flex-col xl:flex-row gap-[64px] pt-[60px] items-center px-[44px] xl:px-[110px]  pb-[57px] xl:pb-[92px]">
-					{pickPlanData.map((item) => (
+					{pickPlanData.map((item, i) => (
 						<div
 							className="flex flex-col border border-[#D0D5DD] items-center text-center "
-							key={uuid()}
+							key={item.id}
 						>
 							<div className=" h-[330px] xl:h-[444px] xl:w-[350px]  w-[300px] md:h-[400px] flex flex-col items-center">
 								<h2 className=" text-[#101828] font-semibold md:pt-[41px] pt-[30px] text-[21px] md:text-[24px]">
@@ -318,7 +330,7 @@ function LandingPage() {
 				</p>
 				<div className="flex flex-col xl:flex-row items-center xl:gap-[100px] px-[44px] md:px-[110px]">
 					{whatAccountPalDoesData.map((item) => (
-						<div className="md:w-[400px]" key={uuid()}>
+						<div className="md:w-[400px]" key={item.id}>
 							<h2 className="font-semibold text-[#101828] text-[16px] pb-[4px] text-center">
 								{item.title}
 							</h2>
@@ -338,7 +350,7 @@ function LandingPage() {
 					{importantFeaturesData.map((item) => (
 						<div
 							className="flex flex-col items-center md:w-[300px] xl:w-[600px]"
-							key={uuid()}
+							key={item.number}
 						>
 							<h3 className="text-[#101828] font-bold text-[80px]">
 								{item.number}
