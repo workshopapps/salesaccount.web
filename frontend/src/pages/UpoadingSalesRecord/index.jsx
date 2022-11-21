@@ -1,20 +1,28 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-unused-vars */
 import React, {useState}from 'react'
-import data from './mockdata.json'
 import { FaSearch } from 'react-icons/fa'
+import data from './mockdata.json'
 
-const UpoadingSalesRecord = () =>{ 
-
+const UpoadingSalesRecord = () => {
+  const [contacts, setContacts] = useState( data );
 
     return (
-        <div className='flex flex-col h-screen gap-4 py-4 mt-3 '>
+      <div className='m-8 '>
+      <div className='inline px-2 py-8 ml-2'>
+          <div className='left-0 h-10 top-9'>
+              <h2 className='h-10 text-xl font-semibold md:text-2xl lg:text-5xl font-Lexend'>Uploaded Sales Records Ready!</h2>
+          </div>
+       
+
+        <div className='flex flex-col gap-4 py-4 mt-3'>
            
            <div className="flex justify-between w-full mt-5">
 				<div className="flex items-center">
 					<label htmlFor="display" className="mr-2 text-base font-medium text-borderB font-Lexend">
 						Display
 					</label>
-                    <select
+            <select
 						name=""
 						id="display"
 						className=" border border-[#939393] rounded-xl p-2 w-80 h-9 mr-2 text-base font-medium text-borderB font-Lexend">
@@ -44,7 +52,7 @@ const UpoadingSalesRecord = () =>{
                     
 				</div>
 			</div>
-           
+            
 
 
 
@@ -53,27 +61,27 @@ const UpoadingSalesRecord = () =>{
                 <thead>
                     <tr className='w-full '>
                     <th className=' border-spacing-6'><p className='py-5 pl-4 text-base font-semibold text-left sm:text-sm whitespace-nowrap md:text-lg lg:text-xl h-14 top-2 font-Lexend'>Recent Sales</p></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
                     <th className='w-fit'>
-                        <div className='flex justify-between w-48 sm:w-fit md:w-fit lg:w-fit '>
-                            <form className='w-full max-w-md ' action=''>
+                    <div className='flex justify-between w-48 sm:w-fit md:w-fit lg:w-fit '>
+                        <form className='w-full max-w-md ' action=''>
 
-                            <div className='relative flex items-center text-search ' >
-                             <FaSearch className='absolute w-5 h-5 ml-3' />
-                                    <input type="text"
-                                        name='search'
-                                        placeholder='search'
-                                        aria-label='search'
-                                        className='w-full py-3 pl-10 pr-3 font-light text-black placeholder-gray-700 h-11 rounded-xl ' /> 
-                            </div>
-                            </form>
+                        <div className='relative flex items-center text-search ' >
+                        <FaSearch className='absolute w-5 h-5 ml-3' />
+                                <input type="text"
+                                    name='search'
+                                    placeholder='search'
+                                    aria-label='search'
+                                    className='w-full py-3 pl-10 pr-3 font-light text-black h-11 placeholder-search rounded-xl ' /> 
                         </div>
-                    </th>
+                        </form>
+                    </div>   
+                    </th>.
                     </tr>
                     <tr className='py-6 bg-thead w-80'>
                         <th className= 'h-5 py-5 pl-4 text-sm font-semibold leading-5 text-left font-Lexend border-spacing-2 w-80' >Item Description</th>
@@ -87,7 +95,7 @@ const UpoadingSalesRecord = () =>{
                     </tr>
                 </thead>
                 <tbody>
-                    { contacts.map(( contacts )=> (
+                    { contacts.map(( c )=> (
                             <tr className='border-b border-b-search border-opacity-20 '>
                                 <td className= 'py-6 pl-4 text-sm font-normal leading-5 text-left border-spacing-2 w-80 font-Lexend'>{contacts.itemDescription}</td>
                                 <td className= 'py-6 pl-4 text-sm font-normal leading-5 text-left border-b-borderB border-spacing-2 w-80 font-Lexend'>{contacts.Price}</td>
@@ -104,17 +112,17 @@ const UpoadingSalesRecord = () =>{
                     
                 </tbody>
             </table>
-
-
-
-            <div className="flex justify-center mx-auto sm:w-full md:w-full lg:w-full ">
-        
-                <button className="w-[327px] h-12 lg:w-[556px] lg:h-[60px] bg-reconcile rounded-lg font-semibold text-reconcileClick focus:focus-ring">
-                Reconcile
-                </button>
-            </div>
-  
         </div>
+        <div className="flex justify-center mx-auto sm:w-full md:w-full lg:w-full ">
+        
+        <button type='button' className="w-[327px] h-12 lg:w-[556px] lg:h-[60px] bg-reconcile rounded-lg font-semibold text-reconcileClick focus:focus-ring">
+          Reconcile
+        </button>
+      </div>
+        </div>
+         
+         </div>
     )
-  }
-export default UpoadingSalesRecord;
+    }
+
+export default UpoadingSalesRecord
