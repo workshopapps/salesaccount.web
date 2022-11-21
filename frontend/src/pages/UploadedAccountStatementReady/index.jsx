@@ -103,7 +103,12 @@ export default function UploadedAccountStatementRead() {
                     </table>
                 </div>
           </div>
-           
+            <div className="flex justify-center mx-auto sm:w-full md:w-full lg:w-full ">
+            
+                <button className="w-[327px] h-12 lg:w-[556px] lg:h-[60px] bg-reconcile rounded-lg font-semibold text-reconcileClick focus:focus-ring">
+                Reconcile
+                </button>
+            </div>
     </div>
   )
 }
