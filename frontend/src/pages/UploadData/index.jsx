@@ -1,5 +1,11 @@
-import React from 'react';
+  
 
-const UploaData = () => <div>UploaData</div>;
+import React from 'react'
 
-export default UploaData;
+function index() {
+  return (
+	<div>index</div>
+  )
+}
+
+export default index

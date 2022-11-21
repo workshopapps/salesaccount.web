@@ -200,7 +200,7 @@ function LandingPage() {
 					</p>
 				</div>
 
-				<Button title="Dashboard" path="/" />
+				<Button title="Dashboard" path="/Dashboard" />
 				<img
 					src={headerImage}
 					alt="Dashboard"

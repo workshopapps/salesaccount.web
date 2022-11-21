@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../../stories/Header';
 import Footer from '../../components/Footer';
 import heroImg from '../../assets/images/about-us/hero-img.svg';
 import slack from '../../assets/images/about-us/Slack logo.svg';
@@ -13,10 +12,11 @@ import Adeleke from '../../assets/images/about-us/adeleke.svg';
 import Dolapo from '../../assets/images/about-us/dolapo.svg';
 import Michael from '../../assets/images/about-us/michael.svg';
 import Olanike from '../../assets/images/about-us/olanike.svg';
+import NavigationBar from '../../components/NavigationBar';
 
 const AboutUs = () => (
 	<div>
-		<Header />
+		<NavigationBar />
 		<section className="px-6 md:mb-[90px] md:px-[120px] ">
 			<div className="flex flex-col gap-x-[130px]  items-center mb-[70px] md:mt-[110px] md:mb-0 md:flex-row">
 				<div className="">

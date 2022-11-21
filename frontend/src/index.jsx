@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-import Aboutus from './pages/AboutUs/index';
+import AboutUs from './pages/AboutUs';
 import AccountBalanceReport from './pages/AccountBalanceReport';
 import BlogPost from './pages/BlogPost';
 import Careers from './pages/Careers';
@@ -16,13 +16,14 @@ import Pricing from './pages/Pricing';
 import PrivacyAndHelp from './pages/PrivacyAndHelp';
 import Resources from './pages/Resources';
 import UploadAccountsStatementReady from './pages/UploadAccountsStatementReady';
-import UploadData from './pages/UploadData';
+import Userupload from './pages/UploadData';
 import UploadedAccountStatementReady from './pages/UploadedAccountStatementReady';
 import UpoadingSalesRecord from './pages/UpoadingSalesRecord';
 import UserUpload from './pages/UserUpload/index';
 import Teams from './pages/Teams';
 import History from './pages/History';
 import reportWebVitals from './reportWebVitals';
+import DashBoard from './pages/Dashboard';
 import Gpt3 from './pages/Gpt-3';
 import Blogs from './pages/Blogs/Index';
 
@@ -34,18 +35,21 @@ const router = createBrowserRouter([
 
 	{
 		path: '/aboutus',
-		element: <Aboutus />,
+		element: <AboutUs />,
 	},
-
+	{
+		path: '/dashboard',
+		element: <DashBoard />,
+	},
 	{
 		path: '/accountbalancereport',
 		element: <AccountBalanceReport />,
 	},
 
 	{
-		path: "/blog/:slug",
-		element: <BlogPost/>
-	  },
+		path: '/blog/:slug',
+		element: <BlogPost />,
+	},
 
 	{
 		path: '/careers',
@@ -108,8 +112,8 @@ const router = createBrowserRouter([
 	},
 
 	{
-		path: '/uploaddata',
-		element: <UploadData />,
+		path: 'userupload',
+		element: <Userupload />,
 	},
 
 	{
@@ -131,9 +135,9 @@ const router = createBrowserRouter([
 		element: <Gpt3 />,
 	},
 	{
-		path: "/blogs",
-		element: <Blogs />
-	  },
+		path: '/blogs',
+		element: <Blogs />,
+	},
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
