@@ -11,9 +11,9 @@ const Faq = () => {
 
 	return (
 		<>
-			<NavigationBar className="bg-blue" />
+			<NavigationBar />
 			<div className="bg-[#F9FAFB]">
-				<div className="sm:h-[1055px] h-[500px] min-w-[375px] sm:w-[1228px] justify-center flex font-body sm">
+				<div className=" min-w-[375px] sm:w-[1228px] justify-center flex font-body sm">
 					<div className="flex-col space-y-[25px] sm:space-y-[72px]">
 						{smallFAQ ? (
 							<h2 className="w-[35px] text-blue leading-[13px] sm:text-[28px]">
@@ -35,7 +35,7 @@ const Faq = () => {
 						{nextDisplay ? (
 							''
 						) : (
-							<div className=" mb-96">
+							<div className=" mb-96 py-[78px]">
 								<div className="relative flex w-[375px] sm:w-[1000px] text-sm space-x-96">
 									<div className="flex space-x-1">
 										<button
@@ -76,7 +76,7 @@ const Faq = () => {
 
 						{/* When on next page */}
 						{nextDisplay ? (
-							<div className="relative flex w-[375px] sm:w-[1000px] text-sm space-x-96">
+							<div className="relative flex w-[375px] sm:w-[1000px] text-sm space-x-96 mb-96 py-[48px]">
 								<button
 									type="button"
 									onClick={() => {
@@ -139,7 +139,7 @@ const Faq = () => {
 					</div>
 				</div>
 			</div>
-			<div className=" mt-[500px]">
+			<div className="">
 				<Footer />
 			</div>
 		</>
