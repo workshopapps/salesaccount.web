@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-import Aboutus from './pages/AboutUs/index';
+import AboutUs from './pages/AboutUs/index';
 import AccountBalanceReport from './pages/AccountBalanceReport';
 import BlogPost from './pages/BlogPost';
 import Careers from './pages/Careers';
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
 
 	{
 		path: '/aboutus',
-		element: <Aboutus />,
+		element: <AboutUs />,
 	},
 
 	{
