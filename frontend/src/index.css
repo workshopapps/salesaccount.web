@@ -4,10 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< HEAD
-body {
-	font-family: 'Lexend', sans-serif;
-=======
 @layer base {
     * {
         box-sizing: border-box;
@@ -15,5 +11,4 @@ body {
         margin: 0;
     	font-family: 'Lexend', sans-serif;
     }
->>>>>>> 79f45c8c83b008f7129ebfb403e6778ab21acd3e
 }
