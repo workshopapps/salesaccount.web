@@ -9,4 +9,7 @@
 }
 
 @media screen and (max-width: 400px) {
+	.dashboard-main-cont {
+		grid-template-columns: 100%;
+}
 }

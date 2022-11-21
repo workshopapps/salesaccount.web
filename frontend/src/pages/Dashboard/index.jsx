@@ -8,7 +8,9 @@ const DashBoard = () => (
 		<DashBoardHeader />
 		<div className="dashboard-main-cont">
 			<DashBoardSideBar />
-			<main>dashboard</main>
+			<main className='dashboard'>
+				dashboard
+			</main>
 		</div>
 	</>
 );

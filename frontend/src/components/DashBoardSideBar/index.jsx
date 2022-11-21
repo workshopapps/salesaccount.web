@@ -82,7 +82,7 @@ function DashBoardSideBar() {
                         navBtn=>(
                             <li key={navBtn.id}
                         className='text-light-white flex items-center gap-x-4 cursor-pointer rounded-md hover:bg-light-white'>
-                        <a href={navBtn.path} className=" flex p-3 items-center gap-5">
+                        <a href={navBtn.path} className=" sideBarBtnLink flex p-3 items-center gap:10rem">
 							<p>{navBtn.Icon}</p>
 							<p>{navBtn.name}</p>
 						</a>
