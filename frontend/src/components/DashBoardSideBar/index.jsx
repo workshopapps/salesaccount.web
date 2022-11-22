@@ -1,96 +1,42 @@
-import React, { useState } from 'react';
-import { RiDashboardLine } from 'react-icons/ri';
-import {IoSettingsOutline} from 'react-icons/io5'
-import {VscNewFile} from 'react-icons/vsc';
-import  {AiOutlineHistory } from  'react-icons/ai'
-import  {MdOutlinePrivacyTip, MdOutlineLiveHelp } from  'react-icons/md'
-// import './index.css';
-import addfileIcon from '../../assets/images/dashboard/svgs/addfile.svg';
-import historyIcon from '../../assets/images/dashboard/svgs/history.svg';
-import settingIcon from '../../assets/images/dashboard/svgs/settings.svg';
-// import { func } from 'prop-types';
-// import { UsageState } from 'webpack';
-// import ad from '../../assets/images/dashboard/svgs/addfile.svg'
-// import addfileIcon from '../../assets/images/dashboard/svgs/addfile.svg'
-
-
-const sideBarTopData = [
-	{  
-        id: 1,
-		path: 'dashboard/',
-		name: 'Dashboard',
-		Icon: <RiDashboardLine/>,
-	},
-	{
-        id: 2,
-		path: '/uploaddata',
-		name: 'Import Data',
-		Icon: <VscNewFile/>,
-	},
-	{
-        id: 3,
-		path: 'dashboard/',
-		name: 'History',
-		Icon: <AiOutlineHistory/>
-	},
-	{
-        id: 4,
-		path: 'dashboard/',
-		name: 'Settings',
-		Icon: <IoSettingsOutline/>
-	},
-	
-];
-
-const sideBarBottomData =[
-    {
-        id: 5,
-		path: '/privacy',
-		name: 'Privacy',
-		Icon: <MdOutlinePrivacyTip/>
-	},
-	{
-        id: 6,
-		path: '/help',
-		name: 'Help',
-		Icon: <MdOutlineLiveHelp/>
-	},
-]
+import React from 'react';
+import GridOnIcon from '@mui/icons-material/GridOn';
+import AddIcon from '@mui/icons-material/Add';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import SettingsIcon from '@mui/icons-material/Settings';
+import PersonIcon from '@mui/icons-material/Person';
+import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
+import './DashboardSidebar.css';
 
 function DashBoardSideBar() {
-        const [open, setOpen] = useState(true)
-    
 	return (
-		<div className={`${open ? "w-72" : "absolute"} h-screen bg-primary-blue flex  flex-col justify-between pr-10 pl-20 `}>
-			<ul className='pt-6 w-100% '>
-              
-				{sideBarTopData.map(navBtn=>(
-                    <li key={navBtn.id}
-                        className='w-80% text-light-white flex items-center gap-x-4 cursor-pointer rounded-md hover:bg-light-white hover:text-primary-blue'>
-                        <a href={navBtn.path} className="sideBarBtnLink flex p-3 items-center gap:10rem">
-						<p>{navBtn.Icon}</p>
-						<p>{navBtn.name}</p>
-					</a>
-                    </li>
-					
-
-				))}
-			</ul>
-            <ul>
-                {
-                    sideBarBottomData.map(
-                        navBtn=>(
-                            <li key={navBtn.id}
-                        className='text-light-white flex items-center gap-x-4 cursor-pointer rounded-md hover:bg-light-white'>
-                        <a href={navBtn.path} className=" flex p-3 items-center gap-5">
-							<p>{navBtn.Icon}</p>
-							<p>{navBtn.name}</p>
-						</a>
-                    </li>
-                        )
-                    )
-                }
-            </ul>
+		<div className=" side-bar hidden md:fixed top-0 z-1  md:flex justify-between flex-col md:w-[15%] lg:w-[10%] h-[100vh] bg-[#1570EF] text-white pb-[4em] pt-[7em] pl-[1em]  ">
+			<div className="flex flex-col w-[95%] md:text-[0.8em] lg:text-[1em] md:gap-6 lg:gap-6 ">
+				<div className="flex sidenav-nav space-x-1 ">
+					<GridOnIcon sx={{ fontSize: 20 }} /> <p>Dashboard</p>
+				</div>
+				<div className="flex  sidenav-nav space-x-1 ">
+					<AddIcon sx={{ fontSize: 20 }} />
+					<p>Import Data</p>
+				</div>
+				<div className="flex sidenav-nav space-x-1">
+					<StarBorderIcon sx={{ fontSize: 20 }} />
+					<p> History</p>
+				</div>
+				<div className="flex sidenav-nav space-x-1">
+					<SettingsIcon sx={{ fontSize: 20 }} />
+					<p>Settings</p>
+				</div>
+			</div>
+			<div className="flex flex-col w-[95%] md:gap-6 lg:gap-6">
+				<div className="flex sidenav-nav space-x-1">
+					<PersonIcon sx={{ fontSize: 20 }} />
+					<p>Privacy</p>
+				</div>
+				<div className="flex sidenav-nav space-x-1">
+					<LightbulbOutlinedIcon sx={{ fontSize: 20 }} />
+					<p>Help</p>
+				</div>
+			</div>
 		</div>
 	);
 }
