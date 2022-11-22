@@ -1,13 +1,21 @@
 :root {
 	--color-primary-blue: #1570ef;
 	--color-white: #f9fafb;
+	--color-gray: #98A2B3;
+	--color-error: #F04438;
+	--color-blue-light:#ebf4fd;
 }
 
 .dashboard-main-cont {
 	display: grid;
 	grid-template-columns: 2fr 8fr;
+	padding: 0;
+	overflow:hidden;
+	height: 100vh;
 }
-
+	.dashboard-main-cont main{
+		padding: 1rem 2rem;
+	}
 @media screen and (max-width: 700px) {
 	.dashboard-main-cont {
 		display: flex;
@@ -17,30 +25,42 @@
 	}
 	.dashboard-main-cont main{
 		width: 100%;
-		height: 90vh;
-	}
-	.dashboard-main-cont .sideBar{
-		position: fixed;
-		width: 100%;
-		height: 10vh;
-		bottom: 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		height: 80vh;
+		overflow: hidden;
+		overflow-y: scroll;
+		
 
 	}
 
-	.dashboard-main-cont .sideBar ul{
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: 0;
-		gap: 1rem;
-	}
-	.dashboard-main-cont .sideBar ul:last-of-type{
-		display: none;
-	}
-	.dashboard-main-cont .sideBar ul li p:last-of-type{
-		display: none;
-	}
 }
+
+/* utilities */
+
+.center{
+	display: grid;
+		place-items: center;
+		width: 100%;
+}
+
+/*upload process  */
+.numberOfErrors{
+	color: var(--color-error);
+}
+
+.process-card{
+	background-color: var(--color-blue-light);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 70%;
+	max-width: 700px;
+	height: 300px;
+	text-align: left;
+	border-radius: .5rem;
+}
+.process-card p{
+	color: var(--color-gray);
+	
+}
+

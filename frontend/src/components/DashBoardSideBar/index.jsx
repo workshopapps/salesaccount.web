@@ -72,6 +72,7 @@ function DashBoardSideBar() {
 					>
 						<a
 							href={navBtn.path}
+							title={navBtn.name}
 							className="sideBarBtnLink flex p-3 items-center gap:10rem"
 						>
 							<p>{navBtn.Icon}</p>

@@ -27,6 +27,7 @@ import DashBoard from './pages/Dashboard';
 import Gpt3 from './pages/Gpt-3';
 import Blogs from './pages/Blogs/Index';
 import Settings from './pages/Settings';
+import ErrorProcessing from './pages/ErrorProcessing';
 
 const router = createBrowserRouter([
 	{
@@ -142,6 +143,10 @@ const router = createBrowserRouter([
 		{
 		path: '/settings',
 		element: <Settings />,
+	},
+	{
+		path: '/processingerror',
+		element: <ErrorProcessing/>,
 	},
 ]);
 

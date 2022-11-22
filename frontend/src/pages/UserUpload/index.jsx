@@ -52,12 +52,12 @@ const Userupload = () => (
 				<div className="file-inputs container mx">
 					{/* <input type="" value={} /> */}
 
-					<button
-						type="button"
-						className="flex items-center p-2 mt-4 sm:mx-auto rounded bg-[#1570EF] text-white"
+					<a
+						href='/processingerror'
+						className="flex items-center w-32 p-2 mt-10 sm:mx-auto rounded bg-[#1570EF] text-white"
 					>
 						Upload Now
-					</button>
+					</a>
 				</div>
 			</div>
 		
