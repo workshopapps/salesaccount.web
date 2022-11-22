@@ -27,6 +27,7 @@ import DashBoard from './pages/Dashboard';
 import Gpt3 from './pages/Gpt-3';
 import Blogs from './pages/Blogs/Index';
 import Settings from './pages/Settings';
+import ErrorProcessing from './pages/ErrorProcessing';
 
 const router = createBrowserRouter([
 	{
@@ -129,7 +130,7 @@ const router = createBrowserRouter([
 
 	{
 		path: '/userupload',
-		element: <Userupload/>,
+		element: <Userupload />,
 	},
 	{
 		path: '/Gpt-3',
@@ -139,9 +140,13 @@ const router = createBrowserRouter([
 		path: '/blogs',
 		element: <Blogs />,
 	},
-		{
+	{
 		path: '/settings',
 		element: <Settings />,
+	},
+	{
+		path: '/processingerror',
+		element: <ErrorProcessing />,
 	},
 ]);
 
