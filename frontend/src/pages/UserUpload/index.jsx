@@ -22,8 +22,8 @@ const Userupload = () => (
 		<div className="dashboard-main-cont">
 			<DashBoardSideBar />
 			<main>
-				<div className="upload-main mx-auto border p-20">
-					<div className="dropdown flex items-left p-2 ml-96">
+				<div className="upload-main max-w-[900px] mx-auto border p-20">
+					<div className="dropdown flex mb-[70px] items-left p-2">
 						<a href="/" className="flex items-center mr-4">
 							Dashboard
 							<span className="ml-4">
@@ -40,12 +40,12 @@ const Userupload = () => (
 					<h1 className="text-center mx-auto text-5xl mb-10">
 						Upload Account Statement
 					</h1>
-					<div className="file-card border-dashed border-4 border-gray-200 rounded lg:w-3/4 md:w-full h-60 text-center ml-auto mr-10 p-30 sm:w-full">
-						<p className="main text-center mb-4 text-3xl mt-12">
+					<div className="file-card border-dashed border-4 border-gray-200 rounded  md:w-full max-w-[900px] h-60 text-center ml-auto mr-10 p-10">
+						<p className="main text-center mb-4 text-3xl mt-12 overflow-hidden">
 							Drop your account Statement here
 						</p>
 						<br />
-						<p className="info text-center">
+						<p className="info text-center overflow-hidden">
 							You can upload PDF and word DOC files only
 						</p>
 					</div>
