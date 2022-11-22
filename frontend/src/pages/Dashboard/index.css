@@ -1,21 +1,21 @@
 :root {
 	--color-primary-blue: #1570ef;
 	--color-white: #f9fafb;
-	--color-gray: #98A2B3;
-	--color-error: #F04438;
-	--color-blue-light:#ebf4fd;
+	--color-gray: #98a2b3;
+	--color-error: #f04438;
+	--color-blue-light: #ebf4fd;
 }
 
 .dashboard-main-cont {
 	display: grid;
 	grid-template-columns: 2fr 8fr;
 	padding: 0;
-	overflow:hidden;
+	overflow: hidden;
 	height: 100vh;
 }
-	.dashboard-main-cont main{
-		padding: 1rem 2rem;
-	}
+.dashboard-main-cont main {
+	padding: 1rem 2rem;
+}
 @media screen and (max-width: 700px) {
 	.dashboard-main-cont {
 		display: flex;
@@ -23,31 +23,26 @@
 		position: relative;
 		height: 100vh;
 	}
-	.dashboard-main-cont main{
+	.dashboard-main-cont main {
 		width: 100%;
 		height: 80vh;
-		overflow: hidden;
-		overflow-y: scroll;
-		
-
 	}
-
 }
 
 /* utilities */
 
-.center{
+.center {
 	display: grid;
-		place-items: center;
-		width: 100%;
+	place-items: center;
+	width: 100%;
 }
 
 /*upload process  */
-.numberOfErrors{
+.numberOfErrors {
 	color: var(--color-error);
 }
 
-.process-card{
+.process-card {
 	background-color: var(--color-blue-light);
 	display: flex;
 	flex-direction: column;
@@ -57,10 +52,8 @@
 	max-width: 700px;
 	height: 300px;
 	text-align: left;
-	border-radius: .5rem;
+	border-radius: 0.5rem;
 }
-.process-card p{
+.process-card p {
 	color: var(--color-gray);
-	
 }
-
