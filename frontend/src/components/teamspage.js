@@ -1,5 +1,7 @@
 import React from 'react';
+
 import ourteam from '../assets/ourteam.png';
+
 import leader from '../assets/leader.png';
 import designer from '../assets/designer.png';
 // import developer from '../assets/developer.png';

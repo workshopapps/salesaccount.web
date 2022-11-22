@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-import AboutUs from './pages/AboutUs';
+// import AboutUs from './pages/AboutUs';
 import AccountBalanceReport from './pages/AccountBalanceReport';
 import BlogPost from './pages/BlogPost';
 import Careers from './pages/Careers';
@@ -16,16 +16,18 @@ import Pricing from './pages/Pricing';
 import PrivacyAndHelp from './pages/PrivacyAndHelp';
 import Resources from './pages/Resources';
 import UploadAccountsStatementReady from './pages/UploadAccountsStatementReady';
-import Userupload from './pages/UploadData';
+import Userupload from './pages/UserUpload';
 import UploadedAccountStatementReady from './pages/UploadedAccountStatementReady';
 import UpoadingSalesRecord from './pages/UpoadingSalesRecord';
-import UserUpload from './pages/UserUpload/index';
+// import UserUpload from './pages/UserUpload/index';
 import Teams from './pages/Teams';
 import History from './pages/History';
 import reportWebVitals from './reportWebVitals';
 import DashBoard from './pages/Dashboard';
 import Gpt3 from './pages/Gpt-3';
 import Blogs from './pages/Blogs/Index';
+import Settings from './pages/Settings';
+import ErrorProcessing from './pages/ErrorProcessing';
 
 const router = createBrowserRouter([
 	{
@@ -33,10 +35,10 @@ const router = createBrowserRouter([
 		element: <LandingPage />,
 	},
 
-	{
-		path: '/aboutus',
-		element: <AboutUs />,
-	},
+	// {
+	// 	path: '/aboutus',
+	// 	element: <AboutUs />,
+	// },
 	{
 		path: '/dashboard',
 		element: <DashBoard />,
@@ -111,10 +113,10 @@ const router = createBrowserRouter([
 		element: <UploadAccountsStatementReady />,
 	},
 
-	{
-		path: 'userupload',
-		element: <Userupload />,
-	},
+	// {
+	// 	path: '/userupload',
+	// 	element: <Userupload/>,
+	// },
 
 	{
 		path: '/uploadedaccountstatementready',
@@ -128,7 +130,7 @@ const router = createBrowserRouter([
 
 	{
 		path: '/userupload',
-		element: <UserUpload />,
+		element: <Userupload />,
 	},
 	{
 		path: '/Gpt-3',
@@ -137,6 +139,14 @@ const router = createBrowserRouter([
 	{
 		path: '/blogs',
 		element: <Blogs />,
+	},
+	{
+		path: '/settings',
+		element: <Settings />,
+	},
+	{
+		path: '/processingerror',
+		element: <ErrorProcessing />,
 	},
 ]);
 
