@@ -26,6 +26,11 @@ import reportWebVitals from './reportWebVitals';
 import DashBoard from './pages/Dashboard';
 import Gpt3 from './pages/Gpt-3';
 import Blogs from './pages/Blogs/Index';
+import ImportData from './pages/Dashboard/ImportData/Hero/ImportData';
+import {
+	Upload,
+	UploadReady,
+} from './pages/Dashboard/DashboardMain/UploadFile/Upload';
 
 const router = createBrowserRouter([
 	{
@@ -37,10 +42,7 @@ const router = createBrowserRouter([
 		path: '/aboutus',
 		element: <AboutUs />,
 	},
-	{
-		path: '/Dashboard',
-		element: <DashBoard />,
-	},
+
 	{
 		path: '/accountbalancereport',
 		element: <AccountBalanceReport />,
@@ -64,6 +66,25 @@ const router = createBrowserRouter([
 	{
 		path: '/contact',
 		element: <ContactUs />,
+	},
+	{
+		path: '/Dashboard',
+		element: <DashBoard />,
+		children: [
+			{
+				path: '/Dashboard/importData',
+				element: <ImportData />,
+			},
+
+			{
+				path: '/Dashboard/upload',
+				element: <Upload />,
+			},
+			{
+				path: '/Dashboard/uploadready',
+				element: <UploadReady />,
+			},
+		],
 	},
 
 	{

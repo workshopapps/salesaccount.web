@@ -1,0 +1,12 @@
+.user {
+  border-bottom: 1px solid rgba(204, 204, 204, 0.342);
+}
+.order-name {
+  width: 18%;
+  margin: 0 0.5em;
+}
+@media (min-width: 767px) {
+  .order-name {
+    width: 12%;
+  }
+}
