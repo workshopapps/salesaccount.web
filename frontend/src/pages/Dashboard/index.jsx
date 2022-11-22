@@ -7,6 +7,7 @@ import Footer from '../../components/DashboardFooter/DashboardFooter';
 
 const DashBoard = () => (
 	<div className="w-full h-screen bg-[#F9FAFB]">
+		{/* dummy */}
 		<DashBoardHeader />
 		<div className="flex">
 			<DashBoardSideBar />
