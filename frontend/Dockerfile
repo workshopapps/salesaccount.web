@@ -15,9 +15,11 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install app dependencies
-RUN npm install
+# RUN npm install
+RUN yarn install --production
 COPY . .
-RUN npm run build
+# RUN npm run build
+RUN yarn run build
 
 # second stage
 FROM nginx 
