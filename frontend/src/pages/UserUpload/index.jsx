@@ -5,6 +5,8 @@ import { RiDashboardFill } from 'react-icons/ri';
 import { FiSettings } from 'react-icons/fi';
 import { FaGreaterThan } from 'react-icons/fa';
 import { CgProfile } from 'react-icons/cg';
+import DashBoardSideBar from '../../components/DashBoardSideBar';
+import DashBoardHeader from '../../components/DashBoardHeader';
 
 const styles = {
 	bgColor: '#1570EF',
@@ -15,91 +17,12 @@ const styles = {
 };
 
 const Userupload = () => (
-	<div className="uploadDoc">
-		<div className="relative mx-auto p-6 bg-[#1570EF] flex justify-between items-center">
-			<div className="flex items-center justify-between">
-				<h1>
-					<span className="text-white text-700 text-4xl p-20">Logo</span>
-				</h1>
-			</div>
-			<div className="input relative ">
-				<input
-					className="mr-auto -ml-96 rounded w-[500px] max-w-screen-lg p-2 border-0 "
-					type="text"
-					placeholder="search"
-				/>
-				<span className="absolute -left-96 ml-2 top-3">
-					<BsSearch />
-				</span>
-			</div>
-			<div className="upload-header-icons text-white flex justify-end pl-3 mr-4 p-4">
-				<AiOutlineBell className="bg-white text-gray mr-2 w-6 h-6 rounded" />
-				<BsMoon className="bg-white text-gray mr-2 w-6 h-6 rounded" />
-				<BsGridFill className="bg-white text-gray mr-2 w-6 h-6 rounded" />
-			</div>
-		</div>
-		<div className="Details">
-			<div className="mx-auto hidden md:flex flex-col space-x-6 absolute  h-full w-44 bg-deepSky  grid-cols-2">
-				<ul className="-mt-10 list-none">
-					<li className="w-[150px]">
-						<a
-							className=" flex items-center border-0 p-2 ml-4 bg-white mt-20 text-[#1570EF] rounded"
-							href="/"
-						>
-							<span className="mr-2">
-								<RiDashboardFill />
-							</span>
-							Dashboard
-						</a>
-					</li>
-					<li className="mt-4">
-						<a href="/" className="flex items-center ml-4 mt-3 p-2 text-white">
-							<span className="mr-2">
-								<AiOutlinePlus />
-							</span>
-							Import Data
-						</a>
-					</li>
-					<li className="mt-4">
-						<a
-							href="/"
-							className="  items-center flex ml-4 p-2 text-white mt-4"
-						>
-							<span className="mr-2">
-								<AiOutlineStar />
-							</span>
-							History
-						</a>
-					</li>
-					<li className="mt-4">
-						<a href="/" className=" flex items-center p-2 ml-4 text-white">
-							<span className="mr-2">
-								<FiSettings />
-							</span>
-							Settings
-						</a>
-					</li>
-				</ul>
-				<div
-					className="privacy text-white mt-auto flex flex-col
-                "
-				>
-					<a href="/" className="mb-6 flex items-center">
-						<span className="mr-2">
-							<CgProfile />
-						</span>
-						Privacy
-					</a>
-					<a href="/" className="mb-6 flex items-center">
-						<span className="mr-2">
-							<BsLightbulb />
-						</span>
-						Help
-					</a>
-				</div>
-			</div>
-
-			<div className="upload-main mx-auto border p-20">
+	<>
+		<DashBoardHeader/>
+			<div className='dashboard-main-cont'>
+				<DashBoardSideBar/>
+				<main>
+					<div className="upload-main mx-auto border p-20">
 				<div className="dropdown flex items-left p-2 ml-96">
 					<a href="/" className="flex items-center mr-4">
 						Dashboard
@@ -137,8 +60,12 @@ const Userupload = () => (
 					</button>
 				</div>
 			</div>
-		</div>
-	</div>
-);
+		
+				</main>
+				
+			</div>
+
+			
+	</>);
 
 export default Userupload;

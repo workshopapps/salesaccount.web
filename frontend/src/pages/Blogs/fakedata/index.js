@@ -16,8 +16,7 @@ const blogList = [
 		slug: '3 Effective Debt Management Practices',
 		title: '3 Effective Debt Management Practices',
 		category: 'Finance',
-		higlight:
-			'Debt can be beneficial to your company when managed properly.',
+		higlight: 'Debt can be beneficial to your company when managed properly.',
 		author: 'Olivia Rhye',
 		dateCreated: '20 Jan 2022',
 		avatarImage: '../assets/avatar-full.svg',
@@ -40,8 +39,7 @@ const blogList = [
 		slug: '5 Steps to Preventing Expense Fraud',
 		title: '5 Steps to Preventing Expense Fraud',
 		category: 'Fraud',
-		higlight:
-			'Actionable Steps to prevent fraud among  employees.',
+		higlight: 'Actionable Steps to prevent fraud among  employees.',
 		author: 'Olivia Rhye',
 		dateCreated: '20 Jan 2022',
 		avatarImage: '../assets/avatar-full.svg',
@@ -52,8 +50,7 @@ const blogList = [
 		slug: 'How to Overcome Impulsive Spending',
 		title: 'How to Overcome Impulsive Spending',
 		category: 'Lifestyle',
-		higlight:
-			'Learn how to overcome random expenses and impulsive spendings.',
+		higlight: 'Learn how to overcome random expenses and impulsive spendings.',
 		author: 'Olivia Rhye',
 		dateCreated: '20 Jan 2022',
 		avatarImage: '../assets/avatar-full.svg',
@@ -88,8 +85,7 @@ const blogList = [
 		slug: 'The Ultimate Guide to Use Our Website',
 		title: 'The Ultimate Guide to Use Our Website',
 		category: 'Product',
-		higlight:
-			'A step-by-step guide on our to navigate our website.',
+		higlight: 'A step-by-step guide on our to navigate our website.',
 		author: 'Olivia Rhye',
 		dateCreated: '20 Jan 2022',
 		avatarImage: '../assets/avatar-full.svg',
@@ -100,8 +96,7 @@ const blogList = [
 		slug: 'Accounting Trends to Look Forward to in 2023',
 		title: 'Accounting Trends to Look Forward to in 2023',
 		category: 'Accounting',
-		higlight:
-			'Watch out for these accounting threads in 2023.',
+		higlight: 'Watch out for these accounting threads in 2023.',
 		author: 'Olivia Rhye',
 		dateCreated: '20 Jan 2022',
 		avatarImage: '../assets/avatar-full.svg',
