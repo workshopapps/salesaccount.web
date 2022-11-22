@@ -6,6 +6,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import PersonIcon from '@mui/icons-material/Person';
 import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
 import './DashboardSidebar.css';
+import { Link } from 'react-router-dom';
 
 function DashBoardSideBar() {
 	return (
@@ -14,10 +15,13 @@ function DashBoardSideBar() {
 				<div className="flex sidenav-nav space-x-1 ">
 					<GridOnIcon sx={{ fontSize: 20 }} /> <p>Dashboard</p>
 				</div>
-				<div className="flex  sidenav-nav space-x-1 ">
-					<AddIcon sx={{ fontSize: 20 }} />
-					<p>Import Data</p>
-				</div>
+				<Link to="/Dashboard/upload">
+					<div className="flex  sidenav-nav space-x-1 ">
+						<AddIcon sx={{ fontSize: 20 }} />
+						<p>Import Data</p>
+					</div>
+				</Link>
+
 				<div className="flex sidenav-nav space-x-1">
 					<StarBorderIcon sx={{ fontSize: 20 }} />
 					<p> History</p>

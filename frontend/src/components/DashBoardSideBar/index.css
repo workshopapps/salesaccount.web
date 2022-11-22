@@ -1,0 +1,39 @@
+.dashboard-side-board {
+	height: 100vh;
+	background-color: var(--color-primary-blue);
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	height: 100vh;
+}
+
+.sideBarBtnLink {
+	/* display: inline-block; */
+	gap: 1rem !important;
+}
+
+@media screen and (max-width: 700px) {
+	.dashboard-main-cont .sideBar {
+		position: fixed;
+		width: 100%;
+		height: 10vh;
+		bottom: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.dashboard-main-cont .sideBar ul {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0;
+		gap: 1rem;
+	}
+	.dashboard-main-cont .sideBar ul:last-of-type {
+		display: none;
+	}
+	.dashboard-main-cont .sideBar ul li p:last-of-type {
+		display: none;
+	}
+}
