@@ -16,7 +16,7 @@ import settingIcon from '../../assets/images/dashboard/svgs/settings.svg';
 const sideBarTopData = [
 	{
 		id: 1,
-		path: 'dashboard/',
+		path: '/dashboard',
 		name: 'Dashboard',
 		Icon: <RiDashboardLine />,
 	},
@@ -28,13 +28,13 @@ const sideBarTopData = [
 	},
 	{
 		id: 3,
-		path: 'dashboard/',
+		path: '/history',
 		name: 'History',
 		Icon: <AiOutlineHistory />,
 	},
 	{
 		id: 4,
-		path: 'dashboard/',
+		path: '/settings',
 		name: 'Settings',
 		Icon: <IoSettingsOutline />,
 	},

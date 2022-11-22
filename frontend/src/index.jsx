@@ -26,6 +26,7 @@ import reportWebVitals from './reportWebVitals';
 import DashBoard from './pages/Dashboard';
 import Gpt3 from './pages/Gpt-3';
 import Blogs from './pages/Blogs/Index';
+import Settings from './pages/Settings';
 
 const router = createBrowserRouter([
 	{
@@ -137,6 +138,10 @@ const router = createBrowserRouter([
 	{
 		path: '/blogs',
 		element: <Blogs />,
+	},
+		{
+		path: '/settings',
+		element: <Settings />,
 	},
 ]);
 
