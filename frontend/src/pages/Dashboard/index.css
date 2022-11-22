@@ -15,7 +15,10 @@
 }
 .dashboard-main-cont main {
 	padding: 1rem 2rem;
+	overflow-y: scroll;
 }
+
+
 @media screen and (max-width: 700px) {
 	.dashboard-main-cont {
 		display: flex;
