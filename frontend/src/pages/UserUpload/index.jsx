@@ -22,21 +22,9 @@ const Userupload = () => (
 		<div className="dashboard-main-cont">
 			<DashBoardSideBar />
 			<main>
+				<div className='breadcrum text-[#667085] mb-4'>Dashboard &gt; Upload  </div>
 				<div className="upload-main max-w-[900px] mx-auto border p-20">
-					<div className="dropdown flex mb-[70px] items-left p-2">
-						<a href="/" className="flex items-center mr-4">
-							Dashboard
-							<span className="ml-4">
-								{' '}
-								<i>
-									<FaGreaterThan />
-								</i>
-							</span>
-						</a>
-						<a href="/" className="font-bold">
-							Upload
-						</a>
-					</div>
+					
 					<h1 className="text-center mx-auto text-5xl mb-10">
 						Upload Account Statement
 					</h1>
