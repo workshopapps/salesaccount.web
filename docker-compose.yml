@@ -11,6 +11,7 @@ services:
   backend:
     image: celnet1/salesaccount-be:latest
     container_name: backend
+    restart: always
     environment:
       DB_HOST: db
       DB_PORT: 5432
