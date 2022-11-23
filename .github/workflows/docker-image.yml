@@ -1,0 +1,57 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "dev", "main" ]
+#   pull_request:
+#     branches: [ "dev" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USER }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Build and push Frontend image
+        uses: docker/build-push-action@v3
+        with:
+          context: ./frontend
+          push: true
+          tags: celnet1/salesaccount-fe:latest
+      -
+        name: Build and push backend image
+        uses: docker/build-push-action@v3
+        with:
+          context: ./Backend
+          push: true
+          tags: celnet1/salesaccount-be:latest
+      -
+        name: Build and push nginx image
+        uses: docker/build-push-action@v3
+        with:
+          context: ./nginx
+          push: true
+          tags: celnet1/salesaccount-nginx:latest
+
+          
+

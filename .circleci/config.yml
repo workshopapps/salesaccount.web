@@ -21,7 +21,7 @@ jobs:
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
-            - ./frontend/node_modules
+            - ./frontend
       # - run:
       # name: test
       # command: npm test
@@ -32,7 +32,7 @@ workflows:
     jobs:
       - run_tests
       - docker/publish:
-          image: codak77/cicd
+          image: celnet1/frontendbuild
           dockerfile: dockerfile
           requires:
             - run_tests

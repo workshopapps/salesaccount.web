@@ -1,0 +1,9 @@
+.footer-item:active {
+  color: #1570ef;
+}
+
+@media (min-width: 769px) {
+  .footer {
+    display: none !important;
+  }
+}
