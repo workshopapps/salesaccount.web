@@ -3,17 +3,13 @@ version: '3.9'
 services:
 #Nginx Config
   nginx:
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile
+    image: celnet1/salesaccount-nginx:latest
     ports:
       - "80:80"
   
   #Backend Config
   backend:
-    build:
-      context: ./Backend
-      dockerfile: Dockerfile
+    image: celnet1/salesaccount-be:latest
     container_name: backend
     environment:
       DB_HOST: db
@@ -28,9 +24,7 @@ services:
 
   #frontend
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: celnet1/salesaccount-fe:latest
     container_name: client
     # networks:
     #   - appnet
