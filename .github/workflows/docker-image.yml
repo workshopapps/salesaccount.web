@@ -37,21 +37,21 @@ jobs:
         with:
           context: ./frontend
           push: true
-          tags: salesaccount-fe:$(date +%s)
+          tags: celnet1/salesaccount-fe:latest
       -
         name: Build and push backend image
         uses: docker/build-push-action@v3
         with:
           context: ./Backend
           push: true
-          tags: salesaccount-be:$(date +%s)
+          tags: celnet1/salesaccount-be:latest
       -
         name: Build and push nginx image
         uses: docker/build-push-action@v3
         with:
           context: ./nginx
           push: true
-          tags: salesaccount-nginx:$(date +%s)
+          tags: celnet1/salesaccount-nginx:latest
 
           
 
