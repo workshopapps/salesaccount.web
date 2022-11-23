@@ -52,5 +52,6 @@ jobs:
           context: ./nginx
           push: true
           tags: celnet1/salesaccount-nginx:$(date +%s)
+
           
 
