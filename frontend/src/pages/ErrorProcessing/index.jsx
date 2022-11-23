@@ -14,7 +14,8 @@ const styles = {
     status: "Processing...",
     statusHeader: "Maching data...",
     statusMessage: "imbalancing (s) found so far",
-    numberOfimbalance: 0
+    numberOfimbalance: 0,
+	stateParagraph: "Our system is currently reconciling your records and will alert you of any errors. Please be patient. "
  }
 
 const ErrorProcessing = () => (
@@ -25,7 +26,7 @@ const ErrorProcessing = () => (
 				<main className=''>
 					<div className='breadcrum text-[#667085] mb-4'>Dashboard &gt; Upload  </div>
                     <h1 className='font-bold text-2xl'>{processData.status}</h1>
-                    <p className='text-[#667085] pb-2'>Our system is currently reconciling your records and will alert you of any errors. Please be patient. </p>
+                    <p className='text-[#667085] pb-2'>{processData.stateParagraph}</p>
                     <div className="center">
                          <div className='process-card p-10 mt-2'>
                         <h1 className='font-bold text-base'>{processData.statusHeader}</h1>

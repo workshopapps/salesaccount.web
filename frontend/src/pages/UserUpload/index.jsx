@@ -16,6 +16,14 @@ const styles = {
 	dasboardwidth: '150px',
 };
 
+ const processData = {
+    status: "Upload Account Statement",
+    statusHeader: "",
+    statusMessage: "",
+    numberOfimbalance: 0,
+	stateParagraph: "Drop your account Statement here "
+ }
+
 const Userupload = () => (
 	<>
 		<DashBoardHeader />
@@ -25,20 +33,20 @@ const Userupload = () => (
 				<div className='breadcrum text-[#667085] mb-4'>Dashboard &gt; Upload  </div>
 				<div className="upload-main max-w-[900px] mx-auto border p-20">
 					
-					<h1 className="text-center mx-auto text-5xl mb-10">
-						Upload Account Statement
-					</h1>
-					<div className="file-card border-dashed border-4 border-gray-200 rounded  md:w-full max-w-[900px] h-60 text-center ml-auto mr-10 p-10">
-						<p className="main text-center mb-4 text-3xl mt-12 overflow-hidden">
-							Drop your account Statement here
-						</p>
-						<br />
-						<p className="info text-center overflow-hidden">
-							You can upload PDF and word DOC files only
-						</p>
-					</div>
+					<h1 className='font-bold text-2xl'>{processData.status}</h1>
+                    <p className='text-[#667085] pb-2'>{processData.processData} </p>
+					<div className="center">
+                         <div className='process-card p-10 mt-2'>
+                        <h1 className='font-bold text-base'>{processData.statusHeader}</h1>
+                        <p className=''><span className='numberOfErrors'>{processData.numberOfimbalance}</span>{processData.statusMessage}</p>
+						
+						<div className ="w-full bg-gray-200 rounded-full h-5 mt-2 dark:bg-gray-700">
+						<div className ="bg-blue-600 h-5 rounded-full w-10" > </div>
+						</div>
+	</div>
+                    </div>
 					<div className="file-inputs container mx">
-						{/* <input type="" value={} /> */}
+
 
 						<a
 							href="/processingerror"
