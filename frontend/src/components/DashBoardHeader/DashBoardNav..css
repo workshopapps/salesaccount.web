@@ -1,0 +1,16 @@
+.icons {
+	border: 1px solid white;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.navbar-search input {
+	border: none;
+	outline: none;
+	color: #59657c;
+	padding: 0.2em 1em;
+}
+.navbar-search input:active,
+.navbar-search input:focus {
+	background-color: rgba(255, 255, 255, 0.9);
+}

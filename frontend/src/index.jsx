@@ -26,8 +26,11 @@ import reportWebVitals from './reportWebVitals';
 import DashBoard from './pages/Dashboard';
 import Gpt3 from './pages/Gpt-3';
 import Blogs from './pages/Blogs/Index';
-import Settings from './pages/Settings';
-import ErrorProcessing from './pages/ErrorProcessing';
+// import ImportData from './pages/Dashboard/ImportData/Hero/ImportData';
+import {
+	Upload,
+	UploadReady,
+} from './pages/Dashboard/DashboardMain/UploadFile/Upload';
 
 const router = createBrowserRouter([
 	{
@@ -39,10 +42,11 @@ const router = createBrowserRouter([
 	// 	path: '/aboutus',
 	// 	element: <AboutUs />,
 	// },
-	{
-		path: '/dashboard',
-		element: <DashBoard />,
-	},
+	// {
+	// 	path: '/aboutus',
+	// 	element: <AboutUs />,
+	// },
+
 	{
 		path: '/accountbalancereport',
 		element: <AccountBalanceReport />,
@@ -66,6 +70,20 @@ const router = createBrowserRouter([
 	{
 		path: '/contact',
 		element: <ContactUs />,
+	},
+	{
+		path: '/Dashboard',
+		element: <DashBoard />,
+		children: [
+			{
+				path: '/Dashboard/upload',
+				element: <Upload />,
+			},
+			{
+				path: '/Dashboard/uploadready',
+				element: <UploadReady />,
+			},
+		],
 	},
 
 	{
@@ -140,14 +158,14 @@ const router = createBrowserRouter([
 		path: '/blogs',
 		element: <Blogs />,
 	},
-	{
-		path: '/settings',
-		element: <Settings />,
-	},
-	{
-		path: '/processingerror',
-		element: <ErrorProcessing />,
-	},
+	// {
+	// 	path: '/settings',
+	// 	element: <Settings />,
+	// },
+	// {
+	// 	path: '/processingerror',
+	// 	element: <ErrorProcessing />,
+	// },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
