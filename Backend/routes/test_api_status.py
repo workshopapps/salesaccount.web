@@ -1,12 +1,14 @@
+#!/usr/bin/python3
+""" TEST FOR API STATUS """
 from fastapi.testclient import TestClient
-from .get_landing_page import router
+from .api_status import router
 
 
 client = TestClient(router)
 
 
-def test_landing_page():
-    """ Tests the landing page """
+def test_api_status():
+    """ Tests the API status """
     response = client.get("/")
     assert response.status_code == 200
     assert response.json() == {"message": "Connection Successful"}
