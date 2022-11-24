@@ -5,11 +5,11 @@ from sqlalchemy.sql.sqltypes import TIMESTAMP
 from config.db import Base
 
 class Account_file(Base):
-     __tablename__ = "account_file"
+    __tablename__ = "account_file"
 
-     id = Column(Integer, primary_key=True, index=True)
-     account_statement_url = Column(String(255), nullable = False)
-     created_at = Column(TIMESTAMP(timezone= True), nullable = False, server_default = text ('now()'))
+    id = Column(Integer, primary_key=True, index=True)
+    account_statement_url = Column(String(255), nullable = False)
+    created_at = Column(TIMESTAMP(timezone= True), nullable = False, server_default = text ('now()'))
 
 class Transaction_Statement (Base):
     __tablename__ = 'transaction_statement'
@@ -23,11 +23,11 @@ class Transaction_Statement (Base):
 
 
 class Sales_file(Base):
-     __tablename__ = "sales_file"
+    __tablename__ = "sales_file"
 
-     id = Column(Integer, primary_key=True, index=True)
-     sales_file_url = Column(String(255), nullable = False)
-     created_at = Column(TIMESTAMP(timezone= True), nullable = False, server_default = text ('now()'))
+    id = Column(Integer, primary_key=True, index=True)
+    sales_file_url = Column(String(255), nullable = False)
+    created_at = Column(TIMESTAMP(timezone= True), nullable = False, server_default = text ('now()'))
 
 
 class Sales_Record (Base):
