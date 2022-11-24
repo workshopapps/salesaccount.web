@@ -9,9 +9,9 @@ import Button from '../../components/Button';
 import getInTouch from '../../assets/images/landingPage/landingpage__intouch.png';
 import userImage from '../../assets/images/landingPage/what_our_users_are_saying.png';
 import companyLogo from '../../assets/images/landingPage/landingpage_company_img.png';
-import headerImage from '../../assets/images/landingPage/landingpage__header.png';
+import headerImage from '../../assets/images/landingPage/recon-header-img.png';
 import cuttingImage from '../../assets/images/landingPage/landingpage__cutting.png';
-import mobileDashboard from '../../assets/images/landingPage/mobile_dashboard.png';
+import mobileDashboard from '../../assets/images/landingPage/recon-mobile.png';
 import mobileCompany from '../../assets/images/landingPage/mobile_company.png';
 import iphoneScreen from '../../assets/images/landingPage/landingpage__iphone.png';
 
@@ -185,27 +185,32 @@ function LandingPage() {
 	return (
 		<div>
 			<NavigationBar />
-			<div className="bg-[#EFF8FF] flex flex-col items-center justify-center gap-y-[8px] md:gap-y-[16px] z-40 relative w-full">
-				<div className=" w-[273px] md:w-[573px] xl:w-[1085px] xl:leading-[92px] pt-[50px] ">
-					<h1 className="text-[#101828] text-[28px] md:text-[72px] font-semibold text-center">
-						Lets make account
-						<span className="text-[#1570EF]"> reconciliation</span> easy for you
-					</h1>
-				</div>
-				<div className="w-[273px] xl:w-[850px] pb-[24px]">
-					<p className="text-[#101828] font-normal text-[12px] xl:text-[20px] text-center">
-						Run your business effectively with a simplified solution to
-						reconcile your accounts & sales on a day - to - day basis
-					</p>
-				</div>
+			<div>
+				<div className="bg-[#EFF8FF] block md:flex space-around items-center justify-center gap-y-[8px] md:gap-y-[16px] z-40 relative w-full h-[500px] md:h-[606px] pb-[50px]">
+					<div className=" w-[256px] md:w-[553px] xl:w-[1085px] xl:leading-[58px] pb-[50px] pl-[30px] ">
+						<h1 className="text-[#101828] w-[288px] text-[28px] md:text-[56px] font-semibold text-left md:w-[576px] pt-[15px]">
+							Lets make account
+							<span className="text-[#1570EF]"> reconciliation</span> easier and
+							faster for you!
+						</h1>
+						<p className="xl:leading-[28px] w-[288px] text-[#101828] font-normal text-[12px] xl:text-[20px] text-left md:w-[410px] mb-5">
+							Run your business effectively with a simplified solution to
+							reconcile your accounts & sales on a day-to-day basis
+						</p>
+						<Button title="Try it NOW" path="/" />
+					</div>
 
-				<Button title="Try it NOW" path="/dashboard" />
-				<img
-					src={headerImage}
-					alt="Dashboard"
-					className=" hidden md:flex w-[500px]"
-				/>
-				<img src={mobileDashboard} alt="Dashboard" className=" md:hidden" />
+					<img
+						src={headerImage}
+						alt="Dashboard"
+						className=" hidden md:flex w-[613px] h-[387px]"
+					/>
+					<img
+						src={mobileDashboard}
+						alt="Dashboard"
+						className="absolute left-[30px] md:hidden"
+					/>
+				</div>
 			</div>
 
 			<div className="bg-[#F9FAFB] flex flex-col gap-y-[24px]  md:gap-y-[30px] md:mt-[-160px] md:z-50 md:relative">
@@ -225,8 +230,8 @@ function LandingPage() {
 					/>
 				</div> */}
 
-				<div className="bg-[#175CD3] ">
-					<div className="flex flex-col gap-y-[1px] items-center px-[44px] md:px-0 ">
+				<div className="bg-[#175CD3] md:h-[398px] h-[938px]">
+					<div className="pt-[30px] flex flex-col gap-y-[1px] items-center px-[44px] md:px-0 ">
 						<h2 className="font-semibold text-[#fff] md:text-[36px] text-[20px] text-center">
 							How it works
 						</h2>
@@ -432,11 +437,20 @@ function LandingPage() {
 							Still have questions?
 						</p>
 						<p className="font-normal text-[#667085] text-[10px] md:text-[18px] pb-[24px] text-center px-[44px] md:px-0">
-							Can&apos;t find the answer you&apos;re looking for? Please chat to
-							our friendly team.
+							Can&apos;t find the answer you&apos;re looking for?
 						</p>
 						<Button path="/faqs" title="View more" />
 					</div>
+				</div>
+			</div>
+			<div className="text-center bg-[#F2F4F7] py-[30px] ">
+				<p className="font-semibold text-[20px] md:text-[36px] ">
+					Start your free trial.
+				</p>
+				<p>Join over 4,000 startups already growing with Recon</p>
+				<div className="flex space-x-12 justify-center mt-[20px]">
+					<Button path="/aboutus" title="Learn more" />
+					<Button path="/contact" title="Get in touch" />
 				</div>
 			</div>
 			<Footer />
