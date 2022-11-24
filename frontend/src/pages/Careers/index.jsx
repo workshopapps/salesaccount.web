@@ -245,12 +245,14 @@ const Careers = () => {
             </h1>
           </div>
           <div className="flex flex-row mx-auto md:mb-7 max-w-[300px] sm:max-w-[70%] items-center self-center">
+            
             <input
               type="email"
               className="text-center text-base md:text-xl w-full mx-1 sm:mx-2 px-8 md:px-10 py-1 sm:py-2 border border-solid border-slate-900"
               placeholder="Enter email"
             />
             <Button path="#" title="Subscribe" />
+          
           </div>
         </div>
       </div>
