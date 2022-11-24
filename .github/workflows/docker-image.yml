@@ -87,20 +87,18 @@ jobs:
   #Run Runner
   do-the-job:
     name: Stop and Start Docker Containers
-    needs: build # required to start the main job when the runner is ready
-    runs-on: self-hosted # run the job on the newly created runner
+    needs: build # required to build to finish
+    runs-on: self-hosted # run the job on the AWS EC2
     steps:
-      - name: Change dir
-        cwd:  /home/ubuntu/salesaccount.web
-
-      - name: Change dir
-        run:  pwd
-
       - name: Stop Docker Containers
-        run:  docker compose down
+        run:  |
+          docker compose down
+          working-directory: /home/ubuntu/salesaccount.web
 
       - name: Start Docker Containers
-        run:  docker compose up -d
+        run: |
+          docker compose up -d
+          working-directory: /home/ubuntu/salesaccount.web
 
 
 
