@@ -92,13 +92,15 @@ jobs:
     steps:
       - name: Stop Docker Containers
         run:  |
-          docker compose down
           working-directory: /home/ubuntu/salesaccount.web
+          docker compose down
+          
 
       - name: Start Docker Containers
         run: |
-          docker compose up -d
           working-directory: /home/ubuntu/salesaccount.web
+          docker compose up -d
+          
 
 
 
