@@ -1,4 +1,4 @@
-export const data = [
+const data = [
   {
     name: "James Kirk",
     description: "Ordered 12 Mac Book",
@@ -128,3 +128,5 @@ export const data = [
     Balance: "$12,000",
   },
 ];
+
+export default data;
