@@ -19,18 +19,14 @@ import UploadAccountsStatementReady from './pages/UploadAccountsStatementReady';
 import Userupload from './pages/UserUpload';
 import UploadedAccountStatementReady from './pages/UploadedAccountStatementReady';
 import UpoadingSalesRecord from './pages/UpoadingSalesRecord';
-// import UserUpload from './pages/UserUpload/index';
 import Teams from './pages/Teams';
 import History from './pages/History';
 import reportWebVitals from './reportWebVitals';
 import DashBoard from './pages/Dashboard';
 import Gpt3 from './pages/Gpt-3';
 import Blogs from './pages/Blogs/Index';
-// import ImportData from './pages/Dashboard/ImportData/Hero/ImportData';
-import {
-	Upload,
-	UploadReady,
-} from './pages/Dashboard/DashboardMain/UploadFile/Upload';
+import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
+// import { UserProvider } from './Store/Context';
 
 const router = createBrowserRouter([
 	{
@@ -76,13 +72,13 @@ const router = createBrowserRouter([
 		element: <DashBoard />,
 		children: [
 			{
-				path: '/Dashboard/upload',
-				element: <Upload />,
+				path: '/Dashboard/Home',
+				element: <DashboardMain />,
 			},
-			{
-				path: '/Dashboard/uploadready',
-				element: <UploadReady />,
-			},
+			// {
+			// 	path: '/Dashboard/uploadready',
+			// 	element: <UploadReady />,
+			// },
 		],
 	},
 
