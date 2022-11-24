@@ -91,8 +91,8 @@ jobs:
     runs-on: self-hosted # run the job on the newly created runner
     steps:
       - name: Change dir
-        run: cd ..
-        
+        run: cd /home/ubuntu/salesaccount.web
+
       - name: Stop Docker Containers
         run:  docker compose down
 
