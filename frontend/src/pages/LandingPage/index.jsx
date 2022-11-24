@@ -16,7 +16,6 @@ import mobileCompany from '../../assets/images/landingPage/mobile_company.png';
 import iphoneScreen from '../../assets/images/landingPage/landingpage__iphone.png';
 
 const data = {
-	title: 'Frequently asked questions ',
 	rows: [
 		{
 			id: 1,
@@ -189,8 +188,8 @@ function LandingPage() {
 			<div className="bg-[#EFF8FF] flex flex-col items-center justify-center gap-y-[8px] md:gap-y-[16px] z-40 relative w-full">
 				<div className=" w-[273px] md:w-[573px] xl:w-[1085px] xl:leading-[92px] pt-[50px] ">
 					<h1 className="text-[#101828] text-[28px] md:text-[72px] font-semibold text-center">
-						An easy <span className="text-[#1570EF]">Sales and Accounting</span>{' '}
-						system made for you
+						Lets make account
+						<span className="text-[#1570EF]"> reconciliation</span> easy for you
 					</h1>
 				</div>
 				<div className="w-[273px] xl:w-[850px] pb-[24px]">
@@ -200,7 +199,7 @@ function LandingPage() {
 					</p>
 				</div>
 
-				<Button title="Dashboard" path="/dashboard" />
+				<Button title="Try it NOW" path="/dashboard" />
 				<img
 					src={headerImage}
 					alt="Dashboard"
@@ -210,10 +209,10 @@ function LandingPage() {
 			</div>
 
 			<div className="bg-[#F9FAFB] flex flex-col gap-y-[24px]  md:gap-y-[30px] md:mt-[-160px] md:z-50 md:relative">
-				<h2 className="md:pt-[25px] pt-[20px] font-semibold md:text-[20px] text-[12px] text-[#344054] text-center">
+				{/* <h2 className="md:pt-[25px] pt-[20px] font-semibold md:text-[20px] text-[12px] text-[#344054] text-center">
 					Trusted By 100,000+ companies in 179 countries
-				</h2>
-				<div className="w-full px-[44px] md:px-[110px] md:pt-[26px] pt-[24px] pb-[40px] md:pb-[66px]">
+				</h2> */}
+				{/* <div className="w-full px-[44px] md:px-[110px] md:pt-[26px] pt-[24px] pb-[40px] md:pb-[66px]">
 					<img
 						src={companyLogo}
 						alt="company"
@@ -224,36 +223,38 @@ function LandingPage() {
 						alt="company"
 						className="w-screen md:hidden"
 					/>
-				</div>
+				</div> */}
 
-				<div className="flex flex-col gap-y-[1px] items-center px-[44px] md:px-0">
-					<h1 className="font-semibold text-[#101828] md:text-[36px] text-[20px] text-center">
-						Balance your account in 3 easy steps
-					</h1>
-					<p className="text-[#667085] md:text-[20px] text-[16px] font-normal">
-						Balance your account in 3 Steps
-					</p>
-				</div>
-				<div className="flex flex-col xl:flex-row gap-[10px] xl:gap-[120px] px-[44px] md:px-[110px] pb-[34px] md:pb-[68px]">
-					{trustedByFeaturesData.map((item) => (
-						<div className="flex flex-col items-center w-full ">
-							<h3 className="text-[#101828] font-bold text-[56px] md:text-[80px]">
-								{item.number}
-							</h3>
-							<h3 className="text-[#101828] font-semibold text-center text-[16px] md:text-[20px]">
-								{item.title}
-							</h3>
-							<div className="w-[300px] text-center">
-								<p className="text-[#667085] font-normal text-[14px] md:text-[16px] ">
-									{item.content}
-								</p>
+				<div className="bg-[#175CD3] ">
+					<div className="flex flex-col gap-y-[1px] items-center px-[44px] md:px-0 ">
+						<h2 className="font-semibold text-[#fff] md:text-[36px] text-[20px] text-center">
+							How it works
+						</h2>
+						<p className="text-[#fff] md:text-[20px] text-[16px] font-normal">
+							Balance your account in 3 Steps
+						</p>
+					</div>
+					<div className="flex flex-col xl:flex-row gap-[10px] xl:gap-[120px] px-[44px] md:px-[110px] pb-[34px] md:pb-[68px]">
+						{trustedByFeaturesData.map((item) => (
+							<div className="flex flex-col items-center w-full ">
+								<h3 className="text-[#fff] font-bold text-[56px] md:text-[80px]">
+									{item.number}
+								</h3>
+								<h3 className="text-[#fff] font-semibold text-center text-[16px] md:text-[20px]">
+									{item.title}
+								</h3>
+								<div className="w-[300px] text-center">
+									<p className="text-[#fff] font-normal text-[14px] md:text-[16px] ">
+										{item.content}
+									</p>
+								</div>
 							</div>
-						</div>
-					))}
+						))}
+					</div>
 				</div>
 			</div>
 
-			<div className="bg-[#F9FAFB]">
+			{/* <div className="bg-[#F9FAFB]">
 				<div className="pt-[48px] text-center">
 					<h1 className="text-[#101828] font-semibold text-[28px] md:text-[36px]">
 						Pick Your Plan
@@ -297,9 +298,9 @@ function LandingPage() {
 						</div>
 					))}
 				</div>
-			</div>
+			</div> */}
 
-			<div className="bg-[#EFF8FF] flex flex-col items-center px-[44px] xl:px-0">
+			{/* <div className="bg-[#EFF8FF] flex flex-col items-center px-[44px] xl:px-0">
 				<h2 className="text-[#101828] md:pt-[108px] text-center font-medium md:font-semibold text-[24px] xl:text-[36px]">
 					Cutting-edge features for advanced analytics
 				</h2>
@@ -319,11 +320,11 @@ function LandingPage() {
 					alt="Dashboard"
 					className="md:hidden pb-[48px]"
 				/>
-			</div>
+			</div> */}
 
 			<div className=" bg-[#F9FAFB] relative mt-[-200px] md:mt-0">
 				<h1 className="text-[#101828] font-semibold text-center text-[28px] md:text-[36px] pt-[24px] md:pt-[48px] px-[44px] md:px-0">
-					What Account Pal Does for You
+					Why Choose Recon?
 				</h1>
 				<p className="text-[#667085] font-normal text-center text-[12px] md:text-[20px] pt-0 md:pt-[8px] pb-[24px]">
 					Important Features
@@ -342,7 +343,7 @@ function LandingPage() {
 				</div>
 			</div>
 
-			<div className="bg-[#F2F4F7] hidden md:flex flex-col">
+			{/* <div className="bg-[#F2F4F7] hidden md:flex flex-col">
 				<h1 className="text-[#101828] font-semibold text-center md:text-[24px] xl:text-[36px] pt-[48px]">
 					Important Features
 				</h1>
@@ -362,9 +363,9 @@ function LandingPage() {
 						</div>
 					))}
 				</div>
-			</div>
+			</div> */}
 
-			<div className="bg-[#F9FAFB] flex flex-col items-center">
+			{/* <div className="bg-[#F9FAFB] flex flex-col items-center">
 				<h1 className="text-[#101828] font-semibold text-[24px] md:text-[36px] text-center pb-[24px] md:pb-[32px] pt-[48px]">
 					What our users are saying
 				</h1>
@@ -390,9 +391,9 @@ function LandingPage() {
 					alt="What our users are saying"
 					className=" md:hidden object-contain py-[24px] px-[44px]"
 				/>
-			</div>
+			</div> */}
 
-			<div className="bg-[#F2F4F7]">
+			{/* <div className="bg-[#F2F4F7]">
 				<div className="md:py-[84px] py-[24px]  flex flex-col items-center">
 					<h2 className="text-[#101828] font-semibold text-center text-[24px] md:text-[36px]">
 						Start your free trials
@@ -405,10 +406,18 @@ function LandingPage() {
 						<Button path="/aboutus" title="Get in touch" />
 					</div>
 				</div>
-			</div>
+			</div> */}
 
 			<div className="bg-[#F9FAFB] md:py-[84px] py-[48px]">
 				<div className="xl:px-[336px]  px-[44px]">
+					<div className="leading-[20px]">
+						<h2 className="font-semibold text-3xl text-center">
+							Frequently Asked Questions
+						</h2>
+						<p className="text-[#667085] text-center">
+							Everything you need to know about the product and billing
+						</p>
+					</div>
 					<Faq data={data} styles={styles} config={config} />
 				</div>
 
@@ -426,7 +435,7 @@ function LandingPage() {
 							Can&apos;t find the answer you&apos;re looking for? Please chat to
 							our friendly team.
 						</p>
-						<Button path="/aboutus" title="Get in touch" />
+						<Button path="/faqs" title="View more" />
 					</div>
 				</div>
 			</div>
