@@ -15,24 +15,24 @@ export const UserProvider = ({ children }) => {
 	const [fileState, setFileState] = useState(false);
 
 
-	const getData = async () => {
-		useEffect(() => {
-			const formData = new FormData();
-			formData.append("file", files);
-
-			axios
-				.post(url1, formData, {
-					headers: {
-						"Content-Type": "multipart/form-data",
-					},
-				})
-				.then((res) => console.log(res?.data))
-				.catch((e) => console.log(e));
-
-		}, [])
-
-		
-	}
+// 	const getData = async () => {
+// 		useEffect(() => {
+// 			const formData = new FormData();
+// 			formData.append("file", files);
+// 
+// 			axios
+// 				.post(url1, formData, {
+// 					headers: {
+// 						"Content-Type": "multipart/form-data",
+// 					},
+// 				})
+// 				.then((res) => console.log(res?.data))
+// 				.catch((e) => console.log(e));
+// 
+// 		}, [])
+// 
+// 		
+// 	}
 
 
 
@@ -44,6 +44,7 @@ export const UserProvider = ({ children }) => {
 	const dropHandler = (e) => {
 		e.preventDefault();
 		setFiles(e.dataTransfer?.files);
+		// getData();
 		setFileState(true);
 	};
 
@@ -68,7 +69,7 @@ export const UserProvider = ({ children }) => {
 			setFiles2,
 			dropHandlerFile2,
 			dragHandlerFile2,
-			getData
+			// getData
 		}),
 		[files]
 	);
