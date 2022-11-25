@@ -6,6 +6,9 @@ import { useAuth } from '../../../../Store/Context';
 function Upload() {
 	const { dragHandler, dropHandler, setFiles } = useAuth();
 	const inputRef = useRef();
+	// const {  } = useAuth();
+
+	
 
 	return (
 		<div className="space-y-[1em] w-full mt-[20%] lg:mt-[10%] flex flex-col items-center  ">
