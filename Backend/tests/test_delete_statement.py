@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from .delete_documents import router
+from routes.delete_documents import router
 
 client = TestClient(router)
 

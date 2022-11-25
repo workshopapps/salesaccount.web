@@ -17,7 +17,7 @@ import NavigationBar from '../../components/NavigationBar';
 const AboutUs = () => (
 	<div>
 		<NavigationBar />
-		<section className="px-6 md:mb-[90px] md:px-[120px] ">
+		<section className="px-6 md:mb-[90px] md:px-[120px] pt-9  ">
 			<div className="flex flex-col gap-x-[130px]  items-center mb-[70px] md:mt-[110px] md:mb-0 md:flex-row">
 				<div className="">
 					<h1 className="text-[#194185] mb-3 font-semibold text-center md:font-bold md:text-5xl md:text-left  md:mb-5">
@@ -46,7 +46,7 @@ const AboutUs = () => (
 			</div>
 			<button
 				type="button"
-				className="w-[118px] h-[44px] mb-12 bg-[#2E90FA] rounded-lg font-semibold text-white md:hidden"
+				className="w-[118px] h-[44px] mb-12 ml-24 bg-[#2E90FA] rounded-lg font-semibold text-white md:hidden"
 			>
 				Try it Free
 			</button>
@@ -171,53 +171,53 @@ const AboutUs = () => (
 				<div className="flex gap-x-16 md:gap-x-[104px]">
 					<div className="flex flex-col items-center ">
 						<img className="mb-4" src={Adeleke} alt="Adeleke" />
-						<h5 className="font-semibold text-sm text-[#101828]">
+						<h5 className="font-semibold text-xs text-[#101828]">
 							Adeleke Mauteen
 						</h5>
-						<h6 className="text-[#2E90FA] text-xs font-medium">
-							PRODUCT DESIGNER
+						<h6 className="text-[#2E90FA] text-[15px] text-center font-medium">
+							PROJECT MANAGER
 						</h6>
 					</div>
 					<div className="flex flex-col items-center ">
 						<img className="mb-4" src={Dolapo} alt="Dolapo" />
-						<h5 className="font-semibold text-sm text-[#101828]">
+						<h5 className="font-semibold text-xs text-[#101828]">
 							Adedolapo Opawale
 						</h5>
-						<h6 className="text-[#2E90FA] text-xs font-medium">
-							PRODUCT DESIGNER
+						<h6 className="text-[#2E90FA] text-[15px] text-center font-medium">
+							PROJECT TEAM LEAD
 						</h6>
 					</div>
 				</div>
 				<div className="flex gap-x-16 md:gap-x-[104px]">
 					<div className="flex flex-col items-center ">
 						<img className="mb-4" src={Michael} alt="Micheal Babajide" />
-						<h5 className="font-semibold text-sm text-[#101828]">
+						<h5 className="font-semibold text-xs text-[#101828]">
 							Micheal Babajide
 						</h5>
-						<h6 className="text-[#2E90FA] text-xs font-medium">
+						<h6 className="text-[#2E90FA] text-[15px] text-center font-medium">
 							PRODUCT DESIGNER
 						</h6>
 					</div>
 					<div className="flex flex-col items-center ">
 						<img className="mb-4" src={Olanike} alt="Olanike Margaret" />
-						<h5 className="font-semibold text-sm text-[#101828]">
+						<h5 className="font-semibold text-xs text-[#101828]">
 							Olanike Margaret
 						</h5>
-						<h6 className="text-[#2E90FA] text-xs font-medium">
-							PRODUCT DESIGNER
+						<h6 className="text-[#2E90FA] text-[15px] text-center font-medium">
+							MARKETING MANAGER
 						</h6>
 					</div>
 				</div>
 			</div>
 			<button
 				type="button"
-				className="bg-[#2E90FA] mx-auto shadow-[0px_1px_2px_rgba(16,_24,_40,_0.05)] rounded-lg px-[18px] py-[10px] text-white whitespace-nowrap w-[121px] h-[44px] md:w-[128px] md:h-[60px] md:px-7 md:py-4 md:text-lg"
+				className="bg-[#2E90FA] mx-auto shadow-[0px_1px_2px_rgba(16,_24,_40,_0.05)] rounded-lg px-[18px] py-[10px] text-white whitespace-nowrap w-[121px] h-[44px] md:w-[150px] md:h-[60px] md:px-7 md:py-4 md:text-lg md:text-center"
 			>
 				View more
 			</button>
 		</section>
 		<section className=" w-full pb-7 flex flex-col justify-center items-center px-6 text-center md:bg-[#D1E9FF] md:pt-8 md:pb-7">
-			<h2 className="text-[#194185] text-xl font-semibold mb-3 md:font-black md:mb-[20px] md:text-5xl">
+			<h2 className="text-[#194185] text-xl font-semibold mt-5 mb-3 md:font-black md:mb-[20px] md:text-5xl">
 				Our Work Environment
 			</h2>
 			<p className="text-[#1D2939] mb-6 text-sm md:mb-3 md:w-[700px] md:text-xl ">
@@ -227,7 +227,7 @@ const AboutUs = () => (
 			</p>
 			<button
 				type="button"
-				className="bg-white rounded-lg border border-[#D0D5DD] shadow-[0px_1px_2px_rgba(16,_24,_40,_0.05)] text-[#344054] w-[96px] h-[44px] flex  items-center justify-center md:text-lg md:w-[164px] md:h-[60px]"
+				className="bg-white rounded-lg border border-[#D0D5DD] hover:bg-[#2E90FA] mb-7 shadow-[0px_1px_2px_rgba(16,_24,_40,_0.05)] text-[#344054] w-[128px] h-[44px] flex  items-center justify-center md:text-lg md:w-[164px] md:h-[60px]"
 			>
 				Join us now
 			</button>
@@ -305,20 +305,20 @@ const AboutUs = () => (
 				<h5 className="text-[#194185] font-semibold text-xl md:mb-[20px] md:text-5xl">
 					Begin that journey with us!!!
 				</h5>
-				<p className="text-[#1D2939] text-sm md:text-xl">
+				<p className="text-[#1D2939] mb-5 text-sm md:text-xl">
 					Join us today so as to make a difference in your own career.
 				</p>
 			</div>
 			<div className=" flex gap-x-[52px]">
 				<button
 					type="button"
-					className="bg-[#2E90FA] text-center rounded-lg px-[18px] py-[10px] font-semibold"
+					className="bg-[#2E90FA] h-[44px] text-[14px] w-[128px] text-center rounded-lg px-[18px] py-[10px] font-semibold hover:"
 				>
 					Join us now
 				</button>
 				<button
 					type="button"
-					className="bg-white shadow-[0px_1px_2px_rgba(16,_24,_40,_0.05)] text-[#344054] rounded-lg px-[18px] py-[10px]"
+					className="bg-white h-[44px] text-[13px] w-[130px] font-semibold text-center shadow-[0px_1px_2px_rgba(16,_24,_40,_0.05)] text-[#344054] rounded-lg px-[18px] py-[10px] hover:bg-[#2E90FA]"
 				>
 					Find out more
 				</button>
