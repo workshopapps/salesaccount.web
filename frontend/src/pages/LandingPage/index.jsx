@@ -186,14 +186,14 @@ function LandingPage() {
 		<div>
 			<NavigationBar />
 			<div>
-				<div className="bg-[#EFF8FF] block md:flex space-around items-center justify-center gap-y-[8px] md:gap-y-[16px] z-40 relative w-full h-[500px] md:h-[606px] pb-[50px]">
-					<div className=" w-[256px] md:w-[553px] xl:w-[1085px] xl:leading-[58px] pb-[50px] pl-[30px] ">
-						<h1 className="text-[#101828] w-[288px] text-[28px] md:text-[56px] font-semibold text-left md:w-[576px] pt-[15px]">
+				<div className="bg-[#EFF8FF] block md:flex space-around items-center justify-center gap-y-[8px] md:gap-y-[16px] md:pl-[0px] z-40 relative w-full h-[500px] md:h-[606px] pb-[50px] md:space-x-20 lg:space-x-5">
+					<div className="w-[256px] lg:w-[553px] xl:w-[1085px]  xl:leading-[58px] pb-[50px] pl-[30px]">
+						<h1 className="text-[#101828] w-[288px] md:w-[276px] md:text-[35px] md:leading-[40px] lg:w-[600px] text-[28px] sm:text-[56px] font-semibold text-left  pt-[15px]">
 							Lets make account
 							<span className="text-[#1570EF]"> reconciliation</span> easier and
 							faster for you!
 						</h1>
-						<p className="xl:leading-[28px] w-[288px] text-[#101828] font-normal text-[12px] xl:text-[20px] text-left md:w-[410px] mb-5">
+						<p className="xl:leading-[28px] w-[288px] md:w-[300px] lg:w-[410px] text-[#101828] font-normal text-[12px] xl:text-[20px] text-left  mb-5 ">
 							Run your business effectively with a simplified solution to
 							reconcile your accounts & sales on a day-to-day basis
 						</p>
@@ -203,12 +203,12 @@ function LandingPage() {
 					<img
 						src={headerImage}
 						alt="Dashboard"
-						className=" hidden md:flex w-[613px] h-[387px]"
+						className=" hidden md:flex md:w-[390px] lg:w-[613px] md:h-[250px] lg:h-[387px]"
 					/>
 					<img
 						src={mobileDashboard}
 						alt="Dashboard"
-						className="absolute ml-[30px] mr-[30px] md:hidden"
+						className="absolute ml-[55px]  md:hidden"
 					/>
 				</div>
 			</div>
@@ -230,7 +230,7 @@ function LandingPage() {
 					/>
 				</div> */}
 
-				<div className="bg-[#175CD3] md:h-[398px] h-[938px]">
+				<div className="bg-[#175CD3] h-[938px] md:h-[938px] lg:h-[398px]">
 					<div className="pt-[30px] flex flex-col gap-y-[1px] items-center px-[44px] md:px-0 ">
 						<h2 className="font-semibold text-[#fff] md:text-[36px] text-[20px] text-center">
 							How it works
