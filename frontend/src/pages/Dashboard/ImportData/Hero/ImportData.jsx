@@ -16,6 +16,7 @@ function ImportData() {
 	const { dropHandlerFile2, dragHandlerFile2, setFiles2, files2 } = useAuth();
 	const inputRef = useRef();
 	const navigate = useNavigate();
+	const { getData } = useAuth();
 
 	// click functions
 	const clickShowDisplayHandler = () =>

@@ -4,14 +4,20 @@ import './upload.css';
 import { useAuth } from '../../../../Store/Context';
 
 function Upload() {
-	const { dragHandler, dropHandler, setFiles } = useAuth();
+	const { dragHandler, dropHandler, setFiles, getData } = useAuth();
 	const inputRef = useRef();
+	// const {  } = useAuth();
+
+	const allhandler = () =>{
+		// getData();
+		dropHandler();
+	}
 
 	return (
 		<div className="space-y-[1em] w-full mt-[20%] lg:mt-[10%] flex flex-col items-center  ">
 			<h1 className="font-bold text-2xl ">Upload Account Statement</h1>
 			<div
-				onDrop={dropHandler}
+				onDrop={allhandler}
 				onDragOver={dragHandler}
 				className="flex flex-col items-center p-[1em] space-y-[2em] w-full md:w-[60%] lg:w-[40%] border border-dashed border-black"
 			>
