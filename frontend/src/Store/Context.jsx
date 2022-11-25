@@ -8,7 +8,8 @@ export const useAuth = () => useContext(UserContext);
 export const UserProvider = ({ children }) => {
 	const [files, setFiles] = useState(null);
 	const [files2, setFiles2] = useState(null);
-	// where file1 = bank statement and file 2 = sales record
+	// where file1 = bank statement
+	// where file 2 = sales record
 
 	const [fileState, setFileState] = useState(false);
 

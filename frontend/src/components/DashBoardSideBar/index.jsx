@@ -1,8 +1,8 @@
 import React from 'react';
 import GridOnIcon from '@mui/icons-material/GridOn';
 import AddIcon from '@mui/icons-material/Add';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
-import SettingsIcon from '@mui/icons-material/Settings';
+// import StarBorderIcon from '@mui/icons-material/StarBorder';
+// import SettingsIcon from '@mui/icons-material/Settings';
 import PersonIcon from '@mui/icons-material/Person';
 import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
 import './DashboardSidebar.css';
@@ -23,7 +23,7 @@ function DashBoardSideBar() {
 					<p>Import Data</p>
 				</div>
 
-				<div className="flex sidenav-nav space-x-1">
+				{/* <div className="flex sidenav-nav space-x-1">
 					<StarBorderIcon sx={{ fontSize: 20 }} />
 					<p> History</p>
 				</div>
@@ -31,7 +31,7 @@ function DashBoardSideBar() {
 				<div className="flex sidenav-nav space-x-1">
 					<SettingsIcon sx={{ fontSize: 20 }} />
 					<p>Settings</p>
-				</div>
+				</div> */}
 			</div>
 
 			<div className="flex flex-col w-[95%] md:gap-6 lg:gap-6">
