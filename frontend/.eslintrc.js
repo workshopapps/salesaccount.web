@@ -11,7 +11,7 @@ module.exports = {
 	},
 	plugins: ['react'],
 	rules: {
-		'react/jsx-filename-extension': [1, { extensions: [".js", ".jsx"] }],
+		'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
 		'react/react-in-jsx-scope': 'off',
 		'jsx-quotes': 'off',
 		'no-unused-vars': 'off',
@@ -21,5 +21,6 @@ module.exports = {
 		'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
 		'react/function-component-definition': 'off',
 		'arrow-body-style': ['error', 'as-needed'],
+		
 	},
 };
