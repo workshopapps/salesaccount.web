@@ -9,14 +9,13 @@ import Button from '../../components/Button';
 import getInTouch from '../../assets/images/landingPage/landingpage__intouch.png';
 import userImage from '../../assets/images/landingPage/what_our_users_are_saying.png';
 import companyLogo from '../../assets/images/landingPage/landingpage_company_img.png';
-import headerImage from '../../assets/images/landingPage/landingpage__header.png';
+import headerImage from '../../assets/images/landingPage/recon-header-img.png';
 import cuttingImage from '../../assets/images/landingPage/landingpage__cutting.png';
-import mobileDashboard from '../../assets/images/landingPage/mobile_dashboard.png';
+import mobileDashboard from '../../assets/images/landingPage/recon-mobile.png';
 import mobileCompany from '../../assets/images/landingPage/mobile_company.png';
 import iphoneScreen from '../../assets/images/landingPage/landingpage__iphone.png';
 
 const data = {
-	title: 'Frequently asked questions ',
 	rows: [
 		{
 			id: 1,
@@ -186,34 +185,39 @@ function LandingPage() {
 	return (
 		<div>
 			<NavigationBar />
-			<div className="bg-[#EFF8FF] flex flex-col items-center justify-center gap-y-[8px] md:gap-y-[16px] z-40 relative w-full">
-				<div className=" w-[273px] md:w-[573px] xl:w-[1085px] xl:leading-[92px] pt-[50px] ">
-					<h1 className="text-[#101828] text-[28px] md:text-[72px] font-semibold text-center">
-						An easy <span className="text-[#1570EF]">Sales and Accounting</span>{' '}
-						system made for you
-					</h1>
-				</div>
-				<div className="w-[273px] xl:w-[850px] pb-[24px]">
-					<p className="text-[#101828] font-normal text-[12px] xl:text-[20px] text-center">
-						Run your business effectively with a simplified solution to
-						reconcile your accounts & sales on a day - to - day basis
-					</p>
-				</div>
+			<div>
+				<div className="bg-[#EFF8FF] block md:flex space-around items-center justify-center gap-y-[8px] md:gap-y-[16px] md:pl-[0px] z-40 relative w-full h-[500px] md:h-[606px] pb-[50px] md:space-x-20 lg:space-x-5">
+					<div className="w-[256px] lg:w-[553px] xl:w-[1085px]  xl:leading-[58px] pb-[50px] pl-[30px]">
+						<h1 className="text-[#101828] w-[288px] md:w-[276px] md:text-[35px] md:leading-[40px] lg:w-[600px] text-[28px] sm:text-[56px] font-semibold text-left  pt-[15px]">
+							Lets make account
+							<span className="text-[#1570EF]"> reconciliation</span> easier and
+							faster for you!
+						</h1>
+						<p className="xl:leading-[28px] w-[288px] md:w-[300px] lg:w-[410px] text-[#101828] font-normal text-[12px] xl:text-[20px] text-left  mb-5 ">
+							Run your business effectively with a simplified solution to
+							reconcile your accounts & sales on a day-to-day basis
+						</p>
+						<Button title="Try it NOW" path="/dashboard/home" />
+					</div>
 
-				<Button title="Dashboard" path="/dashboard" />
-				<img
-					src={headerImage}
-					alt="Dashboard"
-					className=" hidden md:flex w-[500px]"
-				/>
-				<img src={mobileDashboard} alt="Dashboard" className=" md:hidden" />
+					<img
+						src={headerImage}
+						alt="Dashboard"
+						className=" hidden md:flex md:w-[390px] lg:w-[613px] md:h-[250px] lg:h-[387px]"
+					/>
+					<img
+						src={mobileDashboard}
+						alt="Dashboard"
+						className="absolute ml-[55px]  md:hidden"
+					/>
+				</div>
 			</div>
 
 			<div className="bg-[#F9FAFB] flex flex-col gap-y-[24px]  md:gap-y-[30px] md:mt-[-160px] md:z-50 md:relative">
-				<h2 className="md:pt-[25px] pt-[20px] font-semibold md:text-[20px] text-[12px] text-[#344054] text-center">
+				{/* <h2 className="md:pt-[25px] pt-[20px] font-semibold md:text-[20px] text-[12px] text-[#344054] text-center">
 					Trusted By 100,000+ companies in 179 countries
-				</h2>
-				<div className="w-full px-[44px] md:px-[110px] md:pt-[26px] pt-[24px] pb-[40px] md:pb-[66px]">
+				</h2> */}
+				{/* <div className="w-full px-[44px] md:px-[110px] md:pt-[26px] pt-[24px] pb-[40px] md:pb-[66px]">
 					<img
 						src={companyLogo}
 						alt="company"
@@ -224,36 +228,38 @@ function LandingPage() {
 						alt="company"
 						className="w-screen md:hidden"
 					/>
-				</div>
+				</div> */}
 
-				<div className="flex flex-col gap-y-[1px] items-center px-[44px] md:px-0">
-					<h1 className="font-semibold text-[#101828] md:text-[36px] text-[20px] text-center">
-						Balance your account in 3 easy steps
-					</h1>
-					<p className="text-[#667085] md:text-[20px] text-[16px] font-normal">
-						Balance your account in 3 Steps
-					</p>
-				</div>
-				<div className="flex flex-col xl:flex-row gap-[10px] xl:gap-[120px] px-[44px] md:px-[110px] pb-[34px] md:pb-[68px]">
-					{trustedByFeaturesData.map((item) => (
-						<div className="flex flex-col items-center w-full ">
-							<h3 className="text-[#101828] font-bold text-[56px] md:text-[80px]">
-								{item.number}
-							</h3>
-							<h3 className="text-[#101828] font-semibold text-center text-[16px] md:text-[20px]">
-								{item.title}
-							</h3>
-							<div className="w-[300px] text-center">
-								<p className="text-[#667085] font-normal text-[14px] md:text-[16px] ">
-									{item.content}
-								</p>
+				<div className="bg-[#175CD3] h-[938px] md:h-[938px] lg:h-[398px]">
+					<div className="pt-[30px] flex flex-col gap-y-[1px] items-center px-[44px] md:px-0 ">
+						<h2 className="font-semibold text-[#fff] md:text-[36px] text-[20px] text-center">
+							How it works
+						</h2>
+						<p className="text-[#fff] md:text-[20px] text-[16px] font-normal">
+							Balance your account in 3 Steps
+						</p>
+					</div>
+					<div className="flex flex-col xl:flex-row gap-[10px] xl:gap-[120px] px-[44px] md:px-[110px] pb-[34px] md:pb-[68px]">
+						{trustedByFeaturesData.map((item) => (
+							<div className="flex flex-col items-center w-full ">
+								<h3 className="text-[#fff] font-bold text-[56px] md:text-[80px]">
+									{item.number}
+								</h3>
+								<h3 className="text-[#fff] font-semibold text-center text-[16px] md:text-[20px]">
+									{item.title}
+								</h3>
+								<div className="w-[300px] text-center">
+									<p className="text-[#fff] font-normal text-[14px] md:text-[16px] ">
+										{item.content}
+									</p>
+								</div>
 							</div>
-						</div>
-					))}
+						))}
+					</div>
 				</div>
 			</div>
 
-			<div className="bg-[#F9FAFB]">
+			{/* <div className="bg-[#F9FAFB]">
 				<div className="pt-[48px] text-center">
 					<h1 className="text-[#101828] font-semibold text-[28px] md:text-[36px]">
 						Pick Your Plan
@@ -297,9 +303,9 @@ function LandingPage() {
 						</div>
 					))}
 				</div>
-			</div>
+			</div> */}
 
-			<div className="bg-[#EFF8FF] flex flex-col items-center px-[44px] xl:px-0">
+			{/* <div className="bg-[#EFF8FF] flex flex-col items-center px-[44px] xl:px-0">
 				<h2 className="text-[#101828] md:pt-[108px] text-center font-medium md:font-semibold text-[24px] xl:text-[36px]">
 					Cutting-edge features for advanced analytics
 				</h2>
@@ -319,11 +325,11 @@ function LandingPage() {
 					alt="Dashboard"
 					className="md:hidden pb-[48px]"
 				/>
-			</div>
+			</div> */}
 
 			<div className=" bg-[#F9FAFB] relative mt-[-200px] md:mt-0">
 				<h1 className="text-[#101828] font-semibold text-center text-[28px] md:text-[36px] pt-[24px] md:pt-[48px] px-[44px] md:px-0">
-					What Account Pal Does for You
+					Why Choose Recon?
 				</h1>
 				<p className="text-[#667085] font-normal text-center text-[12px] md:text-[20px] pt-0 md:pt-[8px] pb-[24px]">
 					Important Features
@@ -342,7 +348,7 @@ function LandingPage() {
 				</div>
 			</div>
 
-			<div className="bg-[#F2F4F7] hidden md:flex flex-col">
+			{/* <div className="bg-[#F2F4F7] hidden md:flex flex-col">
 				<h1 className="text-[#101828] font-semibold text-center md:text-[24px] xl:text-[36px] pt-[48px]">
 					Important Features
 				</h1>
@@ -362,9 +368,9 @@ function LandingPage() {
 						</div>
 					))}
 				</div>
-			</div>
+			</div> */}
 
-			<div className="bg-[#F9FAFB] flex flex-col items-center">
+			{/* <div className="bg-[#F9FAFB] flex flex-col items-center">
 				<h1 className="text-[#101828] font-semibold text-[24px] md:text-[36px] text-center pb-[24px] md:pb-[32px] pt-[48px]">
 					What our users are saying
 				</h1>
@@ -390,9 +396,9 @@ function LandingPage() {
 					alt="What our users are saying"
 					className=" md:hidden object-contain py-[24px] px-[44px]"
 				/>
-			</div>
+			</div> */}
 
-			<div className="bg-[#F2F4F7]">
+			{/* <div className="bg-[#F2F4F7]">
 				<div className="md:py-[84px] py-[24px]  flex flex-col items-center">
 					<h2 className="text-[#101828] font-semibold text-center text-[24px] md:text-[36px]">
 						Start your free trials
@@ -405,10 +411,18 @@ function LandingPage() {
 						<Button path="/aboutus" title="Get in touch" />
 					</div>
 				</div>
-			</div>
+			</div> */}
 
 			<div className="bg-[#F9FAFB] md:py-[84px] py-[48px]">
 				<div className="xl:px-[336px]  px-[44px]">
+					<div className="leading-[20px]">
+						<h2 className="font-semibold text-3xl text-center">
+							Frequently Asked Questions
+						</h2>
+						<p className="text-[#667085] text-center">
+							Everything you need to know about the product and billing
+						</p>
+					</div>
 					<Faq data={data} styles={styles} config={config} />
 				</div>
 
@@ -423,11 +437,20 @@ function LandingPage() {
 							Still have questions?
 						</p>
 						<p className="font-normal text-[#667085] text-[10px] md:text-[18px] pb-[24px] text-center px-[44px] md:px-0">
-							Can&apos;t find the answer you&apos;re looking for? Please chat to
-							our friendly team.
+							Can&apos;t find the answer you&apos;re looking for?
 						</p>
-						<Button path="/aboutus" title="Get in touch" />
+						<Button path="/faqs" title="View more" />
 					</div>
+				</div>
+			</div>
+			<div className="text-center bg-[#F2F4F7] py-[30px] ">
+				<p className="font-semibold text-[20px] md:text-[36px] ">
+					Start your free trial.
+				</p>
+				<p>Join over 4,000 startups already growing with Recon</p>
+				<div className="flex space-x-12 justify-center mt-[20px]">
+					<Button path="/aboutus" title="Learn more" />
+					<Button path="/contact" title="Get in touch" />
 				</div>
 			</div>
 			<Footer />
