@@ -26,6 +26,7 @@ import reportWebVitals from './reportWebVitals';
 import DashBoard from './pages/Dashboard';
 import Gpt3 from './pages/Gpt-3';
 import Blogs from './pages/Blogs/Index';
+import Privacy from './pages/Privacy'
 // import ImportData from './pages/Dashboard/ImportData/Hero/ImportData';
 import {
 	Upload,
@@ -157,6 +158,10 @@ const router = createBrowserRouter([
 	{
 		path: '/blogs',
 		element: <Blogs />,
+	},
+	{
+		path: '/privacy',
+		element: <Privacy />,
 	},
 	// {
 	// 	path: '/settings',

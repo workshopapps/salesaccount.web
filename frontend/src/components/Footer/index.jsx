@@ -49,6 +49,10 @@ const ProductData = [
 		name: 'Documentation',
 		path: '/documentation',
 	},
+	{
+		name: 'Privacy',
+		path: '/privacy',
+	},
 ];
 
 const Footer = () => (
