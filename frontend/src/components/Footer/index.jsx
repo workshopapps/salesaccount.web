@@ -2,7 +2,7 @@ import React from 'react';
 import { BsTwitter, BsFacebook, BsInstagram } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import uuid from 'react-uuid';
-import logo from '../../assets/images/landingPage/logo.png';
+import logoUpdate from '../../assets/logoUpdate.png';
 
 const aboutUsData = [
 	{
@@ -52,9 +52,9 @@ const ProductData = [
 ];
 
 const Footer = () => (
-	<footer className="bg-[#D1E9FF] w-full flex flex-col md:flex-row justify-between py-[50px] xl:py-[100px] xl:pl-[110px] xl:pr-[307px] px-[44px]">
+	<footer className="bg-[#D1E9FF] w-full flex flex-col md:flex-row justify-between py-[50px] xl:py-[100px] xl:px-[100px] px-[44px]">
 		<div>
-			<img src={logo} alt="Company logo" />
+			<img src={logoUpdate} alt="Company logo" />
 			<div className="pt-[4px] mb-[18px] w-[230px]">
 				<p className="text-[#344054] font-normal text-[16px] xl:text-[20px]">
 					This is a website that can help you balance your sales account

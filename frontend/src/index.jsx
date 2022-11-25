@@ -25,7 +25,8 @@ import reportWebVitals from './reportWebVitals';
 import DashBoard from './pages/Dashboard';
 import Gpt3 from './pages/Gpt-3';
 import Blogs from './pages/Blogs/Index';
-import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
+import DashboardMain from '.import AboutUs from './pages/AboutUs/index';
+/pages/Dashboard/DashboardMain/DashboardMain';
 import Upload from './pages/Dashboard/DashboardMain/UploadFile/Upload';
 import UploadReady from './pages/Dashboard/DashboardMain/UploadReady/UploadReady';
 import ImportData from './pages/Dashboard/ImportData/Hero/ImportData';
@@ -39,14 +40,14 @@ const router = createBrowserRouter([
 		element: <LandingPage />,
 	},
 
-	// {
-	// 	path: '/aboutus',
-	// 	element: <AboutUs />,
-	// },
-	// {
-	// 	path: '/aboutus',
-	// 	element: <AboutUs />,
-	// },
+	{
+		path: '/aboutus',
+		element: <AboutUs />,
+	},
+	{
+		path: '/aboutus',
+		element: <AboutUs />,
+	},
 
 	{
 		path: '/accountbalancereport',

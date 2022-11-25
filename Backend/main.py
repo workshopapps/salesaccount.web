@@ -1,7 +1,11 @@
 from fastapi import FastAPI
+# from config.db import get_db, engine
+# from models import Account_statement
+# from schemas import Account_pal
 from fastapi.middleware.cors import CORSMiddleware
-from routes import get_landing_page, post_account_statement, delete, delete_sales, sales_record,get_transactions
+from routes import api_status, post_documents, delete_documents, reconcile_documents
 
+# Account_statement.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 
@@ -13,9 +17,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(get_landing_page.router)
-app.include_router(get_transactions.router)
-app.include_router(sales_record.router)
-app.include_router(post_account_statement.router)
-app.include_router(delete.router)
-app.include_router(delete_sales.router)
+app.include_router(api_status.router)
+app.include_router(post_documents.router)
+app.include_router(reconcile_documents.router)
+app.include_router(delete_documents.router)
