@@ -21,5 +21,6 @@ module.exports = {
 		'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
 		'react/function-component-definition': 'off',
 		'arrow-body-style': ['error', 'as-needed'],
+		
 	},
 };
