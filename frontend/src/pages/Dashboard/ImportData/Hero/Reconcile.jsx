@@ -9,7 +9,7 @@ import CurrentNav from '../../../../components/DashBoardCurrentNav/DashCurrentNa
 import { useAuth } from '../../../../Store/Context';
 import SalesReport from '../Transactions/SalesReport';
 
-function Hero() {
+function Reconcile() {
 	const [showDisplay, setShowDisplay] = useState(false);
 	const [showSort, setShowSortDisplay] = useState(false);
 	const { dropHandlerFile2, dragHandlerFile2, setFiles2, files2 } = useAuth();
@@ -178,4 +178,4 @@ function Hero() {
 	);
 }
 
-export default Hero;
+export default Reconcile;
