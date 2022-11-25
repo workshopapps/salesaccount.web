@@ -4,7 +4,7 @@ import './upload.css';
 import { useAuth } from '../../../../Store/Context';
 
 function Upload() {
-	const { dragHandler, dropHandler, setFiles } = useAuth;
+	const { dragHandler, dropHandler, setFiles } = useAuth();
 	const inputRef = useRef();
 
 	return (
@@ -37,7 +37,9 @@ function Upload() {
 			/>
 
 			<button
-				onClick={() => inputRef.current.click()}
+				onClick={() => {
+					inputRef.current.click();
+				}}
 				className="bg-[#2E90FA] text-white px-[1.5em] py-[0.8em] rounded-md "
 				type="button"
 			>

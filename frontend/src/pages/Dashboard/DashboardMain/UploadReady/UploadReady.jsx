@@ -5,13 +5,17 @@ import { useAuth } from '../../../../Store/Context';
 import signedDocument from '../../../../assets/images/DashboardImages/upload/signed document.png';
 
 function UploadReady() {
-	const { files } = useAuth;
+	const { files, setFiles } = useAuth();
+	console.log(files);
 
 	const url = `https://dev-kcjp.onrender.com/upload`;
 
 	const getData = async () => {
+		const formData = new FormData();
+		formData.append('file', files);
+
 		axios
-			.post(url, files, {
+			.post(url, formData, {
 				headers: {
 					'Content-Type': 'multipart/form-data',
 				},
@@ -19,10 +23,11 @@ function UploadReady() {
 			.then((res) => console.log(res))
 			.catch((e) => console.log(e));
 	};
+
 	const navigate = useNavigate();
 	const uploadHandler = () => {
 		getData();
-		navigate('/');
+		navigate('/dashboard/importpage');
 	};
 
 	return (
@@ -41,8 +46,14 @@ function UploadReady() {
 					<div className="text-sm text-[#98A2B3]">
 						<p>You are almost set</p>
 						<p>
-							<span className="text-[#53B1FD] ">click here</span> to upload a
-							different file
+							<span
+								className="text-[#53B1FD]"
+								role="presentation"
+								onClick={() => setFiles(null)}
+							>
+								click here
+							</span>{' '}
+							to upload a different file
 						</p>
 					</div>
 				</div>

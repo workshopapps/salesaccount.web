@@ -1,4 +1,4 @@
-:root {
+/* :root {
 	--color-primary-blue: #1570ef;
 	--color-white: #f9fafb;
 	--color-gray: #98a2b3;
@@ -30,22 +30,22 @@
 		width: 100%;
 		height: 80vh;
 	}
-}
+} */
 
 /* utilities */
 
-.center {
+/* .center {
 	display: grid;
 	place-items: center;
 	width: 100%;
-}
+} */
 
 /*upload process  */
-.numberOfErrors {
+/* .numberOfErrors {
 	color: var(--color-error);
-}
+} */
 
-.process-card {
+/* .process-card {
 	background-color: var(--color-blue-light);
 	display: flex;
 	flex-direction: column;
@@ -59,4 +59,4 @@
 }
 .process-card p {
 	color: var(--color-gray);
-}
+} */
