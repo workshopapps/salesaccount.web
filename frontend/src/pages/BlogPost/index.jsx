@@ -1,5 +1,6 @@
 import React from 'react';
 import BlogPreview from '../../components/BlogPreview';
+import {otherPost} from '../Blogs/fakedata/index';
 import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
 
@@ -206,15 +207,21 @@ function BlogPost() {
 				<div className="px-8 max-w-7xl w-full  mx-auto max-[375px]:px-4">
 					<div>
 						<div className="flex flex-row flex-wrap gap-8 w-full justify-center items-center">
-							<div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
-								<BlogPreview />
-							</div>
-							<div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
-								<BlogPreview />
-							</div>
-							<div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
-								<BlogPreview />
-							</div>
+						{otherPost.map((blogs) => (
+									<div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full" 	>
+										<BlogPreview
+										    key={blogs?.id}
+											slug={blogs?.slug}
+											title={blogs?.title}
+											category={blogs?.category}
+											highlight={blogs?.higlight}
+											author={blogs?.author}
+											dateCreated={blogs?.dateCreated}
+											thumbnail={blogs?.thumbnail}
+											avatarImage={blogs?.avatarImage}
+										/>
+									</div>
+								))}
 						</div>
 					</div>
 				</div>
