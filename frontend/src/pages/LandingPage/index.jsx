@@ -188,7 +188,7 @@ function LandingPage() {
 			<div>
 				<div className="bg-[#EFF8FF] block md:flex space-around items-center justify-center gap-y-[8px] md:gap-y-[16px] md:pl-[0px] z-40 relative w-full h-[500px] md:h-[606px] pb-[50px] md:space-x-20 lg:space-x-5">
 					<div className="w-[256px] lg:w-[553px] xl:w-[1085px]  xl:leading-[58px] pb-[50px] pl-[30px]">
-						<h1 className="text-[#101828] w-[288px] md:w-[276px] md:text-[35px] md:leading-[40px] lg:w-[600px] text-[28px] sm:text-[56px] font-semibold text-left  pt-[15px]">
+						<h1 className="text-[#101828] w-[288px] md:w-[276px] text-[28px] md:text-[35px] lg:text-[56px] md:leading-[40px] lg:leading-[56px] lg:w-[600px] font-semibold text-left  pt-[15px]">
 							Lets make account
 							<span className="text-[#1570EF]"> reconciliation</span> easier and
 							faster for you!
