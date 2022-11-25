@@ -1,5 +1,6 @@
 __pycache__
 venv/
 lenv/
+env/
 pyvenv.cfg
 env

@@ -1,0 +1,5 @@
+Collecting xlrd
+  Downloading xlrd-2.0.1-py2.py3-none-any.whl (96 kB)
+     -------------------------------------- 96.5/96.5 kB 367.2 kB/s eta 0:00:00
+Installing collected packages: xlrd
+Successfully installed xlrd-2.0.1
