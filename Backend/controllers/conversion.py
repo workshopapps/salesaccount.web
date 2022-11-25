@@ -10,9 +10,9 @@ def get_extension(filename):
     return file_extension
 # 
 
-def conversion(filename):
+def file_conversion(filename):
     """ Converts csv file to json """  
-    if filename.ensdwith('.csv'):
+    if filename.endswith('.csv'):
         df = pd.read_csv(filename)
         result = df.to_json(orient='records')
         parsed = json.loads(result)
@@ -28,7 +28,7 @@ def conversion(filename):
         return response
   
 
-    elif filename.endswith('.xlsx'):
+    elif filename.endswith('.xls'):
         """ Converts csv file to json """  
         df = pd.read_excel(filename)
         result = df.to_json(orient='records')
