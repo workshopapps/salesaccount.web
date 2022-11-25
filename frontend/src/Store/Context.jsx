@@ -9,33 +9,29 @@ export const useAuth = () => useContext(UserContext);
 export const UserProvider = ({ children }) => {
 	const [files, setFiles] = useState(null);
 	const [files2, setFiles2] = useState(null);
-	const url1 = 'http://accountpal.hng.tech:8000/upload_statement'
+	const url1 = 'http://accountpal.hng.tech:8000/upload_statement';
 	// where file1 = bank statement and file 2 = sales record
 
 	const [fileState, setFileState] = useState(false);
 
-
-// 	const getData = async () => {
-// 		useEffect(() => {
-// 			const formData = new FormData();
-// 			formData.append("file", files);
-// 
-// 			axios
-// 				.post(url1, formData, {
-// 					headers: {
-// 						"Content-Type": "multipart/form-data",
-// 					},
-// 				})
-// 				.then((res) => console.log(res?.data))
-// 				.catch((e) => console.log(e));
-// 
-// 		}, [])
-// 
-// 		
-// 	}
-
-
-
+	// 	const getData = async () => {
+	// 		useEffect(() => {
+	// 			const formData = new FormData();
+	// 			formData.append("file", files);
+	//
+	// 			axios
+	// 				.post(url1, formData, {
+	// 					headers: {
+	// 						"Content-Type": "multipart/form-data",
+	// 					},
+	// 				})
+	// 				.then((res) => console.log(res?.data))
+	// 				.catch((e) => console.log(e));
+	//
+	// 		}, [])
+	//
+	//
+	// 	}
 
 	const dragHandler = (e) => {
 		e.preventDefault();
@@ -73,8 +69,6 @@ export const UserProvider = ({ children }) => {
 		}),
 		[files]
 	);
-
-
 
 	return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
