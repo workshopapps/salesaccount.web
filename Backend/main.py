@@ -9,6 +9,7 @@ from routes import api_status, post_documents, delete_documents, reconcile_docum
 app = FastAPI()
 
 
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
