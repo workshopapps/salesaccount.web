@@ -208,7 +208,7 @@ function LandingPage() {
 					<img
 						src={mobileDashboard}
 						alt="Dashboard"
-						className="absolute left-[30px] md:hidden"
+						className="absolute ml-[30px] mr-[30px] md:hidden"
 					/>
 				</div>
 			</div>

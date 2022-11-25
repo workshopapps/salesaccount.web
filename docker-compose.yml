@@ -19,7 +19,7 @@ services:
       DB_PASSWORD: mysql
       DB_NAME: Account_Pal
     # ports:
-    #   - "8001:8001"
+    #   - "8000:8000"
     depends_on:
       - mysql_db
 
@@ -30,7 +30,7 @@ services:
     # networks:
     #   - appnet
     # # restart: always
-    # ports:
+    # ports: check default.conf in the nginx folder
     #   - "3000:3000"
 
   # database  
