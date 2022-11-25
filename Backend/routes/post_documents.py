@@ -3,6 +3,7 @@
 from fastapi import FastAPI, File, UploadFile, APIRouter
 import json
 import pandas as pd
+from controllers import conversion
 
 
 router = APIRouter()
@@ -10,13 +11,13 @@ router = APIRouter()
 account_statements = []
 financial_records = []
 
-def csv_to_json(filename):
-    """ Converts csv file to json """  
-    df = pd.read_csv(filename)
-    result = df.to_json(orient='records')
-    parsed = json.loads(result)
-    response = json.dumps(parsed, indent=4)
-    return response
+# def csv_to_json(filename):
+#     """ Converts csv file to json """  
+#     df = pd.read_csv(filename)
+#     result = df.to_json(orient='records')
+#     parsed = json.loads(result)
+#     response = json.dumps(parsed, indent=4)
+#     return response
 
 @router.post("/upload_statement")
 def upload(file: UploadFile = File(...)):
@@ -37,7 +38,7 @@ def upload(file: UploadFile = File(...)):
     finally:
         file.file.close()
     account_statements.append(file.filename)
-    response = csv_to_json(file.filename)
+    response = conversion(file.filename)
     return response
 
 
@@ -60,5 +61,5 @@ def upload(file: UploadFile = File(...)):
     finally:
         file.file.close()
     financial_records.append(file.filename)
-    response = csv_to_json(file.filename)
+    response = conversion(file.filename)
     return response
