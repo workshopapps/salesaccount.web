@@ -32,13 +32,14 @@ def upload(file: UploadFile = File(...)):
         contents = file.file.read()
         with open(file.filename, 'wb') as f:
             f.write(contents)
+        account_statements.append(file.filename)
+        response = csv_to_json(file.filename)
+        return response
+
     except Exception:
         return {"message": "There was an error uploading the file"}
     finally:
         file.file.close()
-    account_statements.append(file.filename)
-    response = csv_to_json(file.filename)
-    return response
 
 
 @router.post("/upload_record", status_code=200)
