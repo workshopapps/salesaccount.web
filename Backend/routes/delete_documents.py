@@ -6,7 +6,7 @@ from .post_documents import account_statements, financial_records
 
 router = APIRouter()
 
-@router.delete("/delete_statement/{filename}")
+@router.delete("/delete_statement/{filename}", status_code=204)
 def delete(filename: str):
     """ Deletes the account statement from the database """
     try:
@@ -16,7 +16,7 @@ def delete(filename: str):
         return {"message": f"There was an error deleting {filename}"}
 
 
-@router.delete("/delete_record/{filename}")
+@router.delete("/delete_record/{filename}", status_code=204)
 def delete(filename: str):
     """ Deletes the financial records from the database """
     try:

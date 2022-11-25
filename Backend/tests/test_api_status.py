@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """ TEST FOR API STATUS """
 from fastapi.testclient import TestClient
-from .api_status import router
-
+from ..routes.api_status import router
 
 client = TestClient(router)
 

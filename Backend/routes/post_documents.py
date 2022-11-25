@@ -18,7 +18,7 @@ def csv_to_json(filename):
     response = json.dumps(parsed, indent=4)
     return response
 
-@router.post("/upload_statement")
+@router.post("/upload_statement", status_code=200)
 def upload(file: UploadFile = File(...)):
     """ Uploads account statement to database 
     
@@ -41,7 +41,7 @@ def upload(file: UploadFile = File(...)):
     return response
 
 
-@router.post("/upload_record")
+@router.post("/upload_record", status_code=200)
 def upload(file: UploadFile = File(...)):
     """ Uploads account statement to database 
     

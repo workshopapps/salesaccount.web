@@ -1,24 +1,23 @@
 #!/usr/bin/python3
 """ TEST FOR POST METHOD FOR DOCUMENTS """
+from fastapi import UploadFile
 from fastapi.testclient import TestClient
-from routes.post_documents import router
+from ..routes.post_documents import router
 
 client = TestClient(router)
 
 
-def test_upload_file_success():
+def test_upload_file_success(file: UploadFile):
     """ Tests a successsful file upload """
     url = 'http://127.0.0.1:8000/upload_statement'
-    file = {'file': open('dummy_account_statement.csv', 'rb')}
+    # file = open(__file__, 'r')
     response = client.post(url=url, files=file) 
     assert response.status_code == 200
     # assert type(response.json()) == str
 
-# def test_upload_file_failed():
-#     """ Tests a failed file upload """
-#     url = 'http://127.0.0.1:8000/upload_statement'
-#     file = None
-#     try:
-#         response = client.post(url=url, files=file)
-#     except Exception:
-#         assert response.json() == {"message": "There was an error uploading the file"}  
+def test_upload_sales_success(file: UploadFile):
+    url = 'http://127.0.0.1:8000/upload_record'
+    # file = open(__file__, 'r')
+    response = client.post(url=url, files=file)
+    assert response.status_code == 200
+
