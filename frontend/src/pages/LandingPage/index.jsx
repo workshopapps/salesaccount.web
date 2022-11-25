@@ -197,7 +197,7 @@ function LandingPage() {
 							Run your business effectively with a simplified solution to
 							reconcile your accounts & sales on a day-to-day basis
 						</p>
-						<Button title="Try it NOW" path="/" />
+						<Button title="Try it NOW" path="/dashboard/home" />
 					</div>
 
 					<img
