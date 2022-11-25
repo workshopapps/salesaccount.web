@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-// import AboutUs from './pages/AboutUs';
+import AboutUs from './pages/AboutUs';
 import AccountBalanceReport from './pages/AccountBalanceReport';
 import BlogPost from './pages/BlogPost';
 import Careers from './pages/Careers';
@@ -40,14 +40,10 @@ const router = createBrowserRouter([
 		element: <LandingPage />,
 	},
 
-	// {
-	// 	path: '/aboutus',
-	// 	element: <AboutUs />,
-	// },
-	// {
-	// 	path: '/aboutus',
-	// 	element: <AboutUs />,
-	// },
+	{
+		path: '/aboutus',
+		element: <AboutUs />,
+	},
 
 	{
 		path: '/accountbalancereport',
