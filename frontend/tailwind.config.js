@@ -18,6 +18,10 @@ module.exports = {
 			fontFamily: {
 				sans: ['Lexend', 'system-ui'],
 			},
+			backgroundImage: {
+				hero: "url('/src/assets/images/careers-page/hero.png')",
+				ellipse: "url('/src/assets/images/careers-page/ellipse.png')",
+			},
 		},
 	},
 	plugins: [],

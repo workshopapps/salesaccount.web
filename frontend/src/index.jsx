@@ -25,13 +25,14 @@ import reportWebVitals from './reportWebVitals';
 import DashBoard from './pages/Dashboard';
 import Gpt3 from './pages/Gpt-3';
 import Blogs from './pages/Blogs/Index';
-import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
+// import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
 import Upload from './pages/Dashboard/DashboardMain/UploadFile/Upload';
 import UploadReady from './pages/Dashboard/DashboardMain/UploadReady/UploadReady';
 import ImportData from './pages/Dashboard/ImportData/Hero/ImportData';
 import Reconcile from './pages/Dashboard/ImportData/Hero/Reconcile';
 import { UserProvider } from './Store/Context';
 import AccountReport from './pages/Dashboard/AccountReport/AccountReport';
+import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
 
 const router = createBrowserRouter([
 	{
