@@ -1,0 +1,12 @@
+.report-details {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1em;
+  text-align: left;
+}
+
+.sale-report,
+.report-details {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 1em;
+}
