@@ -6,7 +6,7 @@ client = TestClient(router)
 def test_delete_statement_success():
     """ Tests a successful delete """
     url = 'http://127.0.0.1:8000/delete_statement/{filename}'
-    file = open(__file__, 'r+')
+    # file = open(__file__, 'r+')
     response = client.delete(url=url)
     if response.status_code == 204:
         assert {"message": "Successful deletion"}
@@ -16,7 +16,7 @@ def test_delete_statement_success():
 def test_delete_statement_record():
     """ Tests a successful delete """
     url = 'http://127.0.0.1:8000/delete_record/{filename}'
-    file = open(__file__, 'r+')
+    # file = open(__file__, 'r+')
     response = client.delete(url=url)
     if response.status_code == 204:
         assert {"message": "Successful deletion"}
