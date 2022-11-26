@@ -35,10 +35,10 @@ import AccountReport from './pages/Dashboard/AccountReport/AccountReport';
 import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
 import Privacy from './pages/Privacy';
 // import ImportData from './pages/Dashboard/ImportData/Hero/ImportData';
-import {
-	Upload,
-	UploadReady,
-} from './pages/Dashboard/DashboardMain/UploadFile/Upload';
+// import {
+// 	Upload,
+// 	UploadReady,
+// } from './pages/Dashboard/DashboardMain/UploadFile/Upload';
 
 const router = createBrowserRouter([
 	{
