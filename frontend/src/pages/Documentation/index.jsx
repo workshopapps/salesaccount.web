@@ -19,15 +19,13 @@ const Documentation = () =>(<div className=" bg-white text-gray-800">
       <div className="sidebar-content px-4 py-6">
         <h1>General usage</h1>
         <ul className="flex flex-col w-full">
-          <li className="my-px">
-            <span className="flex font-medium text-sm text-gray-300 px-4 my-4 uppercase">Projects</span>
-          </li>
+         
           <li className="my-px">
             <a
               href="/"
               className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700"
             >
-              <span className="ml-3">Manager</span>
+              <span className="ml-3">Intoduction</span>
             </a>
           </li>
                <li className="my-px">
@@ -35,7 +33,7 @@ const Documentation = () =>(<div className=" bg-white text-gray-800">
               href="/"
               className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700"
             >
-              <span className="ml-3">Manager</span>
+              <span className="ml-3">Why Reacon? </span>
             </a>
           </li>
          
@@ -55,23 +53,23 @@ const Documentation = () =>(<div className=" bg-white text-gray-800">
                 ACCOUNT-PAL is a service that uses an AI model and GPT-3 to automatically make the accountant’s job easy and avoid errors. </p>
         </section>
         <section className="mb-11">
-            <h1  className="text-2xl mb-4">Why Accountpal?</h1>
+            <h1  className="text-2xl mb-4">Why Reacon?</h1>
             <p> A web application that makes the day-today balancing of accounts and sales easier, faster and very much reliable is needed in all industries.
                  That is what makes Accountpal a go-to software fo all your account balancing.</p>
             
-            <p>Accountpal uses AI Model and GPT-3, 
+            <p>Reacon uses AI Model and GPT-3, 
                 a very large language model that has proved to be successful in Automated 
                 customer service  knowledge management and natural 
                 language processing.</p>
 
-            <p>At Accountpal, our main target is to make account balancing easier for companies (expecially SME’s and SMBs). 
+            <p>At Reacon, our main target is to make account balancing easier for companies (expecially SME’s and SMBs). 
                 Thats one way we can use technology to make meaninful impac accross the globe.</p>
         
         </section>
         <section className="mb-11">
-            <h1  className="text-2xl mb-4"> How to use Accountpal</h1>
+            <h1  className="text-2xl mb-4"> How to use Reacon</h1>
             <h2 className='text-[#194185] mb-2'>1. Upload Files</h2>
-            <p>One of the hardest things in accounting is to match account statements to sales. ACCOUNT-PAL is a service that uses an AI model and GPT-3 to automatically make the accountant’s job easy and avoid errors. </p>
+            <p>One of the hardest things in accounting is to match account statements to sales. Reacon is a service that uses an AI model and GPT-3 to automatically make the accountant’s job easy and avoid errors. </p>
             
 
             <h2 className='text-[#194185] mb-2'>2. Match Data</h2>
