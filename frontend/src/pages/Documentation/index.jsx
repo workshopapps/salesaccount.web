@@ -1,6 +1,10 @@
 import React from 'react';
 import DocumentationNavBar from '../../components/Documentation components/navBar';
 
+import uploadImage from '../../assets/images/documentation-images/upload account statement 1 1 (1).png';
+import uploaded from '../../assets/images/documentation-images/UPLOADED ACCOUNT SHEET 1.png';
+import ma
+
 const Documentation = () =>(<div className=" bg-white text-gray-800">
         <DocumentationNavBar/>
         <header className="header bg-[#194185] text-[#F9FAFB] shadow py-4 px-4">
@@ -36,6 +40,23 @@ const Documentation = () =>(<div className=" bg-white text-gray-800">
               <span className="ml-3">Why Reacon? </span>
             </a>
           </li>
+
+          <li className="my-px">
+            <a
+              href="/"
+              className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700"
+            >
+              <span className="ml-3">How to use Reacon </span>
+            </a>
+          </li>
+           <li className="my-px">
+            <a
+              href="/"
+              className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700"
+            >
+              <span className="ml-3">How to use Reacon </span>
+            </a>
+          </li>
          
         </ul>
       </div>
@@ -48,12 +69,12 @@ const Documentation = () =>(<div className=" bg-white text-gray-800">
           className="flex flex-col flex-grow   rounded mt-4"
         > 
         <section className="mb-11">
-            <h1  className="text-2xl mb-4" >Introduction</h1>
+            <h1  className=" text-2xl mb-4" >Introduction</h1>
             <p>One of the hardest things in accounting is to match account statements to sales. 
                 ACCOUNT-PAL is a service that uses an AI model and GPT-3 to automatically make the accountant’s job easy and avoid errors. </p>
         </section>
         <section className="mb-11">
-            <h1  className="text-2xl mb-4">Why Reacon?</h1>
+            <h1  className=" text-2xl mb-4">Why Reacon?</h1>
             <p> A web application that makes the day-today balancing of accounts and sales easier, faster and very much reliable is needed in all industries.
                  That is what makes Accountpal a go-to software fo all your account balancing.</p>
             
@@ -67,10 +88,10 @@ const Documentation = () =>(<div className=" bg-white text-gray-800">
         
         </section>
         <section className="mb-11">
-            <h1  className="text-2xl mb-4"> How to use Reacon</h1>
+            <h1  className=" text-2xl mb-4"> How to use Reacon</h1>
             <h2 className='text-[#194185] mb-2'>1. Upload Files</h2>
             <p>One of the hardest things in accounting is to match account statements to sales. Reacon is a service that uses an AI model and GPT-3 to automatically make the accountant’s job easy and avoid errors. </p>
-            
+            <img src="../../assets/images/documentation-images/" alt="" />
 
             <h2 className='text-[#194185] mb-2'>2. Match Data</h2>
             <h2 className='text-[#194185] mb-2'>3. Match Data Result</h2>
