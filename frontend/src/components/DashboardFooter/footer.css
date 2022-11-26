@@ -1,9 +1,13 @@
 .footer-item:active {
-  color: #1570ef;
+	color: #1570ef;
+}
+footer {
+	padding: 0.8em 1.5em;
+	font-size: 0.8em;
 }
 
 @media (min-width: 769px) {
-  .footer {
-    display: none !important;
-  }
+	.footer {
+		display: none !important;
+	}
 }

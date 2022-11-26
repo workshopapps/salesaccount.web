@@ -3,11 +3,13 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import './Hero.css';
 import '../Transactions/User/user.css';
 import FilterListIcon from '@mui/icons-material/FilterList';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import Transactions from '../Transactions/Transactions';
 import CurrentNav from '../../../../components/DashBoardCurrentNav/DashCurrentNav';
 import { useAuth } from '../../../../Store/Context';
 import SalesReport from '../Transactions/SalesReport';
+
 
 function Reconcile() {
 	const [showDisplay, setShowDisplay] = useState(false);
@@ -24,13 +26,27 @@ function Reconcile() {
 
 	//  make post request function
 
-	const uploadFile2 = async () => {};
+	const uploadFile2 = async () => { };
 
 	return (
 		<div className="w-full">
 			<div className="space-y-[1em]">
 				<div className="hidden md:flex">
-					<CurrentNav />
+					{/* <CurrentNav /> */}
+
+					<div className="flex ">
+						<div className=" text-slate-500 font-semibold hover:text-black">
+							<Link to='/dashboard/home'>Dashboard</Link>
+						</div>
+
+						<NavigateNextIcon />
+						<div className=" text-slate-500 font-semibold hover:text-black">
+							<Link to='/dashboard/importpage'> Imported Data</Link>
+						</div>
+
+						<NavigateNextIcon />
+						<div className="text-black-600 font-semibold ">Reconcile</div>
+					</div>
 				</div>
 
 				<h1 className="text-[1.1em] md:text-[2em] font-bold">
