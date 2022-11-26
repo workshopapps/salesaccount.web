@@ -1,7 +1,6 @@
 import React from 'react';
-import UserOrder from './User/UserOrder';
 
-export const data = [
+const data = [
 	{
 		name: 'James Kirk',
 		description: 'Ordered 12 Mac Book',
@@ -132,7 +131,7 @@ export const data = [
 	},
 ];
 
-const Transactions = () => {
+const Transactions = () => (
 	<div className="hero-div flex flex-col gap-3 text-[0.6em] md:text-sm ">
 		<div className="flex w-full justify-between hero-filter  bg-[#D1E9FF] p-[1em]">
 			<div className="flter">Name</div>
@@ -142,19 +141,21 @@ const Transactions = () => {
 			<div className="flter ">Date</div>
 			<div className="flter ">Balance</div>
 		</div>
+
 		{data.map((user) => (
-			<UserOrder
+			<div
 				key={Math.random() * Math.random()}
-				id={Math.random() * Math.random()}
-				name={user.name}
-				description={user.description}
-				withdrawals={user.Withdrawals}
-				deposit={user.Deposit}
-				date={user.Date}
-				balance={user.Balance}
-			/>
+				className="user pb-3 flex justify-between order-details "
+			>
+				<div className="order-name">{user.name}</div>
+				<div className="order-name">{user.description}</div>
+				<div className="order-name text-[#F04438]">{user.Withdrawals}</div>
+				<div className="order-name text-[#12B76A]">{user.Deposit}</div>
+				<div className="order-name">{user.Date}</div>
+				<div className="order-action">{user.Balance}</div>
+			</div>
 		))}
-	</div>;
-};
+	</div>
+);
 
 export default Transactions;
