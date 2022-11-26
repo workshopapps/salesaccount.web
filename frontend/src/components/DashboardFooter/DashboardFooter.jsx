@@ -33,16 +33,23 @@ function Footer() {
 			style={{ display: showFooter ? 'flex' : 'none' }}
 			className=" md:hidden footer fixed bottom-[2em] border rounded-md  bg-white flex items-center justify-between w-[80%] mx-[10%]  transition-all delay-200"
 		>
-			<Link to="/Dashboard/upload">
+			<Link to="/dashboard/importpage">
 				<div className="footer-item text-center ">
 					<InsertDriveFileOutlinedIcon />
 					<p>Import Data</p>
 				</div>
 			</Link>
-			<div className="footer-item text-center">
-				<AutoAwesomeMosaicOutlinedIcon />
-				<p>Dashboard</p>
-			</div>
+
+			{/* Dashboard home bar */}
+			<Link to="/dashboard/home">
+				<div className="footer-item text-center">
+					<AutoAwesomeMosaicOutlinedIcon />
+					<p>Dashboard</p>
+				</div>
+			</Link>
+
+
+
 			<div className="footer-item text-center">
 				<SettingsOutlinedIcon />
 				<p>Settings</p>

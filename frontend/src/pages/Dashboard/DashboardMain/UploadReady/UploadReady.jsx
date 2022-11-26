@@ -5,27 +5,27 @@ import { useAuth } from '../../../../Store/Context';
 import signedDocument from '../../../../assets/images/DashboardImages/upload/signed document.png';
 
 function UploadReady() {
-	const { files, setFiles } = useAuth();
-	console.log(files);
+	const { localFile, setLocalFile, getData } = useAuth();	
 
-	const url1 = 'http://accountpal.hng.tech:8000/upload_record'
+	// const url1 = 'http://accountpal.hng.tech:8000/upload_record'
 
 	// const url = `https://dev-kcjp.onrender.com/upload`;
 
-	const getData = async () => {
-			const formData = new FormData();
-			formData.append("file", files);
 
-			axios
-				.post(url1, formData, {
-					headers: {
-						"Content-Type": "multipart/form-data",
-					},
-				})
-				.then((res) => console.log(res?.data))
-				.catch((e) => console.log(e));
-		
-	}
+	// 	const getData = async () => {
+	// 			const formData = new FormData();
+	// 			formData.append("file", files);
+	// 
+	// 			axios
+	// 				.post(url1, formData, {
+	// 					headers: {
+	// 						"Content-Type": "multipart/form-data",
+	// 					},
+	// 				})
+	// 				.then((res) => console.log(res?.data))
+	// 				.catch((e) => console.log(e));
+	// 		
+	// 	}
 
 	// 	const getData = async () => {
 	// 		const formData = new FormData();
@@ -59,7 +59,7 @@ function UploadReady() {
 				/>
 				<div className="text-center  space-y-[0.5em]">
 					<h2 className="font-semibold text-[#344054] text-lg">
-						File Selected: &#34; {files[0]?.name} &#34;
+						File Selected: &#34; {localFile[0]?.name} &#34;
 					</h2>
 					<div className="text-sm text-[#98A2B3]">
 						<p>You are almost set</p>
@@ -67,7 +67,7 @@ function UploadReady() {
 							<span
 								className="text-[#53B1FD]"
 								role="presentation"
-								onClick={() => setFiles(null)}
+								onClick={() => setLocalFile(null)}
 							>
 								click here
 							</span>{' '}
