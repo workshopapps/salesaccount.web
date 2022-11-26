@@ -14,8 +14,7 @@ function UploadReady() {
 		const formData = new FormData();
 		formData.append('file', files);
 
-		axios
-			.post(url, formData, {
+		axios.post(url, formData, {
 				headers: {
 					'Content-Type': 'multipart/form-data',
 				},
