@@ -93,6 +93,7 @@ jobs:
       - name: Stop Docker Containers
         working-directory: /home/ubuntu/salesaccount.web
         run:  |
+          git pull
           docker compose down
           
 

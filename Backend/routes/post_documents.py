@@ -3,6 +3,7 @@
 from fastapi import FastAPI, File, UploadFile, APIRouter
 import json
 import pandas as pd
+from controllers.conversion import file_conversion
 
 
 router = APIRouter()
@@ -37,28 +38,28 @@ def upload(file: UploadFile = File(...)):
     finally:
         file.file.close()
     account_statements.append(file.filename)
-    response = csv_to_json(file.filename)
+    response =file_conversion(file.filename)
     return response
 
 
-@router.post("/upload_record")
-def upload(file: UploadFile = File(...)):
-    """ Uploads account statement to database 
+# @router.post("/upload_record")
+# def upload(file: UploadFile = File(...)):
+#     """ Uploads account statement to database 
     
-    Arg:
-    file: uploaded financial records
+#     Arg:
+#     file: uploaded financial records
 
-    Returns: json object from file uploaded
+#     Returns: json object from file uploaded
     
-    """
-    try:
-        contents = file.file.read()
-        with open(file.filename, 'wb') as f:
-            f.write(contents)
-    except Exception:
-        return {"message": "There was an error uploading the file"}
-    finally:
-        file.file.close()
-    financial_records.append(file.filename)
-    response = csv_to_json(file.filename)
-    return response
+#     """
+#     try:
+#         contents = file.file.read()
+#         with open(file.filename, 'wb') as f:
+#             f.write(contents)
+#     except Exception:
+#         return {"message": "There was an error uploading the file"}
+#     finally:
+#         file.file.close()
+#     financial_records.append(file.filename)
+#     response = conversion(file.filename)
+#     return response

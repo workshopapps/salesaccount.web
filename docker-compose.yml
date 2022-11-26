@@ -4,6 +4,7 @@ services:
 #Nginx Config
   nginx:
     image: celnet1/salesaccount-nginx:latest
+    restart: always
     ports:
       - "80:80"
   
