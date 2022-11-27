@@ -65,7 +65,7 @@ function NavigationBar() {
 					</Link>
 				))}
 				<div>
-					<Button title="Try it NOW" path="/" />
+					<Button title="Try it NOW" path="/dashboard/home" />
 				</div>
 			</div>
 		</nav>
