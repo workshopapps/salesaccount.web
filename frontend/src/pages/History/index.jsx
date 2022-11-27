@@ -14,11 +14,7 @@ const History = () => {
 		<div className=" dashboard-main-cont">
 			<DashBoardSideBar />
 			{/* incoming foolish decison */}
-
-			
-		</div>
-
-		<div>
+			<div>
 		<main className="justify-center mx-auto history-main md:flex w-fill ">
 			<div className='pt-[4rem] w-xl md:pl-[10rem] ' >
 				<div className='breadcrum text-[#667085] font-normal font-Lexend mb-4'>Dashboard &gt; History  </div>
@@ -60,6 +56,10 @@ const History = () => {
 			</div>
             </main>
 		</div>
+			
+		</div>
+
+		
 	</>
 	);
 						};
