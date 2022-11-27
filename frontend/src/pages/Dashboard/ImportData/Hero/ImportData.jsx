@@ -114,30 +114,32 @@ function ImportData() {
 			</div>
 
 			{/* Mapped Dynamic Data from CSV */}
-			<div className="my-8">
-				<p className="my-4">{fileDropped.name}</p>
+			<div className="my-8 ">
+				<p className="my-4 text-green-600 font-bold">{fileDropped.name}</p>
 
-				<table className="table-auto w-full ">
-					<thead className="bg-[#D1E9FF] py-2 my-2">
-						<tr>
-							{headerKeys.map((key) => (
-								<th className="py-2 pl-8 text-left" key={Math.random()}>
-									{key}
-								</th>
-							))}
-						</tr>
-					</thead>
-
-					<tbody className="py-2 px-6" key={Math.random()}>
-						{localData.map((sData) => (
-							<tr className="py-2 pl-8">
-								{Object.values(sData).map((iData) => (
-									<td className="text- py-2 pl-8">{iData}</td>
+				<div className="overflow-scroll">
+					<table className="table-auto w-full text-xs md:text-base ">
+						<thead className="bg-[#D1E9FF] py-2 my-2">
+							<tr>
+								{headerKeys.map((key) => (
+									<th className="py-2 pl-8 text-left" key={Math.random()}>
+										{key}
+									</th>
 								))}
 							</tr>
-						))}
-					</tbody>
-				</table>
+						</thead>
+
+						<tbody className="py-2 px-6" key={Math.random()}>
+							{localData.map((sData) => (
+								<tr className="py-2 pl-8">
+									{Object.values(sData).map((iData) => (
+										<td className="text- py-2 pl-8">{iData}</td>
+									))}
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
 
 				{/* { localData?.map((lData)=><p>{ lData.Date }</p>) } */}
 			</div>
