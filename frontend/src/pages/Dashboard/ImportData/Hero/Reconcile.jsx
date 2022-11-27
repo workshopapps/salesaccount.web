@@ -14,8 +14,49 @@ import SalesReport from '../Transactions/SalesReport';
 function Reconcile() {
 	const [showDisplay, setShowDisplay] = useState(false);
 	const [showSort, setShowSortDisplay] = useState(false);
-	const { dropHandlerFile2, dragHandlerFile2, setFiles2, files2 } = useAuth();
 	const navigate = useNavigate();
+	const { localData, fileDropped, localData2, fileDropped2, setLocalData2 } = useAuth();
+	const headerKeys = Object.keys(Object.assign({}, ...localData));
+	const headerKeys2 = Object.keys(Object.assign({}, ...localData2));
+
+	// CSV to Array starts
+	const [csvArray, setCsvArray] = useState([]);
+
+	const processCSV = (str, delim = ',') => {
+		const headers = str.slice(0, str.indexOf('\n')).split(delim);
+		const rows = str.slice(str.indexOf('\n') + 1).split('\n');
+
+		const newArray = rows.map(row => {
+			const values = row.split(delim);
+			const eachObject = headers.reduce((obj, header, i) => {
+				obj[header] = values[i];
+				return obj;
+			}, {})
+			return eachObject;
+		})
+
+		setCsvArray(newArray)
+
+		return newArray
+	}
+
+	const handleSubmit = () => {
+		// e.preventDefault();
+
+		const fileReader = new FileReader();
+
+		fileReader.onload = (e) => {
+			const text = e.target.result;
+			const data = processCSV(text)
+			setLocalData2(data)
+			console.log("File to Text: ", text)
+			console.log("localData to Text: ", localData2)
+			console.log("Data to Text: ", data)
+		}
+
+		fileReader.readAsText(fileDropped2)
+	}
+	// CSV to array ends
 
 	// click functions
 	const clickShowDisplayHandler = () =>
@@ -110,7 +151,29 @@ function Reconcile() {
 					</div>
 				</div>
 			)}
-			<Transactions />
+			{/* <Transactions /> */}
+
+			{/* Mapped Dynamic Data from CSV */}
+			<div className='my-8'>
+				<p className='my-4'>{fileDropped.name}</p>
+
+				<table className='table-auto w-full '>
+					<thead className='bg-[#D1E9FF] py-2 my-2'>
+						<tr>{headerKeys.map((key) => <th className='py-2 pl-8 text-left'>{key}</th>)}</tr>
+					</thead>
+
+					<tbody className='py-2 px-6'>
+						{localData.map((sData) =>
+							<tr className='py-2 pl-8'>{Object.values(sData).map((iData) =>
+								<td className='text- py-2 pl-8'>{iData}</td>)}
+							</tr>)}
+					</tbody>
+				</table>
+
+				{/* { localData?.map((lData)=><p>{ lData.Date }</p>) } */}
+			</div>
+
+
 
 			{/* Sale Record here  */}
 
@@ -178,13 +241,35 @@ function Reconcile() {
 				)}
 			</div>
 
-			<SalesReport />
+			{/* <SalesReport /> */}
+			{/* Mapped Dynamic Data from CSV */}
+			<div className='my-8'>
+				<p className='my-4'>{fileDropped2.name}</p>
+
+				<table className='table-auto w-full '>
+					<thead className='bg-[#D1E9FF] py-2 my-2'>
+						<tr>{headerKeys2.map((key) => <th className='py-2 pl-8 text-left'>{key}</th>)}</tr>
+					</thead>
+
+					<tbody className='py-2 px-6'>
+						{localData2.map((sData) =>
+							<tr className='py-2 pl-8'>{Object.values(sData).map((iData) =>
+								<td className='text- py-2 pl-8'>{iData}</td>)}
+							</tr>)}
+					</tbody>
+				</table>
+
+				{/* { localData?.map((lData)=><p>{ lData.Date }</p>) } */}
+			</div>
 
 			{/* sync to data baseButton */}
 			<div className="flex justify-center pb-[5em] mt-[1em] ">
 				<button
 					type="submit"
-					onClick={() => navigate('/dashboard/accountreport')}
+					onClick={(e) => {
+						e.preventDefault()
+						handleSubmit()
+					}}
 					className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2  w-[70%] md:w-[60%] lg:w-[30%] active:color-#1849A9"
 				>
 					Reconcile

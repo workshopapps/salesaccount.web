@@ -4,9 +4,12 @@ import './upload.css';
 import { useAuth } from '../../../../Store/Context';
 
 function Upload() {
-	const { dragHandler, dropHandler, setLocalFile } = useAuth();
+	const { dragHandler, dropHandler, setLocalFile, fileDropped, setFileDropped, localFile  } = useAuth();
 	const inputRef = useRef();
 	// const {  } = useAuth();
+
+
+	
 
 	// Just some comment
 
@@ -38,7 +41,14 @@ function Upload() {
 				type="file"
 				hidden
 				ref={inputRef}
-				onChange={(e) => setLocalFile(e.target.files)}
+				onChange={(e) =>{
+					setLocalFile(e.target.files)
+					setFileDropped(e.target.files[0])
+
+					console.log("FileDropped",fileDropped);
+					console.log("localFile",localFile);
+
+				}}
 			/>
 
 			<button
