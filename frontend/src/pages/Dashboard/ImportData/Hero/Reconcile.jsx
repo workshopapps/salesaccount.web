@@ -19,44 +19,7 @@ function Reconcile() {
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
 	const headerKeys2 = Object.keys(Object.assign({}, ...localData2));
 
-	// CSV to Array starts
-	// const [csvArray, setCsvArray] = useState([]);
-
-	// const processCSV = (str, delim = ',') => {
-	// 	const headers = str.slice(0, str.indexOf('\n')).split(delim);
-	// 	const rows = str.slice(str.indexOf('\n') + 1).split('\n');
-
-	// 	const newArray = rows.map(row => {
-	// 		const values = row.split(delim);
-	// 		const eachObject = headers.reduce((obj, header, i) => {
-	// 			obj[header] = values[i];
-	// 			return obj;
-	// 		}, {})
-	// 		return eachObject;
-	// 	})
-
-	// 	setCsvArray(newArray)
-
-	// 	return newArray
-	// }
-
-	// const handleSubmit = () => {
-	// 	// e.preventDefault();
-
-	// 	const fileReader = new FileReader();
-
-	// 	fileReader.onload = (e) => {
-	// 		const text = e.target.result;
-	// 		const data = processCSV(text)
-	// 		setLocalData2(data)
-	// 		console.log("File to Text: ", text)
-	// 		console.log("localData to Text: ", localData2)
-	// 		console.log("Data to Text: ", data)
-	// 	}
-
-	// 	fileReader.readAsText(fileDropped2)
-	// }
-	// CSV to array ends
+	
 
 	// click functions
 	const clickShowDisplayHandler = () =>
