@@ -1,51 +1,61 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../../Store/Context';
 import signedDocument from '../../../../assets/images/DashboardImages/upload/signed document.png';
 
 function UploadReady() {
-	const { localFile, setLocalFile, getData } = useAuth();	
-
-	// const url1 = 'http://accountpal.hng.tech:8000/upload_record'
-
-	// const url = `https://dev-kcjp.onrender.com/upload`;
-
-
-	// 	const getData = async () => {
-	// 			const formData = new FormData();
-	// 			formData.append("file", files);
-	// 
-	// 			axios
-	// 				.post(url1, formData, {
-	// 					headers: {
-	// 						"Content-Type": "multipart/form-data",
-	// 					},
-	// 				})
-	// 				.then((res) => console.log(res?.data))
-	// 				.catch((e) => console.log(e));
-	// 		
-	// 	}
-
-	// 	const getData = async () => {
-	// 		const formData = new FormData();
-	// 		formData.append('file', files);
-	// 
-	// 		axios
-	// 			.post(url, formData, {
-	// 				headers: {
-	// 					'Content-Type': 'multipart/form-data',
-	// 				},
-	// 			})
-	// 			.then((res) => console.log(res))
-	// 			.catch((e) => console.log(e));
-	// 	};
+	const {
+		localFile,
+		setLocalFile,
+		getData,
+		fileDropped,
+		localData,
+		setLocalData,
+		localFile2,
+		setLocalFile2,
+	} = useAuth();
 
 	const navigate = useNavigate();
 	const uploadHandler = () => {
-
 		// getData();
 		navigate('/dashboard/importpage');
+	};
+
+	const [csvArray, setCsvArray] = useState([]);
+
+	const processCSV = (str, delim = ',') => {
+		const headers = str.slice(0, str.indexOf('\n')).split(delim);
+		const rows = str.slice(str.indexOf('\n') + 1).split('\n');
+
+		const newArray = rows.map((row) => {
+			const values = row.split(delim);
+			/* eslint-disable no-param-reassign */
+			const eachObject = headers.reduce((obj, header, i) => {
+				
+				obj[header] = values[i];
+				return obj;
+			}, {});
+			/* eslint-disable no-param-reassign */
+			return eachObject;
+		});
+
+		setCsvArray(newArray);
+
+		return newArray;
+	};
+
+	const handleSubmit = () => {
+		// e.preventDefault();
+
+		const fileReader = new FileReader();
+
+		fileReader.onload = (e) => {
+			const text = e.target.result;
+			const data = processCSV(text);
+			setLocalData(data);
+		};
+		fileReader.readAsText(fileDropped);
 	};
 
 	return (
@@ -78,9 +88,14 @@ function UploadReady() {
 			</div>
 
 			<button
-				onClick={() => {
+				onClick={(e) => {
+					e.preventDefault();
 					uploadHandler();
-					getData()
+					getData();
+
+					if (fileDropped) {
+						handleSubmit();
+					}
 				}}
 				className="bg-[#2E90FA] text-white px-[1.5em] py-[0.8em] rounded-md "
 				type="submit"

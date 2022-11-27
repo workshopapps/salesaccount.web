@@ -6,7 +6,7 @@ import DashBoardHeader from '../../components/DashBoardHeader';
 import Footer from '../../components/DashboardFooter/DashboardFooter';
 
 const DashBoard = () => (
-	<div className="w-full bg-[#f2f5f8] h-screen ">
+	<div className="w-full bg-[#f2f5f8] h-max pb-[20%]">
 		<DashBoardHeader />
 		<div className="flex">
 			<DashBoardSideBar />
