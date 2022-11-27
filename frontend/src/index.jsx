@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-// import AboutUs from './pages/AboutUs';
+import AboutUs from './pages/AboutUs';
 import AccountBalanceReport from './pages/AccountBalanceReport';
 import BlogPost from './pages/BlogPost';
 import Careers from './pages/Careers';
@@ -19,18 +19,26 @@ import UploadAccountsStatementReady from './pages/UploadAccountsStatementReady';
 import Userupload from './pages/UserUpload';
 import UploadedAccountStatementReady from './pages/UploadedAccountStatementReady';
 import UpoadingSalesRecord from './pages/UpoadingSalesRecord';
-// import UserUpload from './pages/UserUpload/index';
 import Teams from './pages/Teams';
 import History from './pages/History';
 import reportWebVitals from './reportWebVitals';
 import DashBoard from './pages/Dashboard';
 import Gpt3 from './pages/Gpt-3';
 import Blogs from './pages/Blogs/Index';
+// import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
+// import Upload from './pages/Dashboard/DashboardMain/UploadFile/Upload';
+import UploadReady from './pages/Dashboard/DashboardMain/UploadReady/UploadReady';
+import ImportData from './pages/Dashboard/ImportData/Hero/ImportData';
+import Reconcile from './pages/Dashboard/ImportData/Hero/Reconcile';
+import { UserProvider } from './Store/Context';
+import AccountReport from './pages/Dashboard/AccountReport/AccountReport';
+import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
+import Privacy from './pages/Privacy';
 // import ImportData from './pages/Dashboard/ImportData/Hero/ImportData';
-import {
-	Upload,
-	UploadReady,
-} from './pages/Dashboard/DashboardMain/UploadFile/Upload';
+// import {
+// 	Upload,
+// 	UploadReady,
+// } from './pages/Dashboard/DashboardMain/UploadFile/Upload';
 
 const router = createBrowserRouter([
 	{
@@ -38,14 +46,10 @@ const router = createBrowserRouter([
 		element: <LandingPage />,
 	},
 
-	// {
-	// 	path: '/aboutus',
-	// 	element: <AboutUs />,
-	// },
-	// {
-	// 	path: '/aboutus',
-	// 	element: <AboutUs />,
-	// },
+	{
+		path: '/aboutus',
+		element: <AboutUs />,
+	},
 
 	{
 		path: '/accountbalancereport',
@@ -72,16 +76,28 @@ const router = createBrowserRouter([
 		element: <ContactUs />,
 	},
 	{
-		path: '/Dashboard',
+		path: '/dashboard',
 		element: <DashBoard />,
 		children: [
 			{
-				path: '/Dashboard/upload',
-				element: <Upload />,
+				path: '/dashboard/home',
+				element: <DashboardMain />,
 			},
 			{
-				path: '/Dashboard/uploadready',
+				path: '/dashboard/upload',
 				element: <UploadReady />,
+			},
+			{
+				path: '/dashboard/importpage',
+				element: <ImportData />,
+			},
+			{
+				path: '/dashboard/reconcile',
+				element: <Reconcile />,
+			},
+			{
+				path: '/dashboard/accountreport',
+				element: <AccountReport />,
 			},
 		],
 	},
@@ -158,6 +174,10 @@ const router = createBrowserRouter([
 		path: '/blogs',
 		element: <Blogs />,
 	},
+	{
+		path: '/privacy',
+		element: <Privacy />,
+	},
 	// {
 	// 	path: '/settings',
 	// 	element: <Settings />,
@@ -171,7 +191,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<UserProvider>
+			<RouterProvider router={router} />
+		</UserProvider>
 	</React.StrictMode>
 );
 
