@@ -5,13 +5,19 @@ import { useAuth } from '../../../../Store/Context';
 import signedDocument from '../../../../assets/images/DashboardImages/upload/signed document.png';
 
 function UploadReady() {
-	const { localFile, setLocalFile, getData, fileDropped, localData, setLocalData, localFile2, setLocalFile2 } = useAuth();
-
-	
+	const {
+		localFile,
+		setLocalFile,
+		getData,
+		fileDropped,
+		localData,
+		setLocalData,
+		localFile2,
+		setLocalFile2,
+	} = useAuth();
 
 	const navigate = useNavigate();
 	const uploadHandler = () => {
-
 		// getData();
 		navigate('/dashboard/importpage');
 	};
@@ -22,19 +28,22 @@ function UploadReady() {
 		const headers = str.slice(0, str.indexOf('\n')).split(delim);
 		const rows = str.slice(str.indexOf('\n') + 1).split('\n');
 
-		const newArray = rows.map(row => {
+		const newArray = rows.map((row) => {
 			const values = row.split(delim);
+			/* eslint-disable no-param-reassign */
 			const eachObject = headers.reduce((obj, header, i) => {
+				
 				obj[header] = values[i];
 				return obj;
-			}, {})
+			}, {});
+			/* eslint-disable no-param-reassign */
 			return eachObject;
-		})
+		});
 
-		setCsvArray(newArray)
+		setCsvArray(newArray);
 
-		return newArray
-	}
+		return newArray;
+	};
 
 	const handleSubmit = () => {
 		// e.preventDefault();
@@ -43,15 +52,11 @@ function UploadReady() {
 
 		fileReader.onload = (e) => {
 			const text = e.target.result;
-			const data = processCSV(text)
-			setLocalData(data)
-			console.log("File to Text: ", text)
-			console.log("localData to Text: ", localData)
-			console.log("Data to Text: ", data)
-		}
-
-		fileReader.readAsText(fileDropped)
-	}
+			const data = processCSV(text);
+			setLocalData(data);
+		};
+		fileReader.readAsText(fileDropped);
+	};
 
 	return (
 		<div className="space-y-[1em] w-full mt-[20%] lg:mt-[10%] flex flex-col items-center ">
@@ -84,13 +89,13 @@ function UploadReady() {
 
 			<button
 				onClick={(e) => {
-					e.preventDefault()
+					e.preventDefault();
 					uploadHandler();
-					getData()
+					getData();
 
 					if (fileDropped) {
-						handleSubmit()
-					};
+						handleSubmit();
+					}
 				}}
 				className="bg-[#2E90FA] text-white px-[1.5em] py-[0.8em] rounded-md "
 				type="submit"

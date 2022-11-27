@@ -10,52 +10,52 @@ import CurrentNav from '../../../../components/DashBoardCurrentNav/DashCurrentNa
 import { useAuth } from '../../../../Store/Context';
 import SalesReport from '../Transactions/SalesReport';
 
-
 function Reconcile() {
 	const [showDisplay, setShowDisplay] = useState(false);
 	const [showSort, setShowSortDisplay] = useState(false);
 	const navigate = useNavigate();
-	const { localData, fileDropped, localData2, fileDropped2, setLocalData2 } = useAuth();
+	const { localData, fileDropped, localData2, fileDropped2, setLocalData2 } =
+		useAuth();
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
 	const headerKeys2 = Object.keys(Object.assign({}, ...localData2));
 
 	// CSV to Array starts
-	const [csvArray, setCsvArray] = useState([]);
+	// const [csvArray, setCsvArray] = useState([]);
 
-	const processCSV = (str, delim = ',') => {
-		const headers = str.slice(0, str.indexOf('\n')).split(delim);
-		const rows = str.slice(str.indexOf('\n') + 1).split('\n');
+	// const processCSV = (str, delim = ',') => {
+	// 	const headers = str.slice(0, str.indexOf('\n')).split(delim);
+	// 	const rows = str.slice(str.indexOf('\n') + 1).split('\n');
 
-		const newArray = rows.map(row => {
-			const values = row.split(delim);
-			const eachObject = headers.reduce((obj, header, i) => {
-				obj[header] = values[i];
-				return obj;
-			}, {})
-			return eachObject;
-		})
+	// 	const newArray = rows.map(row => {
+	// 		const values = row.split(delim);
+	// 		const eachObject = headers.reduce((obj, header, i) => {
+	// 			obj[header] = values[i];
+	// 			return obj;
+	// 		}, {})
+	// 		return eachObject;
+	// 	})
 
-		setCsvArray(newArray)
+	// 	setCsvArray(newArray)
 
-		return newArray
-	}
+	// 	return newArray
+	// }
 
-	const handleSubmit = () => {
-		// e.preventDefault();
+	// const handleSubmit = () => {
+	// 	// e.preventDefault();
 
-		const fileReader = new FileReader();
+	// 	const fileReader = new FileReader();
 
-		fileReader.onload = (e) => {
-			const text = e.target.result;
-			const data = processCSV(text)
-			setLocalData2(data)
-			console.log("File to Text: ", text)
-			console.log("localData to Text: ", localData2)
-			console.log("Data to Text: ", data)
-		}
+	// 	fileReader.onload = (e) => {
+	// 		const text = e.target.result;
+	// 		const data = processCSV(text)
+	// 		setLocalData2(data)
+	// 		console.log("File to Text: ", text)
+	// 		console.log("localData to Text: ", localData2)
+	// 		console.log("Data to Text: ", data)
+	// 	}
 
-		fileReader.readAsText(fileDropped2)
-	}
+	// 	fileReader.readAsText(fileDropped2)
+	// }
 	// CSV to array ends
 
 	// click functions
@@ -67,7 +67,9 @@ function Reconcile() {
 
 	//  make post request function
 
-	const uploadFile2 = async () => { };
+	const handleSubmit = async () => {
+		navigate('/dashboard/accountreport');
+	};
 
 	return (
 		<div className="w-full">
@@ -77,12 +79,12 @@ function Reconcile() {
 
 					<div className="flex ">
 						<div className=" text-slate-500 font-semibold hover:text-black">
-							<Link to='/dashboard/home'>Dashboard</Link>
+							<Link to="/dashboard/home">Dashboard</Link>
 						</div>
 
 						<NavigateNextIcon />
 						<div className=" text-slate-500 font-semibold hover:text-black">
-							<Link to='/dashboard/importpage'> Imported Data</Link>
+							<Link to="/dashboard/importpage"> Imported Data</Link>
 						</div>
 
 						<NavigateNextIcon />
@@ -153,27 +155,32 @@ function Reconcile() {
 			)}
 			{/* <Transactions /> */}
 
-			{/* Mapped Dynamic Data from CSV */}
-			<div className='my-8'>
-				<p className='my-4'>{fileDropped.name}</p>
+			{/* Mapped Dynamic Data from CSV for  bank statements */}
+			<div className="my-8">
+				<p className="my-4">{fileDropped.name}</p>
 
-				<table className='table-auto w-full '>
-					<thead className='bg-[#D1E9FF] py-2 my-2'>
-						<tr>{headerKeys.map((key) => <th className='py-2 pl-8 text-left'>{key}</th>)}</tr>
+				<table className="table-auto w-full ">
+					<thead className="bg-[#D1E9FF] py-2 my-2">
+						<tr>
+							{headerKeys.map((key) => (
+								<th className="py-2 pl-8 text-left">{key}</th>
+							))}
+						</tr>
 					</thead>
 
-					<tbody className='py-2 px-6'>
-						{localData.map((sData) =>
-							<tr className='py-2 pl-8'>{Object.values(sData).map((iData) =>
-								<td className='text- py-2 pl-8'>{iData}</td>)}
-							</tr>)}
+					<tbody className="py-2 px-6">
+						{localData.map((sData) => (
+							<tr className="py-2 pl-8">
+								{Object.values(sData).map((iData) => (
+									<td className="text- py-2 pl-8">{iData}</td>
+								))}
+							</tr>
+						))}
 					</tbody>
 				</table>
 
 				{/* { localData?.map((lData)=><p>{ lData.Date }</p>) } */}
 			</div>
-
-
 
 			{/* Sale Record here  */}
 
@@ -242,20 +249,27 @@ function Reconcile() {
 			</div>
 
 			{/* <SalesReport /> */}
-			{/* Mapped Dynamic Data from CSV */}
-			<div className='my-8'>
-				<p className='my-4'>{fileDropped2.name}</p>
+			{/* Mapped Dynamic Data from CSV for salesreport */}
+			<div className="my-8">
+				<p className="my-4">{fileDropped2.name}</p>
 
-				<table className='table-auto w-full '>
-					<thead className='bg-[#D1E9FF] py-2 my-2'>
-						<tr>{headerKeys2.map((key) => <th className='py-2 pl-8 text-left'>{key}</th>)}</tr>
+				<table className="table-auto w-full ">
+					<thead className="bg-[#D1E9FF] py-2 my-2">
+						<tr>
+							{headerKeys2.map((key) => (
+								<th className="py-2 pl-8 text-left"  key={Math.random()}>{key}</th>
+							))}
+						</tr>
 					</thead>
 
-					<tbody className='py-2 px-6'>
-						{localData2.map((sData) =>
-							<tr className='py-2 pl-8'>{Object.values(sData).map((iData) =>
-								<td className='text- py-2 pl-8'>{iData}</td>)}
-							</tr>)}
+					<tbody className="py-2 px-6">
+						{localData2.map((item) => (
+							<tr className="py-2 pl-8" key={Math.random()}>
+								{Object.values(item).map((eachItem) => (
+									<td className="text- py-2 pl-8">{eachItem}</td>
+								))}
+							</tr>
+						))}
 					</tbody>
 				</table>
 
@@ -267,8 +281,8 @@ function Reconcile() {
 				<button
 					type="submit"
 					onClick={(e) => {
-						e.preventDefault()
-						handleSubmit()
+						e.preventDefault();
+						handleSubmit();
 					}}
 					className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2  w-[70%] md:w-[60%] lg:w-[30%] active:color-#1849A9"
 				>

@@ -7,14 +7,13 @@ const UserContext = createContext();
 export const useAuth = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
-	
-
 	const [saleAccountFiles, setSalesAccountFiles] = useState([]);
 	const [bankStatementFile, setBankStatementFile] = useState([]);
 	const [localFile, setLocalFile] = useState([]);
-	const [localData, setLocalData] = useState([])
 	const [localFile2, setLocalFile2] = useState([]);
-	const [localData2, setLocalData2] = useState([])
+
+	const [localData, setLocalData] = useState([]);
+	const [localData2, setLocalData2] = useState([]);
 
 	const [fileDropped, setFileDropped] = useState([]);
 	const [fileDropped2, setFileDropped2] = useState([]);
@@ -24,27 +23,24 @@ export const UserProvider = ({ children }) => {
 
 	// const [fileState, setFileState] = useState(false);
 
-	const bankStatementUrl = 'http://localhost:81/upload_statement'
+	const bankStatementUrl = 'http://localhost:81/upload_statement';
 
 	// http://0.0.0.0:80
 
 	const getData = async () => {
 		const formData = new FormData();
-		formData.append("file", localFile);
+		formData.append('file', localFile);
 
 		axios
 			.post(bankStatementUrl, formData, {
 				headers: {
-					"Content-Type": "multipart/form-data",
-					"accept": "application/json"
+					'Content-Type': 'multipart/form-data',
+					accept: 'application/json',
 				},
 			})
-			.then((res) => setBankStatementFile(JSON.parse(res?.data)))
-			.catch((e) => console.log(e));
-
-
-		console.log(bankStatementFile)
-	}
+			.then((res) => setBankStatementFile(JSON.parse(res?.data)));
+		// .catch((e) => console.log(e));
+	};
 
 	const dragHandler = (e) => {
 		e.preventDefault();
@@ -82,15 +78,27 @@ export const UserProvider = ({ children }) => {
 			getData,
 			fileDropped,
 			setFileDropped,
-			localData, setLocalData,
+			localData,
+			setLocalData,
 			fileDropped2,
 			setFileDropped2,
 			localFile2,
 			setLocalFile2,
 			localData2,
-			setLocalData2
+			setLocalData2,
 		}),
-		[localFile, fileDropped, setFileDropped, localData, setLocalData, localData2, fileDropped2, localFile2, setFileDropped2, setLocalData2]
+		[
+			localFile,
+			fileDropped,
+			setFileDropped,
+			localData,
+			setLocalData,
+			localData2,
+			fileDropped2,
+			localFile2,
+			setFileDropped2,
+			setLocalData2,
+		]
 	);
 
 	return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
