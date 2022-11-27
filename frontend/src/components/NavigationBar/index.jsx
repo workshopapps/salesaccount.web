@@ -21,12 +21,12 @@ function NavigationBar() {
 		setNav(!nav);
 	};
 	return (
-		<nav className="w-full h-[48px] md:h-[96px] px-1 xl:px-10 xl:grid xl:grid-cols-2 flex items-center justify-between">
+		<nav className="w-full h-[48px] md:h-[90px] lg:h-[100px] px-1 xl:px-10 xl:grid xl:grid-cols-2 flex items-center justify-between">
 			<Link to="/">
 				<img
 					src={logoUpdate}
 					alt="Company logo"
-					className="h-[50px] md:h-[80px] cursor-pointer"
+					className="h-[50px] md:h-[70px] cursor-pointer"
 				/>
 			</Link>
 
