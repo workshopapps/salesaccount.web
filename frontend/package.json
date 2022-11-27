@@ -5,6 +5,7 @@
 	"dependencies": {
 		"@emotion/react": "^11.10.5",
 		"@emotion/styled": "^11.10.5",
+		"@headlessui/react": "^1.7.4",
 		"@mui/icons-material": "^5.10.14",
 		"@mui/material": "^5.10.14",
 		"@testing-library/jest-dom": "^5.16.5",
@@ -19,6 +20,7 @@
 		"react-script": "^2.0.5",
 		"react-scripts": "5.0.1",
 		"react-uuid": "^2.0.0",
+		"rsuite": "^5.22.2",
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {

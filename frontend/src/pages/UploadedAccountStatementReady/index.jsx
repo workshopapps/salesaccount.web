@@ -137,7 +137,7 @@ const UploadedAccountStatementReady = () => {
 								</th>
 								.
 							</tr>
-							<tr className="py-6 bg-thead w-80">
+							<tr className="py-6 bg-[#D1E9FF] w-80">
 								<th className="h-5 py-5 pl-4 text-sm font-semibold leading-5 text-left font-Lexend border-spacing-2 w-80">
 									Name
 								</th>
