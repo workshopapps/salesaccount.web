@@ -1,5 +1,4 @@
 import React ,{useEffect} from 'react';
-
 import { FaArrowDown } from 'react-icons/fa';
 import BlogPreview from '../../components/BlogPreview';
 import {blogList} from './fakedata/index';
@@ -8,7 +7,11 @@ import Footer from '../../components/Footer';
 
 function Blogs() {
 	useEffect(() => {
-		window.scrollTo(0, 0);
+		window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: "smooth"
+		  });	
 	  }, [])
 	return (
 		<>
