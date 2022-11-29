@@ -1,4 +1,5 @@
-import React from 'react';
+import React ,{useEffect} from 'react';
+
 import { FaArrowDown } from 'react-icons/fa';
 import BlogPreview from '../../components/BlogPreview';
 import {blogList} from './fakedata/index';
@@ -6,6 +7,9 @@ import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
 
 function Blogs() {
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	  }, [])
 	return (
 		<>
 			<NavigationBar />

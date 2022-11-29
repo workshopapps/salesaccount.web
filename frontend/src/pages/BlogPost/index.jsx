@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import BlogPreview from '../../components/BlogPreview';
 import {otherPost} from '../Blogs/fakedata/index';
 import NavigationBar from '../../components/NavigationBar';
@@ -226,13 +227,14 @@ function BlogPost() {
 					</div>
 				</div>
 			</div>
-			
+			<Link to="/blogs">
 			<div className="flex justify-center items-center mb-6">
 
 				<div className=" bg-[#1570EF] border-[1px] border-solid border-[#1570EF] shadow-[0px_1px_2px_rgba(16,24,40,0.05)] rounded-lg  py-3 px-5 text-[#FFFFFF]">
 					View all posts
 				</div>
 			</div>
+			</Link>
 			<Footer />
 		</>
 	);
