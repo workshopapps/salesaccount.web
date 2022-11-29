@@ -139,7 +139,7 @@ function BlogPost() {
 								<figure className=" w-10 h-10 ">
 									<img
 										className=" rounded-full w-full"
-										src="../assets/images/avatar-full.svg"
+										src="../assets/images/blog/avatar-full.svg"
 										alt=""
 									/>
 								</figure>
@@ -157,7 +157,7 @@ function BlogPost() {
 									type="button"
 									className=" text-[#344054] px-4 py-[10px] flex gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border-solid  border-[1px] border-[#D0D5DD] whitespace-nowrap"
 								>
-									<img src="../assets/copy.svg" alt="" /> Copy Link
+									<img src="../assets/images/blog/copy.svg" alt="" /> Copy Link
 								</button>
 								<div className=" w-10 h-10 cursor-pointer text-[#344054] px-[10px] py-[10px] flex gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border-solid  border-[1px] border-[#D0D5DD]">
 									<img
@@ -187,7 +187,7 @@ function BlogPost() {
 						<hr className=" border-solid border-[1px] border-[#EAECF0] mb-[30.5px]" />
 						<div className="flex justify-between items-center mb-[10.5px] mx-[21px]">
 							<div className=" cursor-pointer text-[#667085] flex gap-2">
-								<img src="../assets/images/blog/arrow-left.svg" alt="" />
+								<img src="../assets/images/blog/arrow-left.svg" alt="arrow" />
 								Previous
 							</div>
 							<div className=" cursor-pointer text-[#667085] flex gap-2">
@@ -226,7 +226,9 @@ function BlogPost() {
 					</div>
 				</div>
 			</div>
+			
 			<div className="flex justify-center items-center mb-6">
+
 				<div className=" bg-[#1570EF] border-[1px] border-solid border-[#1570EF] shadow-[0px_1px_2px_rgba(16,24,40,0.05)] rounded-lg  py-3 px-5 text-[#FFFFFF]">
 					View all posts
 				</div>
