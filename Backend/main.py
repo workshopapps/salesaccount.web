@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+""" FASTAPI APPLICATION """
 from fastapi import FastAPI
 # from config.db import get_db, engine
 # from models import Account_statement
@@ -9,7 +11,6 @@ from routes import api_status, post_documents, delete_documents, reconcile_docum
 app = FastAPI()
 
 
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -17,6 +18,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 app.include_router(api_status.router)
 app.include_router(post_documents.router)
