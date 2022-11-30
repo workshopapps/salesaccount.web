@@ -1,9 +1,12 @@
 import React from 'react';
+import { useAuth } from '../../../Store/Context';
 import './accountReport.css';
 import AccountReportDetail from './AccountReportDetail/AccountReportDetail';
 import SalesReport from './AccountReportDetail/SalesReport';
 
 function AccountReport() {
+	const { localData3 } = useAuth()
+
 	return (
 		<div className="space-y-[1em]">
 			<h1 className=" font-bold text-xl ">Account Balance Report Ready!</h1>
@@ -45,6 +48,8 @@ function AccountReport() {
 
 				{/* ////////////// */}
 			</div>
+
+
 			{/* report buttons */}
 			<div className="sale-button flex justify-center space-x-[1em] mx-auto pb-[1em]">
 				<button

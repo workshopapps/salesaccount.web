@@ -1,12 +1,11 @@
 import React from 'react';
-import './index.css';
 import { Outlet } from 'react-router-dom';
 import DashBoardSideBar from '../../components/DashBoardSideBar';
 import DashBoardHeader from '../../components/DashBoardHeader';
 import Footer from '../../components/DashboardFooter/DashboardFooter';
 
 const DashBoard = () => (
-	<div className="w-full bg-[#F9FAFB]">
+	<div className="w-full bg-[#f2f5f8] h-[350vh]">
 		<DashBoardHeader />
 		<div className="flex">
 			<DashBoardSideBar />

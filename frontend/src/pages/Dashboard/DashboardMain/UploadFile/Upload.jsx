@@ -4,8 +4,18 @@ import './upload.css';
 import { useAuth } from '../../../../Store/Context';
 
 function Upload() {
-	const { dragHandler, dropHandler, setFiles } = useAuth();
+	const {
+		dragHandler,
+		dropHandler,
+		setLocalFile,
+		fileDropped,
+		setFileDropped,
+		localFile,
+	} = useAuth();
 	const inputRef = useRef();
+	// const {  } = useAuth();
+
+	// Just some comment
 
 	return (
 		<div className="space-y-[1em] w-full mt-[20%] lg:mt-[10%] flex flex-col items-center  ">
@@ -32,8 +42,12 @@ function Upload() {
 			<input
 				type="file"
 				hidden
+				accept=".csv"
 				ref={inputRef}
-				onChange={(e) => setFiles(e.target.files)}
+				onChange={(e) => {
+					setLocalFile(e.target.files);
+					setFileDropped(e.target.files[0]);
+				}}
 			/>
 
 			<button
