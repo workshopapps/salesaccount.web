@@ -110,8 +110,6 @@ export const UserProvider = ({ children }) => {
 			getSalesData,
 			reconcileData,
 			localData3,
-			setLocalData3,
-			localData3,
 			setLocalData3
 		}),
 		[
@@ -125,7 +123,6 @@ export const UserProvider = ({ children }) => {
 			localFile2,
 			setFileDropped2,
 			setLocalData2,
-			localData3,
 			localData3,
 			setLocalData3
 		]
