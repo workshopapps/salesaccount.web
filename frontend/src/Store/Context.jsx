@@ -58,7 +58,7 @@ export const UserProvider = ({ children }) => {
 	const reconcileData = async () => {
 		axios
 			.get(reconcileUrl)
-			.then((res) => console.log(res))
+			.then((res) => console.log(JSON.parse(res?.data)))
 			.catch((e) => console.log(e));
 	};
 
@@ -107,6 +107,8 @@ export const UserProvider = ({ children }) => {
 			setError,
 			getSalesData,
 			reconcileData,
+			localData3,
+			setLocalData3
 		}),
 		[
 			localFile,
@@ -119,6 +121,8 @@ export const UserProvider = ({ children }) => {
 			localFile2,
 			setFileDropped2,
 			setLocalData2,
+			localData3,
+			setLocalData3
 		]
 	);
 
