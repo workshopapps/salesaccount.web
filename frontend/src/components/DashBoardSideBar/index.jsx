@@ -10,8 +10,8 @@ import { Link } from 'react-router-dom';
 
 function DashBoardSideBar() {
 	return (
-		<div className=" side-bar hidden md:fixed top-0 z-1  md:flex justify-between flex-col md:w-[20%] lg:w-[10%] h-[100vh] bg-[#1570EF] text-white pb-[4em] pt-[7em] pl-[1em]  ">
-			<div className="flex flex-col w-[95%] md:text-[0.8em] lg:text-[1em] md:gap-6 lg:gap-6 ">
+		<div className=" side-bar hidden md:fixed top-0 z-1  md:flex justify-between flex-col md:w-[20%] lg:w-[10%] h-[100vh] bg-[#1570EF] text-white pb-[4em] pt-[7em] pl-[1em] ">
+			<div className="flex flex-col w-[95%] md:text-[0.8em] lg:text-[1em] md:gap-6 lg:gap-6 xl:text-[0.8em]">
 				<Link to="/dashboard/home">
 					<div className="flex sidenav-nav space-x-1 ">
 						<GridOnIcon sx={{ fontSize: 20 }} /> <p>Dashboard</p>

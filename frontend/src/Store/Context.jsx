@@ -111,6 +111,8 @@ export const UserProvider = ({ children }) => {
 			reconcileData,
 			localData3,
 			setLocalData3,
+			localData3,
+			setLocalData3
 		}),
 		[
 			localFile,
@@ -124,6 +126,8 @@ export const UserProvider = ({ children }) => {
 			setFileDropped2,
 			setLocalData2,
 			localData3,
+			localData3,
+			setLocalData3
 		]
 	);
 
