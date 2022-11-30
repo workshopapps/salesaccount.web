@@ -17,7 +17,7 @@ function Reconcile() {
 	const [showDisplay2, setShowDisplay2] = useState(false);
 	const [showSort2, setShowSortDisplay2] = useState(false);
 	const navigate = useNavigate();
-	const { localData, fileDropped, localData2, fileDropped2, setLocalData2 } =
+	const { localData, fileDropped, localData2, fileDropped2, reconcileData } =
 		useAuth();
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
 	const headerKeys2 = Object.keys(Object.assign({}, ...localData2));
@@ -59,6 +59,7 @@ function Reconcile() {
 	//  make post request function
 
 	const handleSubmit = async () => {
+		reconcileData();
 		navigate('/dashboard/accountreport');
 	};
 
