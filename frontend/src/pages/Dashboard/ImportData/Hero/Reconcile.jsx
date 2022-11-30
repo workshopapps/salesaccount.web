@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import {jsPDF} from 'jspdf';
+import { jsPDF } from 'jspdf';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import './Hero.css';
 import '../Transactions/User/user.css';
@@ -17,14 +17,19 @@ function Reconcile() {
 	const [showDisplay2, setShowDisplay2] = useState(false);
 	const [showSort2, setShowSortDisplay2] = useState(false);
 	const navigate = useNavigate();
-	const { localData, fileDropped, localData2, fileDropped2, reconcileData, localData3 } =
-		useAuth();
+	const {
+		localData,
+		fileDropped,
+		localData2,
+		fileDropped2,
+		reconcileData,
+		localData3,
+	} = useAuth();
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
 	const headerKeys2 = Object.keys(Object.assign({}, ...localData2));
 
-
 	// 	const generatePDF = () => {
-	// 
+	//
 	// 		const report = new JsPDF('portrait', 'pt', 'a4');
 	// 		report.html(document.querySelector('#report')).then(() => {
 	// 			report.save('report.pdf');
@@ -38,7 +43,6 @@ function Reconcile() {
 	// 		report.save('ReconcileAI.pdf')
 	// 	})
 	// }
-
 
 	// click functions
 	const clickShowDisplayHandler = () =>
@@ -64,7 +68,7 @@ function Reconcile() {
 	};
 
 	return (
-		<div className="w-full" >
+		<div className="w-full">
 			<div className="space-y-[1em]">
 				<div className="hidden md:flex">
 					{/* <CurrentNav /> */}
@@ -97,7 +101,6 @@ function Reconcile() {
 						<p className="font-bold">Display</p>
 						<ExpandMoreIcon />
 					</div>
-					
 
 					<div
 						onClick={clickShowSortHandler}
@@ -249,11 +252,14 @@ function Reconcile() {
 
 			{/* <SalesReport /> */}
 			{/* Mapped Dynamic Data from CSV for salesreport */}
-			<div className="my-8" id='reportCanvas'>
+			<div className="my-8" id="reportCanvas">
 				<p className="my-4 text-green-600 font-bold">{fileDropped2.name}</p>
 
-				<div className="overflow-scroll"  id='reportCanvas'>
-					<table className="table-auto w-full text-xs md:text-base "  id='reportCanvas'>
+				<div className="overflow-scroll" id="reportCanvas">
+					<table
+						className="table-auto w-full text-xs md:text-base "
+						id="reportCanvas"
+					>
 						<thead className="bg-[#D1E9FF] py-2 my-2">
 							<tr>
 								{headerKeys2.map((key) => (
