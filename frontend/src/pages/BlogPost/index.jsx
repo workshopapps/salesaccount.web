@@ -1,11 +1,13 @@
 import React,{useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import BlogPreview from '../../components/BlogPreview';
-import {otherPost} from '../Blogs/fakedata/index';
+import {blogList, otherPost} from '../Blogs/fakedata/index';
 import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
 
 function BlogPost() {
+	const location = useLocation();
+	const blog = blogList.find(blogPost=>+blogPost.id === +location.state);
 	useEffect(() => {
 		window.scrollTo({
 			top: 0,
@@ -18,10 +20,10 @@ function BlogPost() {
 			<div className=" px-[72px] max-[675px]:px-6">
 				<div className="flex flex-col justify-center items-center mt-[102px] mb-[72px]">
 					<h1 className=" font-semibold text-[56px] leading-[70px] text-[#101828] text-center max-w-[20ch] max-[675px]:text-[36px]">
-						3 Effective Debt Management Practices
+						{blog.title}
 					</h1>
 					<p className="font-semibold text-base leading-6 text-[#667085] text-center">
-						Published 20 Jan 2022
+						{blog.dateCreated}
 					</p>
 				</div>
 				<div className=" mb-[67px]">
@@ -33,7 +35,7 @@ function BlogPost() {
 						effectiveness of the three debt management techniques exxplained in
 						this piece.
 					</p>
-					<img src="../assets/images/blog/dummyBlogThumb.svg" alt="thumbnail" />
+					<img className='w-full' src={blog.thumbnail} alt="thumbnail" />
 				</div>
 				<div className="flex flex-col gap-12 mb-[30px]">
 					<p className="font-normal leading-[30px] text-lg text-[#667085] max-[675px]:text-base max-[675px]:leading-[25px]">

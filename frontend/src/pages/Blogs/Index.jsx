@@ -55,6 +55,7 @@ function Blogs() {
 									<div key={blogs.id} className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
 										<BlogPreview
 											key={blogs.id}
+											id={blogs.id}
 											slug={blogs?.slug}
 											title={blogs?.title}
 											category={blogs?.category}

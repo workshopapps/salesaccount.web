@@ -6,8 +6,9 @@ import PropTypes from 'prop-types';
 
 
 
- const BlogPreview =({title, slug , category, highlight, author, dateCreated, avatarImage, thumbnail})=>{
+ const BlogPreview =({id,title, slug , category, highlight, author, dateCreated, avatarImage, thumbnail})=>{
 	BlogPreview.propTypes = {
+		id: PropTypes.node.isRequired,
 		title: PropTypes.node.isRequired,
 		slug: PropTypes.node.isRequired,
 		category: PropTypes.node.isRequired,
@@ -20,7 +21,7 @@ import PropTypes from 'prop-types';
 
 
 	return (
-		<Link to={`/blog/${slug.split(' ').join('-')}`}>
+		<Link to={`/blog/${slug.split(' ').join('-')}`} state={id}>
 			<div className="px-6 pt-6 pb-8 shadow-[0px_12px_16px_-4px_rgba(16,24,40,0.08),0px_4px_6px_-2px_rgba(16,24,40,0.03)] bg-[#FFFFFF]">
 				<div  >
 					<figure>
