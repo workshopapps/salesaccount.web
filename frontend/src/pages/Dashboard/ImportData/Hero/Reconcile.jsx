@@ -59,6 +59,7 @@ function Reconcile() {
 	//  make post request function
 
 	const handleSubmit = async () => {
+		console.log('fetching');
 		reconcileData();
 		navigate('/dashboard/accountreport');
 	};
@@ -156,7 +157,9 @@ function Reconcile() {
 						<thead className="bg-[#D1E9FF] py-2 my-2">
 							<tr>
 								{headerKeys.map((key) => (
-									<th className="py-2 pl-8 text-left">{key}</th>
+									<th className="py-2 pl-8 text-left" key={Math.random()}>
+										{key}
+									</th>
 								))}
 							</tr>
 						</thead>
@@ -165,7 +168,9 @@ function Reconcile() {
 							{localData.map((sData) => (
 								<tr className="py-2 pl-8">
 									{Object.values(sData).map((iData) => (
-										<td className="text- py-2 pl-8">{iData}</td>
+										<td className="text- py-2 pl-8" key={Math.random()}>
+											{iData}
+										</td>
 									))}
 								</tr>
 							))}
