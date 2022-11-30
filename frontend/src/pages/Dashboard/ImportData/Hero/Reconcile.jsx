@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import {jsPDF} from 'jspdf';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import './Hero.css';
 import '../Transactions/User/user.css';
@@ -21,7 +22,23 @@ function Reconcile() {
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
 	const headerKeys2 = Object.keys(Object.assign({}, ...localData2));
 
-	
+
+	// 	const generatePDF = () => {
+	// 
+	// 		const report = new JsPDF('portrait', 'pt', 'a4');
+	// 		report.html(document.querySelector('#report')).then(() => {
+	// 			report.save('report.pdf');
+	// 		});
+
+	const generatePDF = () =>{
+		const report = new jsPDF();
+		// const contentRef = useRef(null)
+
+		report.html(document.querySelector('#reportCanvas')).then(()=>{
+			report.save('ReconcileAI.pdf')
+		})
+	}
+
 
 	// click functions
 	const clickShowDisplayHandler = () =>
@@ -46,7 +63,7 @@ function Reconcile() {
 	};
 
 	return (
-		<div className="w-full">
+		<div className="w-full" >
 			<div className="space-y-[1em]">
 				<div className="hidden md:flex">
 					{/* <CurrentNav /> */}
@@ -230,11 +247,11 @@ function Reconcile() {
 
 			{/* <SalesReport /> */}
 			{/* Mapped Dynamic Data from CSV for salesreport */}
-			<div className="my-8">
+			<div className="my-8" id='reportCanvas'>
 				<p className="my-4 text-green-600 font-bold">{fileDropped2.name}</p>
 
-				<div className="overflow-scroll">
-					<table className="table-auto w-full text-xs md:text-base ">
+				<div className="overflow-scroll"  id='reportCanvas'>
+					<table className="table-auto w-full text-xs md:text-base "  id='reportCanvas'>
 						<thead className="bg-[#D1E9FF] py-2 my-2">
 							<tr>
 								{headerKeys2.map((key) => (
@@ -266,6 +283,7 @@ function Reconcile() {
 					type="submit"
 					onClick={(e) => {
 						e.preventDefault();
+						generatePDF();
 						handleSubmit();
 					}}
 					className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2  w-[70%] md:w-[60%] lg:w-[30%] active:color-#1849A9"
