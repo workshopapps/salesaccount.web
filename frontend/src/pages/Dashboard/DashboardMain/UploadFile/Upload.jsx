@@ -42,6 +42,7 @@ function Upload() {
 			<input
 				type="file"
 				hidden
+				accept=".csv"
 				ref={inputRef}
 				onChange={(e) => {
 					setLocalFile(e.target.files);
