@@ -30,14 +30,14 @@ function Reconcile() {
 	// 			report.save('report.pdf');
 	// 		});
 
-	const generatePDF = () =>{
-		const report = new jsPDF();
-		// const contentRef = useRef(null)
-
-		report.html(document.querySelector('#reportCanvas')).then(()=>{
-			report.save('ReconcileAI.pdf')
-		})
-	}
+// 	const generatePDF = () =>{
+// 		const report = new jsPDF();
+// 		// const contentRef = useRef(null)
+// 
+// 		report.html(document.querySelector('#reportCanvas')).then(()=>{
+// 			report.save('ReconcileAI.pdf')
+// 		})
+// 	}
 
 
 	// click functions
