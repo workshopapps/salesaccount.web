@@ -16,10 +16,9 @@ function Blogs() {
 		arrayForHoldingPosts = [...arrayForHoldingPosts, ...slicedPosts];
 		setPostsToShow(arrayForHoldingPosts);
 	  };
-	const handleShowMorePosts = () => {
-		if (next+postsPerPage > blogList.length) {
-			// eslint-disable-next-line no-console
-			console.log("No more posts");
+	const handleShowMorePosts = (e) => {
+		if (next+postsPerPage+postsPerPage > blogList.length) {
+			e.currentTarget.classList.toggle('hidden');
 		}
 		loopWithSlice(next, next + postsPerPage);
 		setNext(next + postsPerPage);
