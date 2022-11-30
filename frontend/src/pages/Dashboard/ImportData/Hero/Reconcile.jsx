@@ -17,7 +17,7 @@ function Reconcile() {
 	const [showDisplay2, setShowDisplay2] = useState(false);
 	const [showSort2, setShowSortDisplay2] = useState(false);
 	const navigate = useNavigate();
-	const { localData, fileDropped, localData2, fileDropped2, reconcileData } =
+	const { localData, fileDropped, localData2, fileDropped2, reconcileData, localData3 } =
 		useAuth();
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
 	const headerKeys2 = Object.keys(Object.assign({}, ...localData2));
@@ -284,8 +284,10 @@ function Reconcile() {
 					type="submit"
 					onClick={(e) => {
 						e.preventDefault();
-						generatePDF();
+						// generatePDF();
 						handleSubmit();
+						reconcileData();
+						// console.log(localData3);
 					}}
 					className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2  w-[70%] md:w-[60%] lg:w-[30%] active:color-#1849A9"
 				>

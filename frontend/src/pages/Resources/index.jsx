@@ -51,18 +51,18 @@ const data = [
 const Resources = () => (
 	<div>
 		<NavigationBar />
-		<div className=" px-4 bg-blue-200">
+		<div className=" px-4 bg-[#D1E9FF]">
 			<div className="  pt-5 flex justify-center items-center flex-col ">
 				<h1 className=" text-2xl md:text-4xl font-semibold pt-9">Resources</h1>
 
-				<p className=" text-sm text-center px-5 py-7">
+				<p className="text-sm md:text-xl text-center py-2 md:py-4">
 					Get everything done with all our resources. Click on the resources
 					you’d like to explore.
 				</p>
 
-				<div className=" text-center">
+				<div className=" text-center pt-4 md:pt-8">
 					<img
-						className=" mx-auto max-h-20 md:max-h-32"
+						className=" mx-auto w-4/5 md:w-full "
 						src={resourcesheaderimg}
 						alt=""
 					/>
@@ -70,15 +70,17 @@ const Resources = () => (
 			</div>
 		</div>
 
-		<div className=" px-7 flex py-5 flex-wrap gap-4 justify-center mb px:10 md:px-11 lg:px-6 xl:px-36">
+		<div className="md:w-[85%] mx-auto px-7 flex flex-wrap py-8 gap-4 justify-center mb px:10 md:px-11 lg:px-6 xl:px-36">
 			{data.map((item) => (
-				<div key={item.id}>
-					<div className=" ">
+				<div key={item.id} className=''>
+					<div className=" flex-grow">
 						<div className=" w-72 p-5 rounded-md drop-shadow border ">
-							<img src={item.image} alt="" />
-							<p className=" text-md text-blue-500 pt-2">{item.header}</p>
+							<div className='w-full mb-4'>
+								<img src={item.image} alt="" className='w-full'/>
+							</div>
+							<p className=" text-md text-blue-500 pt-4">{item.header}</p>
 							<h1 className=" font-semibold py-3">{item.subtext}</h1>
-							<Link to={item.to}>
+							<Link to={item.to} className=''>
 								<img src={arrowright} alt="" />
 							</Link>
 						</div>
