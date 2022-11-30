@@ -10,20 +10,20 @@ function AccountReport() {
 	const navigate = useNavigate();
 	const headerKeys = Object.keys(Object.assign({}, ...localData3));
 
-	const newData = [];
-	for (let i = 0; i < localData3.length; i += 1) {
-		newData.push({
-			balance: localData3[i].Balance,
-			date: localData3[i].Date,
-			description_x: localData3[i].Description_x,
-			description_y: localData3[i].Description_y,
-			details: localData3[i].Details,
-			// item_no: localData3[i].item,
-			// money_out: localData3[i][' Money out '],
-			// money_in: localData3[i][' Money in '],
-			price: localData3[i].Price,
-		});
-	}
+	// const newData = [];
+	// for (let i = 0; i < localData3.length; i += 1) {
+	// 	newData.push({
+	// 		balance: localData3[i].Balance,
+	// 		date: localData3[i].Date,
+	// 		description_x: localData3[i].Description_x,
+	// 		description_y: localData3[i].Description_y,
+	// 		details: localData3[i].Details,
+	// 		// item_no: localData3[i].item,
+	// 		// money_out: localData3[i][' Money out '],
+	// 		// money_in: localData3[i][' Money in '],
+	// 		price: localData3[i].Price,
+	// 	});
+	// }
 
 	return (
 		<div className="space-y-[1em]">
