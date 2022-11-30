@@ -58,6 +58,8 @@ export const UserProvider = ({ children }) => {
 	const reconcileData = async () => {
 		axios
 			.get(reconcileUrl)
+			.then((res) => console.log(JSON.parse(res?.data)))
+			.catch((e) => console.log(e));
 			.then((res) => console.log(res))
 			.catch((e) => console.log(e));
 	};
@@ -107,6 +109,10 @@ export const UserProvider = ({ children }) => {
 			setError,
 			getSalesData,
 			reconcileData,
+			localData3,
+			setLocalData3,
+			localData3,
+			setLocalData3
 		}),
 		[
 			localFile,
@@ -122,9 +128,7 @@ export const UserProvider = ({ children }) => {
 <<<<<<< HEAD
 			localData3,
 			localData3,
-			setLocalData3,
-=======
->>>>>>> parent of 637ba96 (api fixed)
+			setLocalData3
 		]
 	);
 
