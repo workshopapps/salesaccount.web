@@ -1,40 +1,51 @@
+#!/usr/bin/python3
+""" FILE CONVERSION MODULE """
+from tabula import read_pdf
 import json
 import pandas as pd
-from tabula import read_pdf
 
-import pathlib
-  
-# function to return the file extension
-def get_extension(filename):
-    file_extension = pathlib.Path(filename).suffix
-    return file_extension
-# 
 
-def file_conversion(filename):
-    """ Converts csv file to json """  
-    if filename.endswith('.csv'):
-        df = pd.read_csv(filename)
-        result = df.to_json(orient='records')
-        parsed = json.loads(result)
-        response = json.dumps(parsed, indent=4)
-        return response
+
+def df_to_json(df):
+    """ Converts dataframe to json object
     
-    elif filename.endswith('.pdf'):
-        """ Converts csv file to json """  
-        df = read_pdf(filename)
-        result = df.to_json(orient='records')
-        parsed = json.loads(result)
-        response = json.dumps(parsed, indent=4)
+    Args:
+    df: dataframe
+
+    Return:
+    object: json
+    """
+    result = df.to_json(orient='records')
+    parsed = json.loads(result)
+    response = json.dumps(parsed, indent=4)
+    return response
+
+
+def file_conversion(filename: str):
+    """ Converts csv/pdf/xls files to json
+    
+    Args:
+    filename: directory containing file
+
+    Return:
+    object: json
+    """
+
+    if filename.endswith(".csv"):
+        df = pd.read_csv(filename)
+        response = df_to_json(df)
         return response
+      
+    # elif filename.endswith('.pdf'):  
+    #     df = read_pdf(filename)
+    #     response = df_to_json(df)
+    #     return response
   
+    # elif filename.endswith('.xls'):
+    #     """ Converts csv file to json """  
+    #     df = pd.read_excel(filename)
+    #     response = df_to_json(df)
+    #     return response
 
-    elif filename.endswith('.xls'):
-        """ Converts csv file to json """  
-        df = pd.read_excel(filename)
-        result = df.to_json(orient='records')
-        parsed = json.loads(result)
-        response = json.dumps(parsed, indent=4)
-        return response
-
-    else:
-        return{'file extension error': 'unsupported file type'}
+    # else:
+    #     return {'file extension error': 'unsupported file type'}
