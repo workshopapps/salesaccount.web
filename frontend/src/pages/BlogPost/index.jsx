@@ -8,6 +8,24 @@ import Footer from '../../components/Footer';
 function BlogPost() {
 	const location = useLocation();
 	const blog = blogList.find(blogPost=>+blogPost.id === +location.state);
+	function copyURL() {
+		navigator.clipboard.writeText(window.location.href);
+	}
+	function handleTwitterShare() {
+		const CurrentUrl=window.location.href;
+		const TwitterShareUrl=`https://twitter.com/intent/tweet?text=This is an Awesome Article I read today  ${CurrentUrl}`;
+		window.open(TwitterShareUrl);
+	}
+	function handleFacebookShare() {
+		const CurrentUrl=window.location.href;
+		const FacebookShareUrl=`https://www.facebook.com/sharer/sharer.php?u=${CurrentUrl}`;
+		window.open(FacebookShareUrl);
+	}
+	function handleLinkedInShare() {
+		const CurrentUrl=window.location.href;
+		const LinkedShareUrl=`https://www.linkedin.com/sharing/share-offsite/?url=${CurrentUrl}&source=${CurrentUrl}`;
+		window.open(LinkedShareUrl);
+	}
 	useEffect(() => {
 		window.scrollTo({
 			top: 0,
@@ -163,39 +181,39 @@ function BlogPost() {
 							</div>
 							<div className="flex gap-3">
 								<button
-									type="button"
+									type="button" onClick={copyURL}
 									className=" text-[#344054] px-4 py-[10px] flex gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border-solid  border-[1px] border-[#D0D5DD] whitespace-nowrap"
 								>
 									<img src="../assets/images/blog/copy.svg" alt="" /> Copy Link
 								</button>
-								<div className=" w-10 h-10 cursor-pointer text-[#344054] px-[10px] py-[10px] flex gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border-solid  border-[1px] border-[#D0D5DD]">
+								<button type='button' onClick={handleTwitterShare}  className=" w-10 h-10 cursor-pointer text-[#344054] px-[10px] py-[10px] flex gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border-solid  border-[1px] border-[#D0D5DD]" >
 									<img
 										className="w-full"
 										src="../assets/images/blog/twitter.svg"
 										alt=""
 									/>
-								</div>
-								<div className=" w-10 h-10 cursor-pointer text-[#344054] px-[10px] py-[10px] flex gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border-solid  border-[1px] border-[#D0D5DD]">
+								</button >
+								<button type='button' onClick={handleFacebookShare} className=" w-10 h-10 cursor-pointer text-[#344054] px-[10px] py-[10px] flex gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border-solid  border-[1px] border-[#D0D5DD]">
 									<img
 										className="w-full"
 										src="../assets/images/blog/fb.svg"
 										alt=""
 									/>
-								</div>
-								<div className=" w-10 h-10 cursor-pointer text-[#344054] px-[10px] py-[10px] flex gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border-solid  border-[1px] border-[#D0D5DD]">
+								</button>
+								<button type='button' onClick={handleLinkedInShare} className=" w-10 h-10 cursor-pointer text-[#344054] px-[10px] py-[10px] flex gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border-solid  border-[1px] border-[#D0D5DD]">
 									<img
 										className="w-full"
 										src="../assets/images/blog/linkedin.svg"
 										alt=""
 									/>
-								</div>
+								</button>
 							</div>
 						</div>
 					</div>
 					<div>
 						<hr className=" border-solid border-[1px] border-[#EAECF0] mb-[30.5px]" />
 						<div className="flex justify-between items-center mb-[10.5px] mx-[21px]">
-							<div className=" cursor-pointer text-[#667085] flex gap-2">
+							<div className=" cursor-pointer text-[#667085] flex gap-2" >
 								<img src="../assets/images/blog/arrow-left.svg" alt="arrow" />
 								Previous
 							</div>
