@@ -1,18 +1,39 @@
-import React ,{useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaArrowDown } from 'react-icons/fa';
 import BlogPreview from '../../components/BlogPreview';
-import {blogList} from './fakedata/index';
+import { blogList } from './fakedata/index';
 import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
 
+const postsPerPage = 3;
+let arrayForHoldingPosts = [];
+
 function Blogs() {
+	const [postsToShow, setPostsToShow] = useState([]);
+	const [next, setNext] = useState(3);
+	const loopWithSlice = (start, end) => {
+		const slicedPosts = blogList.slice(start, end);
+		arrayForHoldingPosts = [...arrayForHoldingPosts, ...slicedPosts];
+		setPostsToShow(arrayForHoldingPosts);
+	  };
+	const handleShowMorePosts = () => {
+		if (next+postsPerPage > blogList.length) {
+			// eslint-disable-next-line no-console
+			console.log("No more posts");
+		}
+		loopWithSlice(next, next + postsPerPage);
+		setNext(next + postsPerPage);
+	  };
 	useEffect(() => {
+		setPostsToShow([]);
+		arrayForHoldingPosts = [];
+		loopWithSlice(0, postsPerPage);
 		window.scrollTo({
 			top: 0,
 			left: 0,
-			behavior: "smooth"
-		  });	
-	  }, [])
+			behavior: 'smooth',
+		});
+	}, []);
 	return (
 		<>
 			<NavigationBar />
@@ -31,10 +52,10 @@ function Blogs() {
 					<div className="px-8 max-w-7xl w-full  mx-auto max-[375px]:px-4">
 						<div>
 							<div className="flex flex-row flex-wrap gap-8 w-full justify-center items-center">
-								{blogList.map((blogs) => (
-									<div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full" 	>
+								{postsToShow.map((blogs) => (
+									<div key={blogs.id} className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
 										<BlogPreview
-										    key={blogs?.id}
+											key={blogs.id}
 											slug={blogs?.slug}
 											title={blogs?.title}
 											category={blogs?.category}
@@ -51,6 +72,7 @@ function Blogs() {
 								<button
 									type="button"
 									className="text-[#175CD3] flex items-center justify-center gap-2 py-3 px-5 bg-[#F2F4F7] rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] "
+									onClick={handleShowMorePosts}
 								>
 									<FaArrowDown className=" text-[#175CD3]" />
 									Load more

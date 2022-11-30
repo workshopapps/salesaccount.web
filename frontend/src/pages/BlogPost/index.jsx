@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import BlogPreview from '../../components/BlogPreview';
 import {otherPost} from '../Blogs/fakedata/index';
@@ -6,6 +6,12 @@ import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
 
 function BlogPost() {
+	useEffect(() => {
+		window.scrollTo({
+			top: 0,
+			left: 0,
+		});
+	}, []);
 	return (
 		<>
 			<NavigationBar />
@@ -209,9 +215,9 @@ function BlogPost() {
 					<div>
 						<div className="flex flex-row flex-wrap gap-8 w-full justify-center items-center">
 						{otherPost.map((blogs) => (
-									<div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full" 	>
+									<div key={blogs.id} className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full" 	>
 										<BlogPreview
-										    key={blogs?.id}
+										    key={blogs.id}
 											slug={blogs?.slug}
 											title={blogs?.title}
 											category={blogs?.category}
