@@ -58,10 +58,8 @@ export const UserProvider = ({ children }) => {
 	const reconcileData = async () => {
 		axios
 			.get(reconcileUrl)
-			.then((res) => {
-				setLocalData3(JSON.parse(res?.data));
-			})
-			.catch((e) => setError(e));
+			.then((res) => console.log(JSON.parse(res?.data)))
+			.catch((e) => console.log(e));
 	};
 
 	const dragHandler = (e) => {
