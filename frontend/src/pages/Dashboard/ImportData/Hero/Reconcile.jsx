@@ -30,14 +30,14 @@ function Reconcile() {
 	// 			report.save('report.pdf');
 	// 		});
 
-	const generatePDF = () =>{
-		const report = new jsPDF();
-		// const contentRef = useRef(null)
+	// const generatePDF = () =>{
+	// 	const report = new jsPDF();
+	// 	// const contentRef = useRef(null)
 
-		report.html(document.querySelector('#reportCanvas')).then(()=>{
-			report.save('ReconcileAI.pdf')
-		})
-	}
+	// 	report.html(document.querySelector('#reportCanvas')).then(()=>{
+	// 		report.save('ReconcileAI.pdf')
+	// 	})
+	// }
 
 
 	// click functions
@@ -98,6 +98,7 @@ function Reconcile() {
 						<p className="font-bold">Display</p>
 						<ExpandMoreIcon />
 					</div>
+					
 
 					<div
 						onClick={clickShowSortHandler}
