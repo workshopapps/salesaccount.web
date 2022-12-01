@@ -1,7 +1,5 @@
-
-
 const documentationData = [
-    {
-        title: ""
-    }
-]
+	{
+		title: '',
+	},
+];
