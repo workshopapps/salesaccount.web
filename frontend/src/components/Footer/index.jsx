@@ -111,9 +111,11 @@ const Footer = () => (
 			<div className="md:hidden w-2/5 mx-auto flex flex-col">
 				<img src={footerLogo} alt="Company logo" />
 				<div className="text-[#98A2B3] flex space-x-[12px] xl:space-x-[20px]">
-					<BsTwitter size={32} />
-					<BsFacebook size={32} />
-					<BsInstagram size={32} />
+					<div className="mx-auto">
+						<BsTwitter size={32} />
+						<BsFacebook size={32} />
+						<BsInstagram size={32} />
+					</div>
 				</div>
 			</div>
 		</div>

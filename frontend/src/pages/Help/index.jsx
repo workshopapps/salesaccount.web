@@ -9,7 +9,7 @@ function Help() {
 			<NavigationBar />
 			<div className="w-full text-[#101828]">
 				{/* Hero Section  */}
-				<div className="w-full px-4 lg:px-36 xl:px-40 2xl:px-0 py-20 bg-[#F2F4F7]">
+				<div className="w-full px-4 md:20 lg:px-36 xl:px-40 2xl:px-0 py-20 bg-[#F2F4F7]">
 					<div className="md:w-full md:mx-auto md:grid md:grid-cols-2 2xl:max-w-screen-xl 2xl:mx-auto 2xl:grid 2xl:grid-cols-2">
 						<div className="py-auto">
 							<h1 className="text-xl md:3xl font-semibold mb-2 lg:text-[40px] lg:leading-[50px] lg:mb-6">
