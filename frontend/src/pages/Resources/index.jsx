@@ -51,18 +51,18 @@ const data = [
 const Resources = () => (
 	<div>
 		<NavigationBar />
-		<div className=" px-4 bg-[#D1E9FF]">
-			<div className="  pt-5 flex justify-center items-center flex-col ">
-				<h1 className=" text-2xl md:text-4xl font-semibold pt-9">Resources</h1>
+		<div className=" px-4 bg-[#F2F4F7] md:bg-[#D1E9FF]">
+			<div className="flex flex-col items-center justify-center pt-5 ">
+				<h1 className="text-xl text-[#1D2939] font-semibold md:pb-4 md:text-6xl pt-9">Resources</h1>
 
-				<p className="text-sm md:text-xl text-center py-2 md:py-4">
-					Get everything done with all our resources. Click on the resources
+				<p className="py-2 text-sm text-center text-[#1D2939] md:text-xl md:py-4">
+					Get everything done with all our resources. Click on the <br /> resources
 					you’d like to explore.
 				</p>
 
-				<div className=" text-center pt-4 md:pt-8">
+				<div className="pt-4 text-center md:pt-8">
 					<img
-						className=" mx-auto w-4/5 md:w-full "
+						className="w-4/5 mx-auto md:w-full"
 						src={resourcesheaderimg}
 						alt=""
 					/>
@@ -73,13 +73,13 @@ const Resources = () => (
 		<div className="md:w-[85%] mx-auto px-7 flex flex-wrap py-8 gap-4 justify-center mb px:10 md:px-11 lg:px-6 xl:px-36">
 			{data.map((item) => (
 				<div key={item.id} className=''>
-					<div className=" flex-grow">
-						<div className=" w-72 p-5 rounded-md drop-shadow border ">
+					<div className="flex-grow ">
+						<div className="p-5 border rounded-md shadow w-72">
 							<div className='w-full mb-4'>
 								<img src={item.image} alt="" className='w-full'/>
 							</div>
-							<p className=" text-md text-blue-500 pt-4">{item.header}</p>
-							<h1 className=" font-semibold py-3">{item.subtext}</h1>
+							<p className="pt-4 text-blue-500 text-md">{item.header}</p>
+							<h1 className="py-3 font-semibold ">{item.subtext}</h1>
 							<Link to={item.to} className=''>
 								<img src={arrowright} alt="" />
 							</Link>
