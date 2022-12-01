@@ -16,7 +16,7 @@ const AboutUs = () => (
 					<h1 className="text-[#101828] lg:mb-4  font-semibold text-center md:font-bold md:text-5xl md:text-left  md:mb-5">
 						Who we are?
 					</h1>
-					<p className="text-sm font-normal text-[#101828] text-center lg:mb-[38px] mb-4 mt-4 md:text-center md:mb-0 md:h-[180px] md:w-[535px] md:text-xl">
+					<p className="text-sm font-normal text-[#101828] text-center lg:text-left lg:mb-[38px] mb-4 mt-4 md:text-center md:mb-0 md:h-[180px] md:w-[535px] md:text-xl">
 						We are a team of professionals whose aim is to give you and amazing
 						user experience. We are not only professionals but a family where
 						everybody works together with each other&apos;s interest of growth
