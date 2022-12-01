@@ -5,9 +5,7 @@ pipeline {
         stage('Build Frontend') {
             steps {
                 sh 'echo "Building Frontend"'
-                //sh 'cd frontend && npm install && npm run build'
-                //use pm2 to run the app
-                //sh 'cd frontend && pm2 serve build 55501 --name frontend'
+                sh 'cd frontend && npm install && npm run build'
             }
         }
         stage('Build FastAPI Backend') {
@@ -33,10 +31,14 @@ pipeline {
         }
 
 
-        stage('Deploy') {
+        stage('Deploy Frontend') {
             steps {
                 sh 'echo "Deploying" '
-                //sh 'aws s3 sync build/ s3://react-app-1234'
+                //copy workspace to directory
+                //sh 'sudo cp -rf ${WORKSPACE}/frontend/build/* /var/www/html'
+                sh 'sudo cp -rf ${WORKSPACE}/frontend/build/* /home/dcnc/salesaccount.web/frontend/build'
+                sh 'pm2 stop frontend && pm2 delete frontend'
+                sh 'cd frontend && pm2 serve /home/dcnc/salesaccount.web/frontend/build --port 55501 --name frontend'
             }
         }
     }
