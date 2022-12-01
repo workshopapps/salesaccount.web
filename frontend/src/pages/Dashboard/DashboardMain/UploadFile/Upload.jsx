@@ -18,7 +18,7 @@ function Upload() {
 	// Just some comment
 
 	return (
-		<div className="space-y-[1em] w-full mt-[20%] lg:mt-[10%] flex flex-col items-center  ">
+		<div className="space-y-[1em] w-full flex flex-col items-center  ">
 			<h1 className="font-bold text-2xl ">Upload Account Statement</h1>
 			<div
 				onDrop={dropHandler}
