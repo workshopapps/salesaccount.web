@@ -18,12 +18,12 @@ function Upload() {
 	// Just some comment
 
 	return (
-		<div className="space-y-[1em] w-full flex flex-col items-center  ">
-			<h1 className="font-bold text-2xl ">Upload Account Statement</h1>
+		<div className="w-full flex flex-col items-center  ">
+			<h1 className="font-semibold text-[#344054] text-[40px] mb-14 max-md:text-3xl max-sm:mb-3">Upload Account Statement</h1>
 			<div
 				onDrop={dropHandler}
 				onDragOver={dragHandler}
-				className="flex flex-col items-center p-[1em] space-y-[2em] w-full md:w-[60%] lg:w-[40%] border border-dashed border-black"
+				className="flex flex-col items-center py-14 space-y-[2em] w-full md:w-[60%] lg:w-[40%] max-sm:py-4 rounded-xl border-[2px] border-dashed border-[#1D2939]"
 			>
 				<img
 					src={document}
@@ -31,11 +31,11 @@ function Upload() {
 					className="w-[100px] h-[130px] object-fill"
 				/>
 				<div className="text-center  space-y-[0.5em]">
-					<h2 className="font-semibold text-[#344054] text-lg">
+					<h2 className=" font-normal text-[#344054] text-[28px]">
 						Drop your account statement in here
 					</h2>
-					<p className="text-sm text-[#98A2B3]">
-						You can upload PDF and Word DOC files Only
+					<p className="font-normal text-[20px] text-[#98A2B3]">
+					Supported formats: PDF, Word DOCS, Excel
 					</p>
 				</div>
 			</div>
@@ -54,10 +54,10 @@ function Upload() {
 				onClick={() => {
 					inputRef.current.click();
 				}}
-				className="bg-[#2E90FA] text-white px-[1.5em] py-[0.8em] rounded-md "
+				className="bg-[#2E90FA] font-semibold text-lg text-white px-[1.5em] py-[0.8em] rounded-md mt-12 max-sm:mt-3"
 				type="button"
 			>
-				Browse File Here
+				Upload Account Statement
 			</button>
 		</div>
 	);
