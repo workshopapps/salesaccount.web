@@ -130,14 +130,14 @@ function ImportData() {
 					<table className="table-auto w-full text-xs md:text-base ">
 						<thead className="bg-[#D1E9FF] py-2 my-2">
 							<tr>
-								{headerKeys.map((key) => (
+								{headerKeys?.map((key) => (
 									<th className="py-2 pl-8 text-left">{key}</th>
 								))}
 							</tr>
 						</thead>
 
 						<tbody className="py-2 px-6">
-							{localData.map((sData) => (
+							{localData?.map((sData) => (
 								<tr className="py-2 pl-8">
 									{Object.values(sData).map((iData) => (
 										<td className="text- py-2 pl-8">{iData}</td>
