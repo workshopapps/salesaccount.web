@@ -17,40 +17,36 @@ import NavigationBar from '../../components/NavigationBar';
 const AboutUs = () => (
 	<div>
 		<NavigationBar />
-		<section className="px-6 md:mb-[90px] md:px-[120px] pt-9  ">
-			<div className="flex flex-col gap-x-[130px]  items-center mb-[70px] md:mt-[110px] md:mb-0 md:flex-row">
+		<section className="pt-24 pb-24 pl-36 pr-36 bg-[#F2F4F7] z-0 ">
+			<div className="flex flex-col lg:gap-48  items-center  md:flex-row  ">
 				<div className="">
-					<h1 className="text-[#194185] mb-3 font-semibold text-center md:font-bold md:text-5xl md:text-left  md:mb-5">
+					<h1 className="text-[#101828] mb-3 font-semibold text-center md:font-bold md:text-5xl md:text-left  md:mb-5">
 						Who we are?
 					</h1>
-					<p className="text-sm text-[#1D2939] text-center mb-[38px] md:text-left md:mb-0 md:h-[180px] md:w-[535px] md:text-xl">
+					<p className="text-sm font-normal text-[#101828] text-center mb-[38px] md:text-left md:mb-0 md:h-[180px] md:w-[535px] md:text-xl">
 						We are a team of professionals whose aim is to give you and amazing
 						user experience. We are not only professionals but a family where
 						everybody works together with each other&apos;s interest of growth
 						and succeeding at heart.
 					</p>
 				</div>
-				<div className="relative">
-					<img src={heroImg} alt="Hero" />
+				<div className="relative z-10">
+					<img src={heroImg} alt="Hero" className="" />
+
 					<img
-						className="absolute -z-10 -right-[43px] -top-[30px]"
+						className=" absolute -z-10 -right-[36px] -top-[30px]"
 						src={blueSquare}
 						alt="blue-square"
 					/>
 					<img
-						className="absolute -z-10 -left-[41px] -bottom-[49px]"
+						className="absolute -z-10 -left-[36px] -bottom-[30px]"
 						src={blueSquare}
 						alt="blue-square"
 					/>
 				</div>
 			</div>
-			<button
-				type="button"
-				className="w-[118px] h-[44px] mb-12 ml-24 bg-[#2E90FA] rounded-lg font-semibold text-white md:hidden"
-			>
-				Try it Free
-			</button>
 		</section>
+		{/*
 		<section className="w-full flex flex-col items-center justify-center bg-[#D1E9FF] h-[130px] md:h-[194px]">
 			<h3 className="text-lg text-[#1D2939] mb-3 font-semibold text-center  md:text-[28px]">
 				Inspired by
@@ -72,91 +68,119 @@ const AboutUs = () => (
 					alt="webflow"
 				/>
 			</div>
-		</section>
-		<section className=" px-6 pt-6 md:pt-0 md:pb-[138px] md:px-[120px]">
-			<h3 className="text-[#194185]  text-lg font-medium mb-[30px] text-center md:text-left md:pt-[44px] md:mb-[20px] md:font-bold md:text-[48px]">
-				Our Vision
-			</h3>
-			<div className="flex flex-col gap-y-5 md:gap-x-[146px] md:gap-y-0 md:items-center md:flex-row md:justify-between">
-				<div className="relative w-full md:w-auto">
+</section> */}
+		<section className="pl-36 pr-36 pt-16 pb-12 z-0">
+			<div className="flex flex-col lg:gap-48  items-center  md:flex-row  ">
+				<div className="relative z-10  mb-8">
+					<h3 className="text-[#101828]  mb-20 text-lg font-medium   md:font-bold md:text-[48px]">
+						Our Vision
+					</h3>
+
 					<p className="bg-[#F9FAFB] text-center text-xs h-[82px] px-[31px] py-[18px] md:text-left md:w-[507px] md:text-xl md:h-[197px] md:px-[52px] md:py-[58px]">
 						To make easy sales and accounting reconciliation across all business
 						types.
 					</p>
 					<img
-						className="absolute -top-[1rem] -left-[15px] -z-10 md:-top-[1.7rem] md:-left-[35px]"
+						className="absolute top-[5rem] -left-[24px] -z-10 "
+						src={blueSquare}
+						alt=""
+					/>
+					<img
+						className="absolute -bottom-[1.5rem] -right-[22px] -z-10 "
 						src={blueSquare}
 						alt=""
 					/>
 				</div>
-				<img
-					className="mb-6 md:mb-0 md:max-w-[458px]"
-					src={vision}
-					alt="People holding hands in agreement"
-				/>
+
+				<div>
+					<img
+						className="ml-[36px]"
+						src={vision}
+						alt="People holding hands in agreement"
+					/>
+				</div>
 			</div>
 		</section>
-		<section className=" px-6 pt-6 md:pt-0 relative md:pb-[138px] md:px-[120px]">
-			<h3 className="text-[rgb(25,65,133)]  text-lg font-medium mb-[30px] text-center md:text-left md:absolute md:right-[120px] md:-top-24 md:pt-[44px] md:mb-[30px] md:font-bold md:text-[48px]">
-				Our Mission
-			</h3>
+		<section className=" pl-36 pr-36 pb-20 z-0 bg-[#EFF8FF] ">
 			<div className="flex flex-col gap-y-5 md:gap-x-[146px] md:gap-y-0 md:mt-6 md:items-center md:flex-row-reverse md:justify-between">
-				<div className="relative w-full md:w-auto">
-					<p className="bg-[#F9FAFB] text-center text-xs h-[114px] px-[31px] py-[18px] md:text-left md:w-[547px] md:text-xl md:h-[294px] md:px-[52px] md:py-[58px]">
-						To continually create ease in business accounting processes through
-						the use of technology enabled solutions and making them easily
-						accessible for businesses.
-					</p>
-					<img
-						className="absolute -top-[1rem] -left-[15px] -z-10 md:-top-[1.7rem] md:-left-[35px]"
-						src={blueSquare}
-						alt=""
-					/>
+				<div className="relative w-full md:w-auto z-10">
+					<h3 className="text-[#101828] lg:ml-52 mt-8 text-lg font-medium mb-[30px] text-center md:text-left md:pt-[44px] md:mb-[20px] md:font-bold md:text-[48px]">
+						Our Mission
+					</h3>
+					<div className="mt-28">
+						<p className="bg-[#F9FAFB] text-center text-xs items-center flex md:text-left md:w-[507px] md:text-xl md:h-[197px] md:px-[52px] md:py-[58px]">
+							To continually create ease in business accounting processes
+							through the use of technology enabled solutions and making them
+							easily accessible for businesses.
+						</p>
+						<img
+							className="absolute -z-10 top-[11.5rem] -left-[28px]"
+							src={blueSquare}
+							alt=""
+						/>
+						<img
+							className="absolute -bottom-[1.5rem] -right-[28px]  -z-10 "
+							src={blueSquare}
+							alt=""
+						/>
+					</div>
 				</div>
 				<img
-					className="mb-6 w-full max-h-[281px] md:mb-0 md:max-w-[458px] md:max-h-[316px]"
+					className="mt-12"
 					src={mission}
 					alt="Person working and writing on a notebook"
 				/>
 			</div>
 		</section>
-		<section className=" px-6 pt-6 md:pt-0 md:pb-[138px] md:px-[120px]">
-			<h3 className="text-[#194185]  text-lg font-medium mb-[30px] text-center md:text-left md:pt-[44px] md:mb-[30px] md:font-bold md:text-[48px]">
-				Our Core Values
-			</h3>
-			<div className="flex flex-col gap-y-5 md:gap-x-[146px] md:gap-y-0 md:mt-12 md:items-center md:flex-row md:justify-between">
-				<div className="relative w-full flex justify-between bg-[#F9FAFB]  text-xs h-[104] px-[31px] py-[18px] md:block md:text-left md:w-[380px] md:text-xl md:h-[291px] md:px-[93px] md:py-[38px]">
-					<ul className="list-disc">
-						<li className="text-[#1D2939] font-medium text-xs md:font-normal mb-4 md:text-xl ">
-							Accountability
-						</li>
-						<li className="text-[#1D2939] font-medium text-xs md:font-normal mb-4 md:text-xl ">
-							Integrity
-						</li>
-					</ul>
+		<section className=" pl-36 pr-36 pb-20 pt-10 z-0">
+			<div className="flex flex-col lg:gap-48  items-center  md:flex-row  ">
+				<div className='relative z-10'>
+					<h3 className="text-[#101828] pb-12 text-lg font-medium mb-[30px] text-center md:text-left md:pt-[44px] md:mb-[30px] md:font-bold md:text-[48px]">
+						Our Core Values
+					</h3>
 
-					<ul className="list-disc">
-						<li className="text-[#1D2939] font-medium text-xs md:font-normal mb-4 md:text-xl ">
-							Innovation
-						</li>
-						<li className="text-[#1D2939] font-medium text-xs md:font-normal md:text-xl ">
-							Reliability
-						</li>
-					</ul>
+					<div className='bg-[#F9FAFB] flex flex-col pt-10 pb-10 pl-14 pr-12'>
+						<ul className="list-disc flex flex-row gap-32">
+							<li className="text-[#1D2939] font-medium text-xs md:font-normal mb-4 md:text-xl ">
+								Accountability
+							</li>
+							<li className="text-[#1D2939] font-medium text-xs md:font-normal mb-4 md:text-xl ">
+								Integrity
+							</li>
+						</ul>
+
+						<ul className="list-disc flex flex-row gap-40 mt-8">
+							<li className="text-[#1D2939] font-medium text-xs md:font-normal mb-4 md:text-xl ">
+								Innovation
+							</li>
+							<li className="text-[#1D2939] font-medium text-xs md:font-normal md:text-xl ">
+								Reliability
+							</li>
+						</ul>
+					</div>
 
 					<img
-						className="absolute -top-[1rem] -left-[15px] -z-10 md:-top-[1.7rem] md:-left-[35px]"
+						className="absolute top-[7.5rem] -left-[24px] -z-10 "
+						src={blueSquare}
+						alt=""
+					/>
+					<img
+						className="absolute -bottom-[1.5rem] -right-[22px] -z-10 "
 						src={blueSquare}
 						alt=""
 					/>
 				</div>
-				<img
-					className="mb-6 w-full max-h-[281px] md:mb-0 md:max-w-[458px] md:max-h-[316px]"
-					src={valueImg}
-					alt="A hand building up small bricks"
-				/>
+				<div>
+					<img
+						className="ml-8 mt-16"
+						src={valueImg}
+						alt="A hand building up small bricks"
+					/>
+				</div>
 			</div>
 		</section>
+
+		{/*
 		<section className="flex flex-col mt-[30px] pb-[30px] px-6 md:pb-[50px] md: md:px-[120px]">
 			<div className="text-center my-0 mx-auto mb-6 md:max-w-[600px] md:mb-12">
 				<h3 className="text-[#194185] text-xl font-semibold mb-3 md:text-5xl md:font-bold md:mb-[20px]">
@@ -324,6 +348,7 @@ const AboutUs = () => (
 				</button>
 			</div>
 		</section>
+*/}
 		<Footer />
 	</div>
 );
