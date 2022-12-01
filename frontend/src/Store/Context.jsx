@@ -1,7 +1,7 @@
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-import { useContext, useState, createContext, useMemo, useEffect } from 'react';
+import { useContext, useState, createContext, useMemo } from 'react';
 
 const UserContext = createContext();
 export const useAuth = () => useContext(UserContext);
