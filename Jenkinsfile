@@ -37,8 +37,8 @@ pipeline {
                 //copy workspace to directory
                 //sh 'sudo cp -rf ${WORKSPACE}/frontend/build/* /var/www/html'
                 sh 'sudo cp -rf ${WORKSPACE}/frontend/build/* /home/dcnc/salesaccount.web/frontend/build'
-                sh 'pm2 stop frontend && pm2 delete frontend'
-                sh 'cd frontend && pm2 serve /home/dcnc/salesaccount.web/frontend/build --port 55501 --name frontend'
+               // sh 'pm2 stop frontend && pm2 delete frontend'
+                sh 'sudo pm2 serve /home/dcnc/salesaccount.web/frontend/build --port 55501 --name frontend'
             }
         }
     }
