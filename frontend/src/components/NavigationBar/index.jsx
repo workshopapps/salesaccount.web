@@ -25,7 +25,8 @@ function NavigationBar() {
 		setNav(!nav);
 	};
 	return (
-		<nav className="w-full h-[112px] bg-[#F9FAFB]  px-[72px] flex items-center justify-between max-md:px-[30px] ">
+		<nav className='bg-[#F9FAFB] ' >
+			<div className="h-[112px]  max-w-[1440px] w-full mx-auto px-[72px] flex items-center justify-between max-md:px-[30px] ">
 			<Link to="/">
 				<figure className='h-[50px] mr-4'>
 				<img
@@ -75,6 +76,7 @@ function NavigationBar() {
 					<Button title="Try it NOW" path="/dashboard/home" />
 				</div>
 			</div>
+		</div>
 		</nav>
 	);
 }
