@@ -6,13 +6,13 @@ import { FiMenu } from 'react-icons/fi';
 import { AiOutlineClose } from 'react-icons/ai';
 import uuid from 'react-uuid';
 import Button from '../Button';
-import logoUpdate from '../../assets/logoUpdate.png';
+import logoUpdate from '../../assets/logoUpdate.svg';
 
 const navLinks = [
-	{ name: 'About', path: '/aboutus' },
-	{ name: 'Documentation', path: '/documentation' },
+	{ name: 'Home', path:'/'},
+	{ name: 'AboutUs', path: '/aboutus' },
 	{ name: 'Resources', path: '/resources' },
-	{ name: 'FAQs', path: '/faqs' },
+	{ name: 'Documentation', path: '/documentation' },
 ];
 
 function NavigationBar() {
@@ -21,24 +21,23 @@ function NavigationBar() {
 		setNav(!nav);
 	};
 	return (
-		<nav className="w-full h-[48px] md:h-[96px] px-1 xl:px-10 xl:grid xl:grid-cols-2 flex items-center justify-between">
+		<nav className="w-full h-[112px] bg-[#F9FAFB]  px-[72px] flex items-center justify-between max-md:px-[30px] ">
 			<Link to="/">
+				<figure className='h-[50px] mr-4'>
 				<img
 					src={logoUpdate}
 					alt="Company logo"
-					className="h-[50px] md:h-[80px] cursor-pointer"
+					className="w-full h-full cursor-pointer"
 				/>
+				</figure>
 			</Link>
 
-			<div className="hidden xl:flex xl:justify-between text-xl">
+			<div className="hidden xl:flex xl:gap-7 text-xl">
 				{navLinks.map((item) => (
 					<Link to={item.path} className="px-[10px] self-center" key={uuid()}>
 						{item.name}
 					</Link>
 				))}
-				<div className="hidden xl:inline">
-					<Button title="Try it NOW" path="/" />
-				</div>
 			</div>
 
 			{/* Hamburger */}
