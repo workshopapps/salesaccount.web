@@ -1,7 +1,7 @@
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-import { useContext, useState, createContext, useMemo, useEffect } from 'react';
+import { useContext, useState, createContext, useMemo } from 'react';
 
 const UserContext = createContext();
 export const useAuth = () => useContext(UserContext);
@@ -58,8 +58,10 @@ export const UserProvider = ({ children }) => {
 	const reconcileData = async () => {
 		axios
 			.get(reconcileUrl)
-			.then((res) => console.log(res))
-			.catch((e) => console.log(e));
+			.then((res) => {
+				setLocalData3(JSON.parse(res?.data));
+			})
+			.catch((e) => setError(e));
 	};
 
 	const dragHandler = (e) => {
@@ -107,6 +109,8 @@ export const UserProvider = ({ children }) => {
 			setError,
 			getSalesData,
 			reconcileData,
+			localData3,
+			setLocalData3,
 		}),
 		[
 			localFile,
@@ -119,6 +123,8 @@ export const UserProvider = ({ children }) => {
 			localFile2,
 			setFileDropped2,
 			setLocalData2,
+			localData3,
+			setLocalData3,
 		]
 	);
 
