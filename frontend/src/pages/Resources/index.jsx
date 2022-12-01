@@ -84,16 +84,16 @@ const Resources = () => (
 			</div>
 		</div>
 
-		<div className="md:w-[95%] mx-auto px-7 flex flex-wrap py-8 gap-[7%] justify-center my-[1em] px:10 md:px-11 lg:px-6 xl:px-36">
+		<div className=" mx-auto px-7 flex flex-wrap py-8 gap-[5%] justify-center my-[1em] px:10 md:px-11 lg:px-6 xl:px-36">
 
 
 
 			{data.map((item) => (
-				<div key={item.id} className='my-[2em]'>
+				<div key={item.id} className='my-[2em] '>
 					<div className=" flex-grow">
 						<div className=" w-72 p-5 rounded-md drop-shadow border ">
 							<div className='w-full mb-4'>
-								<img src={item.image} alt="" className='w-full' />
+								<img src={item.image} alt="" className='w-[120%]' />
 							</div>
 							<p className=" text-md text-blue-500 pt-4">{item.header}</p>
 							<h1 className=" font-semibold py-3">{item.subtext}</h1>
