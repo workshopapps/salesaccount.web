@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import { BsSearch, BsGlobe2 } from 'react-icons/bs';
 // import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Link ,NavLink } from 'react-router-dom';
 import { FiMenu } from 'react-icons/fi';
 import { AiOutlineClose } from 'react-icons/ai';
 import uuid from 'react-uuid';
@@ -16,6 +16,10 @@ const navLinks = [
 ];
 
 function NavigationBar() {
+	const activeStyle = {
+		textDecoration: "underline",
+		color:'#2E90FA',
+	  };
 	const [nav, setNav] = useState(false);
 	const toggle = () => {
 		setNav(!nav);
@@ -34,9 +38,11 @@ function NavigationBar() {
 
 			<div className="hidden xl:flex xl:gap-7 text-xl">
 				{navLinks.map((item) => (
-					<Link to={item.path} className="px-[10px] self-center" key={uuid()}>
+					<NavLink to={item.path} style={({ isActive }) =>
+					isActive ? activeStyle : undefined
+				  } className="px-[10px] self-center font-medium text-[#101828] text-xl " key={uuid()}>
 						{item.name}
-					</Link>
+					</NavLink>
 				))}
 			</div>
 
@@ -59,9 +65,11 @@ function NavigationBar() {
 				}
 			>
 				{navLinks.map((item) => (
-					<Link to={item.path} className="px-[30px] font-medium" key={uuid()}>
+					<NavLink style={({ isActive }) =>
+					isActive ? activeStyle : undefined
+				  } to={item.path} className="px-[30px] font-medium text-[#101828] text-xl" key={uuid()}>
 						{item.name}
-					</Link>
+					</NavLink>
 				))}
 				<div>
 					<Button title="Try it NOW" path="/dashboard/home" />
