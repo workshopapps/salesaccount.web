@@ -24,7 +24,7 @@ function NavigationBar() {
 				<img
 					src={logoUpdate}
 					alt="Company logo"
-					className="ml-2 h-[25px] md:h-[70px] cursor-pointer"
+					className="ml-2 h-[25px] sm:h-[38px] md:h-[50px] lg:h-[70px] cursor-pointer"
 				/>
 			</Link>
 
