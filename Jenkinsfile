@@ -5,13 +5,14 @@ pipeline {
         stage('Build Frontend') {
             steps {
                 sh 'echo "Building Frontend"'
-                sh 'cd frontend && npm install && npm run build'
+                sh 'cd frontend && npm i --force && CI=false npm run build'
             }
         }
         stage('Build FastAPI Backend') {
             steps {
                 sh 'echo "Building FastAPI Backend"'
-                //sh 'pip install -r requirements.txt'
+                sh 'cd Backend && pip install -r requirements.txt'
+                sh 'pip install -r requirements.txt'
                 //sh 'python app.py'
             }
         }
@@ -38,7 +39,7 @@ pipeline {
                 //sh 'sudo cp -rf ${WORKSPACE}/frontend/build/* /var/www/html'
                 sh 'sudo cp -rf ${WORKSPACE}/frontend/build/* /home/dcnc/salesaccount.web/frontend/build'
                // sh 'pm2 stop frontend && pm2 delete frontend'
-                sh 'sudo pm2 serve /home/dcnc/salesaccount.web/frontend/build --port 55501 --name frontend'
+                sh 'sudo pm2 serve /home/dcnc/salesaccount.web/frontend/build --port 55501 --name reconcileaifrontend'
             }
         }
     }
