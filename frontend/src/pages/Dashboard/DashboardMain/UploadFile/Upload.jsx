@@ -18,8 +18,8 @@ function Upload() {
 	// Just some comment
 
 	return (
-		<div className="w-full flex flex-col items-center  ">
-			<h1 className="font-semibold text-[#344054] text-[40px] mb-14 max-md:text-3xl max-sm:mb-3 max-xl:mb-5 max-xl:mt-1">Upload Account Statement</h1>
+		<div className="w-full flex flex-col items-center  px-[1em] mb-10 ">
+			<h1 className="font-semibold text-[#344054] text-[40px] mb-14 max-md:text-3xl max-sm:text-2xl max-xl:mb-3">Upload Account Statement</h1>
 			<div
 				onDrop={dropHandler}
 				onDragOver={dragHandler}
@@ -31,10 +31,10 @@ function Upload() {
 					className="w-[100px] h-[130px] object-fill"
 				/>
 				<div className="text-center  space-y-[0.5em]">
-					<h2 className=" font-normal text-[#344054] text-[28px]">
+					<h2 className=" font-normal text-[#344054] text-[28px] max-md:text-xl max-sm:text-base">
 						Drop your account statement in here
 					</h2>
-					<p className="font-normal text-[20px] text-[#98A2B3]">
+					<p className="font-normal text-[20px] text-[#98A2B3] max-md:text-base max-sm:text-sm">
 					Supported formats: PDF, Word DOCS, Excel
 					</p>
 				</div>
@@ -54,7 +54,7 @@ function Upload() {
 				onClick={() => {
 					inputRef.current.click();
 				}}
-				className="bg-[#2E90FA] font-semibold text-lg text-white px-[1.5em] py-[0.8em] rounded-md mt-12 max-sm:mt-3"
+				className="bg-[#2E90FA] font-semibold text-lg text-white px-[1.5em] py-[0.8em] rounded-md mt-12 max-md:mt-3 max-md:text-sm"
 				type="button"
 			>
 				Upload Account Statement
