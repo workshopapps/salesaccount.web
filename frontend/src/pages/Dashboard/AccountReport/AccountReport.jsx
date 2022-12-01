@@ -90,7 +90,7 @@ function AccountReport() {
 			</div>
 
 			{/* report buttons */}
-			<div className="sale-button flex justify-center space-x-[1em] mx-auto pb-[1em]">
+			<div className="sale-button flex justify-center space-x-[1em] mx-auto pb-[1em] pt-[5em] border border-black">
 				<button
 					onClick={() => navigate(-1)}
 					type="button"
