@@ -30,7 +30,7 @@ pipeline {
                 //copy workspace to directory
                 //sh 'sudo cp -rf ${WORKSPACE}/frontend/build/* /var/www/html'
                 sh 'sudo cp -rf ${WORKSPACE}/frontend/build/* /home/dcnc/salesaccount.web/frontend/build'
-                sh 'pm2 stop reconcileaifrontend && pm2 delete reconcileaifrontend'
+                //sh 'pm2 stop reconcileaifrontend && pm2 delete reconcileaifrontend'
                 sh 'sudo su dcnc && whoami'
                 sh 'sudo pm2 serve /home/dcnc/salesaccount.web/frontend/build --port 55501 --name reconcileaifrontend'
             }
