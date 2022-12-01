@@ -33,13 +33,12 @@ const Careers = () => {
 		setTimeout(() => {
 			setErrorMessage(false);
 		}, 3000);
-		
 
 		setTimeout(() => {
 			setSuccessMessage(false);
 		}, 3000);
 
-		setEmail('');
+		setEmail("");
 	};
 
 	const teams = [

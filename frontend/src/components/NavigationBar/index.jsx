@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-// import { BsSearch, BsGlobe2 } from 'react-icons/bs';
-// import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { FiMenu } from 'react-icons/fi';
 import { AiOutlineClose } from 'react-icons/ai';
 import uuid from 'react-uuid';
 import Button from '../Button';
-import logoUpdate from '../../assets/logoUpdate.png';
+import logoUpdate from '../../assets/logoUpdate.svg';
 
 const navLinks = [
 	{ name: 'About', path: '/aboutus' },
@@ -26,7 +24,7 @@ function NavigationBar() {
 				<img
 					src={logoUpdate}
 					alt="Company logo"
-					className="h-[50px] md:h-[70px] cursor-pointer"
+					className="ml-2 h-[25px] md:h-[70px] cursor-pointer"
 				/>
 			</Link>
 
@@ -49,7 +47,11 @@ function NavigationBar() {
 				}}
 				aria-hidden="true"
 			>
-				{nav ? <AiOutlineClose size={28} /> : <FiMenu size={28} />}
+				{nav ? (
+					<AiOutlineClose size={28} />
+				) : (
+					<FiMenu size={28} color="#2E90FA" />
+				)}
 			</div>
 
 			<div
