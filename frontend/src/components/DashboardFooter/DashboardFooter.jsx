@@ -48,8 +48,6 @@ function Footer() {
 				</div>
 			</Link>
 
-
-
 			<div className="footer-item text-center">
 				<SettingsOutlinedIcon />
 				<p>Settings</p>

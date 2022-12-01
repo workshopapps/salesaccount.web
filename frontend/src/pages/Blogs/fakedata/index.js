@@ -1,21 +1,21 @@
-import tn1 from "../../../assets/images/blog/Imagetn1.png";
-import tn2 from "../../../assets/images/blog/Imagetn2.png";
-import tn3 from "../../../assets/images/blog/Imagetn3.png";
-import tn4 from "../../../assets/images/blog/Imagetn4.png";
-import tn5 from "../../../assets/images/blog/Imagetn5.png";
-import tn6 from "../../../assets/images/blog/Imagetn6.png";
-import tn7 from "../../../assets/images/blog/Imagetn7.png";
-import tn8 from "../../../assets/images/blog/Imagetn8.png";
-import tn9 from "../../../assets/images/blog/Imagetn9.png";
-import av1 from "../../../assets/images/blog/Avatarav1.png";
-import av2 from "../../../assets/images/blog/Avatarav2.png";
-import av3 from "../../../assets/images/blog/Avatarav3.png";
-import av4 from "../../../assets/images/blog/Avatarav4.png";
-import av5 from "../../../assets/images/blog/Avatarav5.png";
-import av6 from "../../../assets/images/blog/Avatarav6.png";
-import av7 from "../../../assets/images/blog/Avatarav7.png";
-import av8 from "../../../assets/images/blog/Avatarav8.png";
-import av9 from "../../../assets/images/blog/Avatarav9.png";
+import tn1 from '../../../assets/images/blog/Imagetn1.png';
+import tn2 from '../../../assets/images/blog/Imagetn2.png';
+import tn3 from '../../../assets/images/blog/Imagetn3.png';
+import tn4 from '../../../assets/images/blog/Imagetn4.png';
+import tn5 from '../../../assets/images/blog/Imagetn5.png';
+import tn6 from '../../../assets/images/blog/Imagetn6.png';
+import tn7 from '../../../assets/images/blog/Imagetn7.png';
+import tn8 from '../../../assets/images/blog/Imagetn8.png';
+import tn9 from '../../../assets/images/blog/Imagetn9.png';
+import av1 from '../../../assets/images/blog/Avatarav1.png';
+import av2 from '../../../assets/images/blog/Avatarav2.png';
+import av3 from '../../../assets/images/blog/Avatarav3.png';
+import av4 from '../../../assets/images/blog/Avatarav4.png';
+import av5 from '../../../assets/images/blog/Avatarav5.png';
+import av6 from '../../../assets/images/blog/Avatarav6.png';
+import av7 from '../../../assets/images/blog/Avatarav7.png';
+import av8 from '../../../assets/images/blog/Avatarav8.png';
+import av9 from '../../../assets/images/blog/Avatarav9.png';
 
 export const blogList = [
 	{
@@ -39,7 +39,7 @@ export const blogList = [
 		author: 'Phoenix Baker',
 		dateCreated: '19 Jan 2022',
 		avatarImage: av2,
-		thumbnail:tn2,
+		thumbnail: tn2,
 	},
 	{
 		id: 3,
@@ -121,12 +121,9 @@ export const blogList = [
 		avatarImage: av9,
 		thumbnail: tn9,
 	},
-]
+];
 
-
-
-
-export const otherPost =[ 
+export const otherPost = [
 	{
 		id: 4,
 		slug: '5 Steps to Preventing Expense Fraud',
@@ -161,5 +158,4 @@ export const otherPost =[
 		avatarImage: av6,
 		thumbnail: tn6,
 	},
-]
- 
+];
