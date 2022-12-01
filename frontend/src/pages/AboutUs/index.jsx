@@ -30,16 +30,16 @@ const AboutUs = () => (
 						and succeeding at heart.
 					</p>
 				</div>
-				<div className="relative mt-8 lg:mt-0 z-10">
+				<div className=" relative mt-8 lg:mt-0 z-10">
 					<img src={heroImg} alt="Hero" className="" />
 
 					<img
-						className=" absolute -z-10 lg:ml-[22.5rem] lg:-mt-[18rem] hidden lg:block "
+						className=" absolute -z-10 -top-[2rem]  -right-[2rem] hidden lg:block "
 						src={blueSquare}
 						alt="blue-square"
 					/>
 					<img
-						className="absolute -z-10 lg:-ml-[2rem] lg:-mt-[5rem] hidden lg:block "
+						className="absolute -z-10 -ml-[2rem] -mt-[5rem] hidden lg:block "
 						src={blueSquare}
 						alt="blue-square"
 					/>
@@ -72,7 +72,7 @@ const AboutUs = () => (
 		<section className="lg:pl-36 lg:pr-36 lg:pt-16 lg:pb-12 p-8  z-0 ">
 			<div className="flex lg:flex-row lg:gap-48  items-center flex-col justify-between">
 				<div className="relative z-10  lg:mb-8">
-					<h3 className="text-[#101828] md:flex text-center lg:mb-20 text-lg font-medium   md:font-bold md:text-[48px]">
+					<h3 className="text-[#101828] md:flex text-center lg:mb-20 text-lg font-medium md:mb-6 md:mt-8  md:font-bold md:text-[48px]">
 						Our Vision
 					</h3>
 
@@ -81,7 +81,7 @@ const AboutUs = () => (
 						types.
 					</p>
 					<img
-						className="absolute top-[5rem] -left-[24px] -z-10 hidden lg:block"
+						className="absolute top-[7rem] -left-[24px] -z-10 hidden lg:block"
 						src={blueSquare}
 						alt=""
 					/>
@@ -139,7 +139,7 @@ const AboutUs = () => (
 						Our Core Values
 					</h3>
 
-					<div className='bg-[#F9FAFB] flex flex-col pt-8 pb-6 pl-10 pr-8'>
+					<div className='bg-[#F9FAFB] flex flex-col lg:pt-8 lg:pb-6 lg:pl-10 lg:pr-8 p-8 md:pl-12 md:pr-12'>
 						<ul className="list-disc flex flex-row gap-28">
 							<li className="text-[#1D2939] font-medium text-xs md:font-normal mb-4 md:text-xl ">
 								Accountability
