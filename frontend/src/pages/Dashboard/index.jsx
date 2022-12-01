@@ -6,11 +6,11 @@ import NavigationBar from "../../components/NavigationBar"
 import Footer from '../../components/DashboardFooter/DashboardFooter';
 
 const DashBoard = () => (
-	<div className="w-full bg-[#f2f5f8] h-screen">
+	<div className="w-full bg-[#f2f5f8]">
 		<NavigationBar />
-		<div className="flex ">
+		<div className="flex items-center justify-center h-[calc(100vh-112px)]">
 			{/* <DashBoardSideBar /> */}
-			<div className="space-y-[2em] relative top-[6em] md:top-[8em] md:left-[4em] lg:left-[5em] px-[1em] w-full md:w-[70%] lg:w-[85%] mx-auto">
+			<div className="px-[1em] w-full">
 				<Outlet />
 			</div>
 		</div>
