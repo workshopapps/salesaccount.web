@@ -61,7 +61,7 @@ function NavigationBar() {
 			<div
 				className={
 					nav
-						? 'xl:hidden w-full absolute top-[112px] md:top-[96px] left-0 p-2 space-y-[40px] pt-[70px] h-4/5 bg-[#F9FAFB] z-50 flex flex-col items-center'
+						? 'xl:hidden w-full absolute top-[112px] md:top-[80px] max-md:top-[56px] left-0 p-2 space-y-[40px] pt-[70px] max-md:pt-[30px] h-4/5 bg-[#F9FAFB] z-50 flex flex-col items-center'
 						: 'absolute left-[-100%] top-[-50%]'
 				}
 			>
