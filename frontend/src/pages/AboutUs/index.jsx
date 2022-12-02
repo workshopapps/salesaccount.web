@@ -1,19 +1,11 @@
 // import React from 'react';
-import Footer from '../../components/Footer';
-<<<<<<< HEAD
-import heroImg from '../../assets/images/about-us/hero-img.svg';
-import vision from '../../assets/images/about-us/vision.svg';
-import blueSquare from '../../assets/images/about-us/blue-square.svg';
-import mission from '../../assets/images/about-us/mission.svg';
-import valueImg from '../../assets/images/about-us/values.svg';
-=======
-// import heroImg from '../../assets/images/about-us/hero-img.svg';
-// import vision from '../../assets/images/about-us/vision.svg';
-// import blueSquare from '../../assets/images/about-us/blue-square.svg';
-// import mission from '../../assets/images/about-us/mission.svg';
-// import valueImg from '../../assets/images/about-us/values.svg';
->>>>>>> 72348311ac6830f2c7f123f1f70dc35c39376dde
-import NavigationBar from '../../components/NavigationBar';
+import Footer from '../../components/Footer'
+import heroImg from '../../assets/images/about-us/hero-img.svg'
+import vision from '../../assets/images/about-us/vision.svg'
+import blueSquare from '../../assets/images/about-us/blue-square.svg'
+import mission from '../../assets/images/about-us/mission.svg'
+import valueImg from '../../assets/images/about-us/values.svg'
+import NavigationBar from '../../components/NavigationBar'
 
 const AboutUs = () => (
 	<div>
@@ -24,11 +16,7 @@ const AboutUs = () => (
 					<h1 className="text-[#101828] lg:mb-4  font-semibold text-center md:font-bold md:text-5xl md:text-left  md:mb-5">
 						Who we are?
 					</h1>
-<<<<<<< HEAD
 					<p className="text-sm font-normal text-[#101828] text-left lg:mb-[38px] mb-4 mt-4 md:text-left md:mb-0 md:h-[180px] md:w-[535px] md:text-xl">
-=======
-					<p className="text-sm font-normal text-[#101828] text-center lg:mb-[38px] mb-4 mt-4 md:text-center md:mb-0 md:h-[180px] md:w-[535px] md:text-xl">
->>>>>>> 72348311ac6830f2c7f123f1f70dc35c39376dde
 						We are a team of professionals whose aim is to give you and amazing
 						user experience. We are not only professionals but a family where
 						everybody works together with each other&apos;s interest of growth
@@ -36,11 +24,7 @@ const AboutUs = () => (
 					</p>
 				</div>
 				<div className=" relative mt-8 lg:mt-0 z-10">
-<<<<<<< HEAD
 					<img src={heroImg} alt="Hero" className="" />
-=======
-					{/* <img src={heroImg} alt="Hero" className="" />
->>>>>>> 72348311ac6830f2c7f123f1f70dc35c39376dde
 
 					<img
 						className=" absolute -z-10 -top-[2rem]  -right-[2rem] hidden lg:block "
@@ -51,7 +35,7 @@ const AboutUs = () => (
 						className="absolute -z-10 -ml-[2rem] -mt-[5rem] hidden lg:block "
 						src={blueSquare}
 						alt="blue-square"
-					/> */}
+					/> 
 				</div>
 			</div>
 		</section>
@@ -67,7 +51,6 @@ const AboutUs = () => (
 						To make easy sales and accounting reconciliation across all business
 						types.
 					</p>
-<<<<<<< HEAD
 					<img
 						className="absolute top-[7rem] -left-[24px] -z-10 hidden lg:block"
 						src={blueSquare}
@@ -75,10 +58,6 @@ const AboutUs = () => (
 					/>
 					<img
 						className="absolute -bottom-[1.5rem] -right-[22px] -z-10 hidden lg:block"
-=======
-					{/* <img
-						className="absolute top-[7rem] -left-[24px] -z-10 hidden lg:block"
->>>>>>> 72348311ac6830f2c7f123f1f70dc35c39376dde
 						src={blueSquare}
 						alt=""
 					/>
@@ -86,17 +65,8 @@ const AboutUs = () => (
 						className="absolute -bottom-[1.5rem] -right-[22px] -z-10 hidden lg:block"
 						src={blueSquare}
 						alt=""
-					/> */}
+					/> 
 				</div>
-
-				<div>
-					{/* <img
-						className="lg:ml-[36px] lg:mt-0 mt-4"
-						src={vision}
-						alt="People holding hands in agreement"
-					/> */}
-				</div>
-<<<<<<< HEAD
 
 				<div>
 					<img
@@ -105,8 +75,14 @@ const AboutUs = () => (
 						alt="People holding hands in agreement"
 					/>
 				</div>
-=======
->>>>>>> 72348311ac6830f2c7f123f1f70dc35c39376dde
+
+				<div>
+					<img
+						className="lg:ml-[36px] lg:mt-0 mt-4"
+						src={vision}
+						alt="People holding hands in agreement"
+					/>
+				</div>
 			</div>
 		</section>
 		<section className=" lg:pl-36 lg:pr-36 lg:pb-20 z-0 bg-[#EFF8FF] p-8 ">
@@ -121,11 +97,7 @@ const AboutUs = () => (
 							through the use of technology enabled solutions and making them
 							easily accessible for businesses.
 						</p>
-<<<<<<< HEAD
 						<img
-=======
-						{/* <img
->>>>>>> 72348311ac6830f2c7f123f1f70dc35c39376dde
 							className="absolute -z-10 top-[11.5rem] -left-[28px] hidden lg:block"
 							src={blueSquare}
 							alt=""
@@ -134,21 +106,14 @@ const AboutUs = () => (
 							className="absolute -bottom-[1.5rem] -right-[28px]  -z-10 hidden lg:block"
 							src={blueSquare}
 							alt=""
-<<<<<<< HEAD
 						/>
 					</div>
 				</div>
 				<img
-=======
-						/> */}
-					</div>
-				</div>
-				{/* <img
->>>>>>> 72348311ac6830f2c7f123f1f70dc35c39376dde
 					className="lg:mt-12 mt-4"
 					src={mission}
 					alt="Person working and writing on a notebook"
-				/> */}
+				/> 
 			</div>
 		</section>
 		<section className=" lg:pl-36 lg:pr-36 lg:pb-20 lg:pt-10 z-0 p-8 ">
@@ -167,7 +132,6 @@ const AboutUs = () => (
 								Integrity
 							</li>
 						</ul>
-<<<<<<< HEAD
 
 						<ul className="list-disc flex flex-row gap-32 mt-8">
 							<li className="text-[#1D2939] font-medium text-xs md:font-normal mb-4 md:text-xl ">
@@ -186,44 +150,21 @@ const AboutUs = () => (
 					/>
 					<img
 						className="absolute -bottom-[1.5rem] -right-[22px] -z-10 hidden lg:block"
-=======
-
-						<ul className="list-disc flex flex-row gap-32 mt-8">
-							<li className="text-[#1D2939] font-medium text-xs md:font-normal mb-4 md:text-xl ">
-								Innovation
-							</li>
-							<li className="text-[#1D2939] font-medium text-xs md:font-normal md:text-xl ">
-								Reliability
-							</li>
-						</ul>
-					</div>
-
-					{/* <img
-						className="absolute top-[7.5rem] -left-[24px] -z-10 hidden lg:block"
->>>>>>> 72348311ac6830f2c7f123f1f70dc35c39376dde
 						src={blueSquare}
 						alt=""
-					/> */}
-					{/* <img
+					/> 
+					<img
 						className="absolute -bottom-[1.5rem] -right-[22px] -z-10 hidden lg:block"
 						src={blueSquare}
 						alt=""
-					/> */}
+					/>
 				</div>
 				<div>
-<<<<<<< HEAD
 					<img
 						className="lg:ml-8 lg:mt-16 mt-4"
 						src={valueImg}
 						alt="A hand building up small bricks"
 					/>
-=======
-					{/* <img
-						className="lg:ml-8 lg:mt-16 mt-4"
-						src={valueImg}
-						alt="A hand building up small bricks"
-					/> */}
->>>>>>> 72348311ac6830f2c7f123f1f70dc35c39376dde
 				</div>
 			</div>
 		</section>

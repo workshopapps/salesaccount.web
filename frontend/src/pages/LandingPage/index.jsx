@@ -1,15 +1,15 @@
-import React from 'react';
-import Faq from 'react-faq-component';
-import { BsPlusCircle } from 'react-icons/bs';
-import { CiCircleMinus } from 'react-icons/ci';
-import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
-import { requirePropFactory } from '@mui/material';
-import uploadIcon from '../../assets/images/landingPage/upload-icon-new.png';
-import howItWorks from '../../assets/images/landingPage/howitworks.png';
-import NavigationBar from '../../components/NavigationBar';
-import Footer from '../../components/Footer';
-import Button from '../../components/Button';
-import getInTouch from '../../assets/images/landingPage/landingpage__intouch.png';
+import React from 'react'
+import Faq from 'react-faq-component'
+import { BsPlusCircle } from 'react-icons/bs'
+import { CiCircleMinus } from 'react-icons/ci'
+import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai'
+import { requirePropFactory } from '@mui/material'
+import uploadIcon from '../../assets/images/landingPage/upload-icon-new.png'
+import howItWorks from '../../assets/images/landingPage/howitworks.png'
+import NavigationBar from '../../components/NavigationBar'
+import Footer from '../../components/Footer'
+import Button from '../../components/Button'
+import getInTouch from '../../assets/images/landingPage/landingpage__intouch.png'
 
 const data = {
 	rows: [
