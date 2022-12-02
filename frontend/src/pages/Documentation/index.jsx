@@ -88,35 +88,36 @@ const Documentation = () => (
 								easy.
 							</p>
 							
-							<h2 className="text-[#194185] text-xl  font-bold mb-2">Step One</h2>
+							<h2 className="text-[#194185] text-xl pt-2 font-bold mb-2">Step One</h2>
 							<p className='mb-5 '>
 								From your Dashboard upload your bank statement by clicking on
 								the “Browse Files” button and choosing the
 								CSV(comma-separated-document) file format of your bank
 								statement.
 							</p>
-              				<img className='inline object-center mb-5 mr-0 ' src={stepOne} alt= ' ' />
+              				<img className='inline mb-5 ' src={stepOne} alt= ' ' />
 
-							<h2 className="text-[#194185] text-xl  font-bold mb-2">Step Two</h2>
+							<h2 className="text-[#194185] text-xl pt-2 font-bold mb-2">Step Two</h2>
 							<p className='mb-5 '>
 								From your Dashboard upload your Sales Records from Enterprise
 								resource planning (ERP)
 							</p>
-              				<img className='inline object-center mb-5 mr-0' src={stepTwo} alt= ' ' />
-							<h2 className="text-[#194185] text-xl  font-bold mb-2">Step Three</h2>
+              				<img className='inline mb-5 ' src={stepTwo} alt= ' ' />
+
+							<h2 className="text-[#194185] text-xl pt-2 font-bold mb-2">Step Three</h2>
 							<p className='mb-5 '>
 								On your “uploaded sale and account ready” page click on
 								reconcile button.
 							</p>
-             				 <img className='inline object-center mb-5 mr-0' src={stepThree} alt= ' ' />
-							<h2 className="text-[#194185] text-xl  font-bold mb-2">Step Four</h2>
-							<p className='mb-5 '>
+             				 <img className='inline mb-5 ' src={stepThree} alt= ' ' />
+							<h2 className="text-[#194185] text-xl  font-bold mb-1">Step Four</h2>
+							<p className='pt-2 mb-5 '>
 								After the reconciliation process is complete, click Download
 								Button to Download your report in PDF or Spreadsheet format.
 							</p>
 						</section>
 						<section>
-							<h1 className='mb-4 text-2xl font-bold' >Key Features.</h1>
+							<h1 className='mb-4 text-2xl font-bold' >Key Features</h1>
 							<h2 className='mb-4 font-bold' >Key Values reconcile.<span className='text-blue-500 '>AI</span> offers.</h2>
 
               <ul className='ml-4 list-disc'>
