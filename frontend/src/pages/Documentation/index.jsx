@@ -8,50 +8,58 @@ import Footer from '../../components/Footer';
 const Documentation = () => (
 	<div className="text-gray-800 bg-white ">
 		<NavigationBar />
-		<header className="header bg-[#2E90FA] text-[#F9FAFB] shadow py-4 px-4">
-			<div className="flex flex-row items-center justify-center h-40 mx-4 header-content">
+		<header className="header bg-[#D7DBDF] text-[#101828] shadow py-4 px-4">
+			<div className="flex flex-row items-center justify-center h-40 header-content">
 				<h1 className="text-3xl text-center">
-					A step by step guide on how <br /> to use reconcile.AI
+					A step by step guide on how <br /> to use Reconcile.<span className='text-[#2E90FA]'>AI</span>
 				</h1>
 			</div>
 		</header>
-		<div className="relative flex-row min-h-screen md:flex">
-			<aside className="sidebar absolute  md:relative inset-y-0 left-0 w-64 md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-[#EAECF0]">
+		<div className="flex flex-row min-h-screen lg:grid  md:grid-cols-[15rem_7fr]  sm:grid-cols-[1fr] ">
+			<aside className="sidebar md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-[#EAECF0] hidden md:block h-[100vh] ">
 				<div className="px-4 py-6 sidebar-content">
-					<h1>General usage</h1>
-					<ul className="flex flex-col w-full">
-						<li className="my-px">
+					
+					<ul className="flex flex-col items-center w-full text-center ">
+						<li className="my-px w-[100%]  ">
 							<a
-								href="/"
-								className="flex flex-row items-center h-10 px-3 text-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700"
+								href="#intro"
+								className="flex flex-row items-center h-10 min-w-max text-[#101828] hover:bg-[#2E90FA] hover:text-[#F9FAFB]"
 							>
 								<span className="ml-3">Intoduction</span>
 							</a>
 						</li>
-						<li className="my-px">
+						<li className="my-px w-[100%]  text-center">
 							<a
-								href="/"
-								className="flex flex-row items-center h-10 px-3 text-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700"
+								href="#howToUse"
+								className="flex flex-row items-center h-10 min-w-max  text-[#101828] hover:bg-[#2E90FA]  first:first:hover:text-[white] hover:text-[#F9FAFB]"
 							>
-								<span className="ml-3">Why Reacon? </span>
+								<span className="ml-3">How to use reconcile.<span className='text-[#2E90FA]'>AI</span> </span>
+							</a>
+						</li>
+                        <li className="my-px w-[100%]  text-center">
+							<a
+								href="#keyFeatures"
+								className="flex flex-row items-center h-10 min-w-max  text-[#101828] hover:bg-[#2E90FA]  first:first:hover:text-[white] hover:text-[#F9FAFB]"
+							>
+								<span className="ml-3">Key Features </span>
 							</a>
 						</li>
 					</ul>
 				</div>
 			</aside>
-			<main className="flex flex-col flex-grow mx-auto transition-all duration-150 ease-in main md:ml-0">
+			<main className="main flex flex-col flex-grow  md:ml-0 p-[3rem] transition-all duration-150 ease-in h-[100vh] overflow-scroll">
 				<div className="flex flex-col flex-grow p-4 main-content">
-					<div className="flex flex-col flex-grow mx-4 mt-4 rounded">
-						<section className="mb-11 ">
+					<div className="flex flex-col flex-grow mt-4 rounded">
+						<section className="mb-11"  id='intro'>
 							<h1 className="mb-4 text-2xl font-bold ">Introduction</h1>
-              <div className=''> </div>
+              
 							<p className='mb-5'>
-								Recon is a web application that compares third-party and
+								Reconcile.<span className='text-[#2E90FA]'>AI</span> is a web application that compares third-party and
 								independent financial statements and records with internal
 								financial records and ledgers. It does this accurately with
 								artificial intelligence from Open AI and machine learning models
 								like GPT-3 paving the way for even smoother future matchings and
-								collaboration of accounts from vendors. Recon makes the
+								collaboration of accounts from vendors. Reconcile.<span className='text-[#2E90FA]'>AI</span> makes the
 								day-to-day balancing of accounts and sales easier, faster, and
 								very reliable for Small and Medium Enterprises.
 							</p>
@@ -59,78 +67,76 @@ const Documentation = () => (
               <h1 className="mb-4 text-2xl font-bold">Who It&apos;s For?</h1>
 							
 
-							<p className='mb-5 text-[#667085]'>
+							<p className='mb-5'>
 								<span className='font-bold'>Freelancers: </span>  Accurate billing and lots of
 								payment options get you paid faster and let clients pay how they
 								like. Recurring invoices, Automated Payment Reminders, and
 								Online Payments make it easy.
 							</p>
 
-							<p className='mb-5 text-[#667085]'>
+							<p className='mb-5'>
                 <span className='font-bold'>Self-employed Professionals: </span> 
 								 Payments are all consolidated in
 								one place, and everything is organized and easy to track Small
 							</p>
-              <p className='mb-5 text-[#667085]'><span className='font-bold'>Small Businesses: </span>
+              <p className='mb-5'><span className='font-bold'>Businesses: </span>
                  Bookkeeping and tax filing become easy by
 								highlighting all transactions with discrepancies.</p>
-                <p className='mb-5 text-[#667085]'><span className='font-bold'> Accountants:</span>
+                <p className='mb-5'><span className='font-bold'> Accountants:</span>
 								Auditing accounts for Businesses become easy as invoice matching
 								becomes easy with our artificial intelligence bot.</p>
 						</section>
 					
-						<section className="mb-11 relative object-center md:object-left text-center md:text-start text-[#101828]">
-							<h1 className="mb-4 text-2xl font-bold"> How to use recon.<span className='text-blue-500 '>AI</span></h1>
+						<section className="mb-11" id='howToUse'>
+							<h1 className="mb-4 text-2xl font-bold"> How to use Reconcile.<span className='text-[#2E90FA]'>AI</span></h1>
 							<p className='mb-6'>
-								Welcome, aboard! We’re glad that you’ve chosen reconcile.<span className='text-blue-500 '>AI</span> for
+								Welcome, aboard! We’re glad that you’ve chosen Reconcile.<span className='text-[#2E90FA]'>AI</span> for
 								your account statement matching. Let’s get you started right
 								away on how to take advantage of our platform to make things
 								easy.
 							</p>
-							
-							<h2 className="text-[#194185] text-xl pt-2 font-bold mb-2">Step One</h2>
-							<p className='mb-5 '>
+							<h2 className="text-[#194185] text-xl	 font-bold mb-2">Step one</h2>
+							<p className='mb-5'>
 								From your Dashboard upload your bank statement by clicking on
 								the “Browse Files” button and choosing the
 								CSV(comma-separated-document) file format of your bank
 								statement.
 							</p>
-              				<img className='inline mb-5 ' src={stepOne} alt= ' ' />
+              <img className='mb-5 w-[100%]' src={stepOne} alt= ' ' />
 
-							<h2 className="text-[#194185] text-xl pt-2 font-bold mb-2">Step Two</h2>
-							<p className='mb-5 '>
+							<h2 className="text-[#194185] text-xl	 font-bold mb-2">Step Two</h2>
+							<p className='mb-5'>
 								From your Dashboard upload your Sales Records from Enterprise
 								resource planning (ERP)
 							</p>
-              				<img className='inline mb-5 ' src={stepTwo} alt= ' ' />
-
-							<h2 className="text-[#194185] text-xl pt-2 font-bold mb-2">Step Three</h2>
-							<p className='mb-5 '>
+              <img className='mb-5 w-[100%]' src={stepTwo} alt= ' ' />
+							<h2 className="text-[#194185] text-xl	 font-bold mb-2">Step Three</h2>
+							<p className='mb-5'>
 								On your “uploaded sale and account ready” page click on
-								reconcile button.
+								reconcile.<span className='text-[#2E90FA]'>AI</span>cile button.
 							</p>
-             				 <img className='inline mb-5 ' src={stepThree} alt= ' ' />
-							<h2 className="text-[#194185] text-xl  font-bold mb-1">Step Four</h2>
-							<p className='pt-2 mb-5 '>
-								After the reconciliation process is complete, click Download
+              <img className='mb-5 w-[100%]' src={stepThree} alt= ' ' />
+							<h2 className="text-[#194185] text-xl	 font-bold mb-2">Step four</h2>
+							<p className='mb-5'>
+								After the reconcile.<span className='text-[#2E90FA]'>AI</span>ciliation process is complete, click Download
 								Button to Download your report in PDF or Spreadsheet format.
 							</p>
 						</section>
-						<section>
-							<h1 className='mb-4 text-2xl font-bold' >Key Features</h1>
-							<h2 className='mb-4 font-bold' >Key Values reconcile.<span className='text-blue-500 '>AI</span> offers.</h2>
+						<section id='keyFeatures'>
+							<h1 className='mb-4 text-2xl font-bold' >Key Features.</h1>
+							<h2 className='mb-4 font-bold' >Key Values Reconcile.<span className='text-[#2E90FA]'>AI</span> offers.</h2>
 
               <ul className='ml-4 list-disc'>
 							<li>
                 <span className='font-bold'>Automatic Matching System: </span>
-								 reconcile.<span className='text-blue-500 '>AI</span> uses an Artificial
+								 Reconcile.<span className='text-[#2E90FA]'>AI</span> uses an Artificial
 								Intelligence bot to request detailed account statements from
 								your bank at the close of business and automatically performs a
 								3-way match of the documents from the different departments.
                 
 							</li>
               <li><span className='font-bold'>Easy Data Entry: </span>
-								 reconcile.<span className='text-blue-500 '>AI</span> offers an easy and automatic
+								 Reconcile.<span className='text-[#2E90FA]'>AI</span> offers an easy and automatic
 								invoice data entry for the suppliers and the client. Creating a
 								close touchless invoice process.</li>
                 <li>
@@ -141,7 +147,7 @@ const Documentation = () => (
                 </li>
                 <li>
                   <span className='font-bold'>Vendor Habits Prediction: </span>
-                  reconcile.<span className='text-blue-500 '>AI</span> Artificial
+                  Reconcile.<span className='text-[#2E90FA]'>AI</span> Artificial
 								Intelligence bot helps ensure accuracy and learn vendor
 								tendencies by mapping past transactions with new ones and
 								highlighting discrepancies.
@@ -153,8 +159,9 @@ const Documentation = () => (
 				</div>
 			</main>
 		</div>
-    <Footer />
+		<Footer />
 	</div>
 );
 
 export default Documentation;
+  
