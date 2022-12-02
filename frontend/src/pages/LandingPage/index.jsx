@@ -4,21 +4,12 @@ import { BsPlusCircle } from 'react-icons/bs';
 import { CiCircleMinus } from 'react-icons/ci';
 import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
 import { requirePropFactory } from '@mui/material';
-import uploadIcon from '../../assets/images/landingPage/upload-icon.png';
-import fileIcon from '../../assets/images/landingPage/upfile.png';
-import fileIcon2 from '../../assets/images/landingPage/upfile2.png';
+import uploadIcon from '../../assets/images/landingPage/upload-icon-new.png';
 import howItWorks from '../../assets/images/landingPage/howitworks.png';
 import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
 import getInTouch from '../../assets/images/landingPage/landingpage__intouch.png';
-import userImage from '../../assets/images/landingPage/what_our_users_are_saying.png';
-import companyLogo from '../../assets/images/landingPage/landingpage_company_img.png';
-import headerImage from '../../assets/images/landingPage/recon-header-img.png';
-import cuttingImage from '../../assets/images/landingPage/landingpage__cutting.png';
-import mobileDashboard from '../../assets/images/landingPage/recon-mobile.png';
-import mobileCompany from '../../assets/images/landingPage/mobile_company.png';
-import iphoneScreen from '../../assets/images/landingPage/landingpage__iphone.png';
 
 const data = {
 	rows: [
@@ -185,7 +176,7 @@ function LandingPage() {
 		<div>
 			<NavigationBar />
 			<div>
-				<div className="bg-[#EFF8FF] flex flex-col md:flex-row lg:flex-row space-around md:space-x-[1px] lg:space-x-[116px] md:justify-center md:items-center md:pl-[0px] z-40 w-full lg:max-w-[1440px] h-[311px] md:h-[500px] lg:h-[598px] md:pb-[166px] ">
+				<div className="bg-white flex flex-col md:flex-row lg:flex-row space-around md:space-x-[1px] lg:space-x-[116px] xl:space-x-60 md:justify-center md:items-center md:pl-[0px] z-40 w-full lg:max-w-full xl:min-w-fit h-[311px] md:h-[500px] lg:h-[598px] md:pb-[166px]  pb-[80px]">
 					<div className="w-[256px] md:w-[350px] lg:w-[553px] pt-[31px] lg:h-[393.15px] xl:leading-[58px] ml-[16px] ">
 						<h1 className="text-[#101828] w-[288px] md:w-[336px] lg:w-[684px] text-[28px] md:text-[35px] lg:text-[72px] leading-[136.02%] md:leading-[40px]  lg:leading-[92px] font-semibold text-left">
 							Account
@@ -211,7 +202,7 @@ function LandingPage() {
 								className=" md:hidden"
 							/>
 						</div> */}
-						<div className="hidden md:flex w-[304px] md:w-[400px] lg:max-w-[464px] md:h-[286px] lg:h-[376px] bg-white rounded-2xl shadow-[0px_0px_4px_rgba(0,0,0,0.04)_0px_4px_8px_rgba(0,0,0,0.06)] flex-col items-center justify-center gap-y-[40px]">
+						<div className="hidden md:flex w-[304px] md:w-[400px] lg:max-w-[464px] md:h-[286px] lg:h-[376px] bg-[#F9FAFB] rounded-2xl shadow-[0px_0px_4px_rgba(0,0,0,0.04)_0px_4px_8px_rgba(0,0,0,0.06)] flex-col items-center justify-center gap-y-[40px]">
 							<img src={uploadIcon} alt="" />
 							<p className="text-[#667085]">Upload your file here</p>
 							<div className="flex flex-col gap-y-[9px]">
@@ -228,19 +219,35 @@ function LandingPage() {
 										className=" bg-[#2E90FA] text-white py-2 px-4 rounded border-[1px] border-[#2E90FA] flex justify-center align-center gap-x-[5px]"
 									>
 										Upload Account Statement
-										<img src={fileIcon2} alt="" />
 									</button>
 								</a>
 							</div>
 						</div>
 						<div className="flex md:hidden w-full justify-center">
-						<a href="/dashboard/home">
-							<button
-								type="button"
-								className=" bg-[#2E90FA] text-white py-2 px-4 rounded border-[1px] border-[#2E90FA] flex justify-center align-center gap-x-[5px]"
-							>
-								Upload Account Statement
-							</button>
+							<a href="/dashboard/home">
+								<button
+									type="button"
+									className=" bg-[#2E90FA] text-white py-2 px-4 rounded border-[1px] border-[#2E90FA] flex justify-center align-center gap-x-[5px]"
+								>
+									Upload Account Statement
+								</button>
+							</a>
+
+							<a href="/dashboard/home">
+								<button
+									type="button"
+									className=" bg-[#2E90FA] text-white py-2 px-4 rounded border-[1px] border-[#2E90FA] flex justify-center align-center gap-x-[5px]"
+								>
+									Upload Account Statement
+								</button>
+							</a>
+							<a href="/dashboard/home">
+								<button
+									type="button"
+									className=" bg-[#2E90FA] text-white py-2 px-4 rounded border-[1px] border-[#2E90FA] flex justify-center align-center gap-x-[5px]"
+								>
+									Upload Account Statement
+								</button>
 							</a>
 						</div>
 					</div>
@@ -264,7 +271,7 @@ function LandingPage() {
 					/>
 				</div> */}
 
-				<div className="bg-[#F9FAFB] h-[475px] lg:h-[841px] lg:max-w-[1202px]">
+				<div className="bg-[#F9FAFB] h-[475px] lg:h-[641px] lg:max-w-full">
 					<div className="pt-[30px] flex flex-col gap-y-[1px] items-center px-[44px] md:px-0 ">
 						<h2 className="font-semibold text-[#101828] md:text-[36px] text-[20px] text-center">
 							How it works
@@ -287,7 +294,7 @@ function LandingPage() {
 							</div>
 						))}
 					</div> */}
-					<div className="flex justify-center items-center">
+					<div className="flex justify-center items-center px-4">
 						<img src={howItWorks} alt="how it works" />
 					</div>
 				</div>
@@ -361,20 +368,25 @@ function LandingPage() {
 				/>
 			</div> */}
 
-			<div className=" bg-[#F9FAFB] relative mt-[-200px] md:mt-0">
-				<h1 className="text-[#101828] font-semibold text-center text-[28px] md:text-[36px] pt-[24px] md:pt-[48px] px-[44px] md:px-0">
+			<div className=" bg-[#F9FAFB] relative mt-[-150px] md:mt-0">
+				<h2 className="text-[#101828] font-semibold text-center text-[20px] lg:text-[36px] pt-[24px] md:pt-[48px] px-[44px] md:px-0">
 					Why Choose reconcile.<span className="text-[#2E90FA]">AI</span>?
-				</h1>
+				</h2>
 
-				<div className="flex flex-col xl:flex-row items-center xl:gap-[100px] px-[44px] py-[30px] md:px-[110px]">
+				<div className="flex flex-col justify-center 2xl:px-[350px] lg:grid grid-cols-3 xl:grid-cols-3 lg:px-[102px] ">
 					{whatAccountPalDoesData.map((item) => (
-						<div className="md:w-[400px]" key={item.id}>
-							<h2 className="font-semibold text-[#101828] text-[16px] pb-[4px] text-center">
-								{item.title}
-							</h2>
-							<p className="text-[#667085] font-normal text-[14px] text-center pb-[48px]">
-								{item.content}
-							</p>
+						<div
+							className="pt-[32px] lg:pt-[65px] flex justify-center"
+							key={item.id}
+						>
+							<div className="">
+								<h2 className="font-semibold text-[#101828] text-[20px] lg:text-[28px] pb-[4px] text-center">
+									{item.title}
+								</h2>
+								<p className="text-[#667085] w-[343px] flex justify-center lg:w-[336px] font-normal lg:text-[18px] text-[14px] text-center pb-[20px]">
+									{item.content}
+								</p>
+							</div>
 						</div>
 					))}
 				</div>
@@ -445,8 +457,8 @@ function LandingPage() {
 				</div>
 			</div> */}
 
-			<div className="bg-[#F9FAFB] md:py-[84px] py-[48px] lg:max-w-[1296px]">
-				<div className="lg:px-[50px]  px-[14px] ">
+			<div className="bg-[#F9FAFB] md:py-[84px] py-[48px] lg:max-w-full ">
+				<div className="md:px-[50px]  2xl:mx-[190px] px-[14px] lg:px-[50px]">
 					<div className="leading-[20px]">
 						<h2 className="font-semibold text-3xl text-center">
 							Frequently Asked Questions
@@ -458,7 +470,7 @@ function LandingPage() {
 					<Faq data={data} styles={styles} config={config} />
 				</div>
 
-				<div className=" md:px-[54px] xl:px-[282px] mt-[120px]">
+				<div className=" md:px-[54px] xl:px-[282px] mt-[50px]">
 					<div className="bg-[#F2F4F7] rounded-3xl px-[44px] md:px-[217px] py-[26px] flex flex-col items-center">
 						<img
 							src={getInTouch}
@@ -481,12 +493,14 @@ function LandingPage() {
 				</p>
 				<p>Join over 4,000 startups already growing with reconcileAI</p>
 				<div className="flex space-x-12 justify-center mt-[20px]">
-					<button
-						type="button"
-						className="bg-white text-[#2E90FA] rounded px-[18px] py-[10px]"
-					>
-						Learn More
-					</button>
+					<a href="/aboutus">
+						<button
+							type="button"
+							className="bg-white text-[#2E90FA] rounded px-[18px] py-[10px]"
+						>
+							Learn More
+						</button>
+					</a>
 					<Button path="/contact" title="Get in touch" />
 				</div>
 			</div>

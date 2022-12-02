@@ -49,6 +49,7 @@ pipeline {
                 sh "cd Backend && cd myvenv && . bin/activate"
                 sh "cd Backend && pip install -r requirements.txt"
                 // start the fastapi server on port 55502 with Uvicorn
+                sh 'sudo pm2 delete -s reconcileaibackend || :'
                 sh "cd Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502' --name reconcileaibackend"
                 sh "cd Backend && ls -l"
                // sh "cd Backend && uvicorn main:app --host 0.0.0.0 --port 55502"
@@ -58,3 +59,6 @@ pipeline {
         }
     }
 }
+
+//create a cron job to run the curl localhost:55501 on the first of every month at 7:00 AM
+//0 7 1 * * curl localhost:55501

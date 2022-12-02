@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ TEST FOR POST METHOD FOR DOCUMENTS """
 from fastapi.testclient import TestClient
-from .post_documents import router
+from Backend.routes.post_documents import router
 
 client = TestClient(router)
 

@@ -9,7 +9,10 @@ const Documentation = () => (
 	<div className="text-gray-800 bg-white ">
 		<NavigationBar />
 		<header className="header bg-[#D7DBDF] text-[#101828] shadow py-4 px-4">
-			<div className="flex flex-row items-center justify-center h-40 header-content">
+
+
+			<div className="header-content h-40 flex items-center justify-center flex-row">
+
 				<h1 className="text-3xl text-center">
 					A step by step guide on how <br /> to use Reconcile.<span className='text-[#2E90FA]'>AI</span>
 				</h1>
@@ -17,9 +20,11 @@ const Documentation = () => (
 		</header>
 		<div className="flex flex-row min-h-screen lg:grid  md:grid-cols-[15rem_7fr]  sm:grid-cols-[1fr] ">
 			<aside className="sidebar md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-[#EAECF0] hidden md:block h-[100vh] ">
-				<div className="px-4 py-6 sidebar-content">
+
+				<div className="sidebar-content px-4 py-6">
 					
-					<ul className="flex flex-col items-center w-full text-center ">
+					<ul className="flex flex-col w-full text-center items-center ">
+
 						<li className="my-px w-[100%]  ">
 							<a
 								href="#intro"
@@ -48,10 +53,12 @@ const Documentation = () => (
 				</div>
 			</aside>
 			<main className="main flex flex-col flex-grow  md:ml-0 p-[3rem] transition-all duration-150 ease-in h-[100vh] overflow-scroll">
-				<div className="flex flex-col flex-grow p-4 main-content">
-					<div className="flex flex-col flex-grow mt-4 rounded">
+
+				<div className="main-content flex flex-col flex-grow p-4">
+					<div className="flex flex-col flex-grow   rounded mt-4">
 						<section className="mb-11"  id='intro'>
-							<h1 className="mb-4 text-2xl font-bold ">Introduction</h1>
+							<h1 className="text-2xl font-bold mb-4  ">Introduction</h1>
+
               
 							<p className='mb-5'>
 								Reconcile.<span className='text-[#2E90FA]'>AI</span> is a web application that compares third-party and
@@ -88,7 +95,9 @@ const Documentation = () => (
 						</section>
 					
 						<section className="mb-11" id='howToUse'>
-							<h1 className="mb-4 text-2xl font-bold"> How to use Reconcile.<span className='text-[#2E90FA]'>AI</span></h1>
+
+							<h1 className="font-bold text-2xl mb-4"> How to use Reconcile.<span className='text-[#2E90FA]'>AI</span></h1>
+
 							<p className='mb-6'>
 								Welcome, aboard! We’re glad that you’ve chosen Reconcile.<span className='text-[#2E90FA]'>AI</span> for
 								your account statement matching. Let’s get you started right
@@ -123,8 +132,10 @@ const Documentation = () => (
 							</p>
 						</section>
 						<section id='keyFeatures'>
-							<h1 className='mb-4 text-2xl font-bold' >Key Features.</h1>
-							<h2 className='mb-4 font-bold' >Key Values Reconcile.<span className='text-[#2E90FA]'>AI</span> offers.</h2>
+
+							<h1 className='font-bold  text-2xl mb-4' >Key Features.</h1>
+							<h2 className='font-bold   mb-4' >Key Values Reconcile.<span className='text-[#2E90FA]'>AI</span> offers.</h2>
+
 
               <ul className='ml-4 list-disc'>
 							<li>

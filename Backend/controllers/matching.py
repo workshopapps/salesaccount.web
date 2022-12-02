@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 """ DOCUMENT MATCHING MODULE """
-from .conversion import file_conversion
+from .convert_file import convert_file
 import pandas as pd
-import json
+import json,csv,io
+# import openai
 
+
+# openai.api_key = API_KEY
 
 def match(account_statement, financial_record):
 		""" Matches similar transactions in the documents
@@ -15,8 +18,8 @@ def match(account_statement, financial_record):
 		Return:
 		object: json
 		"""
-		statement_table = pd.read_json(file_conversion(account_statement))
-		records_table = pd.read_json(file_conversion(financial_record))
+		statement_table = pd.read_json(convert_file(account_statement))
+		records_table = pd.read_json(convert_file(financial_record))
 		statement_table.columns = statement_table.columns.str.strip()
 		records_table.columns = records_table.columns.str.strip()
 		output = records_table.merge(statement_table,
