@@ -44,14 +44,14 @@ pipeline {
                 sh 'sudo cp -rf ${WORKSPACE}/Backend/* /home/dcnc/salesaccount.web/Backend'
                 sh "pwd"
                 sh "cd Backend && ls -l"
-                sh "python3 -m venv myvenv"
-                sh "ls -l"
-               // sh "source myvenv/bin/activate"
-                sh "pip install -r requirements.txt"
+                sh "cd Backend && python3 -m venv myvenv"
+                sh "cd Backend && ls -l"
+                sh "cd Backend && source myvenv/bin/activate"
+                sh "cd Backend && pip install -r requirements.txt"
                 // start the fastapi server on port 55502 with Uvicorn
                 //sh "sudo pm2 start uvicorn main:app --name reconcileaibackend --interpreter python3 --bind"
-                sh "ls -la"
-                sh "uvicorn main:app --host 0.0.0.0 --port 55502"
+                sh "cd Backend && ls -la"
+                sh "cd Backend && uvicorn main:app --host 0.0.0.0 --port 55502"
                 //sh 'pip install -r requirements.txt'
                 //sh 'python app.py'
             }
