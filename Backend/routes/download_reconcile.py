@@ -10,9 +10,14 @@ router = APIRouter()
 @router.get("/download_reconcile")
 def download_reconcile():
     with req.get('https://salesaccount-web-hng.vercel.app/dashboard/accountreport') as rq:
-        
-        #This should read the file exactly as it is from the url and download it as pdf
-        pdfkit.from_url('https://salesaccount-web-hng.vercel.app/dashboard/accountreport', 'reconciled.pdf')
+        with open('test.csv', 'wb') as file:
+            file.write(rq.content)
+
+            df1 = pd.read_csv('test.csv')
+
+            html_string = df1.to_html()
+
+            pdfkit.from_string(html_string, 'test.pdf')
 
 
 
