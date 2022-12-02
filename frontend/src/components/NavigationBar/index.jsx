@@ -10,9 +10,9 @@ import logoUpdate from '../../assets/logoUpdate.svg';
 
 const navLinks = [
 	{ name: 'Home', path:'/'},
-	{ name: 'AboutUs', path: '/aboutus' },
-	{ name: 'Resources', path: '/resources' },
-	{ name: 'Documentation', path: '/documentation' },
+	{ name: 'About Us', path: '/aboutus'},
+	{ name: 'Resources', path: '/resources'},
+	{ name: 'Documentation', path: '/documentation'},
 ];
 
 function NavigationBar() {
