@@ -28,7 +28,7 @@ function NavigationBar() {
 		<nav className='bg-[#F9FAFB] ' >
 			<div className="h-[112px] max-w-[1440px] w-full mx-auto px-[72px] flex items-center justify-between max-md:px-[30px] max-md:h-20 max-sm:h-14 ">
 			<Link to="/">
-				<figure className='h-[50px] mr-4'>
+				<figure className='h-[50px] mr-4 max-sm:w-[120px]'>
 				<img
 					src={logoUpdate}
 					alt="Company logo"
@@ -55,7 +55,7 @@ function NavigationBar() {
 				}}
 				aria-hidden="true"
 			>
-				{nav ? <AiOutlineClose size={28} /> : <FiMenu size={28} />}
+				{nav ?  <AiOutlineClose color='#2E90FA' size={24} /> : <FiMenu color='#2E90FA' size={24} />}
 			</div>
 
 			<div
@@ -72,9 +72,6 @@ function NavigationBar() {
 						{item.name}
 					</NavLink>
 				))}
-				<div>
-					<Button title="Try it NOW" path="/dashboard/home" />
-				</div>
 			</div>
 		</div>
 		</nav>
