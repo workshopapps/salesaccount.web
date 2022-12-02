@@ -1,21 +1,26 @@
 import React from 'react';
-import './index.css';
 import { Outlet } from 'react-router-dom';
 import DashBoardSideBar from '../../components/DashBoardSideBar';
 import DashBoardHeader from '../../components/DashBoardHeader';
+import NavigationBar from "../../components/NavigationBar"
 import Footer from '../../components/DashboardFooter/DashboardFooter';
 
 const DashBoard = () => (
-	<div className="w-full bg-[#f2f5f8] h-max pb-[20%]">
-		<DashBoardHeader />
-		<div className="flex">
-			<DashBoardSideBar />
-			<div className="space-y-[2em] relative top-[6em] md:top-[8em] md:left-[4em] lg:left-[5em] px-[1em] w-full md:w-[70%] lg:w-[85%] mx-auto">
+	<>
+	<div className="w-full bg-white">
+		<NavigationBar />
+		<div className="flex flex-col items-center justify-center min-[1376px]:h-[calc(100vh-212px)] mt-10 max-md:mt-4">
+			{/* <DashBoardSideBar /> */}
+			<div className="w-full">
 				<Outlet />
 			</div>
 		</div>
 		<Footer />
 	</div>
+	<div className='bg-[#F9FAFB] flex justify-center items-center py-4 w-full max-md:hidden'>
+	<p className='font-normal text-xl text-[#1D2939] '>©reconcile.AI 2022</p>
+</div>
+</>
 );
 
 export default DashBoard;

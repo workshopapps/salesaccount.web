@@ -21,49 +21,58 @@ function ImportData() {
 		localData,
 		fileDropped,
 		fileDropped2,
-		localFile2,
-		localData2,
-		setLocalData2,
 		setFileDropped2,
+		getSalesData,
 	} = useAuth();
 
 	// const headerKeys = Object.keys(localData);
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
 	// const headerKeys2 = Object.keys(Object.assign({}, ...localData2));
-
-	// CSV to Array starts
-	const [csvArray, setCsvArray] = useState([]);
-
-	const processCSV = (str, delim = ',') => {
-		const headers = str.slice(0, str.indexOf('\n')).split(delim);
-		const rows = str.slice(str.indexOf('\n') + 1).split('\n');
-
-		const newArray = rows.map((row) => {
-			const values = row.split(delim);
-			/* eslint-disable no-param-reassign */
-			const eachObject = headers.reduce((obj, header, i) => {
-				obj[header] = values[i];
-				return obj;
-			}, {});
-			/* eslint-disable no-param-reassign */
-			return eachObject;
+	const newData = [];
+	for (let i = 0; i < localData.length; i += 1) {
+		newData.push({
+			date: localData[i].Date,
+			description: localData[i].Description,
+			details: localData[i].Details,
+			balance: localData[i][' Balance '],
+			money_out: localData[i][' Money out '],
+			money_in: localData[i][' Money in '],
 		});
+	}
+	// CSV to Array
+	// const [csvArray, setCsvArray] = useState([]);
 
-		setCsvArray(newArray);
+	// const processCSV = (str, delim = ',') => {
+	// 	const headers = str.slice(0, str.indexOf('\n')).split(delim);
+	// 	const rows = str.slice(str.indexOf('\n') + 1).split('\n');
 
-		return newArray;
-	};
+	// 	const newArray = rows.map((row) => {
+	// 		const values = row.split(delim);
+	// 		/* eslint-disable no-param-reassign */
+	// 		const eachObject = headers.reduce((obj, header, i) => {
+	// 			obj[header] = values[i];
+	// 			return obj;
+	// 		}, {});
+	// 		/* eslint-disable no-param-reassign */
+	// 		return eachObject;
+	// 	});
+
+	// 	setCsvArray(newArray);
+
+	// 	return newArray;
+	// };
 
 	const handleSubmit = () => {
+		getSalesData();
 		navigate('/dashboard/reconcile');
-		const fileReader = new FileReader();
-		fileReader.onload = (e) => {
-			const text = e.target.result;
-			const data = processCSV(text);
-			setLocalData2(data);
-		};
+		// const fileReader = new FileReader();
+		// fileReader.onload = (e) => {
+		// 	const text = e.target.result;
+		// 	const data = processCSV(text);
+		// 	setLocalData2(data);
+		// };
 
-		fileReader.readAsText(fileDropped2);
+		// fileReader.readAsText(fileDropped2);
 	};
 	// CSV to array ends
 
@@ -121,16 +130,14 @@ function ImportData() {
 					<table className="table-auto w-full text-xs md:text-base ">
 						<thead className="bg-[#D1E9FF] py-2 my-2">
 							<tr>
-								{headerKeys.map((key) => (
-									<th className="py-2 pl-8 text-left" key={Math.random()}>
-										{key}
-									</th>
+								{headerKeys?.map((key) => (
+									<th className="py-2 pl-8 text-left">{key}</th>
 								))}
 							</tr>
 						</thead>
 
-						<tbody className="py-2 px-6" key={Math.random()}>
-							{localData.map((sData) => (
+						<tbody className="py-2 px-6">
+							{localData?.map((sData) => (
 								<tr className="py-2 pl-8">
 									{Object.values(sData).map((iData) => (
 										<td className="text- py-2 pl-8">{iData}</td>
@@ -191,6 +198,7 @@ function ImportData() {
 					<p>OR</p>
 					<input
 						type="file"
+						accept=".csv"
 						hidden
 						onChange={(e) => {
 							setFileDropped2(e.target.files[0]);
