@@ -2,30 +2,30 @@ import React from 'react';
 import { BsTwitter, BsFacebook, BsInstagram } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import uuid from 'react-uuid';
-import logoUpdate from '../../assets/logoUpdate.png';
+import logoUpdate from '../../assets/logoUpdate.svg';
 
 const aboutUsData = [
 	{
-		name: 'History',
+		name: 'Our Story',
 		path: '/history',
 	},
 	{
-		name: 'Team',
+		name: 'Work Environment',
 		path: '/teams',
 	},
 	{
-		name: 'Contact Us',
+		name: 'Email Us',
 		path: '/contact',
 	},
 ];
 const resourcesData = [
 	{
-		name: 'Privacy & Help',
+		name: 'Help Center',
 		path: '/privacyandhelp',
 	},
 	{
-		name: 'Careers',
-		path: '/careers',
+		name: 'Support',
+		path: '/privacyandhelp',
 	},
 	{
 		name: 'FAQs',
@@ -45,26 +45,21 @@ const ProductData = [
 		name: 'Features',
 		path: '/resources',
 	},
-	{
-		name: 'Documentation',
-		path: '/documentation',
-	},
-	{
-		name: 'Privacy',
-		path: '/privacy',
-	},
 ];
 
 const Footer = () => (
 	<footer className="bg-[#D1E9FF] w-full flex flex-col md:flex-row justify-between py-[50px] xl:py-[100px] xl:px-[100px] px-[44px]">
 		<div>
-			<img src={logoUpdate} alt="Company logo" />
-			<div className="pt-[4px] mb-[18px] w-[230px]">
+			<figure className='flex flex-col max-md:max-w-[275px]'>
+			<img className='w-full' src={logoUpdate}  alt="Company logo" />
+			{/* <p className='font-semibold text-[40px] leading-[50px]'>reconcile.<span className='text-[#2E90FA]'>AI</span></p> */}
+			</figure>
+			{/* <div className="pt-[4px] mb-[18px] w-[230px]">
 				<p className="text-[#344054] font-normal text-[16px] xl:text-[20px]">
 					This is a website that can help you balance your sales account
 				</p>
-			</div>
-			<div className="text-[#98A2B3] flex space-x-[10px] xl:space-x-[20px]">
+			</div> removed According to new design */ }
+			<div className="text-[#98A2B3] flex items-center gap-6 mt-6">
 				<BsTwitter size={32} />
 				<BsFacebook size={32} />
 				<BsInstagram size={32} />

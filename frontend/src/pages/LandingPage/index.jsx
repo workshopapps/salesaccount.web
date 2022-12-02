@@ -231,12 +231,14 @@ function LandingPage() {
 							</div>
 						</div>
 						<div className="flex md:hidden w-full justify-center">
-							<button
-								type="button"
-								className=" bg-[#2E90FA] text-white py-2 px-4 rounded border-[1px] border-[#2E90FA] flex justify-center align-center gap-x-[5px]"
-							>
-								Upload Account Statement
-							</button>
+							<a href="/dashboard/home">
+								<button
+									type="button"
+									className=" bg-[#2E90FA] text-white py-2 px-4 rounded border-[1px] border-[#2E90FA] flex justify-center align-center gap-x-[5px]"
+								>
+									Upload Account Statement
+								</button>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -356,12 +358,12 @@ function LandingPage() {
 				/>
 			</div> */}
 
-			<div className=" bg-[#F9FAFB] relative mt-[-200px] md:mt-0">
+			<div className=" bg-[#F9FAFB] relative mt-[-150px] md:mt-0">
 				<h2 className="text-[#101828] font-semibold text-center text-[20px] lg:text-[36px] pt-[24px] md:pt-[48px] px-[44px] md:px-0">
 					Why Choose reconcile.<span className="text-[#2E90FA]">AI</span>?
 				</h2>
 
-				<div className="flex flex-col justify-center lg:grid grid-cols-3 lg:px-[102px]">
+				<div className="flex flex-col justify-center 2xl:px-[350px] lg:grid grid-cols-3 xl:grid-cols-3 lg:px-[102px] ">
 					{whatAccountPalDoesData.map((item) => (
 						<div
 							className="pt-[32px] lg:pt-[65px] flex justify-center"
@@ -445,8 +447,8 @@ function LandingPage() {
 				</div>
 			</div> */}
 
-			<div className="bg-[#F9FAFB] md:py-[84px] py-[48px] lg:max-w-full">
-				<div className="lg:px-[50px]  px-[14px] ">
+			<div className="bg-[#F9FAFB] md:py-[84px] py-[48px] lg:max-w-full ">
+				<div className="md:px-[50px]  2xl:mx-[190px] px-[14px] lg:px-[50px]">
 					<div className="leading-[20px]">
 						<h2 className="font-semibold text-3xl text-center">
 							Frequently Asked Questions
@@ -481,12 +483,14 @@ function LandingPage() {
 				</p>
 				<p>Join over 4,000 startups already growing with reconcileAI</p>
 				<div className="flex space-x-12 justify-center mt-[20px]">
-					<button
-						type="button"
-						className="bg-white text-[#2E90FA] rounded px-[18px] py-[10px]"
-					>
-						Learn More
-					</button>
+					<a href="/aboutus">
+						<button
+							type="button"
+							className="bg-white text-[#2E90FA] rounded px-[18px] py-[10px]"
+						>
+							Learn More
+						</button>
+					</a>
 					<Button path="/contact" title="Get in touch" />
 				</div>
 			</div>
