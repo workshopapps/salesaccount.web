@@ -18,7 +18,7 @@ const data = [
 		image: Help,
 		header: 'Help Center/Support',
 		subtext: 'The Corner Stone of Customer Support',
-		to: `/privacyandhelp`,
+		to: `/help`,
 	},
 	{
 		id: 2,

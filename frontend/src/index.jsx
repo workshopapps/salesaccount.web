@@ -13,7 +13,7 @@ import Documentation from './pages/Documentation';
 import Faqs from './pages/Faqs';
 import Guides from './pages/Guides';
 import Pricing from './pages/Pricing';
-import PrivacyAndHelp from './pages/PrivacyAndHelp';
+import Help from './pages/Help';
 import Resources from './pages/Resources';
 import UploadAccountsStatementReady from './pages/UploadAccountsStatementReady';
 import Userupload from './pages/UserUpload';
@@ -123,8 +123,8 @@ const router = createBrowserRouter([
 	},
 
 	{
-		path: '/privacyandhelp',
-		element: <PrivacyAndHelp />,
+		path: '/help',
+		element: <Help />,
 	},
 
 	{
