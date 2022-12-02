@@ -10,13 +10,6 @@ import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
 import getInTouch from '../../assets/images/landingPage/landingpage__intouch.png';
-import userImage from '../../assets/images/landingPage/what_our_users_are_saying.png';
-import companyLogo from '../../assets/images/landingPage/landingpage_company_img.png';
-import headerImage from '../../assets/images/landingPage/recon-header-img.png';
-import cuttingImage from '../../assets/images/landingPage/landingpage__cutting.png';
-import mobileDashboard from '../../assets/images/landingPage/recon-mobile.png';
-import mobileCompany from '../../assets/images/landingPage/mobile_company.png';
-import iphoneScreen from '../../assets/images/landingPage/landingpage__iphone.png';
 
 const data = {
 	rows: [
@@ -231,7 +224,6 @@ function LandingPage() {
 							</div>
 						</div>
 						<div className="flex md:hidden w-full justify-center">
-<<<<<<< HEAD
 							<a href="/dashboard/home">
 								<button
 									type="button"
@@ -239,15 +231,15 @@ function LandingPage() {
 								>
 									Upload Account Statement
 								</button>
-=======
-						<a href="/dashboard/home">
-							<button
-								type="button"
-								className=" bg-[#2E90FA] text-white py-2 px-4 rounded border-[1px] border-[#2E90FA] flex justify-center align-center gap-x-[5px]"
-							>
-								Upload Account Statement
-							</button>
->>>>>>> 3bbf350d12d48fcb2f84c6c85fd79ae8e86966c6
+							</a>
+
+							<a href="/dashboard/home">
+								<button
+									type="button"
+									className=" bg-[#2E90FA] text-white py-2 px-4 rounded border-[1px] border-[#2E90FA] flex justify-center align-center gap-x-[5px]"
+								>
+									Upload Account Statement
+								</button>
 							</a>
 						</div>
 					</div>
