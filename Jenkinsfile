@@ -49,9 +49,9 @@ pipeline {
                 sh "cd Backend && cd myvenv && . bin/activate"
                 sh "cd Backend && pip install -r requirements.txt"
                 // start the fastapi server on port 55502 with Uvicorn
-                //sh "sudo pm2 start uvicorn main:app --name reconcileaibackend --interpreter python3 --bind"
+                sh "cd Backend && sudo pm2 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502' --name reconcileaibackend"
                 sh "cd Backend && ls -l"
-                sh "cd Backend && uvicorn main:app --host 0.0.0.0 --port 55502"
+               // sh "cd Backend && uvicorn main:app --host 0.0.0.0 --port 55502"
                 //sh 'pip install -r requirements.txt'
                 //sh 'python app.py'
             }
