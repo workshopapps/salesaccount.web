@@ -3,10 +3,10 @@
 from .convert_file import convert_file
 import pandas as pd
 import json,csv,io
-import openai
+# import openai
 
 
-openai.api_key = API_KEY
+# openai.api_key = API_KEY
 
 def match(account_statement, financial_record):
 		""" Matches similar transactions in the documents
