@@ -241,6 +241,14 @@ function LandingPage() {
 									Upload Account Statement
 								</button>
 							</a>
+							<a href="/dashboard/home">
+								<button
+									type="button"
+									className=" bg-[#2E90FA] text-white py-2 px-4 rounded border-[1px] border-[#2E90FA] flex justify-center align-center gap-x-[5px]"
+								>
+									Upload Account Statement
+								</button>
+							</a>
 						</div>
 					</div>
 				</div>
