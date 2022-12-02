@@ -1,10 +1,10 @@
-import React from 'react';
+// import React from 'react';
 import Footer from '../../components/Footer';
-import heroImg from '../../assets/images/about-us/hero-img.svg';
-import vision from '../../assets/images/about-us/vision.svg';
-import blueSquare from '../../assets/images/about-us/blue-square.svg';
-import mission from '../../assets/images/about-us/mission.svg';
-import valueImg from '../../assets/images/about-us/values.svg';
+// import heroImg from '../../assets/images/about-us/hero-img.svg';
+// import vision from '../../assets/images/about-us/vision.svg';
+// import blueSquare from '../../assets/images/about-us/blue-square.svg';
+// import mission from '../../assets/images/about-us/mission.svg';
+// import valueImg from '../../assets/images/about-us/values.svg';
 import NavigationBar from '../../components/NavigationBar';
 
 const AboutUs = () => (
@@ -24,7 +24,7 @@ const AboutUs = () => (
 					</p>
 				</div>
 				<div className=" relative mt-8 lg:mt-0 z-10">
-					<img src={heroImg} alt="Hero" className="" />
+					{/* <img src={heroImg} alt="Hero" className="" />
 
 					<img
 						className=" absolute -z-10 -top-[2rem]  -right-[2rem] hidden lg:block "
@@ -35,7 +35,7 @@ const AboutUs = () => (
 						className="absolute -z-10 -ml-[2rem] -mt-[5rem] hidden lg:block "
 						src={blueSquare}
 						alt="blue-square"
-					/>
+					/> */}
 				</div>
 			</div>
 		</section>
@@ -51,7 +51,7 @@ const AboutUs = () => (
 						To make easy sales and accounting reconciliation across all business
 						types.
 					</p>
-					<img
+					{/* <img
 						className="absolute top-[7rem] -left-[24px] -z-10 hidden lg:block"
 						src={blueSquare}
 						alt=""
@@ -60,15 +60,15 @@ const AboutUs = () => (
 						className="absolute -bottom-[1.5rem] -right-[22px] -z-10 hidden lg:block"
 						src={blueSquare}
 						alt=""
-					/>
+					/> */}
 				</div>
 
 				<div>
-					<img
+					{/* <img
 						className="lg:ml-[36px] lg:mt-0 mt-4"
 						src={vision}
 						alt="People holding hands in agreement"
-					/>
+					/> */}
 				</div>
 			</div>
 		</section>
@@ -84,7 +84,7 @@ const AboutUs = () => (
 							through the use of technology enabled solutions and making them
 							easily accessible for businesses.
 						</p>
-						<img
+						{/* <img
 							className="absolute -z-10 top-[11.5rem] -left-[28px] hidden lg:block"
 							src={blueSquare}
 							alt=""
@@ -93,14 +93,14 @@ const AboutUs = () => (
 							className="absolute -bottom-[1.5rem] -right-[28px]  -z-10 hidden lg:block"
 							src={blueSquare}
 							alt=""
-						/>
+						/> */}
 					</div>
 				</div>
-				<img
+				{/* <img
 					className="lg:mt-12 mt-4"
 					src={mission}
 					alt="Person working and writing on a notebook"
-				/>
+				/> */}
 			</div>
 		</section>
 		<section className=" lg:pl-36 lg:pr-36 lg:pb-20 lg:pt-10 z-0 p-8 ">
@@ -130,23 +130,23 @@ const AboutUs = () => (
 						</ul>
 					</div>
 
-					<img
+					{/* <img
 						className="absolute top-[7.5rem] -left-[24px] -z-10 hidden lg:block"
 						src={blueSquare}
 						alt=""
-					/>
-					<img
+					/> */}
+					{/* <img
 						className="absolute -bottom-[1.5rem] -right-[22px] -z-10 hidden lg:block"
 						src={blueSquare}
 						alt=""
-					/>
+					/> */}
 				</div>
 				<div>
-					<img
+					{/* <img
 						className="lg:ml-8 lg:mt-16 mt-4"
 						src={valueImg}
 						alt="A hand building up small bricks"
-					/>
+					/> */}
 				</div>
 			</div>
 		</section>
