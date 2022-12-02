@@ -48,11 +48,14 @@ function Footer() {
 
 
 			{/* Dashboard home bar */}
+
 			<Link to="/dashboard/home">
 				<div className="footer-item text-center">
+					
 					<AutoAwesomeMosaicOutlinedIcon />
 					<p>Dashboard</p>
 				</div>
+
 			</Link>
 
 
