@@ -6,6 +6,7 @@ import logoUpdate from '../../assets/logoUpdate.svg';
 
 const aboutUsData = [
 	{
+<<<<<<< HEAD
 		name: 'Our Mission',
 		path: '/history',
 	},
@@ -15,11 +16,23 @@ const aboutUsData = [
 	},
 	{
 		name: 'Our Core Values',
+=======
+		name: 'Our Story',
+		path: '/history',
+	},
+	{
+		name: 'Work Environment',
+		path: '/teams',
+	},
+	{
+		name: 'Email Us',
+>>>>>>> 72348311ac6830f2c7f123f1f70dc35c39376dde
 		path: '/contact',
 	},
 ];
 const resourcesData = [
 	{
+<<<<<<< HEAD
 		name: 'Support',
 		path: '/privacyandhelp',
 	},
@@ -29,6 +42,13 @@ const resourcesData = [
 	},
 	{
 		name: 'Blog',
+=======
+		name: 'Help Center',
+		path: '/privacyandhelp',
+	},
+	{
+		name: 'Support',
+>>>>>>> 72348311ac6830f2c7f123f1f70dc35c39376dde
 		path: '/privacyandhelp',
 	},
 	{
@@ -36,6 +56,7 @@ const resourcesData = [
 		path: '/faqs',
 	},
 ];
+<<<<<<< HEAD
 
 
 const Footer = () => (
@@ -72,6 +93,39 @@ const Footer = () => (
 						</Link>
 					))}
 				</div>
+=======
+const ProductData = [
+	{
+		name: 'Pricing',
+		path: '/pricing',
+	},
+	{
+		name: 'How it works',
+		path: '/guides',
+	},
+	{
+		name: 'Features',
+		path: '/resources',
+	},
+];
+
+const Footer = () => (
+	<footer className="bg-[#D1E9FF] w-full flex flex-col md:flex-row justify-between py-[50px] xl:py-[100px] xl:px-[100px] px-[44px]">
+		<div>
+			<figure className='flex flex-col max-md:max-w-[275px]'>
+			<img className='w-full' src={logoUpdate}  alt="Company logo" />
+			{/* <p className='font-semibold text-[40px] leading-[50px]'>reconcile.<span className='text-[#2E90FA]'>AI</span></p> */}
+			</figure>
+			{/* <div className="pt-[4px] mb-[18px] w-[230px]">
+				<p className="text-[#344054] font-normal text-[16px] xl:text-[20px]">
+					This is a website that can help you balance your sales account
+				</p>
+			</div> removed According to new design */ }
+			<div className="text-[#98A2B3] flex items-center gap-6 mt-6">
+				<BsTwitter size={32} />
+				<BsFacebook size={32} />
+				<BsInstagram size={32} />
+>>>>>>> 72348311ac6830f2c7f123f1f70dc35c39376dde
 			</div>
 
 			{/* Resources Tab */}
