@@ -53,7 +53,7 @@ const resourcesData = [
 
 const Footer = () => (
 	<footer className='bg-[#D1E9FF]'>
-	<div className="w-full flex flex-co max-w-[1440px] mx-auto max-md:flex-col-reverse max-md:justify-center max-md:items-center max-md:py-8 md:flex-row justify-between xl:py-[136px] xl:px-[160px]">
+	<div className="w-full flex flex-col max-w-[1440px] mx-auto max-md:flex-col-reverse max-md:justify-center max-md:items-center max-md:py-8 md:flex-row justify-between xl:py-[136px] xl:px-[160px]">
 		
 		<div>
 			<figure className='flex flex-col max-md:h-[25px] max-md:mt-10'>
@@ -73,7 +73,7 @@ const Footer = () => (
 		</div>
 		<div className='flex justify-center max-md:text-center gap-[276px] max-md:flex-col max-md:gap-10'>
 		<div className="flex flex-col">
-			<h3 className="font-medium text-[#344054] text-[18px] xl:text-[28px]">
+			<h3 className="font-medium text-[#101828] text-[18px] xl:text-[28px]">
 				About Us
 			</h3>
 			{aboutUsData.map((item) => (
@@ -87,7 +87,7 @@ const Footer = () => (
 			))}
 		</div>
 		<div className="flex flex-col pt-[10px] xl:pt-0">
-			<h3 className="font-medium text-[#344054] text-[18px] xl:text-[28px]">
+			<h3 className="font-medium text-[#101828] text-[18px] xl:text-[28px]">
 				Resources
 			</h3>
 			{resourcesData.map((item) => (
