@@ -7,6 +7,7 @@ from .convert_file import file_conversion
 from .api_key import API_KEY
 import pandas as pd
 import json,csv,io
+import openai
 
 
 openai.api_key = API_KEY
@@ -21,6 +22,7 @@ def match(account_statement, financial_record):
 		Return:
 		object: json
 		"""
+
 		keyword = "Below are two files Account Statement and Sales Record\nReconcile both Account Statement and Sales Record \n\n\n"
 
 		statement_table = pd.read_json(file_conversion(account_statement))
@@ -44,3 +46,4 @@ def match(account_statement, financial_record):
 		# reader = csv.DictReader(io.StringIO(string))
 
 		return json.dumps(string)
+	
