@@ -18,14 +18,14 @@ const data = [
 		image: Help,
 		header: 'Help Center/Support',
 		subtext: 'The Corner Stone of Customer Support',
-		to: `/help`,
+		to: `/privacyandhelp`,
 	},
 	{
 		id: 2,
 		image: Privacy,
 		header: 'Privacy Policy',
 		subtext: 'Turn data privacy to an opportunity to enhance',
-		to: `/#privacy`,
+		to: `/privacy`,
 	},
 	{
 		id: 3,
