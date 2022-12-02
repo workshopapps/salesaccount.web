@@ -11,7 +11,7 @@ const Documentation = () => (
 		<header className="header bg-[#2E90FA] text-[#F9FAFB] shadow py-4 px-4">
 			<div className="flex flex-row items-center justify-center h-40 header-content">
 				<h1 className="text-3xl text-center">
-					A step by step guide on how <br /> to use reconcile.
+					A step by step guide on how <br /> to use reconcile.AI
 				</h1>
 			</div>
 		</header>
@@ -87,14 +87,14 @@ const Documentation = () => (
 								away on how to take advantage of our platform to make things
 								easy.
 							</p>
-							<h2 className="text-[#194185] text-xl  font-bold mb-2">Step one</h2>
+							<h2 className="text-[#194185] text-xl  font-bold mb-2">Step One</h2>
 							<p className='mb-5 '>
 								From your Dashboard upload your bank statement by clicking on
 								the “Browse Files” button and choosing the
 								CSV(comma-separated-document) file format of your bank
 								statement.
 							</p>
-              <img className='object-center mb-5' src={stepOne} alt= ' ' />
+              <img className='object-center mb-5 ' src={stepOne} alt= ' ' />
 
 							<h2 className="text-[#194185] text-xl  font-bold mb-2">Step Two</h2>
 							<p className='mb-5 '>
