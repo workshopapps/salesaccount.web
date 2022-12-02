@@ -25,7 +25,7 @@ const data = [
 		image: Privacy,
 		header: 'Privacy Policy',
 		subtext: 'Turn data privacy to an opportunity to enhance',
-		to: `/#privacy`,
+		to: `/privacy`,
 	},
 	{
 		id: 3,
