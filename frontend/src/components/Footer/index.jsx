@@ -52,7 +52,8 @@ const resourcesData = [
 // removed according to new design ];
 
 const Footer = () => (
-	<footer className="bg-[#D1E9FF] w-full flex flex-col max-md:flex-col-reverse max-md:justify-center max-md:items-center max-md:py-8 md:flex-row justify-between xl:py-[136px] xl:px-[160px]">
+	<footer className='bg-[#D1E9FF]'>
+	<div className="w-full flex flex-co max-w-[1440px] mx-auto max-md:flex-col-reverse max-md:justify-center max-md:items-center max-md:py-8 md:flex-row justify-between xl:py-[136px] xl:px-[160px]">
 		
 		<div>
 			<figure className='flex flex-col max-md:h-[25px] max-md:mt-10'>
@@ -115,6 +116,7 @@ const Footer = () => (
 				</Link>
 			))}
 		</div> */}
+	</div>
 	</footer>
 );
 
