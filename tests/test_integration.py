@@ -1,0 +1,2 @@
+#!/usr/bin/python3
+""" TEST FOR INTEGRATION OF FRONTEND AND BACKEND"""

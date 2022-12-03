@@ -1,13 +1,9 @@
 #!/usr/bin/python3
 """ FASTAPI APPLICATION """
 from fastapi import FastAPI
-# from config.db import get_db, engine
-# from models import Account_statement
-# from schemas import Account_pal
 from fastapi.middleware.cors import CORSMiddleware
 from routes import api_status, post_documents, delete_documents, reconcile_documents
 
-# Account_statement.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 

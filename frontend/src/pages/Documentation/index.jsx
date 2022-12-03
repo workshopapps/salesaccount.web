@@ -102,7 +102,7 @@ const Documentation = () => (
 								CSV(comma-separated-document) file format of your bank
 								statement.
 							</p>
-              <img className='mb-5 w-[100%]' src={stepOne} alt= ' ' />
+              <img className='mb-5' src={stepOne} alt= ' ' />
 
 							<h2 className="text-[#194185] text-xl	 font-bold mb-2">Step Two</h2>
 							<p className='mb-5'>
@@ -113,7 +113,7 @@ const Documentation = () => (
 							<h2 className="text-[#194185] text-xl	 font-bold mb-2">Step Three</h2>
 							<p className='mb-5'>
 								On your “uploaded sale and account ready” page click on
-								reconcile button.
+								reconcile.<span className='text-[#2E90FA]'>AI</span>cile button.
 							</p>
               <img className='mb-5 w-[100%]' src={stepThree} alt= ' ' />
 							<h2 className="text-[#194185] text-xl	 font-bold mb-2">Step four</h2>
