@@ -7,50 +7,58 @@ import stepThree from '../../assets/images/documentation/stepthree.png';
 const Documentation = () => (
 	<div className=" bg-white text-gray-800">
 		<NavigationBar />
-		<header className="header bg-[#2E90FA] text-[#F9FAFB] shadow py-4 px-4">
+		<header className="header bg-[#D7DBDF] text-[#101828] shadow py-4 px-4">
 			<div className="header-content h-40 flex items-center justify-center flex-row">
 				<h1 className="text-3xl text-center">
-					A step by step guide on how <br /> to use Recon
+					A step by step guide on how <br /> to use Reconcile.<span className='text-[#2E90FA]'>AI</span>
 				</h1>
 			</div>
 		</header>
-		<div className="flex flex-row min-h-screen">
-			<aside className="sidebar w-64 md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-[#EAECF0]">
+		<div className="flex flex-row min-h-screen lg:grid  md:grid-cols-[15rem_7fr]  sm:grid-cols-[1fr] ">
+			<aside className="sidebar md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-[#EAECF0] hidden md:block h-[100vh] ">
 				<div className="sidebar-content px-4 py-6">
-					<h1>General usage</h1>
-					<ul className="flex flex-col w-full">
-						<li className="my-px">
+					
+					<ul className="flex flex-col w-full text-center items-center ">
+						<li className="my-px w-[100%]  ">
 							<a
-								href="/"
-								className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700"
+								href="#intro"
+								className="flex flex-row items-center h-10 min-w-max text-[#101828] hover:bg-[#2E90FA] hover:text-[#F9FAFB]"
 							>
 								<span className="ml-3">Intoduction</span>
 							</a>
 						</li>
-						<li className="my-px">
+						<li className="my-px w-[100%]  text-center">
 							<a
-								href="/"
-								className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700"
+								href="#howToUse"
+								className="flex flex-row items-center h-10 min-w-max  text-[#101828] hover:bg-[#2E90FA]  first:first:hover:text-[white] hover:text-[#F9FAFB]"
 							>
-								<span className="ml-3">Why Reacon? </span>
+								<span className="ml-3">How to use reconcile.<span className='text-[#2E90FA]'>AI</span> </span>
+							</a>
+						</li>
+                        <li className="my-px w-[100%]  text-center">
+							<a
+								href="#keyFeatures"
+								className="flex flex-row items-center h-10 min-w-max  text-[#101828] hover:bg-[#2E90FA]  first:first:hover:text-[white] hover:text-[#F9FAFB]"
+							>
+								<span className="ml-3">Key Features </span>
 							</a>
 						</li>
 					</ul>
 				</div>
 			</aside>
-			<main className="main flex flex-col flex-grow -ml-14 md:ml-0 transition-all duration-150 ease-in">
+			<main className="main flex flex-col flex-grow  md:ml-0 p-[3rem] transition-all duration-150 ease-in h-[100vh] overflow-scroll">
 				<div className="main-content flex flex-col flex-grow p-4">
 					<div className="flex flex-col flex-grow   rounded mt-4">
-						<section className="mb-11">
+						<section className="mb-11"  id='intro'>
 							<h1 className="text-2xl font-bold mb-4  ">Introduction</h1>
-              <div className=''> </div>
+              
 							<p className='mb-5'>
-								Recon is a web application that compares third-party and
+								Reconcile.<span className='text-[#2E90FA]'>AI</span> is a web application that compares third-party and
 								independent financial statements and records with internal
 								financial records and ledgers. It does this accurately with
 								artificial intelligence from Open AI and machine learning models
 								like GPT-3 paving the way for even smoother future matchings and
-								collaboration of accounts from vendors. Recon makes the
+								collaboration of accounts from vendors. Reconcile.<span className='text-[#2E90FA]'>AI</span> makes the
 								day-to-day balancing of accounts and sales easier, faster, and
 								very reliable for Small and Medium Enterprises.
 							</p>
@@ -78,10 +86,10 @@ const Documentation = () => (
 								becomes easy with our artificial intelligence bot.</p>
 						</section>
 					
-						<section className="mb-11">
-							<h1 className="font-bold text-2xl mb-4"> How to use Recon</h1>
+						<section className="mb-11" id='howToUse'>
+							<h1 className="font-bold text-2xl mb-4"> How to use Reconcile.<span className='text-[#2E90FA]'>AI</span></h1>
 							<p className='mb-6'>
-								Welcome, aboard! We’re glad that you’ve chosen Recon for
+								Welcome, aboard! We’re glad that you’ve chosen Reconcile.<span className='text-[#2E90FA]'>AI</span> for
 								your account statement matching. Let’s get you started right
 								away on how to take advantage of our platform to make things
 								easy.
@@ -93,41 +101,41 @@ const Documentation = () => (
 								CSV(comma-separated-document) file format of your bank
 								statement.
 							</p>
-              <img className='mb-5' src={stepOne} alt= ' ' />
+              <img className='mb-5 w-[100%]' src={stepOne} alt= ' ' />
 
 							<h2 className="text-[#194185] text-xl	 font-bold mb-2">Step Two</h2>
 							<p className='mb-5'>
 								From your Dashboard upload your Sales Records from Enterprise
 								resource planning (ERP)
 							</p>
-              <img className='mb-5' src={stepTwo} alt= ' ' />
+              <img className='mb-5 w-[100%]' src={stepTwo} alt= ' ' />
 							<h2 className="text-[#194185] text-xl	 font-bold mb-2">Step Three</h2>
 							<p className='mb-5'>
 								On your “uploaded sale and account ready” page click on
-								reconcile button.
+								reconcile.<span className='text-[#2E90FA]'>AI</span>cile button.
 							</p>
-              <img className='mb-5' src={stepThree} alt= ' ' />
+              <img className='mb-5 w-[100%]' src={stepThree} alt= ' ' />
 							<h2 className="text-[#194185] text-xl	 font-bold mb-2">Step four</h2>
 							<p className='mb-5'>
-								After the reconciliation process is complete, click Download
+								After the reconcile.<span className='text-[#2E90FA]'>AI</span>ciliation process is complete, click Download
 								Button to Download your report in PDF or Spreadsheet format.
 							</p>
 						</section>
-						<section>
+						<section id='keyFeatures'>
 							<h1 className='font-bold  text-2xl mb-4' >Key Features.</h1>
-							<h2 className='font-bold   mb-4' >Key Values Recon offers.</h2>
+							<h2 className='font-bold   mb-4' >Key Values Reconcile.<span className='text-[#2E90FA]'>AI</span> offers.</h2>
 
               <ul className='list-disc ml-4'>
 							<li>
                 <span className='font-bold'>Automatic Matching System: </span>
-								 Recon uses an Artificial
+								 Reconcile.<span className='text-[#2E90FA]'>AI</span> uses an Artificial
 								Intelligence bot to request detailed account statements from
 								your bank at the close of business and automatically performs a
 								3-way match of the documents from the different departments.
                 
 							</li>
               <li><span className='font-bold'>Easy Data Entry: </span>
-								 Recon offers an easy and automatic
+								 Reconcile.<span className='text-[#2E90FA]'>AI</span> offers an easy and automatic
 								invoice data entry for the suppliers and the client. Creating a
 								close touchless invoice process.</li>
                 <li>
@@ -138,7 +146,7 @@ const Documentation = () => (
                 </li>
                 <li>
                   <span className='font-bold'>Vendor Habits Prediction: </span>
-                  Recon Artificial
+                  Reconcile.<span className='text-[#2E90FA]'>AI</span> Artificial
 								Intelligence bot helps ensure accuracy and learn vendor
 								tendencies by mapping past transactions with new ones and
 								highlighting discrepancies.

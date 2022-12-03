@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ API STATUS """
-from fastapi import FastAPI, APIRouter
+from fastapi import APIRouter
 
 
 router = APIRouter()

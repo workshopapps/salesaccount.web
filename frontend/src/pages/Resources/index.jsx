@@ -7,7 +7,7 @@ import Footer from '../../components/Footer';
 import Help from '../../assets/images/resources/Help.png';
 import Privacy from '../../assets/images/resources/Privacy.png';
 import Blogs from '../../assets/images/resources/Blogs.png';
-import FAQ from '../../assets/images/resources/FAQ.png';
+import FAQ from '../../assets/images/resources/faq_img.png';
 import Contact from '../../assets/images/resources/Contact.png';
 import hero from './hero_design.png'
 import hero1 from './hero_design1.png'
@@ -25,7 +25,7 @@ const data = [
 		image: Privacy,
 		header: 'Privacy Policy',
 		subtext: 'Turn data privacy to an opportunity to enhance',
-		to: `/#privacy`,
+		to: `/privacy`,
 	},
 	{
 		id: 3,
@@ -55,14 +55,14 @@ const Resources = () => (
 
 
 		<NavigationBar />
-		<div className="relative px-4 bg-[#F2F4F7]">
+		<div className="relative px-4 bg-[#F2F4F7] overflow-hidden">
 			<div>
-				<img src={hero} alt="" className='w-1/12 top-0 right-0 absolute' />
+				<img src={hero} alt="" className='w-2/12 top-[-5em] right-[-3em] absolute  ' />
 
 			</div>
 
 			<div>
-				<img src={hero1} alt="" className='w-1/12 bottom-0 absolute' />
+				<img src={hero1} alt="" className='w-2/12 bottom-[-5em] left-[-3em] absolute  ' />
 			</div>
 
 
