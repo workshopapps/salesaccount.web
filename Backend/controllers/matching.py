@@ -1,19 +1,9 @@
 #!/usr/bin/python3
 """ DOCUMENT MATCHING MODULE """
-<<<<<<< HEAD
-<<<<<<< HEAD
 import os
-import openai
-=======
+#from .api_key import API_KEY # uncomment this line if you have a personal API key
 from .convert_file import convert_file
-import pandas as pd
-import json,csv,io
-# import openai
->>>>>>> ee2a8a89a3be374ac99c046955a3f3816d32f7da
-=======
-from .api_key import API_KEY
-from .convert_file import convert_file
-import json
+#import json
 import openai
 import pandas as pd
 >>>>>>> 5276a5ef18a78ce24e5c28f6df72abd0a2f4c74d
@@ -24,13 +14,9 @@ import pandas as pd
 import json,csv,io
 
 
-openai.api_key = API_KEY
 
-# openai.api_key = API_KEY
-
-openai.api_key = API_KEY
-
-API_KEY = os.getenv("OPENAI_API_KEY") #comment this line to use your personal openai api key. This is for the production environment
+# KINDLY ADD YOUR API KEY TO DEFUALT 
+API_KEY = os.getenv("OPENAI_API_KEY", default='API_KEY')
 
 openai.api_key = API_KEY
 
