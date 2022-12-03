@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import Footer from '../../components/Footer';
 import heroImg from '../../assets/images/about-us/heroImg.png';
 import vision from '../../assets/images/about-us/vision.png';
@@ -17,7 +17,7 @@ const AboutUs = () => (
 					<h1 className="text-[#101828]  lg:mt-8 font-semibold text-center md:font-medium text-2xl lg:text-5xl md:text-left  md:mb-5">
 						Who we are?
 					</h1>
-					<p className="text-sm font-normal text-[#101828] text-center lg:text-left lg:mb-[38px] mb-4 mt-4 md:text-center md:mb-0 md:h-[180px] md:w-[535px] md:text-xl">
+					<p className="text-sm font-normal text-[#101828] text-left lg:text-left lg:mb-[38px] mb-4 mt-4 md:text-left md:mb-0 md:h-[180px] md:w-[535px] md:text-xl">
 						We are a team of professionals whose aim is to give you and amazing
 						user experience. We are not only professionals but a family where
 						everybody works together with each other&apos;s interest of growth
@@ -73,6 +73,11 @@ const AboutUs = () => (
 						alt=""
 					/>
 					<img
+						className="absolute -bottom-[1.5rem] -right-[22px] -z-10 hidden lg:block"
+						src={blueSquare}
+						alt=""
+					/>
+					<img
 						className=" absolute -z-10 top-[7.5rem]  -right-[1.5rem] block lg:hidden "
 						src={blueSquaremob}
 						alt="blue-square"
@@ -84,13 +89,21 @@ const AboutUs = () => (
 					/>
 				</div>
 
-				<div className='m-4 lg:m-0'>
+				<div className="m-4 lg:m-0">
 					<img
 						className="lg:ml-[36px]  lg:mt-0 mt-4 mb-8"
 						src={vision}
 						alt="People holding hands in agreement"
 					/>
 				</div>
+				{/* 
+				<div>
+					<img
+						className="lg:ml-[36px] lg:mt-0 mt-4"
+						src={vision}
+						alt="People holding hands in agreement"
+					/>
+				</div> */}
 			</div>
 		</section>
 		<section className=" lg:pl-36 lg:pr-36 lg:pb-20 z-0 bg-[#EFF8FF] pl-11 pr-11 pt-8 pb-8 ">
@@ -126,15 +139,14 @@ const AboutUs = () => (
 							alt="blue-square"
 						/>
 					</div>
-				</div >
-				<div className='m-4 lg:m-0'>
-				<img
-					className="lg:mt-12 mt-10"
-					src={mission}
-					alt="Person working and writing on a notebook"
-				/>
 				</div>
-				
+				<div className="m-4 lg:m-0">
+					<img
+						className="lg:mt-12 mt-10"
+						src={mission}
+						alt="Person working and writing on a notebook"
+					/>
+				</div>
 			</div>
 		</section>
 		<section className=" lg:pl-36 lg:pr-36 lg:pb-20 lg:pt-10 z-0 pl-11 pr-11  pb-8 ">
@@ -175,17 +187,27 @@ const AboutUs = () => (
 						alt=""
 					/>
 					<img
-							className=" absolute -z-10 top-[8.4rem]  -right-[1.5rem] block lg:hidden "
-							src={blueSquaremob}
-							alt="blue-square"
-						/>
-						<img
-							className="absolute -z-10 -ml-[1.5rem] -mt-[7.2rem]  block lg:hidden  "
-							src={blueSquaremob}
-							alt="blue-square"
-						/>
+						className="absolute -bottom-[1.5rem] -right-[22.5px] -z-10 hidden lg:block"
+						src={blueSquare}
+						alt=""
+					/>
+					<img
+						className="absolute -bottom-[1.5rem] -right-[22px] -z-10 hidden lg:block"
+						src={blueSquare}
+						alt=""
+					/>
+					<img
+						className=" absolute -z-10 top-[8.4rem]  -right-[1.5rem] block lg:hidden "
+						src={blueSquaremob}
+						alt="blue-square"
+					/>
+					<img
+						className="absolute -z-10 -ml-[1.5rem] -mt-[7.2rem]  block lg:hidden  "
+						src={blueSquaremob}
+						alt="blue-square"
+					/>
 				</div>
-				<div className='m-4 lg:m-0'>
+				<div className="m-4 lg:m-0">
 					<img
 						className="lg:ml-8 lg:mt-16 mt-10"
 						src={valueImg}

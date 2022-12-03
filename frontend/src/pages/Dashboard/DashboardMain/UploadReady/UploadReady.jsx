@@ -49,9 +49,9 @@ function UploadReady() {
 	// };
 
 	return (
-		<div className="space-y-[1em] w-full mt-[20%] lg:mt-[10%] flex flex-col items-center ">
+		<div className="space-y-[1em] w-full mt-[10%] lg:mt-[5%] flex flex-col items-center ">
 			<h1 className="font-bold text-2xl ">Ready for Upload</h1>
-			<div className="upload flex flex-col items-center p-[1em] space-y-[2em] w-full md:w-[60%] lg:w-[40%]">
+			<div className=" flex flex-col items-center p-[1em] space-y-[2em] w-full md:w-[60%] lg:w-[40%] border-[2px] border-dashed border-[#1D2939]">
 				<img
 					src={signedDocument}
 					alt="document"
