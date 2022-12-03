@@ -10,7 +10,7 @@ function Help() {
 			<div className="w-full text-[#101828]">
 				{/* Hero Section  */}
 				<div className="w-full bg-[#F2F4F7] py-12">
-					<div className="w-[80%] mx-auto lg:flex lg:justify-between lg:gap-12 ">
+					<div className="w-[90%] lg:w-[80%] mx-auto lg:flex lg:justify-between lg:gap-12 ">
 						<div className="py-auto lg:w-6/12">
 							<h1 className="text-[1.2em] md:2xl font-semibold mb-2 lg:text-[40px] lg:leading-[50px] lg:mb-6">
 								Help Desk Software
@@ -39,8 +39,8 @@ function Help() {
 				</div>
 
 				{/* hero body */}
-				<div className="w-[80%] mx-auto py-12">
-					<div className="2xl:max-w-screen-xl 2xl:mx-auto">
+				<div className="w-[90%] lg:w-[80%] mx-auto py-12">
+					<div className="">
 						<div className="lg:my-3 pt-12">
 							<h1 className="text-xl lg:text-3xl mb-4 font-semibold lg:my-3">
 								Support customers across channels.
