@@ -33,7 +33,7 @@ pipeline {
                 //sh 'pm2 stop reconcileaifrontend && pm2 delete reconcileaifrontend'
                 sh 'sudo su dcnc && whoami'
                 sh 'sudo pm2 delete -s reconcileaifrontend || :'
-                sh 'sudo pm2 serve /home/dcnc/salesaccount.web/frontend/build --port 55501 --name reconcileaifrontend'
+                sh 'cd frontend && pm2 serve build --port 55501 --name reconcileaifrontend --spa'
                 //sh 'sudo pm2 serve /home/dcnc/salesaccount.web/frontend/build --port 55501 --name reconcileaifrontend'
             }
         }
@@ -48,7 +48,7 @@ pipeline {
                // sh "cd Backend && cd myvenv && . bin/activate"
                 sh "cd Backend && pip install -r requirements.txt"
                 // start the fastapi server on port 55502 with Uvicorn
-                sh 'sudo pm2 restart -s reconcileaibackend'
+                sh 'sudo pm2 restart -s reconcileaibackend || :'
                 //sh "cd Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502' --name reconcileaibackend"
             }
         }
