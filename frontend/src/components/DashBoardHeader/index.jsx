@@ -3,6 +3,7 @@ import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
 import BedtimeOutlinedIcon from '@mui/icons-material/BedtimeOutlined';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 import { Badge, IconButton } from '@mui/material';
+import { Link } from 'react-router-dom';
 import './DashBoardNav..css';
 import logo from '../../assets/Logo White.png';
 
@@ -53,9 +54,12 @@ const DashBoardHeader = () => (
 
 		{/* nav for mobile */}
 		<div className="fixed  md:hidden z-20 w-full navbar-mobile flex justify-between items-center h-[7vh] bg-[#1570EF] text-white  px-[1em] ">
-			<div className="navbar-logo flex justify-between items-center mr-[1em]">
-				<p className="md:text-sm ">Account Pal</p>
-			</div>
+			<Link to="/">
+				<div className="navbar-logo flex justify-between items-center mr-[1em]">
+					<p className="md:text-sm ">Recon</p>
+				</div>
+			</Link>
+
 			{/* navbar icons */}
 			<div className="navbar-mobile-icons flex items-center space-x-2 ">
 				<div className="icons">

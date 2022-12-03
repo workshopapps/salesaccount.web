@@ -1,27 +1,32 @@
 #!/usr/bin/python3
 """ ENDPOINT TO RECONCILE DOCUMENTS """
-from fastapi import FastAPI, APIRouter
+from controllers.matching import match
+from fastapi import APIRouter
 from .post_documents import account_statements, financial_records
 import pandas as pd
-import json
+import pdfkit
+import requests as req
+
 
 router = APIRouter()
 
 
 @router.get("/reconcile_documents")
 def reconcile():
-		""" Matches similar transactions in the documents """
-		statement_table = pd.read_csv(account_statements[0])
-		statement_table.columns = statement_table.columns.str.strip()
-		records_table = pd.read_csv(financial_records[0])
-		records_table.columns = records_table.columns.str.strip()
-		output = records_table.merge(statement_table,
-															   left_on='Price',
-																 right_on='Money in',
-																 how='outer',
-																 indicator=True)
-		output = output.sort_values(by=['Date'])
-		result = output.to_json(orient='records')
-		parsed = json.loads(result)
-		response = json.dumps(parsed, indent=4)
+	""" Matches similar transactions in the documents """
+	try:
+		response = match(account_statements[0], financial_records[0])
 		return response
+	except IndexError:
+		return {"message": "Need two files for reconconciliation"}
+
+
+@router.get("/download")
+def download():
+	""" Returns reconciled document as pdf """
+	with req.get('https://salesaccount-web-hng.vercel.app/dashboard/accountreport') as rq:
+		with open('test.csv', 'wb') as file:
+			file.write(rq.content)
+			df1 = pd.read_csv('test.csv')
+			html_string = df1.to_html()
+			pdfkit.from_string(html_string, 'test.pdf')
