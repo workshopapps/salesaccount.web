@@ -25,6 +25,7 @@ import reportWebVitals from './reportWebVitals';
 import DashBoard from './pages/Dashboard';
 import Gpt3 from './pages/Gpt-3';
 import Blogs from './pages/Blogs/Index';
+import ErrorProcessing from './pages/ErrorProcessing/index'
 // import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
 // import Upload from './pages/Dashboard/DashboardMain/UploadFile/Upload';
 import UploadReady from './pages/Dashboard/DashboardMain/UploadReady/UploadReady';
@@ -182,10 +183,10 @@ const router = createBrowserRouter([
 	// 	path: '/settings',
 	// 	element: <Settings />,
 	// },
-	// {
-	// 	path: '/processingerror',
-	// 	element: <ErrorProcessing />,
-	// },
+	{
+		path: '/processingerror',
+		element: <ErrorProcessing />,
+	},
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
