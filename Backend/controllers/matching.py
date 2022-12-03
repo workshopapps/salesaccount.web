@@ -2,7 +2,7 @@
 """ DOCUMENT MATCHING MODULE """
 #from .api_key import API_KEY #uncomment this line to use your own API key. Please comment when pushing to github
 from .convert_file import convert_file
-import json
+#import json
 import openai
 import pandas as pd
 
