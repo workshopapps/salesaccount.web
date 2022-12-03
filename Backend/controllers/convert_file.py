@@ -18,7 +18,8 @@ def df_to_json(df):
     result = df.to_json(orient='records')
     parsed = json.loads(result)
     response = json.dumps(parsed, indent=4)
-    return response
+    null = "null"
+    return eval(response)
 
 
 def convert_file(filename: str):

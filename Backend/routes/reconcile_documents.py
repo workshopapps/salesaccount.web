@@ -15,11 +15,14 @@ router = APIRouter()
 @router.get("/reconcile_documents")
 def reconcile():
 	""" Matches similar transactions in the documents """
-	response = match(account_statements[0], financial_records[0])
-	return response
+	try:
+		response = match(account_statements[0], financial_records[0])
+		return response
+	except IndexError:
+		return {"message": "Need two files for reconconciliation"}
 
 
-# @router.get("/download") # needs reworking
+# @router.get("/download")
 # def download():
 # 	""" Returns reconciled document as pdf """
 # 	with req.get('https://salesaccount-web-hng.vercel.app/dashboard/accountreport') as rq:
@@ -28,4 +31,3 @@ def reconcile():
 # 			df1 = pd.read_csv('test.csv')
 # 			html_string = df1.to_html()
 # 			pdfkit.from_string(html_string, 'test.pdf')
-# 	return {}
