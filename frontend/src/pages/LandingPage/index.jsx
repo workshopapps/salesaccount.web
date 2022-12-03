@@ -1,15 +1,23 @@
-import React from 'react'
-import Faq from 'react-faq-component'
-import { BsPlusCircle } from 'react-icons/bs'
-import { CiCircleMinus } from 'react-icons/ci'
-import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai'
-import { requirePropFactory } from '@mui/material'
-import uploadIcon from '../../assets/images/landingPage/upload-icon-new.png'
-import howItWorks from '../../assets/images/landingPage/howitworks.png'
-import NavigationBar from '../../components/NavigationBar'
-import Footer from '../../components/Footer'
-import Button from '../../components/Button'
-import getInTouch from '../../assets/images/landingPage/landingpage__intouch.png'
+import React from 'react';
+import Faq from 'react-faq-component';
+import { BsPlusCircle } from 'react-icons/bs';
+import { CiCircleMinus } from 'react-icons/ci';
+import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
+import { requirePropFactory } from '@mui/material';
+import { Link } from 'react-router-dom';
+import uploadIcon from '../../assets/images/landingPage/upload-icon-new.png';
+import howItWorks from '../../assets/images/landingPage/howitworks.png';
+import NavigationBar from '../../components/NavigationBar';
+import Footer from '../../components/Footer';
+import Button from '../../components/Button';
+import getInTouch from '../../assets/images/landingPage/landingpage__intouch.png';
+import userImage from '../../assets/images/landingPage/what_our_users_are_saying.png';
+import companyLogo from '../../assets/images/landingPage/landingpage_company_img.png';
+import headerImage from '../../assets/images/landingPage/recon-header-img.png';
+import cuttingImage from '../../assets/images/landingPage/landingpage__cutting.png';
+import mobileDashboard from '../../assets/images/landingPage/recon-mobile.png';
+import mobileCompany from '../../assets/images/landingPage/mobile_company.png';
+import iphoneScreen from '../../assets/images/landingPage/landingpage__iphone.png';
 
 const data = {
 	rows: [
@@ -177,21 +185,32 @@ function LandingPage() {
 		<div>
 			<NavigationBar />
 			<div>
-				<div className="bg-white flex flex-col md:flex-row lg:flex-row space-around md:space-x-[1px] lg:space-x-[116px] xl:space-x-60 md:justify-center md:items-center md:pl-[0px] z-40 w-full lg:max-w-full xl:min-w-fit h-[311px] md:h-[500px] lg:h-[598px] md:pb-[166px]  pb-[80px]">
-					<div className="w-[256px] md:w-[350px] lg:w-[553px] pt-[31px] lg:h-[393.15px] xl:leading-[58px] ml-[16px] ">
-						<h1 className="text-[#101828] w-[288px] md:w-[336px] lg:w-[684px] text-[28px] md:text-[35px] lg:text-[72px] leading-[136.02%] md:leading-[40px]  lg:leading-[92px] font-semibold text-left">
+				<div className="bg-white flex flex-col md:flex-row justify-between w-full md:w-[95%] lg:w-[80%] my-[3em] lg:my-[5em] h-[40vh] py-[2em] px-[1em] mx-auto  ">
+					<div className="w-full md:w-[50%] md:mt-[3em] lg:mt-[2em] lg:w-[45%] space-y-[1em] leading-6">
+						<h1 className="text-[#101828] text-3xl md:text-4xl lg:text-6xl font-semibold  ">
 							Account
 							<span className="text-[#1570EF]"> Reconciliations</span> Made Easy
 						</h1>
-						<p className="xl:leading-[28px] w-[341px] md:w-[300px] lg:w-[648px] text-[#101828] font-normal text-[14px] lg:text-[20px] lg:leading-[162.02%] text-left pt-4 mb-5 ">
+						<p className="text-md font-light md:text-sm lg:text-lg">
 							Run your business effectively with a simplified solution to
 							reconcile your accounts & sales on a day-to-day basis
 						</p>
 						{/* <Button title="Try it NOW" path="/dashboard/home" /> */}
+
+						{/* CTA button  */}
+						<div className="md:hidden w-full">
+							<Link href="/dashboard/home">
+								<button
+									type="button"
+									className=" bg-[#2E90FA] text-white rounded flex justify-center align-center w-[90%] mx-auto py-[0.5em] mt-[3em]"
+								>
+									Upload Account Statement
+								</button>
+							</Link>
+						</div>
 					</div>
 
-					<div>
-						{/* <img
+					{/* <img
 							src={headerImage}
 							alt="Dashboard"
 							className="hidden md:flex md:w-[350px] lg:w-[613px] md:h-[210px] lg:h-[387px]"
@@ -203,76 +222,30 @@ function LandingPage() {
 								className=" md:hidden"
 							/>
 						</div> */}
-						<div className="hidden md:flex w-[304px] md:w-[400px] lg:max-w-[464px] md:h-[286px] lg:h-[376px] bg-[#F9FAFB] rounded-2xl shadow-[0px_0px_4px_rgba(0,0,0,0.04)_0px_4px_8px_rgba(0,0,0,0.06)] flex-col items-center justify-center gap-y-[40px]">
-							<img src={uploadIcon} alt="" />
-							<p className="text-[#667085]">Upload your file here</p>
-							<div className="flex flex-col gap-y-[9px]">
-								{/* <button
-									type="button"
-									className="bg-[#2E90FA] text-white py-2 px-4 rounded flex justify-center items-center gap-x-[5px]"
-								>
-									Upload Sales Record
-									<img src={fileIcon2} alt="" />
-								</button> */}
-								<a href="/dashboard/home">
-									<button
-										type="button"
-										className=" bg-[#2E90FA] text-white py-2 px-4 rounded border-[1px] border-[#2E90FA] flex justify-center align-center gap-x-[5px]"
-									>
-										Upload Account Statement
-									</button>
-								</a>
-							</div>
-						</div>
-						<div className="flex md:hidden w-full justify-center">
-							<a href="/dashboard/home">
-								<button
-									type="button"
-									className=" bg-[#2E90FA] text-white py-2 px-4 rounded border-[1px] border-[#2E90FA] flex justify-center align-center gap-x-[5px]"
-								>
-									Upload Account Statement
-								</button>
-							</a>
 
-							<a href="/dashboard/home">
+					{/* upload files here only in desktop */}
+					<div className="hidden md:flex items-center justify-center w-[40%] lg:w-[35%] bg-[#F9FAFB] rounded-2xl flex-col">
+						<img
+							className="w-[60%] h-[60%] object-contain"
+							src={uploadIcon}
+							alt="uploadFile"
+						/>
+						<div className="w-full">
+							<Link to="/dashboard/home">
 								<button
 									type="button"
-									className=" bg-[#2E90FA] text-white py-2 px-4 rounded border-[1px] border-[#2E90FA] flex justify-center align-center gap-x-[5px]"
+									className=" bg-[#2E90FA] text-white text-xs py-2 w-[70%] mx-auto rounded border-[1px] border-[#2E90FA] flex justify-center align-center "
 								>
 									Upload Account Statement
 								</button>
-							</a>
-							<a href="/dashboard/home">
-								<button
-									type="button"
-									className=" bg-[#2E90FA] text-white py-2 px-4 rounded border-[1px] border-[#2E90FA] flex justify-center align-center gap-x-[5px]"
-								>
-									Upload Account Statement
-								</button>
-							</a>
-
-							<a href="/dashboard/home">
-								<button
-									type="button"
-									className=" bg-[#2E90FA] text-white py-2 px-4 rounded border-[1px] border-[#2E90FA] flex justify-center align-center gap-x-[5px]"
-								>
-									Upload Account Statement
-								</button>
-							</a>
-							<a href="/dashboard/home">
-								<button
-									type="button"
-									className=" bg-[#2E90FA] text-white py-2 px-4 rounded border-[1px] border-[#2E90FA] flex justify-center align-center gap-x-[5px]"
-								>
-									Upload Account Statement
-								</button>
-							</a>
+							</Link>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div className="bg-[#F9FAFB] flex flex-col gap-y-[24px]  md:gap-y-[30px] md:mt-[-160px] md:z-50 md:relative">
+			{/* how it works  */}
+			<div className="bg-[#F9FAFB] flex flex-col gap-y-[24px]  md:gap-y-[30px] md:mt-[3em] md:z-50 md:relative">
 				{/* <h2 className="md:pt-[25px] pt-[20px] font-semibold md:text-[20px] text-[12px] text-[#344054] text-center">
 					Trusted By 100,000+ companies in 179 countries
 				</h2> */}
@@ -289,9 +262,9 @@ function LandingPage() {
 					/>
 				</div> */}
 
-				<div className="bg-[#F9FAFB] h-[475px] lg:h-[641px] lg:max-w-full">
+				<div className="bg-[#F9FAFB]">
 					<div className="pt-[30px] flex flex-col gap-y-[1px] items-center px-[44px] md:px-0 ">
-						<h2 className="font-semibold text-[#101828] md:text-[36px] text-[20px] text-center">
+						<h2 className="font-semibold text-[#101828] md:text-4xl text-xl text-center">
 							How it works
 						</h2>
 					</div>
@@ -312,7 +285,7 @@ function LandingPage() {
 							</div>
 						))}
 					</div> */}
-					<div className="flex justify-center items-center px-4">
+					<div className="flex justify-center items-center px-4 my-[2em] md:my-[4em]">
 						<img src={howItWorks} alt="how it works" />
 					</div>
 				</div>
@@ -386,22 +359,19 @@ function LandingPage() {
 				/>
 			</div> */}
 
-			<div className=" bg-[#F9FAFB] relative mt-[-150px] md:mt-0">
-				<h2 className="text-[#101828] font-semibold text-center text-[20px] lg:text-[36px] pt-[24px] md:pt-[48px] px-[44px] md:px-0">
+			<div className=" bg-[#F9FAFB] md:mt-0  p-[1em] md:p-[3em] text-left md:text-center">
+				<h2 className="text-[#101828] font-semibold text-[20px] lg:text-[36px] pt-[24px] md:pt-[48px] px-[44px] md:px-0">
 					Why Choose reconcile.<span className="text-[#2E90FA]">AI</span>?
 				</h2>
 
-				<div className="flex flex-col justify-center 2xl:px-[350px] lg:grid grid-cols-3 xl:grid-cols-3 lg:px-[102px] ">
+				<div className="flex flex-col w-full md:flex-row justify-evenly lg:px-[102px] md:text-center">
 					{whatAccountPalDoesData.map((item) => (
-						<div
-							className="pt-[32px] lg:pt-[65px] flex justify-center"
-							key={item.id}
-						>
-							<div className="">
-								<h2 className="font-semibold text-[#101828] text-[20px] lg:text-[28px] pb-[4px] text-center">
+						<div className="pt-[32px] lg:pt-[65px]" key={item.id}>
+							<div className="md:text-center">
+								<h2 className="font-semibold text-[#101828] text-[20px] lg:text-[28px] pb-[4px] ">
 									{item.title}
 								</h2>
-								<p className="text-[#667085] w-[343px] flex justify-center lg:w-[336px] font-normal lg:text-[18px] text-[14px] text-center pb-[20px]">
+								<p className="text-[#667085] w-[343px] flex justify-center lg:w-[336px] font-normal lg:text-[18px] text-[14px] pb-[20px] md:text-center">
 									{item.content}
 								</p>
 							</div>
@@ -475,17 +445,19 @@ function LandingPage() {
 				</div>
 			</div> */}
 
-			<div className="bg-[#F9FAFB] md:py-[84px] py-[48px] lg:max-w-full ">
-				<div className="md:px-[50px]  2xl:mx-[190px] px-[14px] lg:px-[50px]">
-					<div className="leading-[20px]">
-						<h2 className="font-semibold text-3xl text-center">
+			<div className="bg-[#F9FAFB] md:py-[3em] md:pb-[5em] py-[1em] lg:max-w-full">
+				<div className="lg:px-[50px]  px-[14px] ">
+					<div className="leading-[20px] my-[2em]">
+						<h2 className="font-semibold text-xl md:text-3xl text-center">
 							Frequently Asked Questions
 						</h2>
 						<p className="text-[#667085] text-center py-4">
 							Everything you need to know about the product and billing
 						</p>
 					</div>
-					<Faq data={data} styles={styles} config={config} />
+					<div className="md:w-[80%] mx-auto">
+						<Faq data={data} styles={styles} config={config} />
+					</div>
 				</div>
 
 				<div className=" md:px-[54px] xl:px-[282px] mt-[50px]">
@@ -506,19 +478,19 @@ function LandingPage() {
 				</div>
 			</div>
 			<div className="text-center bg-[#F2F4F7] py-[30px] ">
-				<p className="font-semibold text-[20px] md:text-[36px] ">
-					Start your free trial.
+				<p className="font-semibold text-xl md:text-3xl ">
+					Start your free trial
 				</p>
-				<p>Join over 4,000 startups already growing with reconcileAI</p>
-				<div className="flex space-x-12 justify-center mt-[20px]">
-					<a href="/aboutus">
-						<button
-							type="button"
-							className="bg-white text-[#2E90FA] rounded px-[18px] py-[10px]"
-						>
-							Learn More
-						</button>
-					</a>
+				<p className="text-slate-700">
+					Join over 4,000 startups already growing with reconcileAI
+				</p>
+				<div className="flex space-x-12 justify-center mt-[20px] ">
+					<button
+						type="button"
+						className="bg-white text-[#2E90FA] rounded px-[18px] py-[10px]"
+					>
+						Learn More
+					</button>
 					<Button path="/contact" title="Get in touch" />
 				</div>
 			</div>

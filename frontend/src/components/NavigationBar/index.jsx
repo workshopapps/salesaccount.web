@@ -1,61 +1,63 @@
 import React, { useState } from 'react';
+// import { BsSearch, BsGlobe2 } from 'react-icons/bs';
+// import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import { Link, NavLink } from 'react-router-dom';
 import { FiMenu } from 'react-icons/fi';
 import { AiOutlineClose } from 'react-icons/ai';
 import uuid from 'react-uuid';
 import Button from '../Button';
 import logoUpdate from '../../assets/logoUpdate.svg';
+import logo from '../../assets/logo.png';
 
 const navLinks = [
 	{ name: 'Home', path: '/' },
-	{ name: 'About Us', path: '/aboutus' },
+	{ name: 'AboutUs', path: '/aboutus' },
 	{ name: 'Resources', path: '/resources' },
 	{ name: 'Documentation', path: '/documentation' },
 ];
 
 function NavigationBar() {
 	const activeStyle = {
-		textDecorationLine: "underline",
-		textUnderlineOffset: '0.5em',
-		transition: 'text-decoration-line linear 300ms  ',		
+		textDecoration: 'underline',
 		color: '#2E90FA',
-		display: 'inline-block',
-		padding: '2px 0px'
 	};
 	const [nav, setNav] = useState(false);
 	const toggle = () => {
 		setNav(!nav);
 	};
 	return (
-		<nav className='bg-[#F9FAFB] ' >
-			<div className="h-[112px] max-w-[1440px] w-full mx-auto px-[72px] flex items-center justify-between max-md:px-[30px] underline-[none] max-md:h-20 max-sm:h-18 ">
+		<nav className="bg-[#F9FAFB] border-b">
+			<div className="h-[7vh] w-full px-[1em] md:px-[3em] lg:px-[7em] flex items-center justify-between">
 				<Link to="/">
-					<figure className='h-[46px] mr-4'>
+					<div className="flex items-center w-[30%]">
 						<img
-							src={logoUpdate}
-							alt="Company logo"
-							className="w-full h-full cursor-pointer"
+							src={logo}
+							alt="logo"
+							className="w-[50px] h-[50px] md:w-[100px] md:h-[100px] object-contain"
 						/>
-					</figure>
+
+						<p className="mt-1 md:text-lg lg:text-xl">
+							reconcile.<span className="text-[#2E90FA] font-bold">AI</span>{' '}
+						</p>
+					</div>
 				</Link>
 
-
-
-				<div className="hidden xl:flex xl:gap-7 text-xl">
+				<div className="hidden lg:flex lg:gap-12 text-md">
 					{navLinks.map((item) => (
-						<NavLink to={item.path} style={({ isActive }) =>
-							isActive ? activeStyle : undefined
-						} className="px-[10px] self-center font-medium text-[#101828] text-xl" key={uuid()}>
-
-							<p className=''> {item.name}</p>
-							
+						<NavLink
+							to={item.path}
+							style={({ isActive }) => (isActive ? activeStyle : undefined)}
+							className="px-[10px] self-center font-medium text-[#101828] "
+							key={uuid()}
+						>
+							{item.name}
 						</NavLink>
 					))}
 				</div>
 
 				{/* Hamburger */}
 				<div
-					className=" block xl:hidden pr-2"
+					className=" block lg:hidden"
 					onClick={() => {
 						toggle();
 					}}
@@ -67,14 +69,17 @@ function NavigationBar() {
 				<div
 					className={
 						nav
-							? 'xl:hidden w-full absolute top-[80px] md:top-[96px] left-0 p-2 space-y-[40px] pt-[70px] h-full bg-[#F9FAFB] z-50 flex flex-col items-center'
+							? 'lg:hidden w-full absolute top-[3em] md:top-[7vh] left-0 p-2 space-y-[40px] pt-[70px] h-[60vh] bg-[#F9FAFB] z-50 flex flex-col items-center border-b '
 							: 'absolute left-[-100%] top-[-50%]'
 					}
 				>
 					{navLinks.map((item) => (
-						<NavLink style={({ isActive }) =>
-							isActive ? activeStyle : undefined
-						} to={item.path} className="px-[30px] font-medium text-[#101828] text-xl" key={uuid()}>
+						<NavLink
+							style={({ isActive }) => (isActive ? activeStyle : undefined)}
+							to={item.path}
+							className="px-[30px] font-medium text-[#101828] text-xl"
+							key={uuid()}
+						>
 							{item.name}
 						</NavLink>
 					))}

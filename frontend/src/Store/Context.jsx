@@ -36,6 +36,7 @@ export const UserProvider = ({ children }) => {
 				},
 			})
 			.then((res) => setLocalData(JSON.parse(res?.data)))
+			.then((res) => console.log(res))
 			.catch((e) => setError(e));
 	};
 
