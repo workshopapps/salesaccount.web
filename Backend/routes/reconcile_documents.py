@@ -19,7 +19,7 @@ def reconcile():
 		response = match(account_statements[0], financial_records[0])
 		return response
 	except Exception as e:
-		return {"message": "Error: No files uploaded"}
+		return {"message": f"Error: {e}"}
 
 
 @router.get("/download") # needs reworking
