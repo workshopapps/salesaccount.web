@@ -4,7 +4,7 @@ import Key from '../../assets/images/Privacy/Key.svg';
 import Camera from '../../assets/images/Privacy/camera.svg';
 import Globe from '../../assets/images/Privacy/globe.svg';
 import Partnership from '../../assets/images/Privacy/partnership.svg';
-import photo11 from '../../assets/images/Privacy/photo4.png';
+import photo1 from '../../assets/images/Privacy/photo4.png';
 import photo2 from '../../assets/images/Privacy/photo2.png';
 import photo3 from '../../assets/images/Privacy/photo3.png';
 import Footer from '../../components/Footer';
@@ -13,58 +13,63 @@ import Navbar from '../../components/NavigationBar';
 const Privacy = () => (
 	<div>
 		<Navbar />
-		{/* <div className="grid place-content-center md:max-w-full"> */}
-		<div className=" mx-auto">
+		<div className="mx-auto">
 			<div className="">
-				<div className="p-4 md:p-10 lg:px-20 xl:px-36 2xl:px-40 bg-[#F2F4F7] w-full md:flex md:flex-row md:gap-10 lg:py-20 lg:px-36">
-					<div className="w-full md:w-3/5">
-						<h2 className=" text-xl sm:text-2xl md:text-3xl font-semibold   ">
-							Turn data privacy into an opportunity to enhance customer
-							experiences
-						</h2>
-						<p className="my-4 text-sm sm:text-xl md:text-2xl">
-							As one of the best platform, we provides companies like yours with
-							the tools to build trust while enhancing customer experiences.
-							Gain increased transparency and control of your customers&rsquo;
-							data, all while harnessing the power of that data to connect with
-							customers in new ways.
-						</p>
-					</div>
-					<img src={photo11} alt="" className="w-full md:w-2/5 h-full " />
-				</div>
-				<div className="p-4 md:p-10 lg:px-20 xl:px-36 2xl:px-40 w-full md:flex md:flex-row md:gap-10 lg:py-20 lg:px-36">
-					<div className="w-full md:w-3/5">
-						<h2 className="mt-10 text-xl sm:text-2xl md:text-3xl font-semibold">
-							Privacy for every customer
-						</h2>
-						<p className="my-4 w-full text-sm sm:text-xl md:text-2xl sm:w-full">
-							No matter where your customers are located, we care about helping
-							you protect their personal data.
-						</p>
-					</div>
-					<div className="">
-						<img src={photo2} alt="photo2" className="w-full" />
+				<div className="p-4 md:p-10 lg:px-20 xl:px-36 2xl:px-40 bg-[#F2F4F7] w-full lg:py-20 lg:px-36">
+					<div className="max-w-screen-xl mx-auto md:flex md:flex-row md:gap-10">
+						<div className="w-full md:w-3/5">
+							<h2 className=" text-xl sm:text-2xl md:text-3xl font-semibold   ">
+								Turn data privacy into an opportunity to enhance customer
+								experiences
+							</h2>
+							<p className="my-4 text-sm sm:text-xl md:text-2xl">
+								As one of the best platform, we provides companies like yours
+								with the tools to build trust while enhancing customer
+								experiences. Gain increased transparency and control of your
+								customers&rsquo; data, all while harnessing the power of that
+								data to connect with customers in new ways.
+							</p>
+						</div>
+						<img src={photo1} alt="" className="w-full md:w-2/5 h-full " />
 					</div>
 				</div>
-				<div className="p-4 md:p-10 lg:px-20 xl:px-36 2xl:px-40 bg-[#F2F4F7] w-full md:flex md:flex-row md:gap-10 lg:py-20 lg:px-36">
-					<div className="w-full md:w-3/5">
-						<h2 className="mt-10 text-xl sm:text-2xl md:text-3xl font-semibold ">
-							Global privacy support
-						</h2>
-						<p className="my-4 w-full text-sm sm:text-xl md:text-2xl">
-							We safeguard our customers&rsquo; data with a robust,
-							comprehensive, and transparent privacy and security program.
-						</p>
+				<div className="p-4 md:p-10 lg:px-20 xl:px-36 2xl:px-40 w-full  lg:py-20 lg:px-36">
+					<div className="max-w-screen-xl mx-auto md:flex md:flex-row md:gap-10">
+						<div className="w-full md:w-3/5">
+							<h2 className="mt-10 text-xl sm:text-2xl md:text-3xl font-semibold">
+								Privacy for every customer
+							</h2>
+							<p className="my-4 w-full text-sm sm:text-xl md:text-2xl sm:w-full">
+								No matter where your customers are located, we care about
+								helping you protect their personal data.
+							</p>
+						</div>
+						<div className="">
+							<img src={photo2} alt="photo2" className="w-full" />
+						</div>
 					</div>
-					<div className="">
-						<img src={photo3} alt="photo3" className="w-full" />
+				</div>
+				<div className="p-4 md:p-10 lg:px-20 xl:px-36 2xl:px-40 bg-[#F2F4F7] w-full lg:py-20 lg:px-36">
+					<div className="max-x-screen-xl mx-auto md:flex md:flex-row md:gap-10">
+						<div className="w-full md:w-3/5">
+							<h2 className="mt-10 text-xl sm:text-2xl md:text-3xl font-semibold ">
+								Global privacy support
+							</h2>
+							<p className="my-4 w-full text-sm sm:text-xl md:text-2xl">
+								We safeguard our customers&rsquo; data with a robust,
+								comprehensive, and transparent privacy and security program.
+							</p>
+						</div>
+						<div className="">
+							<img src={photo3} alt="photo3" className="w-full" />
+						</div>
 					</div>
 				</div>
 			</div>
 			<h2 className="my-10 text-center text-xl sm:text-2xl md:text-2xl lg:px-20 lg:text-3xl md:leading-[50px] font-semibold">
 				We have five privacy principles that highlight our commitment to trust.
 			</h2>
-			<div className="bg-[#F9FAFB] flex flex-col md:bg-white p-10 sm:p-20 md:grid md:grid-cols-2 md:gap-20 place-content-center place-item-center">
+			<div className="max-w-screen-xl mx-auto bg-[#F9FAFB] flex flex-col md:bg-white p-10 sm:p-20 md:grid md:grid-cols-2 md:gap-20 place-content-center place-item-center">
 				<div className="md:bg-[#F9FAFB] px-6 py-12">
 					<div className="">
 						<img
@@ -145,9 +150,9 @@ const Privacy = () => (
 					</p>
 				</div>
 			</div>
-			<div className="hidden md:flex md:flex-row md:justify-content-center">
-				<div className="grid w-1/4 mx-auto bg-[#F9FAFB]">
-					<div className="py-2">
+			<div className="hidden max-w-screen-xl mx-auto md:flex md:flex-row md:justify-center">
+				<div className="pb-20 lg:pb-36 w-1/3">
+					<div className="">
 						<img
 							className="w-12 sm:w-20 md:w-68 mx-auto"
 							src={Partnership}
@@ -157,7 +162,7 @@ const Privacy = () => (
 							Partnership
 						</h2>
 					</div>
-					<p className="text-left w-14 sm:text-lg md:text-xl lg:text-2xl">
+					<p className="text-left w-full px-4 sm:text-lg md:text-xl lg:text-2xl">
 						Safeguarding data is a team effort. We listen to your feedback, and
 						we provide information and customizable security and privacy tools
 						to you.
@@ -165,7 +170,6 @@ const Privacy = () => (
 				</div>
 			</div>
 		</div>
-		{/* </div> */}
 		<Footer />
 	</div>
 );
