@@ -20,13 +20,14 @@ function NavigationBar() {
 	const activeStyle = {
 		textDecoration: 'underline',
 		color: '#2E90FA',
+		textUnderlineOffset: '0.5em'
 	};
 	const [nav, setNav] = useState(false);
 	const toggle = () => {
 		setNav(!nav);
 	};
 	return (
-		<nav className="bg-[#F9FAFB] border-b">
+		<nav className="bg-[#F9FAFB] border-b py-2">
 			<div className="h-[7vh] w-full px-[1em] md:px-[3em] lg:px-[7em] flex items-center justify-between">
 				<Link to="/">
 					<div className="flex items-center w-[30%]">

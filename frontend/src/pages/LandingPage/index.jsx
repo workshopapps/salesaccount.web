@@ -67,6 +67,7 @@ const styles = {
 	rowContentColor: '#667085',
 	rowContentTextSize: '16px',
 	arrowColor: '#1570EF',
+	
 };
 
 const config = {
@@ -395,7 +396,6 @@ function LandingPage() {
 							<h3 className="text-[#101828] font-bold text-[80px]">
 								{item.number}
 							</h3>
-
 							<h4 className="text-[#101828] font-normal text-center text-[16px] ">
 								{item.content}
 							</h4>

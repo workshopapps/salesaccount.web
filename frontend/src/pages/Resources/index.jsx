@@ -69,7 +69,7 @@ const Resources = () => (
 			<div className="  pt-5 flex justify-center items-center flex-col ">
 				<h1 className=" text-2xl md:text-[3.5em] font-semibold pt-9">Resources</h1>
 
-				<p className="text-sm md:w-[40%] leading-[300%] mx-auto my-[1.2em]  md:text-xl text-center py-2 md:py-4">
+				<p className="text-sm md:w-[40%] md:leading-[200%] mx-auto my-[1.2em]  md:text-xl text-center py-2 md:py-4">
 					Get everything done with all our resources. Click on the resources
 					you’d like to explore.
 				</p>
