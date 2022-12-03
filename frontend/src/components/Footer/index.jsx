@@ -39,27 +39,27 @@ const resourcesData = [
 
 const Footer = () => (
 	<footer className="bg-[#D1E9FF] py-[5em] md:py-[12em]">
-		<div className="flex flex-col-reverse justify-center items-center md:items-start md:flex-row md:justify-between w-9/12 mx-auto gap-[4em] md:gap-0 align-top">
-			<div className="flex flex-col justify-center md:max-w-[20%] align-center md:justify-start gap-[0.5rem] md:gap-6">
+		<div className="flex flex-col-reverse justify-center items-center lg:items-start lg:flex-row lg:justify-between w-9/12 mx-auto gap-[4em] lg:gap-0 align-top">
+			<div className="flex flex-col justify-center lg:max-w-[20%] align-center lg:justify-start gap-[0.5rem] lg:gap-6">
 
 		
 
-					<figure className="flex justify-start items-center flex-colmd:items-start">
+					<figure className="flex justify-start items-center flex-col lg:items-start">
 						<img
-							className="w-8/12 md:w-10/12"
+							className="w-8/12 lg:w-10/12"
 							src={logoUpdate}
 							alt="Company logo"
 						/>
 					</figure>
 			
 
-				<div className="hidden text-[#98A2B3] md:flex justify-center md:justify-start items-center gap-6 mt-6">
+				<div className="hidden text-[#98A2B3] lg:flex justify-center lg:justify-start items-center gap-6 mt-6">
 					<BsTwitter size={24} />
 					<BsFacebook size={24} />
 					<BsInstagram size={24} />
 				</div>
 
-				<div className="text-[#98A2B3] flex justify-center md:justify-start items-center gap-6 mt-6 md:hidden">
+				<div className="text-[#98A2B3] flex justify-center lg:justify-start items-center gap-6 mt-6 lg:hidden">
 					<BsTwitter size={16} />
 					<BsFacebook size={16} />
 					<BsInstagram size={16} />
@@ -68,16 +68,16 @@ const Footer = () => (
 
 			{/* About us Tab */}
 			<div className="flex flex-col pt-[10px] xl:pt-0">
-				<h3 className="font-medium text-[#344054] text-[1.4em] md:text-[1.8em]  text-center md:text-left">
+				<h3 className="font-medium text-[#344054] text-[1.4em] md:text-[1.8em]  text-center lg:text-left">
 					About Us
 				</h3>
 
-				<div className="flex flex-col gap-6 mt-6  text-center md:text-left">
+				<div className="flex flex-col gap-6 mt-6  text-center lg:text-left">
 					{aboutUsData.map((item) => (
 						<Link
 							key={uuid()}
 							to={item.path}
-							className="text-[#344054] text-[1.2em] md:text-[1.4em]  text-center md:text-left"
+							className="text-[#344054] text-[1.2em] md:text-[1.4em]  text-center lg:text-left"
 						>
 							{item.name}
 						</Link>
@@ -87,16 +87,16 @@ const Footer = () => (
 
 			{/* Resources Tab */}
 			<div className="flex flex-col pt-[10px] xl:pt-0">
-				<h3 className="font-medium text-[#344054] text-[1.4em] text-center md:text-left md:text-[1.8em]">
+				<h3 className="font-medium text-[#344054] text-[1.4em] text-center lg:text-left md:text-[1.8em]">
 					Resources
 				</h3>
 
-				<div className="flex flex-col gap-6 mt-6  text-center md:text-left">
+				<div className="flex flex-col gap-6 mt-6  text-center lg:text-left">
 					{resourcesData.map((item) => (
 						<Link
 							key={uuid()}
 							to={item.path}
-							className="text-[#344054] text-center md:text-left md:text-[1.4em] text-[1.2em]"
+							className="text-[#344054] text-center lg:text-left md:text-[1.4em] text-[1.2em]"
 						>
 							{item.name}
 						</Link>
