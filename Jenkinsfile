@@ -5,16 +5,7 @@ pipeline {
         stage('Build Frontend') {
             steps {
                 sh 'echo "Building Frontend"'
-                //sh 'cd frontend && npm install && npm run build'
-                //use pm2 to run the app
-                //sh 'cd frontend && pm2 serve build 55501 --name frontend'
-            }
-        }
-        stage('Build FastAPI Backend') {
-            steps {
-                sh 'echo "Building FastAPI Backend"'
-                //sh 'pip install -r requirements.txt'
-                //sh 'python app.py'
+                sh 'cd frontend && npm i --force && CI=false npm run build'
             }
         }
                 
@@ -33,11 +24,36 @@ pipeline {
         }
 
 
-        stage('Deploy') {
+        stage('Deploy Frontend') {
             steps {
                 sh 'echo "Deploying" '
-                //sh 'aws s3 sync build/ s3://react-app-1234'
+                //copy workspace to directory
+                //sh 'sudo cp -rf ${WORKSPACE}/frontend/build/* /var/www/html'
+                sh 'sudo cp -rf ${WORKSPACE}/frontend/build/* /home/dcnc/salesaccount.web/frontend/build'
+                //sh 'pm2 stop reconcileaifrontend && pm2 delete reconcileaifrontend'
+                sh 'sudo su dcnc && whoami'
+                sh 'sudo pm2 delete -s reconcileaifrontend || :'
+                //sh 'cd frontend && pm2 serve -s build 55501 --name reconcileaifrontend --spa'
+                sh 'sudo pm2 serve -s /home/dcnc/salesaccount.web/frontend/build --port 55501 --name reconcileaifrontend --spa'
+            }
+        }
+
+        stage('Build and Deploy FastAPI Backend') {
+            steps {
+                sh 'echo "Building FastAPI Backend"'
+                sh 'sudo cp -rf ${WORKSPACE}/Backend/* /home/dcnc/salesaccount.web/Backend'
+                sh "pwd"
+                sh "cd Backend && ls -l"
+               // sh "cd Backend && python3 -m venv myvenv"
+               // sh "cd Backend && cd myvenv && . bin/activate"
+                sh "cd Backend && pip install -r requirements.txt"
+                // start the fastapi server on port 55502 with Uvicorn
+                sh 'sudo pm2 restart -s reconcileaibackend || :'
+                //sh "cd Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502' --name reconcileaibackend"
             }
         }
     }
 }
+
+//create a cron job to run the curl localhost:55501 on the first of every month at 7:00 AM
+//0 7 1 * * curl localhost:55501
