@@ -14,6 +14,7 @@ idna==3.4
 Levenshtein==0.20.8
 mysql-connector-python==8.0.31
 numpy==1.23.5
+openai
 pandas==1.5.2
 pdfkit==1.0.0
 protobuf==3.20.1
