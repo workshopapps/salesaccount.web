@@ -21,7 +21,7 @@ def df_to_json(df):
     return response
 
 
-def file_conversion(filename: str):
+def convert_file(filename: str):
     """ Converts csv/pdf/xls files to json
     
     Args:
@@ -36,13 +36,12 @@ def file_conversion(filename: str):
         response = df_to_json(df)
         return response
       
-    # elif filename.endswith('.pdf'):  
-    #     df = read_pdf(filename)
-    #     response = df_to_json(df)
-    #     return response
+    elif filename.endswith('.pdf'):  
+        df = read_pdf(filename)
+        response = df_to_json(df)
+        return response
   
     elif filename.endswith('.xls'):
-        """ Converts csv file to json """  
         df = pd.read_excel(filename)
         response = df_to_json(df)
         return response

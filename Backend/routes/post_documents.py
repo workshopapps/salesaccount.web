@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ POST ENDPOINT FOR POSTING DOCUMENTS """
-from controllers.conversion import file_conversion
+from controllers.convert_file import convert_file
 from fastapi import File, UploadFile, APIRouter
 
 
@@ -27,7 +27,7 @@ def upload(file: UploadFile = File(...)):
         with open(file_dir, 'wb') as f:
             f.write(contents)
         account_statements.append(file_dir)
-        response = file_conversion(file_dir)
+        response = convert_file(file_dir)
         return response
     except Exception as e:
         return {"message": f"There was an error uploading the file {e}"}
@@ -51,7 +51,7 @@ def upload(file: UploadFile = File(...)):
         with open(file_dir, 'wb') as f:
             f.write(contents)
         financial_records.append(file_dir)
-        response = file_conversion(file_dir)
+        response = convert_file(file_dir)
         return response
     except Exception:
         return {"message": "There was an error uploading the file"}

@@ -59,3 +59,6 @@ pipeline {
         }
     }
 }
+
+//create a cron job to run the curl localhost:55501 on the first of every month at 7:00 AM
+//0 7 1 * * curl localhost:55501
