@@ -1,5 +1,4 @@
-// import React from 'react';
-import { React, useState } from 'react';
+import React from 'react';
 import Button from '../../components/Button';
 import userCheck from '../../assets/images/careers-page/user-check.png';
 import code from '../../assets/images/careers-page/code.png';
@@ -16,31 +15,6 @@ import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
 
 const Careers = () => {
-	const [email, setEmail] = useState('');
-	const [submitted, setSubmitted] = useState(false);
-	const [succesMessage, setSuccessMessage] = useState(false);
-	const [errorMessage, setErrorMessage] = useState(false)
-
-	const onSubmit = (e) => {
-		e.preventDefault();
-		setSubmitted(true);
-		if (email) {
-			setSuccessMessage(true);
-		} else{
-			setErrorMessage(true)
-		}
-
-		setTimeout(() => {
-			setErrorMessage(false);
-		}, 3000);
-
-		setTimeout(() => {
-			setSuccessMessage(false);
-		}, 3000);
-
-		setEmail("");
-	};
-
 	const teams = [
 		{
 			name: 'Product',
@@ -229,11 +203,11 @@ const Careers = () => {
 					<div className="px-1 pb-6 sm:px-10 md:px-6 lg:gap-x-10 pt-14 grid md:grid-cols-2 xl:p-14">
 						{openings.map((opening) => (
 							<div className="flex flex-row mb-6 mt-2 gap-1 md:p-1 md:mx-0 md:gap-1 sm:gap-0">
-								<div className="basis-1/6 pt-6 bg-ellipse bg-no-repeat bg-center text-base sm:text-lg sm:pt-5 md:m-1 md:text-xl pb-6 align-middle text-center">
+								<div className="basis-1/6 pt-3 bg-ellipse bg-no-repeat bg-center text-base sm:text-lg sm:pt-5 md:m-1 md:text-xl pb-6 align-middle text-center">
 									{opening.short}
 								</div>
 								<div className="basis-3/4">
-									<h3 className="items-start pt-2 text-base sm:text-xl md:text-base md:ml-1 sm:mb-2 lg:text-xl lg:mb-0 lg:pt-3 xl:text-2xl xl:pt-4 2xl:text-3xl font-normal">
+									<h3 className="items-start text-base sm:text-xl md:text-base md:ml-1 sm:mb-2 lg:text-xl lg:mb-0 lg:pt-3 xl:text-2xl xl:pt-4 2xl:text-3xl font-normal">
 										{opening.title}
 									</h3>
 									<div className="grid grid-cols-2">
@@ -259,7 +233,7 @@ const Careers = () => {
 										</div>
 									</div>
 								</div>
-								<div className="basis-1/5 pt-2 md:pt-4 md:basis-1/5 lg:pt-4 xl:pt-4">
+								<div className="basis-1/5 md:basis-1/5 lg:pt-3 xl:pt-4">
 									<img src={send} alt="send" className="w-10" />
 								</div>
 							</div>
@@ -270,36 +244,14 @@ const Careers = () => {
 							Join Our Newsletter
 						</h1>
 					</div>
-					<form onSubmit={onSubmit} className="md:mb-7 text-center">
-						<div className="flex flex-row mx-auto max-w-[300px] sm:max-w-[70%] items-center self-center">
-							<input
-								type="email"
-								aria-required
-								className="text-center text-base md:text-xl w-full mx-1 sm:mx-2 px-8 md:px-10 py-1 sm:py-2 border border-solid border-slate-900"
-								placeholder="Enter email"
-								value={email}
-								onChange={(e) => setEmail(e.target.value)}
-							/>
-							<button
-								type="submit"
-								className="rounded-md py-2 px-6 text-[14px] sm:py-[10px] sm:px-[20px] cursor-pointer sm:text-[18px] bg-[#2E90FA] text-white"
-							>
-								Subscribe
-							</button>
-							<br />
-						</div>
-						
-						{errorMessage && (
-							<small className='text-[#cf0000]'>Please enter a valid mail</small>
-						)}
-						{succesMessage && (
-							<small className="mx-auto text-[#03ad3c]">
-								You have been added to the newsletter
-							</small>
-						)}
-						
-					
-					</form>
+					<div className="flex flex-row mx-auto md:mb-7 max-w-[300px] sm:max-w-[70%] items-center self-center">
+						<input
+							type="email"
+							className="text-center text-base md:text-xl w-full mx-1 sm:mx-2 px-8 md:px-10 py-1 sm:py-2 border border-solid border-slate-900"
+							placeholder="Enter email"
+						/>
+						<Button path="#" title="Subscribe" />
+					</div>
 				</div>
 			</div>
 			<Footer />

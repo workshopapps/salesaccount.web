@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import BlogPreview from '../../components/BlogPreview';
-import {otherPost} from '../Blogs/fakedata/index';
+import { otherPost } from '../Blogs/fakedata/index';
 import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
 
@@ -9,24 +10,28 @@ function BlogPost() {
 		<>
 			<NavigationBar />
 			<div className=" px-[72px] max-[675px]:px-6">
-				<div className="flex flex-col justify-center items-center mt-[102px] mb-[72px]">
-					<h1 className=" font-semibold text-[56px] leading-[70px] text-[#101828] text-center max-w-[20ch] max-[675px]:text-[36px]">
+				<div className="flex flex-col justify-center items-center mt-[50px] md:mt-[102px] mb-[72px]">
+					<h1 className=" font-semibold text-[56px] md:leading-[70px] text-[#101828] text-center max-w-[20ch] max-[675px]:text-[36px]">
 						3 Effective Debt Management Practices
 					</h1>
 					<p className="font-semibold text-base leading-6 text-[#667085] text-center">
 						Published 20 Jan 2022
 					</p>
 				</div>
-				<div className=" mb-[67px]">
+				<div className=" mb-[67px] w-full">
 					<p className="font-normal text-[20px] leading-[35px] text-[#667085] mb-12 max-[675px]:text-base max-[675px]:leading-[25px]">
-						Debt can be beneficial to your company when mamged properly.
-						However,, if neglected or improperly managed, it may destroy you. We
+						Debt can be beneficial to your company when managed properly.
+						However, if neglected or improperly managed, it may destroy you. We
 						have worked with a variety of companies across a wide range of
 						industries, and we have witnessed firsthand the potential
 						effectiveness of the three debt management techniques exxplained in
 						this piece.
 					</p>
-					<img src="../assets/images/blog/dummyBlogThumb.svg" alt="thumbnail" />
+					<img
+						className="w-full md:w-[90%] lg:w-[80%] h-[400px] mx-auto object-contain "
+						src="../assets/images/blog/dummyBlogThumb.svg"
+						alt="thumbnail"
+					/>
 				</div>
 				<div className="flex flex-col gap-12 mb-[30px]">
 					<p className="font-normal leading-[30px] text-lg text-[#667085] max-[675px]:text-base max-[675px]:leading-[25px]">
@@ -122,11 +127,11 @@ function BlogPost() {
 							Charge).
 						</p>
 					</div>
-					<div className="bg-[#F2F4F7] px-8 pt-8 pb-[40px] max-[675px]:px-1 max-[675px]:py-1">
-						<h3 className=" font-semibold text-[28px] text-[#101828] leading-snug mb-6 max-[675px]:text-2xl max-[675px]:text-[20px]">
+					<div className="bg-[#F2F4F7] rounded-2xl  max-[675px]:px-2 max-[675px]:py-2">
+						<h3 className=" font-semibold text-[28px] mt-3 text-[#101828] leading-snug mb-6 max-[675px]:text-2xl max-[675px]:text-[20px]">
 							Conclusion
 						</h3>
-						<p className="font-normal leading-[30px] text-lg text-[#667085] max-[675px]:text-base max-[675px]:leading-[25px]">
+						<p className="font-normal leading-[30px] text-lg text-[#667085] pb-2 max-[675px]:text-base max-[675px]:leading-[25px]">
 							In conclusion, don&apos;t wait until your business hits a
 							financial crisis. If you feel that your debt has become unwieldy
 							or worrisome, reach out to professionals to rescue the situation.
@@ -136,9 +141,9 @@ function BlogPost() {
 						<hr className=" border-solid border-[1px] border-[#EAECF0] mb-6" />
 						<div className="flex justify-between items-center max-[675px]:flex-col max-[675px]:items-start max-[675px]:gap-8">
 							<div className="flex gap-3 mt-[34px]">
-								<figure className=" w-10 h-10 ">
+								<figure className="w-10 h-10 ">
 									<img
-										className=" rounded-full w-full"
+										className="w-full rounded-full "
 										src="../assets/images/avatar-full.svg"
 										alt=""
 									/>
@@ -206,30 +211,32 @@ function BlogPost() {
 			<div className="mt-14 mb-[25px]">
 				<div className="px-8 max-w-7xl w-full  mx-auto max-[375px]:px-4">
 					<div>
-						<div className="flex flex-row flex-wrap gap-8 w-full justify-center items-center">
-						{otherPost.map((blogs) => (
-									<div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full" 	>
-										<BlogPreview
-										    key={blogs?.id}
-											slug={blogs?.slug}
-											title={blogs?.title}
-											category={blogs?.category}
-											highlight={blogs?.higlight}
-											author={blogs?.author}
-											dateCreated={blogs?.dateCreated}
-											thumbnail={blogs?.thumbnail}
-											avatarImage={blogs?.avatarImage}
-										/>
-									</div>
-								))}
+						<div className="flex flex-row flex-wrap items-center justify-center w-full gap-8">
+							{otherPost.map((blogs) => (
+								<div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
+									<BlogPreview
+										key={blogs?.id}
+										slug={blogs?.slug}
+										title={blogs?.title}
+										category={blogs?.category}
+										highlight={blogs?.higlight}
+										author={blogs?.author}
+										dateCreated={blogs?.dateCreated}
+										thumbnail={blogs?.thumbnail}
+										avatarImage={blogs?.avatarImage}
+									/>
+								</div>
+							))}
 						</div>
 					</div>
 				</div>
 			</div>
 			<div className="flex justify-center items-center mb-6">
-				<div className=" bg-[#1570EF] border-[1px] border-solid border-[#1570EF] shadow-[0px_1px_2px_rgba(16,24,40,0.05)] rounded-lg  py-3 px-5 text-[#FFFFFF]">
-					View all posts
-				</div>
+				<Link to="/blogs">
+					<div className=" bg-[#1570EF] border-[1px] border-solid border-[#1570EF] shadow-[0px_1px_2px_rgba(16,24,40,0.05)] rounded-lg  py-3 px-5 text-[#FFFFFF]">
+						View all posts
+					</div>
+				</Link>
 			</div>
 			<Footer />
 		</>

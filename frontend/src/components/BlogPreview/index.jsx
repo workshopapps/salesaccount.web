@@ -2,11 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-
-
-
-
- const BlogPreview =({title, category, highlight, author, dateCreated, avatarImage, thumbnail})=>{
+const BlogPreview = ({
+	title,
+	category,
+	highlight,
+	author,
+	dateCreated,
+	avatarImage,
+	thumbnail,
+}) => {
 	BlogPreview.propTypes = {
 		title: PropTypes.node.isRequired,
 		category: PropTypes.node.isRequired,
@@ -15,18 +19,14 @@ import PropTypes from 'prop-types';
 		dateCreated: PropTypes.node.isRequired,
 		avatarImage: PropTypes.node.isRequired,
 		thumbnail: PropTypes.node.isRequired,
-	  };
+	};
 
 	return (
 		<Link to="/blog/slug">
 			<div className="px-6 pt-6 pb-8 shadow-[0px_12px_16px_-4px_rgba(16,24,40,0.08),0px_4px_6px_-2px_rgba(16,24,40,0.03)] bg-[#FFFFFF]">
-				<div  >
+				<div>
 					<figure>
-						<img
-							className="w-full"
-							src= {thumbnail}
-							alt=""
-						/>
+						<img className="w-full" src={thumbnail} alt="" />
 					</figure>
 					<div className="flex flex-col gap-3 mt-8">
 						<h5 className="text-[#194185] font-semibold text-sm leading-6">
@@ -49,11 +49,7 @@ import PropTypes from 'prop-types';
 					</div>
 					<div className="flex gap-3 mt-[34px]">
 						<figure className=" w-10 h-10 ">
-							<img
-								className=" rounded-full w-full"
-								src={avatarImage}
-								alt=""
-							/>
+							<img className=" rounded-full w-full" src={avatarImage} alt="" />
 						</figure>
 						<div>
 							<h5 className=" leading-[18px] text-sm font-semibold text-[#101828]">
@@ -68,6 +64,6 @@ import PropTypes from 'prop-types';
 			</div>
 		</Link>
 	);
-}
+};
 
-export default  BlogPreview
+export default BlogPreview;

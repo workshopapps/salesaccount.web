@@ -1,4 +1,6 @@
 import React from 'react';
+// import { useAuth } from '../../../../Store/Context';
+import PropTypes from 'prop-types';
 
 const data = [
 	{
@@ -131,6 +133,8 @@ const data = [
 	},
 ];
 
+// const { localData } = useAuth()
+
 const Transactions = () => (
 	<div className="hero-div flex flex-col gap-3 text-[0.6em] md:text-sm ">
 		<div className="flex w-full justify-between hero-filter  bg-[#D1E9FF] p-[1em]">
@@ -157,5 +161,4 @@ const Transactions = () => (
 		))}
 	</div>
 );
-
 export default Transactions;
