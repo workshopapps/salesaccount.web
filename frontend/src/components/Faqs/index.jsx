@@ -27,8 +27,8 @@ const Accordion = ({ question, answer, id }) => {
 		}
 	};
 	return (
-		<div className="px-[1em] w-full border border-black ">
-			<div className="flex items-center relative " key={id}>
+		<div className="px-[1em] w-full ">
+			<div className="flex items-center relative  " key={id}>
 				<h3
 					className={`sm:text-lg text-xs  ${setActive} sm:leading-9 leading-[25px] font-normal w-[247px] sm:w-[1141px]`}
 				>
