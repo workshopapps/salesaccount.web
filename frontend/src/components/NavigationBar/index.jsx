@@ -16,10 +16,8 @@ const navLinks = [
 ];
 
 function NavigationBar() {
-	const activeStyle = {
-		textDecoration: "underline",
-		color:'#2E90FA',
-	  };
+	const activeStyle = 'underline underline-offset-8 px-[10px] font-medium text-xl text-[#2E90FA]';
+	  const normalStyle ="px-[10px] font-medium text-[#101828] text-xl ";
 	const [nav, setNav] = useState(false);
 	const toggle = () => {
 		setNav(!nav);
@@ -39,9 +37,9 @@ function NavigationBar() {
 
 			<div className="hidden xl:flex xl:gap-7 text-xl">
 				{navLinks.map((item) => (
-					<NavLink to={item.path} style={({ isActive }) =>
-					isActive ? activeStyle : undefined
-				  } className="px-[10px] self-center font-medium text-[#101828] text-xl " key={uuid()}>
+					<NavLink to={item.path} className={({ isActive }) =>
+					isActive ? activeStyle : normalStyle
+				  } key={uuid()}>
 						{item.name}
 					</NavLink>
 				))}
@@ -66,9 +64,9 @@ function NavigationBar() {
 				}
 			>
 				{navLinks.map((item) => (
-					<NavLink style={({ isActive }) =>
-					isActive ? activeStyle : undefined
-				  } to={item.path} className="px-[30px] font-medium text-[#101828] text-xl" key={uuid()}>
+					<NavLink className={({ isActive }) =>
+					isActive ? activeStyle : normalStyle
+				  } to={item.path} key={uuid()}>
 						{item.name}
 					</NavLink>
 				))}
