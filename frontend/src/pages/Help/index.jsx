@@ -9,13 +9,13 @@ function Help() {
 			<NavigationBar />
 			<div className="w-full text-[#101828]">
 				{/* Hero Section  */}
-				<div className="w-full px-4 md:20 lg:px-36 xl:px-40 2xl:px-0 py-20 bg-[#F2F4F7]">
-					<div className="md:w-full md:mx-auto md:grid md:grid-cols-2 2xl:max-w-screen-xl 2xl:mx-auto 2xl:grid 2xl:grid-cols-2">
-						<div className="py-auto">
-							<h1 className="text-xl md:3xl font-semibold mb-2 lg:text-[40px] lg:leading-[50px] lg:mb-6">
+				<div className="w-full bg-[#F2F4F7] py-12">
+					<div className="w-[80%] mx-auto lg:flex lg:justify-between lg:gap-12 ">
+						<div className="py-auto lg:w-6/12">
+							<h1 className="text-[1.2em] md:2xl font-semibold mb-2 lg:text-[40px] lg:leading-[50px] lg:mb-6">
 								Help Desk Software
 							</h1>
-							<p className="text-justify md:text-lg lg:text-xl lg:leading-[200%]">
+							<p className="text-justify md:text-lg   lg:leading-[200%]">
 								We live in a consumer-centric age, companies have to be ready to
 								handle customer support cases and complaints quickly while
 								keeping service teams working smoothly.{' '}
@@ -25,24 +25,27 @@ function Help() {
 								can become the cornerstone of your customer support strategy.
 							</p>
 						</div>
-						<div className="hidden md:flex md:pl-8">
+
+						<div className="hidden lg:flex lg:w-4/12">
+
 							<img
 								src={heroImage}
 								alt="helpImage"
-								className="lg:w-full lg:h-full md:align-right"
+								className="w-full "
 							/>
+
 						</div>
 					</div>
 				</div>
 
 				{/* hero body */}
-				<div className="p-4 sm:px-10 md:px-20 lg:p-36 xl:p-20 2xl:px-0">
+				<div className="w-[80%] mx-auto py-12">
 					<div className="2xl:max-w-screen-xl 2xl:mx-auto">
-						<div className="">
-							<h1 className="text-xl md:text-3xl lg:text-4xl mb-4 font-semibold lg:mb-6">
+						<div className="lg:my-3 pt-12">
+							<h1 className="text-xl lg:text-3xl mb-4 font-semibold lg:my-3">
 								Support customers across channels.
 							</h1>
-							<p className="text-justify md:text-lg lg:text-xl leading-[200%]">
+							<p className="text-justify lg:text-lg leading-[200%] my-3">
 								Consumers can @mention a company on Twitter to ask questions.
 								They can pick up the phone to voice complaints. They can even
 								send emails or strike up a live chat with a customer service
@@ -54,11 +57,12 @@ function Help() {
 								faster, and offer amazing service. Manage cases quickly.
 							</p>
 						</div>
-						<div className="">
-							<h1 className="text-xl md:text-3xl lg:text-4xl font-semibold mb-6">
+
+						<div className="lg:my-3 pt-12">
+							<h1 className="text-xl lg:text-3xl mb-4 font-semibold lg:my-3">
 								Manage cases quickly
 							</h1>
-							<p className="text-justify md:text-lg lg:text-xl leading-[200%] ">
+							<p className="text-justify lg:text-lg leading-[200%] my-3">
 								Many people have had the frustrating experience of filling out a
 								form on a company &#38;s website to ask a question only to have
 								multiple customer support representatives follow up at different
@@ -79,11 +83,13 @@ function Help() {
 								workflows.
 							</p>
 						</div>
-						<div className="pt-[30px] sm:pt-[45px] md:pt-[60px] lg:pt-[72px]">
-							<h1 className="text-xl md:text-3xl lg:text-4xl font-semibold mb-6">
+
+
+						<div className="lg:my-3 pt-12">
+							<h1 className="text-xl lg:text-3xl mb-4 font-semibold lg:my-6">
 								Help customers help themselves
 							</h1>
-							<p className="text-justify md:text-lg lg:text-xl leading-[200%]">
+							<p className="text-justify lg:text-lg leading-[200%] my-3">
 								Sometimes, people just want to solve their own issues, like
 								finding a quick, accurate answer to a product-related question.
 								One crucial — and often overlooked — aspect of great customer
