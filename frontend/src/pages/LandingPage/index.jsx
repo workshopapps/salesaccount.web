@@ -364,7 +364,7 @@ function LandingPage() {
 					Why Choose reconcile.<span className="text-[#2E90FA]">AI</span>?
 				</h2>
 
-				<div className="flex flex-col w-full md:flex-row justify-evenly  md:text-center">
+				<div className="flex flex-col w-full md:flex-row justify-evenly lg:px-[102px] md:text-center">
 					{whatAccountPalDoesData.map((item) => (
 						<div className="pt-[32px] lg:pt-[65px]" key={item.id}>
 							<div className="md:text-center">
@@ -393,7 +393,6 @@ function LandingPage() {
 							<h3 className="text-[#101828] font-bold text-[80px]">
 								{item.number}
 							</h3>
-
 							<h4 className="text-[#101828] font-normal text-center text-[16px] ">
 								{item.content}
 							</h4>
