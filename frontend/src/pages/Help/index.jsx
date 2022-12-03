@@ -36,8 +36,8 @@ function Help() {
 				</div>
 
 				{/* hero body */}
-				<div className="p-4 sm:px-10 md:px-20 lg:p-36 xl:p-20 2xl:px-0">
-					<div className="2xl:max-w-screen-xl 2xl:mx-auto">
+				<div className="p-4 sm:px-10 md:px-20 lg:p-36 xl:p-20 2xl:px-0 text-sm md:text-md my-[2em] ">
+					<div className="2xl:max-w-screen-xl 2xl:mx-auto space-y-[2em] md:space-y-[4em]">
 						<div className="">
 							<h1 className="text-xl md:text-3xl lg:text-4xl mb-4 font-semibold lg:mb-6">
 								Support customers across channels.

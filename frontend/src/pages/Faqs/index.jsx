@@ -10,23 +10,23 @@ const Faq = () => {
 	const [smallFAQ, setSmallFAQ] = useState(false); // Not working yet
 
 	return (
-		<>
+		<div className="w-full border border-black">
 			<NavigationBar />
-			<div className="bg-[#F9FAFB]">
-				<div className=" min-w-[375px] sm:w-[1228px] justify-center flex font-body sm">
-					<div className="flex-col space-y-[25px] sm:space-y-[72px]">
+			<div className="bg-[#F9FAFB] w-full flex justify-center">
+				<div className=" w-full font-body py-[3em] px-[1em]">
+					<div className="flex-col border w-full md:w-[80%] lg:w-[40%] mx-auto space-y-[25px] sm:space-y-[72px]">
 						{smallFAQ ? (
 							<h2 className="w-[35px] text-blue leading-[13px] sm:text-[28px]">
 								{'<'}FAQ
 							</h2>
 						) : (
-							<h2 className="sm:text-5xl text-sm text-[#1570EF] sm:leading-[60px] leading-[25px] w-[279px] sm:w-[1000px] font-semibold pr-[25px] pl-[25px] sm:p-0">
+							<h2 className="text-2xl md:text-4xl  text-[#1570EF] font-semibold">
 								Frequently Asked Questions
 							</h2>
 						)}
 
 						{currentPosts.map((qna) => (
-							<div className="w-[375px] sm:w-[1000px]">
+							<div>
 								<Accordion question={qna.question} answer={qna.answer} />
 							</div>
 						))}
@@ -59,7 +59,7 @@ const Faq = () => {
 											2
 										</button>
 									</div>
-									<button
+									{/* <button
 										type="button"
 										onClick={() => {
 											setCurrentPosts(faqArray.slice(9, 13));
@@ -69,7 +69,7 @@ const Faq = () => {
 									>
 										Next
 										<i className="fa-solid fa-arrow-right" />
-									</button>
+									</button> */}
 								</div>
 							</div>
 						)}
@@ -142,7 +142,7 @@ const Faq = () => {
 			<div className="">
 				<Footer />
 			</div>
-		</>
+		</div>
 	);
 };
 

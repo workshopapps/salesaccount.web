@@ -1,12 +1,12 @@
 // import React from 'react';
-import Footer from '../../components/Footer'
-import heroImg from '../../assets/images/about-us/heroImg.png'
-import vision from '../../assets/images/about-us/vision.png'
+import Footer from '../../components/Footer';
+import heroImg from '../../assets/images/about-us/heroImg.png';
+import vision from '../../assets/images/about-us/vision.png';
 import blueSquare from '../../assets/images/about-us/blue-square.png';
-import blueSquaremob from '../../assets/images/about-us/bluesquaremob.png'
-import mission from '../../assets/images/about-us/mission.png'
-import valueImg from '../../assets/images/about-us/values.png'
-import NavigationBar from '../../components/NavigationBar'
+import blueSquaremob from '../../assets/images/about-us/bluesquaremob.png';
+import mission from '../../assets/images/about-us/mission.png';
+import valueImg from '../../assets/images/about-us/values.png';
+import NavigationBar from '../../components/NavigationBar';
 
 const AboutUs = () => (
 	<div>
@@ -36,7 +36,7 @@ const AboutUs = () => (
 						className="absolute -z-10 -ml-[2rem] -mt-[5rem] hidden lg:block "
 						src={blueSquare}
 						alt="blue-square"
-					/> 
+					/>
 					<img
 						className=" absolute -z-10 -top-[1.5rem]  -right-[1rem] block lg:hidden "
 						src={blueSquaremob}
@@ -76,7 +76,7 @@ const AboutUs = () => (
 						className="absolute -bottom-[1.5rem] -right-[22px] -z-10 hidden lg:block"
 						src={blueSquare}
 						alt=""
-					/> 
+					/>
 					<img
 						className=" absolute -z-10 top-[7.5rem]  -right-[1.5rem] block lg:hidden "
 						src={blueSquaremob}
@@ -89,14 +89,14 @@ const AboutUs = () => (
 					/>
 				</div>
 
-				<div className='m-4 lg:m-0'>
+				<div className="m-4 lg:m-0">
 					<img
 						className="lg:ml-[36px]  lg:mt-0 mt-4 mb-8"
 						src={vision}
 						alt="People holding hands in agreement"
 					/>
 				</div>
-{/* 
+				{/* 
 				<div>
 					<img
 						className="lg:ml-[36px] lg:mt-0 mt-4"
@@ -139,15 +139,14 @@ const AboutUs = () => (
 							alt="blue-square"
 						/>
 					</div>
-				</div >
-				<div className='m-4 lg:m-0'>
-				<img
-					className="lg:mt-12 mt-10"
-					src={mission}
-					alt="Person working and writing on a notebook"
-				/>
 				</div>
-				
+				<div className="m-4 lg:m-0">
+					<img
+						className="lg:mt-12 mt-10"
+						src={mission}
+						alt="Person working and writing on a notebook"
+					/>
+				</div>
 			</div>
 		</section>
 		<section className=" lg:pl-36 lg:pr-36 lg:pb-20 lg:pt-10 z-0 pl-11 pr-11  pb-8 ">
@@ -186,29 +185,29 @@ const AboutUs = () => (
 						className="absolute -bottom-[1.5rem] -right-[22.5px] -z-10 hidden lg:block"
 						src={blueSquare}
 						alt=""
-					/> 
+					/>
 					<img
 						className="absolute -bottom-[1.5rem] -right-[22.5px] -z-10 hidden lg:block"
 						src={blueSquare}
 						alt=""
-					/> 
+					/>
 					<img
 						className="absolute -bottom-[1.5rem] -right-[22px] -z-10 hidden lg:block"
 						src={blueSquare}
 						alt=""
 					/>
 					<img
-							className=" absolute -z-10 top-[8.4rem]  -right-[1.5rem] block lg:hidden "
-							src={blueSquaremob}
-							alt="blue-square"
-						/>
-						<img
-							className="absolute -z-10 -ml-[1.5rem] -mt-[7.2rem]  block lg:hidden  "
-							src={blueSquaremob}
-							alt="blue-square"
-						/>
+						className=" absolute -z-10 top-[8.4rem]  -right-[1.5rem] block lg:hidden "
+						src={blueSquaremob}
+						alt="blue-square"
+					/>
+					<img
+						className="absolute -z-10 -ml-[1.5rem] -mt-[7.2rem]  block lg:hidden  "
+						src={blueSquaremob}
+						alt="blue-square"
+					/>
 				</div>
-				<div className='m-4 lg:m-0'>
+				<div className="m-4 lg:m-0">
 					<img
 						className="lg:ml-8 lg:mt-16 mt-10"
 						src={valueImg}

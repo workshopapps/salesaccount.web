@@ -52,7 +52,7 @@ const Privacy = () => (
 			<div className="md:grid gap-4 grid-cols-3 grid-rows-1">
 				<div>
 					<div className="p-6">
-						<img className="  w-68 mx-auto " src='/' alt="" />
+						<img className="  w-68 mx-auto " src="/" alt="" />
 						<p className="text-2xl text-blue-600 text-center font-bold pt-6">
 							Security
 						</p>
@@ -65,7 +65,7 @@ const Privacy = () => (
 				</div>
 				<div>
 					<div className="p-6">
-						<img className=" w-68 mx-auto" src='/' alt="" />
+						<img className=" w-68 mx-auto" src="/" alt="" />
 						<p className="text-blue-600 text-center font-bold text-2xl pt-0">
 							Control
 						</p>
@@ -77,7 +77,7 @@ const Privacy = () => (
 				</div>
 				<div>
 					<div className="p-6">
-						<img className=" w-68 mx-auto" src='/' alt="" />
+						<img className=" w-68 mx-auto" src="/" alt="" />
 						<p className=" text-blue-600 text-center font-bold text-2xl pt-0">
 							Transparency
 						</p>
@@ -91,7 +91,7 @@ const Privacy = () => (
 			<div className="md:flex mx-auto w-100% justify-center">
 				<div>
 					<div className="p-6">
-						<img className=" w-68 mx-auto" src='/' alt="" />
+						<img className=" w-68 mx-auto" src="/" alt="" />
 						<p className="text-blue-600 text-center font-bold text-2xl pt-0">
 							Compliance
 						</p>
@@ -104,11 +104,7 @@ const Privacy = () => (
 				</div>
 				<div>
 					<div className="p-6">
-						<img
-							className="content-center  w-68 mx-auto"
-							src='/'
-							alt=""
-						/>
+						<img className="content-center  w-68 mx-auto" src="/" alt="" />
 						<h2 className="text-blue-600 text-center font-bold text-2xl pt-7">
 							Partnership
 						</h2>

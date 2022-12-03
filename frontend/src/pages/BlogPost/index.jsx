@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import BlogPreview from '../../components/BlogPreview';
 import { otherPost } from '../Blogs/fakedata/index';
 import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
 
 function BlogPost() {
-	return (
-		<>
+return (
+	<>
 			<NavigationBar />
 			<div className=" px-[72px] max-[675px]:px-6">
 				<div className="flex flex-col justify-center items-center mt-[102px] mb-[72px]">
@@ -17,7 +18,7 @@ function BlogPost() {
 						Published 20 Jan 2022
 					</p>
 				</div>
-				<div className=" mb-[67px]">
+				<div className=" mb-[67px] w-full">
 					<p className="font-normal text-[20px] leading-[35px] text-[#667085] mb-12 max-[675px]:text-base max-[675px]:leading-[25px]">
 						Debt can be beneficial to your company when mamged properly.
 						However,, if neglected or improperly managed, it may destroy you. We
@@ -26,7 +27,11 @@ function BlogPost() {
 						effectiveness of the three debt management techniques exxplained in
 						this piece.
 					</p>
-					<img src="../assets/images/blog/dummyBlogThumb.svg" alt="thumbnail" />
+					<img
+						className="w-full md:w-[90%] lg:w-[80%] h-[400px] mx-auto object-contain "
+						src="../assets/images/blog/dummyBlogThumb.svg"
+						alt="thumbnail"
+					/>
 				</div>
 				<div className="flex flex-col gap-12 mb-[30px]">
 					<p className="font-normal leading-[30px] text-lg text-[#667085] max-[675px]:text-base max-[675px]:leading-[25px]">
@@ -227,9 +232,11 @@ function BlogPost() {
 				</div>
 			</div>
 			<div className="flex justify-center items-center mb-6">
-				<div className=" bg-[#1570EF] border-[1px] border-solid border-[#1570EF] shadow-[0px_1px_2px_rgba(16,24,40,0.05)] rounded-lg  py-3 px-5 text-[#FFFFFF]">
-					View all posts
-				</div>
+				<Link to="/blogs">
+					<div className=" bg-[#1570EF] border-[1px] border-solid border-[#1570EF] shadow-[0px_1px_2px_rgba(16,24,40,0.05)] rounded-lg  py-3 px-5 text-[#FFFFFF]">
+						View all posts
+					</div>
+				</Link>
 			</div>
 			<Footer />
 		</>

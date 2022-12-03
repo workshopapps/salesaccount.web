@@ -446,7 +446,7 @@ function LandingPage() {
 				</div>
 			</div> */}
 
-			<div className="bg-[#F9FAFB] md:py-[3em] md:pb-[5em] py-[1em] lg:max-w-full">
+			<div className="bg-[#F9FAFB] md:py-[3em] md:pb-[5em] py-[1em] lg:max-w-full space-y-[5em]">
 				<div className="lg:px-[50px]  px-[14px] ">
 					<div className="leading-[20px] my-[2em]">
 						<h2 className="font-semibold text-xl md:text-3xl text-center">
@@ -461,24 +461,22 @@ function LandingPage() {
 					</div>
 				</div>
 
-				<div className=" md:px-[54px] xl:px-[282px] mt-[50px]">
-					<div className="bg-[#F2F4F7] rounded-3xl px-[44px] md:px-[217px] py-[26px] flex flex-col items-center">
-						<img
-							src={getInTouch}
-							alt="Get in touch"
-							className="max-w-[130px] h-[63px] object-contain"
-						/>
-						<p className="text-[#101828] text-[16px] md:text-[18px] font-medium">
-							Still have questions?
-						</p>
-						<p className="font-normal text-[#667085] text-[10px] md:text-[18px] pb-[24px] text-center px-[44px] md:px-0">
-							Can&apos;t find the answer you&apos;re looking for?
-						</p>
-						<Button path="/faqs" title="View more" />
-					</div>
+				<div className="bg-[#F2F4F7] md:rounded-md flex flex-col items-center w-full md:w-[80%] lg:w-[60%] mx-auto  py-[3em] md:py-[2em] ">
+					<img
+						src={getInTouch}
+						alt="Get in touch"
+						className="max-w-[130px] h-[63px] object-contain"
+					/>
+					<p className="text-[#101828] text-[16px] md:text-[18px] font-medium">
+						Still have questions?
+					</p>
+					<p className="font-normal text-[#667085] text-[10px] md:text-[18px] pb-[24px] text-center px-[44px] md:px-0">
+						Can&apos;t find the answer you&apos;re looking for?
+					</p>
+					<Button path="/faqs" title="View more" />
 				</div>
 			</div>
-			<div className="text-center bg-[#F2F4F7] py-[2em] md:py-[3em] ">
+			<div className="text-center bg-[#F2F4F7] py-[3em] md:py-[3em]  ">
 				<p className="font-semibold text-xl md:text-3xl ">
 					Start your free trial
 				</p>
