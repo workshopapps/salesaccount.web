@@ -33,8 +33,8 @@ pipeline {
                 //sh 'pm2 stop reconcileaifrontend && pm2 delete reconcileaifrontend'
                 sh 'sudo su dcnc && whoami'
                 sh 'sudo pm2 delete -s reconcileaifrontend || :'
-                sh 'cd frontend && pm2 serve -s build 55501 --name reconcileaifrontend --spa'
-                //sh 'sudo pm2 serve /home/dcnc/salesaccount.web/frontend/build --port 55501 --name reconcileaifrontend'
+                //sh 'cd frontend && pm2 serve -s build 55501 --name reconcileaifrontend --spa'
+                sh 'sudo pm2 serve -s /home/dcnc/salesaccount.web/frontend/build --port 55501 --name reconcileaifrontend --spa'
             }
         }
 
