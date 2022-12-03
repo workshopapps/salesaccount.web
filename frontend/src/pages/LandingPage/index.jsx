@@ -461,7 +461,7 @@ function LandingPage() {
 					</div>
 				</div>
 
-				<div className="bg-[#F2F4F7] md:rounded-md flex flex-col items-center w-full md:w-[80%] lg:w-[60%] mx-auto  py-[3em] md:py-[2em] ">
+				{/* <div className="bg-[#F2F4F7] md:rounded-md flex flex-col items-center w-full md:w-[80%] lg:w-[60%] mx-auto  py-[3em] md:py-[2em] ">
 					<img
 						src={getInTouch}
 						alt="Get in touch"
@@ -474,7 +474,7 @@ function LandingPage() {
 						Can&apos;t find the answer you&apos;re looking for?
 					</p>
 					<Button path="/faqs" title="View more" />
-				</div>
+				</div> */}
 			</div>
 			<div className="text-center bg-[#F2F4F7] py-[3em] md:py-[3em]  ">
 				<p className="font-semibold text-xl md:text-3xl ">
