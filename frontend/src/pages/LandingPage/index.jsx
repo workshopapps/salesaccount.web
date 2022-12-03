@@ -59,6 +59,7 @@ const styles = {
 	rowContentColor: '#667085',
 	rowContentTextSize: '16px',
 	arrowColor: '#1570EF',
+	
 };
 
 const config = {
