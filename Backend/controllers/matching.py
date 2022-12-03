@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """ DOCUMENT MATCHING MODULE """
-# from .api_key import API_KEY 3 uncomment when working locally
+# from .api_key import API_KEY  uncomment when working locally
 from .convert_file import convert_file
-import openai
 import os
+import openai
 import pandas as pd
+
 
 
 API_KEY = os.getenv("OPENAI_API_KEY") #comment this line to use your personal openai api key. This is for the production environment
@@ -25,7 +26,6 @@ def match(account_statement, financial_record):
 			Match all details in these csv below. No title.
 			Response in JSON\n
 			"""
-		
 		statement_table = pd.read_json(convert_file(account_statement))
 		statement_csv = statement_table.to_csv()
 		records_table = pd.read_json(convert_file(financial_record))

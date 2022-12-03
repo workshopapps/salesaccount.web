@@ -4,9 +4,8 @@ from controllers.matching import match
 from fastapi import APIRouter
 from .post_documents import account_statements, financial_records
 import pandas as pd
-# import pdfkit
-# import requests as req
-
+import pdfkit
+import requests as req
 
 
 router = APIRouter()
@@ -22,12 +21,12 @@ def reconcile():
 		return {"message": "Need two files for reconconciliation"}
 
 
-# @router.get("/download")
-# def download():
-# 	""" Returns reconciled document as pdf """
-# 	with req.get('https://salesaccount-web-hng.vercel.app/dashboard/accountreport') as rq:
-# 		with open('test.csv', 'wb') as file:
-# 			file.write(rq.content)
-# 			df1 = pd.read_csv('test.csv')
-# 			html_string = df1.to_html()
-# 			pdfkit.from_string(html_string, 'test.pdf')
+@router.get("/download")
+def download():
+	""" Returns reconciled document as pdf """
+	with req.get('https://salesaccount-web-hng.vercel.app/dashboard/accountreport') as rq:
+		with open('test.csv', 'wb') as file:
+			file.write(rq.content)
+			df1 = pd.read_csv('test.csv')
+			html_string = df1.to_html()
+			pdfkit.from_string(html_string, 'test.pdf')

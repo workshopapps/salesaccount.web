@@ -4,8 +4,8 @@ import csv
 from pathlib import Path
 import pandas as pd
 from sqlalchemy.orm import Session as  db
-from config.db import engine
-from models.Account_statement import Transaction_Statement as TS 
+# from config.db import engine
+# from models.Account_statement import Transaction_Statement as TS 
 
 
 
