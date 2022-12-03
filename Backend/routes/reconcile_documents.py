@@ -8,7 +8,6 @@ import pdfkit
 import requests as req
 
 
-
 router = APIRouter()
 
 
@@ -18,11 +17,11 @@ def reconcile():
 	try:
 		response = match(account_statements[0], financial_records[0])
 		return response
-	except Exception as e:
-		return {"message": f"Error: {e}"}
+	except IndexError:
+		return {"message": "Need two files for reconconciliation"}
 
 
-@router.get("/download") # needs reworking
+@router.get("/download")
 def download():
 	""" Returns reconciled document as pdf """
 	with req.get('https://salesaccount-web-hng.vercel.app/dashboard/accountreport') as rq:
