@@ -51,6 +51,7 @@ pipeline {
                 // start the fastapi server on port 55502 with Uvicorn
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 sh 'sudo pm2 delete -s reconcileaibackend || :'
                 sh "cd Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502' --name reconcileaibackend"
                 sh "cd Backend && ls -l"
@@ -61,6 +62,10 @@ pipeline {
                 sh 'sudo pm2 restart -s reconcileaibackend || :'
                 //sh "cd Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502' --name reconcileaibackend"
 >>>>>>> 5276a5ef18a78ce24e5c28f6df72abd0a2f4c74d
+=======
+                sh 'sudo pm2 delete -s reconcileaibackend || :'
+                sh "cd Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502' --name reconcileaibackend"
+>>>>>>> 7fee54f89f655ea2b563e6e5e95abc065d85942e
             }
         }
     }
@@ -124,10 +129,13 @@ pipeline {
                // sh "cd Backend && uvicorn main:app --host 0.0.0.0 --port 55502"
                 //sh 'pip install -r requirements.txt'
                 //sh 'python app.py'
+<<<<<<< HEAD
 =======
                 sh 'sudo pm2 delete -s reconcileaibackend || :'
                 sh "cd Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502' --name reconcileaibackend"
 >>>>>>> 250dd2ee4f45610d5d18cb4df3c2e4711953652f
+=======
+>>>>>>> 7fee54f89f655ea2b563e6e5e95abc065d85942e
             }
         }
     }

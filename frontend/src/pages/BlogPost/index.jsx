@@ -6,8 +6,8 @@ import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
 
 function BlogPost() {
-return (
-	<>
+	return (
+		<>
 			<NavigationBar />
 			<div className=" px-[72px] max-[675px]:px-6">
 				<div className="flex flex-col justify-center items-center mt-[50px] md:mt-[102px] mb-[72px]">

@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import os
 import openai
 =======
@@ -17,6 +18,10 @@ from .api_key import API_KEY
 import os
 #from .api_key import API_KEY # uncomment this line if you have a personal API key
 >>>>>>> 250dd2ee4f45610d5d18cb4df3c2e4711953652f
+=======
+import os
+#from .api_key import API_KEY # uncomment this line if you have a personal API key
+>>>>>>> 7fee54f89f655ea2b563e6e5e95abc065d85942e
 from .convert_file import convert_file
 #import json
 import openai
@@ -28,10 +33,6 @@ from .api_key import API_KEY
 import pandas as pd
 import json,csv,io
 
-
-openai.api_key = API_KEY
-
-# openai.api_key = API_KEY
 
 
 # KINDLY ADD YOUR API KEY TO DEFUALT 
