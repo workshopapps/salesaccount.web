@@ -23,7 +23,7 @@ const Privacy = () => (
 					<p className="font-['Lexend'] text-[20px] leading-[35px] text-[#1D2939]">
 						As one of the best platform, we provides companies like yours with
 						the tools to build trust while enhancing customer experiences. Gain
-						increased transparency and control of your customers’ data, all
+						increased transparency and control of your customers data, all
 						while harnessing the power of that data to connect with customers in
 						new ways.
 					</p>
@@ -52,7 +52,7 @@ const Privacy = () => (
 						Global privacy support
 					</h2>
 					<p className="font-['Lexend'] text-[20px] leading-[136.52%] text-[#101828]">
-						We safeguard our customers’ data with a robust, comprehensive, and
+						We safeguard our customers data with a robust, comprehensive, and
 						transparent privacy and security program.
 					</p>
 				</div>
