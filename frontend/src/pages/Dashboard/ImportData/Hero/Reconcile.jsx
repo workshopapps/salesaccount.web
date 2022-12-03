@@ -10,6 +10,7 @@ import Transactions from '../Transactions/Transactions';
 import CurrentNav from '../../../../components/DashBoardCurrentNav/DashCurrentNav';
 import { useAuth } from '../../../../Store/Context';
 import SalesReport from '../Transactions/SalesReport';
+import ok from '../../../../assets/Ok.png';
 
 function Reconcile() {
 	const [showDisplay, setShowDisplay] = useState(false);
@@ -64,7 +65,7 @@ function Reconcile() {
 
 	const handleSubmit = async () => {
 		reconcileData();
-		navigate('/dashboard/accountreport');
+		// navigate('/dashboard/accountreport');
 	};
 
 	return (
@@ -88,10 +89,16 @@ function Reconcile() {
 					</div>
 				</div>
 
-				<h1 className="text-[1.1em] md:text-[2em] font-bold">
-					Uploaded Account Statement Ready!
-				</h1>
-
+				<div className="flex items-center">
+					<h1 className="text-[1em] md:text-[1.5em] font-bold">
+						Uploaded Account Statement Ready!
+					</h1>
+					<img
+						className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] object-contain"
+						src={ok}
+						alt="ok"
+					/>
+				</div>
 				<div className="flex justify-between items-center ">
 					<div
 						onClick={clickShowDisplayHandler}
@@ -184,9 +191,16 @@ function Reconcile() {
 
 			<div className="mt-[3em]">
 				<div className="space-y-[1em]">
-					<h1 className="text-[1.1em] md:text-[2em] font-bold">
-						Uploaded Sales Record Ready!
-					</h1>
+					<div className="flex items-center">
+						<h1 className="text-[1.1em] md:text-[2em] font-bold">
+							Uploaded Sales Record Ready!
+						</h1>
+						<img
+							className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] object-contain"
+							src={ok}
+							alt="ok"
+						/>
+					</div>
 
 					<div className="flex justify-between items-center ">
 						<div className="relative w-[35%] md:w-[25%] lg:w-[15%]">
