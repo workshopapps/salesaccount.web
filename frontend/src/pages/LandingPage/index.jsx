@@ -198,7 +198,7 @@ function LandingPage() {
 
 						{/* CTA button  */}
 						<div className="md:hidden w-full">
-							<Link href="/dashboard/home">
+							<Link to="/dashboard/home">
 								<button
 									type="button"
 									className=" bg-[#2E90FA] text-white rounded flex justify-center align-center w-[90%] mx-auto py-[0.5em] mt-[3em]"
@@ -223,13 +223,13 @@ function LandingPage() {
 						</div> */}
 
 					{/* upload files here only in desktop */}
-					<div className="hidden md:flex items-center justify-center w-[40%] lg:w-[35%] bg-[#F9FAFB] rounded-2xl flex-col">
+					<div className="hidden md:flex items-center justify-center w-[40%] lg:w-[35%] bg-[#F9FAFB] rounded-2xl flex-col shadow-xl">
 						<img
 							className="w-[60%] h-[60%] object-contain"
 							src={uploadIcon}
 							alt="uploadFile"
 						/>
-						<div className="w-full">
+						<div className="w-full lg:w-[70%] mx-auto md:mt-[1em] ">
 							<Link to="/dashboard/home">
 								<button
 									type="button"
@@ -358,19 +358,22 @@ function LandingPage() {
 				/>
 			</div> */}
 
-			<div className=" bg-[#F9FAFB] md:mt-0  p-[1em] md:p-[3em] text-left md:text-center">
-				<h2 className="text-[#101828] font-semibold text-[20px] lg:text-[36px] pt-[24px] md:pt-[48px] px-[44px] md:px-0">
+			<div className=" bg-[#F9FAFB] md:mt-0  p-[1em] md:p-[3em] text-left md:text-center py-[3em] md:py-[5em] lg:py-[7em]">
+				<h2 className="text-[#101828] font-semibold text-lg md:text-2xl lg:text-[36px] pt-[24px] md:pt-[48px] px-[44px] md:px-0">
 					Why Choose reconcile.<span className="text-[#2E90FA]">AI</span>?
 				</h2>
 
-				<div className="flex flex-col w-full md:flex-row justify-evenly lg:px-[102px] md:text-center">
+				<div className="flex flex-col w-full md:flex-row justify-evenly md:text-center md:py-[2em]">
 					{whatAccountPalDoesData.map((item) => (
-						<div className="pt-[32px] lg:pt-[65px]" key={item.id}>
-							<div className="md:text-center">
-								<h2 className="font-semibold text-[#101828] text-[20px] lg:text-[28px] pb-[4px] ">
+						<div
+							className=" w-full md:w-[30%] lg:w-[20%] mt-[2em]  "
+							key={item.id}
+						>
+							<div className="md:text-center space-y-[1em]">
+								<h2 className="font-semibold text-[#101828]  text-xl lg:text-2xl ">
 									{item.title}
 								</h2>
-								<p className="text-[#667085] w-[343px] flex justify-center lg:w-[336px] font-normal lg:text-[18px] text-[14px] pb-[20px] md:text-center">
+								<p className="text-[#667085] flex justify-center font-normal text-md  md:text-sm md:text-center sm:text-xs">
 									{item.content}
 								</p>
 							</div>
@@ -454,7 +457,7 @@ function LandingPage() {
 							Everything you need to know about the product and billing
 						</p>
 					</div>
-					<div className="md:w-[80%] mx-auto">
+					<div className="md:w-[80%] text-xs md:text-md leading-[200%] mx-auto">
 						<Faq data={data} styles={styles} config={config} />
 					</div>
 				</div>
@@ -476,7 +479,7 @@ function LandingPage() {
 					</div>
 				</div>
 			</div>
-			<div className="text-center bg-[#F2F4F7] py-[30px] ">
+			<div className="text-center bg-[#F2F4F7] py-[2em] md:py-[3em] ">
 				<p className="font-semibold text-xl md:text-3xl ">
 					Start your free trial
 				</p>

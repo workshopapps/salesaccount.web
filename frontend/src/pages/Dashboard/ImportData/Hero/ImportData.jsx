@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import Transactions from '../Transactions/Transactions';
 import CurrentNav from '../../../../components/DashBoardCurrentNav/DashCurrentNav';
 import { useAuth } from '../../../../Store/Context';
+import ok from '../../../../assets/Ok.png';
 
 function ImportData() {
 	const [showDisplay, setShowDisplay] = useState(false);
@@ -92,9 +93,16 @@ function ImportData() {
 					<CurrentNav />
 				</div>
 
-				<h1 className="text-[1.1em] md:text-[2em] font-bold">
-					Uploaded Account Statement Ready!
-				</h1>
+				<div className="flex items-center">
+					<h1 className="text-[1em] md:text-[1.5em] font-bold">
+						Uploaded Account Statement Ready!
+					</h1>
+					<img
+						className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] object-contain"
+						src={ok}
+						alt="ok"
+					/>
+				</div>
 
 				<div className="flex justify-between items-center ">
 					<div
@@ -191,7 +199,7 @@ function ImportData() {
 				<div
 					onDragOver={dragHandlerFile2}
 					onDrop={dropHandlerFile2}
-					className=" text-center flex flex-col justify-center items-center mx-auto bg-[#F2F4F7] py-[4em] px-[1em] w-full md:w-[80%] lg:w-[60%] space-y-3 border border-black border-dashed "
+					className=" text-center flex flex-col justify-center items-center mx-auto bg-[#F2F4F7] py-[4em]  px-[1em] md:py-[2em] w-full md:w-[70%] lg:w-[40%] space-y-3 border border-black border-dashed "
 				>
 					<CloudUploadIcon sx={{ fontSize: '5em', color: '#2E90FA' }} />
 					<p>Drag and drop your file in this grey area</p>
