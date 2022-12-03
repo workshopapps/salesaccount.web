@@ -42,10 +42,7 @@ def convert_file(filename: str):
         return response
   
     elif filename.endswith('.xls'):
-<<<<<<< HEAD:Backend/controllers/conversion.py
         """ Converts csv file to json """  
-=======
->>>>>>> ad9a96d90ade2a421a6e6c07b10595bb34660e84:Backend/controllers/convert_file.py
         df = pd.read_excel(filename)
         response = df_to_json(df)
         return response
