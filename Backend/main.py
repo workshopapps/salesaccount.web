@@ -4,7 +4,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes import api_status, post_documents, delete_documents, reconcile_documents
 
-
 app = FastAPI()
 
 

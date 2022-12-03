@@ -9,6 +9,9 @@ import pandas as pd
 
 openai.api_key = API_KEY
 
+API_KEY = os.getenv("OPENAI_API_KEY") #comment this line to use your personal openai api key. This is for the production environment
+
+openai.api_key = API_KEY
 
 def match(account_statement, financial_record):
 		""" Matches similar transactions in the documents
