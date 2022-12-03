@@ -10,26 +10,26 @@ const aboutUsData = [
 		path: '/history',
 	},
 	{
-		name: 'Our Vision',
+		name: 'Our Team',
 		path: '/teams',
 	},
 	{
-		name: 'Our Core Values',
+		name: 'Get in touch ',
 		path: '/contact',
 	},
 ];
 const resourcesData = [
 	{
 		name: 'Support',
-		path: '/privacyandhelp',
+		path: '/help',
 	},
 	{
 		name: 'Privacy',
-		path: '/privacyandhelp',
+		path: '/privacy',
 	},
 	{
 		name: 'Blog',
-		path: '/privacyandhelp',
+		path: '/blogs',
 	},
 	{
 		name: 'FAQs',
@@ -56,9 +56,9 @@ const Footer = () => (
 				</div>
 
 				<div className="text-[#98A2B3] flex justify-center lg:justify-start items-center gap-6 mt-6 lg:hidden">
-					<BsTwitter size={16} />
-					<BsFacebook size={16} />
-					<BsInstagram size={16} />
+					<BsTwitter size={20} />
+					<BsFacebook size={20} />
+					<BsInstagram size={20} />
 				</div>
 			</div>
 

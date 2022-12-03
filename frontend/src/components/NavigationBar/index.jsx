@@ -20,7 +20,7 @@ function NavigationBar() {
 	const activeStyle = {
 		textDecoration: 'underline',
 		color: '#2E90FA',
-		textUnderlineOffset: '0.5em'
+		textUnderlineOffset: '0.5em',
 	};
 	const [nav, setNav] = useState(false);
 	const toggle = () => {
