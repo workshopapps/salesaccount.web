@@ -4,8 +4,8 @@ from controllers.matching import match
 from fastapi import APIRouter
 from .post_documents import account_statements, financial_records
 import pandas as pd
-# import pdfkit
-# import requests as req
+import pdfkit
+import requests as req
 
 
 
@@ -15,8 +15,11 @@ router = APIRouter()
 @router.get("/reconcile_documents")
 def reconcile():
 	""" Matches similar transactions in the documents """
-	response = match(account_statements[0], financial_records[0])
-	return response
+	try:
+		response = match(account_statements[0], financial_records[0])
+		return response
+	except Exception as e:
+		return {"message": "Error: No files uploaded"}
 
 
 @router.get("/download") # needs reworking
@@ -28,4 +31,3 @@ def download():
 			df1 = pd.read_csv('test.csv')
 			html_string = df1.to_html()
 			pdfkit.from_string(html_string, 'test.pdf')
-	return {}
