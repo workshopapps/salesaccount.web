@@ -18,7 +18,7 @@ const Privacy = () => (
 				<div className="p-4 md:p-10 lg:px-20 xl:px-36 2xl:px-40 bg-[#F2F4F7] w-full lg:py-20 lg:px-36">
 					<div className="max-w-screen-xl mx-auto md:flex md:flex-row md:gap-10">
 						<div className="w-full md:w-3/5">
-							<h2 className=" text-xl sm:text-2xl md:text-3xl font-semibold   ">
+							<h2 className=" text-xl sm:text-2xl md:text-3xl font-semibold">
 								Turn data privacy into an opportunity to enhance customer
 								experiences
 							</h2>
@@ -150,8 +150,8 @@ const Privacy = () => (
 					</p>
 				</div>
 			</div>
-			<div className="hidden max-w-screen-xl mx-auto md:flex md:flex-row md:justify-center">
-				<div className="pb-20 lg:pb-36 w-1/3 bg-[#F9FAFB]">
+			<div className="hidden max-w-screen-xl pb-20 mx-auto md:flex md:flex-row md:justify-center">
+				<div className="lg:pb-36 w-1/3 bg-[#F9FAFB] px-6 py-12">
 					<div className="">
 						<img
 							className="w-12 sm:w-20 md:w-68 mx-auto"
@@ -162,7 +162,7 @@ const Privacy = () => (
 							Partnership
 						</h2>
 					</div>
-					<p className="text-left w-full px-4 sm:text-lg md:text-xl lg:text-2xl">
+					<p className="text-left w-full sm:text-lg md:text-xl lg:text-2xl">
 						Safeguarding data is a team effort. We listen to your feedback, and
 						we provide information and customizable security and privacy tools
 						to you.
