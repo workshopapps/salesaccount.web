@@ -3,11 +3,12 @@
 import os
 import openai
 from .convert_file import convert_file
-from .api_key import API_KEY
+#from .api_key import API_KEY #uncomment this line to use your personal openai api key
 import pandas as pd
 import json,csv,io
-import openai
+#import openai
 
+API_KEY = os.getenv("OPENAI_API_KEY") #comment this line to use your personal openai api key. This is for the production environment
 
 openai.api_key = API_KEY
 
