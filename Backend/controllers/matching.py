@@ -1,15 +1,16 @@
 #!/usr/bin/python3
 """ DOCUMENT MATCHING MODULE """
-#from .api_key import API_KEY #uncomment this line to use your own API key. Please comment when pushing to github
+import os
+from .api_key import API_KEY 
 from .convert_file import convert_file
 #import json
 import openai
 import pandas as pd
 
 
-openai.api_key = API_KEY
 
-API_KEY = os.getenv("OPENAI_API_KEY") #comment this line to use your personal openai api key. This is for the production environment
+# KINDLY ADD YOUR API KEY TO DEFUALT 
+API_KEY = os.getenv("OPENAI_API_KEY", default=API_KEY)
 
 openai.api_key = API_KEY
 
