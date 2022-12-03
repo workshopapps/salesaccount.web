@@ -28,7 +28,8 @@ def upload(file: UploadFile = File(...)):
             f.write(contents)
         account_statements.append(file_dir)
         response = convert_file(file_dir)
-        return response
+        null = "null"
+        return eval(response)
     except Exception as e:
         return {"message": f"There was an error uploading the file {e}"}
     finally:
@@ -52,7 +53,8 @@ def upload(file: UploadFile = File(...)):
             f.write(contents)
         financial_records.append(file_dir)
         response = convert_file(file_dir)
-        return response
+        null = "null"
+        return eval(response)
     except Exception:
         return {"message": "There was an error uploading the file"}
     finally:
