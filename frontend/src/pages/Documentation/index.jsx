@@ -113,12 +113,12 @@ const Documentation = () => (
 							<h2 className="text-[#194185] text-xl	 font-bold mb-2">Step Three</h2>
 							<p className='mb-5'>
 								On your “uploaded sale and account ready” page click on
-								reconcile.<span className='text-[#2E90FA]'>AI</span>cile button.
+								reconcile button.
 							</p>
               <img className='mb-5 w-[100%]' src={stepThree} alt= ' ' />
 							<h2 className="text-[#194185] text-xl	 font-bold mb-2">Step four</h2>
 							<p className='mb-5'>
-								After the reconcile.<span className='text-[#2E90FA]'>AI</span>ciliation process is complete, click Download
+								After the reconcile.<span className='text-[#2E90FA]'>AI</span> process is complete, click Download
 								Button to Download your report in PDF or Spreadsheet format.
 							</p>
 						</section>
