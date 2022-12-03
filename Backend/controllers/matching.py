@@ -11,6 +11,28 @@ API_KEY = os.getenv("OPENAI_API_KEY", default=API_KEY) #comment this line to use
 
 openai.api_key = API_KEY # replace API_KEY with personal api secret key
 
+
+def openai_call(prompt):
+	""" Send a request to openai GPT3 for matching
+		
+		Args:
+		prompt: string containing prompt for GPT3
+
+		Return:
+		object: json
+		"""
+	response = openai.Completion.create(
+  					model="text-davinci-003",
+  					prompt = prompt,
+					temperature=0.62,
+					max_tokens=2857,
+					top_p=1,
+					frequency_penalty=0,
+					presence_penalty=0
+				)
+	return response
+
+
 def match(account_statement, financial_record):
 		""" Matches similar transactions in the documents
 		
@@ -40,15 +62,10 @@ def match(account_statement, financial_record):
 		example += "\n  }\n]"
 
 		prompt = f"{keyword}{example}{statement_csv}\n{records_csv}"
+		
+		response = openai_call(prompt)
+		while response.choices[0].text == None:
+			response = openai_call(prompt)
 
-		response = openai.Completion.create(
-  					model="text-davinci-003",
-  					prompt = prompt,
-					temperature=0.62,
-					max_tokens=2857,
-					top_p=1,
-					frequency_penalty=0,
-					presence_penalty=0
-					)
 		string = response.choices[0].text
 		return eval(string)
