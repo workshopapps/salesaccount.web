@@ -21,7 +21,7 @@ export const UserProvider = ({ children }) => {
 	const [fileDropped2, setFileDropped2] = useState([]);
 
 	const bankStatementUrl =
-		'https://reconcileai.hng.tech/api/v1/upload_statement'; 
+		'https://reconcileai.hng.tech/api/v1/upload_statement';
 	const salesRecordUrl = `https://reconcileai.hng.tech/api/v1/upload_record`;
 	const reconcileUrl = `https://reconcileai.hng.tech/api/v1/reconcile_documents`;
 	const downloadUrl = ""
@@ -37,8 +37,8 @@ export const UserProvider = ({ children }) => {
 					'Content-Type': 'multipart/form-data',
 				},
 			})
-			// .then((res) => console.log(JSON.parse(res?.data)))
-			.then((res) => setLocalData(res?.data))
+			.then((res) => setLocalData(JSON.parse(res?.data)))
+			.then((res) => console.log(res))
 			.catch((e) => setError(e));
 	};
 
@@ -53,7 +53,7 @@ export const UserProvider = ({ children }) => {
 					'Content-Type': 'multipart/form-data',
 				},
 			})
-			.then((res) => setLocalData2(res?.data))
+			.then((res) => setLocalData2(JSON.parse(res?.data)))
 			.catch((e) => setError(e));
 	};
 
@@ -62,9 +62,9 @@ export const UserProvider = ({ children }) => {
 		axios
 			.get(reconcileUrl)
 			.then((res) => {
-				setLocalData3(res?.data);
+				setLocalData3(JSON.parse(res?.data));
 			})
-			.then((res) => console.log(res?.data))
+			.then((res) => console.log(res))
 			.catch((e) => setError(e));
 	};
 

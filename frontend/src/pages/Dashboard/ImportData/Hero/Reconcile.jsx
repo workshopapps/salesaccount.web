@@ -65,7 +65,7 @@ function Reconcile() {
 
 	const handleSubmit = async () => {
 		reconcileData();
-		navigate('/dashboard/accountreport');
+		// navigate('/dashboard/accountreport');
 	};
 
 	return (
