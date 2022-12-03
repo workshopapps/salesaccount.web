@@ -21,7 +21,7 @@ const ErrorProcessing = () => (
 	<>
 		<NavigationBar />
 		<main className="m-[65px]">
-			<div className="processing-text">
+			<div className="processing-text ml-[65px]">
 				<h1 className="font-['Lexend'] font-semibold text-[28px] leading-[136.02%] text-[#344054]">
 					Processing...
 				</h1>
