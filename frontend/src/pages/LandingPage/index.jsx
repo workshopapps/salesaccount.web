@@ -10,50 +10,46 @@ import howItWorks from '../../assets/images/landingPage/howitworks.png';
 import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
-import getInTouch from '../../assets/images/landingPage/landingpage__intouch.png';
-import userImage from '../../assets/images/landingPage/what_our_users_are_saying.png';
-import companyLogo from '../../assets/images/landingPage/landingpage_company_img.png';
-import headerImage from '../../assets/images/landingPage/recon-header-img.png';
-import cuttingImage from '../../assets/images/landingPage/landingpage__cutting.png';
-import mobileDashboard from '../../assets/images/landingPage/recon-mobile.png';
-import mobileCompany from '../../assets/images/landingPage/mobile_company.png';
-import iphoneScreen from '../../assets/images/landingPage/landingpage__iphone.png';
 
 const data = {
 	rows: [
 		{
+			id: 0,
+			title: 'What is ReconcileAI and how does it work?',
+			content:
+				'ReconcileAI is a web application that compares third-party and independent financial statements and records with internal financial records and ledgers. With the use of an AI Model and GPT -3, ReconcileAI automatically makes the accountant’s job easy and avoids errors. ReconcileAI automates tasks fast and easy for users who want to validate all transactions for the day, confirm payments and compare sales with the closing account statement.',
+		},
+		{
 			id: 1,
-			title: 'What is Account Pal and how does it work?',
-			content: `Account Pal is a web application that compares third-party and independent financial statements and records with internal financial records and ledgers. `,
+			title:
+				'Why should I make use of Account Pal to match my account statement to sales?',
+			content:
+				'ReconcileAI for SMES and SMBs saves time that would be spent if matching accounts to sales were done manually. With this web application, you can be sure to reduce human errors and fradulent risks associated with account reconciliation. ReconcileAI also ensures seamless and fast automation for users. We have put in place an amzing feature which allows users to track periodic net balance.',
 		},
 		{
 			id: 2,
-			title:
-				'Why should I make use of Account Pal to match my account statement to sales?',
-			content: `Account Pal for SME'S and SMBs helps save time that would otherwise be spent manually matching accounts statements to sales. 
-With this Web application, you can be sure to eliminate human errors and fraudulent risks associated with account reconciliation. 
-`,
+			title: 'How do I receive my report?',
+			content:
+				'On our ReconcileAI website, users can simply attach sales and bank statement files in a PDF file. With files uploaded, the document will be processed and returns with a file that contains the analysed and reconciled. The result can be downloaded as requested, or viewed right here on our website.',
 		},
 		{
 			id: 3,
-			title: 'How do I receive an overview of my report?',
-			content: `Account Pal allows users to import sales and bank statements. These documents will then be processed and you'll receive a file with the analysis and reconciliation.`,
+			title: 'Is ReconcileAI free for first time users?',
+			content:
+				'ReconcileAI has a 1-month trial period. When it expires, you can continue using the website for a small subscription fee.',
 		},
 		{
 			id: 4,
-			title: 'What are account statements?',
-			content: `It is a periodic summary of account activity within a defined period. `,
+			title:
+				'Is there a cap on the maximum number of transactions I can do daily, weekly or monthly?',
+			content:
+				'There is no cap on on the number of transactions one can carry out using ReconcileAI.',
 		},
 		{
 			id: 5,
-			title: 'Is Account Pal free for first-time users?',
-			content: `Account Pal has a free 1-month trial period. When this expires, you can continue using the site for a small subscription fee.`,
-		},
-		{
-			id: 6,
-			title:
-				'Is there a cap on the maximum number of transactions I can do weekly or monthly?',
-			content: `There is no cap on the number of transactions one can carry out using Account Pal.`,
+			title: 'Can my accountants and I collaborate on ReconcileAI?',
+			content:
+				'Yes, you can collaborate with others on your ReconcileAI by sharing your sign-in details with them.',
 		},
 	],
 };
@@ -461,7 +457,7 @@ function LandingPage() {
 					</div>
 				</div>
 
-				<div className="bg-[#F2F4F7] md:rounded-md flex flex-col items-center w-full md:w-[80%] lg:w-[60%] mx-auto  py-[3em] md:py-[2em] ">
+				{/* <div className="bg-[#F2F4F7] md:rounded-md flex flex-col items-center w-full md:w-[80%] lg:w-[60%] mx-auto  py-[3em] md:py-[2em] ">
 					<img
 						src={getInTouch}
 						alt="Get in touch"
@@ -474,7 +470,7 @@ function LandingPage() {
 						Can&apos;t find the answer you&apos;re looking for?
 					</p>
 					<Button path="/faqs" title="View more" />
-				</div>
+				</div> */}
 			</div>
 			<div className="text-center bg-[#F2F4F7] py-[3em] md:py-[3em]  ">
 				<p className="font-semibold text-xl md:text-3xl ">
