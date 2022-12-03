@@ -20,9 +20,11 @@ export const UserProvider = ({ children }) => {
 	const [fileDropped, setFileDropped] = useState([]);
 	const [fileDropped2, setFileDropped2] = useState([]);
 
-	const bankStatementUrl = 'http://107.20.248.3:8000/upload_statement';
-	const salesRecordUrl = `http://107.20.248.3:8000/upload_record`;
-	const reconcileUrl = `http://107.20.248.3:8000/reconcile_documents`;
+	const bankStatementUrl =
+		'https://reconcileai.hng.tech/api/v1/upload_statement';
+	const salesRecordUrl = `https://reconcileai.hng.tech/api/v1/upload_record`;
+	const reconcileUrl = `https://reconcileai.hng.tech/api/v1/reconcile_documents`;
+	const downloadUrl = ""
 
 	// ////////bank statement GET request
 	const getData = async () => {
@@ -36,6 +38,7 @@ export const UserProvider = ({ children }) => {
 				},
 			})
 			.then((res) => setLocalData(JSON.parse(res?.data)))
+			.then((res) => console.log(res))
 			.catch((e) => setError(e));
 	};
 
@@ -61,6 +64,7 @@ export const UserProvider = ({ children }) => {
 			.then((res) => {
 				setLocalData3(JSON.parse(res?.data));
 			})
+			.then((res) => console.log(res))
 			.catch((e) => setError(e));
 	};
 

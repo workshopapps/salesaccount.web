@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import Footer from '../../components/Footer';
 import heroImg from '../../assets/images/about-us/heroImg.png';
 import vision from '../../assets/images/about-us/vision.png';
@@ -17,7 +17,7 @@ const AboutUs = () => (
 					<h1 className="text-[#101828]  lg:mt-8 font-semibold text-center lg:text-left md:font-medium text-2xl  md:text-5xl md:text-center  md:mb-5">
 						Who we are?
 					</h1>
-					<p className="text-sm font-normal text-[#101828] text-center lg:text-left lg:mb-[38px] mb-4 mt-4 md:text-center md:mb-0 md:h-[180px] md:w-[535px] md:text-xl">
+					<p className="text-sm font-normal text-[#101828] text-left lg:text-left lg:mb-[38px] mb-4 mt-4 md:text-left md:mb-0 md:h-[180px] md:w-[535px] md:text-xl">
 						We are a team of professionals whose aim is to give you and amazing
 						user experience. We are not only professionals but a family where
 						everybody works together with each other&apos;s interest of growth
@@ -91,6 +91,14 @@ const AboutUs = () => (
 						alt="People holding hands in agreement"
 					/>
 				</div>
+				{/* 
+				<div>
+					<img
+						className="lg:ml-[36px] lg:mt-0 mt-4"
+						src={vision}
+						alt="People holding hands in agreement"
+					/>
+				</div> */}
 			</div>
 		</section>
 		<section className=" lg:pl-36 lg:pr-36 lg:pb-20 z-0 bg-[#EFF8FF] pl-11 pr-11 pt-12 pb-8 ">
