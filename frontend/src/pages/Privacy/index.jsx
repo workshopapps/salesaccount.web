@@ -1,13 +1,13 @@
 import React from 'react';
-import Rectangle from '../../assets/images/Privacy/Rectangle 12.svg';
+// import Rectangle from '../../assets/images/Privacy/Rectangle 12.svg';
 
-import Key from '../../assets/images/Privacy/Key 2.svg';
+// import Key from '../../assets/images/Privacy/Key 2.svg';
 
-import Camera from '../../assets/images/Privacy/Add Photo Camera.svg';
+// import Camera from '../../assets/images/Privacy/Add Photo Camera.svg';
 
-import Compliance from '../../assets/images/Privacy/Icon (1).svg';
+// import Compliance from '../../assets/images/Privacy/Icon (1).svg';
 
-import Partnership from '../../assets/images/Privacy/Vector 1.svg';
+// import Partnership from '../../assets/images/Privacy/Vector 1.svg';
 
 import Footer from '../../components/Footer';
 
@@ -52,7 +52,7 @@ const Privacy = () => (
 			<div className="md:grid gap-4 grid-cols-3 grid-rows-1">
 				<div>
 					<div className="p-6">
-						<img className="  w-68 mx-auto " src={Rectangle} alt="" />
+						<img className="  w-68 mx-auto " src="/" alt="" />
 						<p className="text-2xl text-blue-600 text-center font-bold pt-6">
 							Security
 						</p>
@@ -65,7 +65,7 @@ const Privacy = () => (
 				</div>
 				<div>
 					<div className="p-6">
-						<img className=" w-68 mx-auto" src={Key} alt="" />
+						<img className=" w-68 mx-auto" src="/" alt="" />
 						<p className="text-blue-600 text-center font-bold text-2xl pt-0">
 							Control
 						</p>
@@ -77,7 +77,7 @@ const Privacy = () => (
 				</div>
 				<div>
 					<div className="p-6">
-						<img className=" w-68 mx-auto" src={Camera} alt="" />
+						<img className=" w-68 mx-auto" src="/" alt="" />
 						<p className=" text-blue-600 text-center font-bold text-2xl pt-0">
 							Transparency
 						</p>
@@ -91,7 +91,7 @@ const Privacy = () => (
 			<div className="md:flex mx-auto w-100% justify-center">
 				<div>
 					<div className="p-6">
-						<img className=" w-68 mx-auto" src={Compliance} alt="" />
+						<img className=" w-68 mx-auto" src="/" alt="" />
 						<p className="text-blue-600 text-center font-bold text-2xl pt-0">
 							Compliance
 						</p>
@@ -104,11 +104,7 @@ const Privacy = () => (
 				</div>
 				<div>
 					<div className="p-6">
-						<img
-							className="content-center  w-68 mx-auto"
-							src={Partnership}
-							alt=""
-						/>
+						<img className="content-center  w-68 mx-auto" src="/" alt="" />
 						<h2 className="text-blue-600 text-center font-bold text-2xl pt-7">
 							Partnership
 						</h2>

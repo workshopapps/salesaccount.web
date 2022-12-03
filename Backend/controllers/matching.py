@@ -1,18 +1,16 @@
 #!/usr/bin/python3
 """ DOCUMENT MATCHING MODULE """
-import os
-from .api_key import API_KEY 
+# from .api_key import API_KEY  uncomment when working locally
 from .convert_file import convert_file
-#import json
+import os
 import openai
 import pandas as pd
 
 
 
-# KINDLY ADD YOUR API KEY TO DEFUALT 
-API_KEY = os.getenv("OPENAI_API_KEY", default=API_KEY)
+API_KEY = os.getenv("OPENAI_API_KEY") #comment this line to use your personal openai api key. This is for the production environment
 
-openai.api_key = API_KEY
+openai.api_key = API_KEY # replace API_KEY with personal api secret key
 
 def match(account_statement, financial_record):
 		""" Matches similar transactions in the documents
@@ -25,10 +23,9 @@ def match(account_statement, financial_record):
 		object: json
 		"""
 		keyword = """
-			Match all details in these csv below. No need to title response.
-			Response as JSON\n
+			Match all details in these csv below. No title.
+			Response in JSON\n
 			"""
-		
 		statement_table = pd.read_json(convert_file(account_statement))
 		statement_csv = statement_table.to_csv()
 		records_table = pd.read_json(convert_file(financial_record))
@@ -36,12 +33,12 @@ def match(account_statement, financial_record):
 
 		columns = list(statement_table.columns) + list(records_table.columns)
 
-		example = "Example\n{"
+		example = "Example\n[\n{"
 
 		for x in columns:
 			example += f"\n    \"{x}\":"
 
-		example += "\n  }\n"
+		example += "\n  }\n]"
 
 		prompt = f"{keyword}{example}{statement_csv}\n{records_csv}"
 
@@ -55,5 +52,4 @@ def match(account_statement, financial_record):
 					presence_penalty=0
 					)
 		string = response.choices[0].text
-
-		return string
+		return eval(string)

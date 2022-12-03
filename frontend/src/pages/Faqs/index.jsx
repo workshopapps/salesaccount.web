@@ -10,23 +10,23 @@ const Faq = () => {
 	const [smallFAQ, setSmallFAQ] = useState(false); // Not working yet
 
 	return (
-		<>
+		<div>
 			<NavigationBar />
-			<div className="bg-[#F9FAFB]">
-				<div className=" min-w-[375px] sm:w-[1228px] justify-center flex font-body sm">
-					<div className="flex-col space-y-[25px] sm:space-y-[72px]">
+			<div className="bg-[#F9FAFB] w-full flex justify-center">
+				<div className=" w-full font-body py-[3em] px-[1em]">
+					<div className="flex-col w-full md:w-[80%] lg:w-[40%] mx-auto space-y-[25px] sm:space-y-[72px]">
 						{smallFAQ ? (
 							<h2 className="w-[35px] text-blue leading-[13px] sm:text-[28px]">
 								{'<'}FAQ
 							</h2>
 						) : (
-							<h2 className="sm:text-5xl text-sm text-[#1570EF] sm:leading-[60px] leading-[25px] w-[279px] sm:w-[1000px] font-semibold pr-[25px] pl-[25px] sm:p-0">
+							<h2 className="text-2xl md:text-4xl  text-[#1570EF] font-semibold">
 								Frequently Asked Questions
 							</h2>
 						)}
 
 						{currentPosts.map((qna) => (
-							<div className="w-[375px] sm:w-[1000px]">
+							<div>
 								<Accordion question={qna.question} answer={qna.answer} />
 							</div>
 						))}
@@ -35,16 +35,16 @@ const Faq = () => {
 						{nextDisplay ? (
 							''
 						) : (
-							<div className=" mb-96 py-[78px]">
-								<div className="relative flex w-[375px] sm:w-[1000px] text-sm space-x-96">
-									<div className="flex space-x-1">
+							<div className=" w-full">
+								<div className="flex justify-between w-full ">
+									<div className="flex space-x-1 item-center ">
 										<button
 											type="button"
 											onClick={() => {
 												setCurrentPosts(faqArray.slice(0, 9));
 												setNextDisplay(false);
 											}}
-											className="text-blue  w-[73.27px] h-[73.27px] rounded-full bg-slate-300"
+											className="text-blue w-[50px] h-[50px] md:w-[70px] md:h-[70px] rounded-full bg-slate-300"
 										>
 											1
 										</button>
@@ -54,7 +54,7 @@ const Faq = () => {
 												setCurrentPosts(faqArray.slice(9, 13));
 												setNextDisplay(true);
 											}}
-											className="text-gray w-[73.27px] h-[73.27px] rounded-full bg-white"
+											className="text-gray w-[50px] h-[50px] md:w-[70px] md:h-[70px] rounded-full bg-white"
 										>
 											2
 										</button>
@@ -65,7 +65,7 @@ const Faq = () => {
 											setCurrentPosts(faqArray.slice(9, 13));
 											setNextDisplay(true);
 										}}
-										className="absolute right-0 border-slate-800 w-[95px] h-[43px] sm:w-[161px] sm:h-[66px] border-2 border-gray-800 rounded-2xl bg-white"
+										className="flex justify-center items-center w-[100px] h-[50px] md:w-[120px] md:h-[70px] border-2 border-gray-800 rounded-lg text-md bg-white"
 									>
 										Next
 										<i className="fa-solid fa-arrow-right" />
@@ -76,14 +76,14 @@ const Faq = () => {
 
 						{/* When on next page */}
 						{nextDisplay ? (
-							<div className="relative flex w-[375px] sm:w-[1000px] text-sm space-x-96 mb-96 py-[48px]">
+							<div className="relative flex justify-center items-center  text-sm my-[3em] py-[48px]">
 								<button
 									type="button"
 									onClick={() => {
 										setCurrentPosts(faqArray.slice(0, 9));
 										setNextDisplay(false);
 									}}
-									className="absolute left-0 border-slate-800 w-[95px] h-[43px] sm:w-[161px] sm:h-[66px] border-2 border-gray-800 rounded-2xl bg-white"
+									className="absolute left-0 w-[95px] h-[43px] sm:w-[161px] sm:h-[66px] border-2 rounded-2xl bg-white"
 								>
 									<i className="fa-solid fa-arrow-left" />
 									Previous
@@ -95,7 +95,7 @@ const Faq = () => {
 											setCurrentPosts(faqArray.slice(0, 9));
 											setNextDisplay(false);
 										}}
-										className="text-blue  w-[73.27px] h-[73.27px] rounded-full bg-slate-300"
+										className="text-blue  w-[50px] h-[50px] rounded-full bg-slate-300"
 									>
 										1
 									</button>
@@ -105,7 +105,7 @@ const Faq = () => {
 											setCurrentPosts(faqArray.slice(9, 13));
 											setNextDisplay(true);
 										}}
-										className="text-gray w-[73.27px] h-[73.27px] rounded-full bg-white"
+										className="text-gray w-[50px] h-[50px] rounded-full bg-white"
 									>
 										2
 									</button>
@@ -116,19 +116,13 @@ const Faq = () => {
 						)}
 
 						{nextDisplay === true ? (
-							<div className="justify-center flex">
-								<div className="w-[223px] text-[12px] sm:w-[672px] sm:text-[36px] text-center mt-16">
+							<div className="justify-center flex ">
+								<div className="w-[80%] mx-auto text-md text-center mt-16 space-y-[0.5em]">
 									<p className="text-blue">Did you find this useful?</p>
-									<div className="space-x-4 sm:space-x-14">
-										<input
-											type="checkbox"
-											className="w-[20px] sm:w-[38.56px] h-[20px] sm:h-[38.56px]"
-										/>
+									<div className="space-x-4 flex justify-center items-center  ">
+										<input type="checkbox" className="w-[20px] h-[20px]" />
 										Yes
-										<input
-											type="checkbox"
-											className="w-[20px] sm:w-[38.56px] h-[20px] sm:h-[38.56px]"
-										/>
+										<input type="checkbox" className="w-[20px] h-[20px] " />
 										No
 									</div>
 								</div>
@@ -142,7 +136,7 @@ const Faq = () => {
 			<div className="">
 				<Footer />
 			</div>
-		</>
+		</div>
 	);
 };
 
