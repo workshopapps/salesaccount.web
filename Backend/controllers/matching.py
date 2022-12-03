@@ -64,8 +64,15 @@ def match(account_statement, financial_record):
 		prompt = f"{keyword}{example}{statement_csv}\n{records_csv}"
 		
 		response = openai_call(prompt)
-		while response.choices[0].text == None:
-			response = openai_call(prompt)
+		
+		flag = 0
+		while flag < 5:
+			if response.choices[0].text == None:
+				response = openai_call(prompt)
+				flag += 1
+				print(f"{flag} failed requests")
+			else:
+				flag = 5
 
 		string = response.choices[0].text
 		return eval(string)
