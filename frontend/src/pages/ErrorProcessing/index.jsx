@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaGreaterThan } from 'react-icons/fa';
-import DashBoardSideBar from '../../components/DashBoardSideBar';
 import DashBoardHeader from '../../components/DashBoardHeader';
+import NavigationBar from '../../components/NavigationBar';
 
 const styles = {
 	bgColor: '#1570EF',
@@ -19,41 +19,40 @@ const processData = {
 
 const ErrorProcessing = () => (
 	<>
-		<DashBoardHeader />
-		<div className="dashboard-main-cont">
-			<DashBoardSideBar />
-			<main className="">
-				<div className="breadcrum text-[#667085] mb-4">
-					Dashboard &gt; Upload{' '}
-				</div>
-				<h1 className="font-bold text-2xl">{processData.status}</h1>
-				<p className="text-[#667085] pb-2">
+		<NavigationBar />
+		<main className="m-[65px]">
+			<div className="processing-text">
+				<h1 className="font-['Lexend'] font-semibold text-[28px] leading-[136.02%] text-[#344054]">
+					Processing...
+				</h1>
+				<p className="font-['Lexend'] font-medium text-[20px] leading-[136.52%] text-[#667085]">
 					Our system is currently reconciling your records and will alert you of
-					any errors. Please be patient.{' '}
+					any errors. Please be patient.
 				</p>
-				<div className="center">
-					<div className="process-card p-10 mt-2">
-						<h1 className="font-bold text-base">{processData.statusHeader}</h1>
-						<p className="">
-							<span className="numberOfErrors">
-								{processData.numberOfimbalance}
-							</span>
-							{processData.statusMessage}
-						</p>
-
-						<div className="w-full bg-gray-200 rounded-full h-5 mt-2 dark:bg-gray-700">
-							<div className="bg-blue-600 h-5 rounded-full w-10"> </div>
-						</div>
-					</div>
-					<a
-						href="/processingerror"
-						className="flex items-center p-2 mt-3 sm:mx-auto rounded bg-[#1570EF] text-white"
-					>
-						cancel
-					</a>
+			</div>
+			<div className="matching-data bg-[#F9FAFB] rounded-[12px] absolute top-[40%] left-[25%] translate-[-50%, -50%] w-[737px] h-[364px] text-center">
+				<h3 className="mt-[100px] font-['Lexend'] font-medium text-[36px] leading-[136.02%] text-[#101828]">
+					Matching data...
+				</h3>
+				<div className="my-[10px] flex items-center justify-center gap-[10px]">
+					<span className="text-[28px] text-[#F04438]">0</span>
+					<p className="font-['Lexend'] font-semibold text-[28px] leading-[136.02%] text-[#667085]">
+						imbalance(s) found so far
+					</p>
 				</div>
-			</main>
-		</div>
+				<div className="flex justify-center items-center gap-[5px]">
+					<input
+						className="bg-[#f2f4f7] w-[544px] rounded-[24px]"
+						type="range"
+						min="0"
+						max="100"
+						value="5"
+						step="5"
+					/>
+					<span>1%</span>
+				</div>
+			</div>
+		</main>
 	</>
 );
 
