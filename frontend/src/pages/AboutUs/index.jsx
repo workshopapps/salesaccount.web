@@ -75,14 +75,14 @@ const AboutUs = () => (
 						alt="People holding hands in agreement"
 					/>
 				</div>
-
+{/* 
 				<div>
 					<img
 						className="lg:ml-[36px] lg:mt-0 mt-4"
 						src={vision}
 						alt="People holding hands in agreement"
 					/>
-				</div>
+				</div> */}
 			</div>
 		</section>
 		<section className=" lg:pl-36 lg:pr-36 lg:pb-20 z-0 bg-[#EFF8FF] p-8 ">
