@@ -8,10 +8,10 @@ import Footer from '../../components/Footer';
 const Documentation = () => (
 	<div className="text-gray-800 bg-white ">
 		<NavigationBar />
-		<header className="header bg-[#D7DBDF] text-[#101828] shadow py-4 px-4">
-			<div className="flex flex-row items-center justify-center h-40 header-content">
-				<h1 className="text-3xl text-center">
-					A step by step guide on how <br /> to use Reconcile.<span className='text-[#2E90FA]'>AI</span>
+		<header className="header bg-[#2E90FA] md:bg-[#D7DBDF] text-white md:text-[#101828] shadow py-4 px-4">
+			<div className="flex flex-row items-center justify-center md:h-40 header-content">
+				<h1 className="text-sm text-center md:text-3xl">
+					A step by step guide on how <br /> to use Reconcile.<span className='md:text-[#2E90FA]'>AI</span>
 				</h1>
 			</div>
 		</header>
@@ -47,9 +47,9 @@ const Documentation = () => (
 					</ul>
 				</div>
 			</aside>
-			<main className="main flex flex-col flex-grow  md:ml-0 p-[3rem] transition-all duration-150 ease-in h-[100vh] overflow-scroll">
+			<main className="main flex flex-col flex-grow  md:ml-0 p-3 md:p-[3rem] transition-all duration-150 ease-in h-[100vh] overflow-scroll">
 				<div className="flex flex-col flex-grow p-4 main-content">
-					<div className="flex flex-col flex-grow mt-4 rounded">
+					<div className="flex flex-col flex-grow rounded md:mt-4">
 						<section className="mb-11"  id='intro'>
 							<h1 className="mb-4 text-2xl font-bold ">Introduction</h1>
               

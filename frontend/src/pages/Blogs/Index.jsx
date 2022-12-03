@@ -18,7 +18,7 @@ function Blogs() {
 					Get access to the latest industry news, interviews, technologies, and
 					resources.
 				</p>
-				{/* <Search></Search>  Need to add Search bar here  */}
+				
 
 			<SearchBar />
 			</div>
