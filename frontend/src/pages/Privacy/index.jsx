@@ -150,7 +150,7 @@ const Privacy = () => (
 					</p>
 				</div>
 			</div>
-			<div className="hidden max-w-screen-xl pb-20 mx-auto md:flex md:flex-row md:justify-center">
+			<div className="hidden max-w-screen-xl mx-auto pb-20 md:flex md:flex-row md:justify-center">
 				<div className="w-1/3 bg-[#F9FAFB] px-6 py-12">
 					<div className="">
 						<img
