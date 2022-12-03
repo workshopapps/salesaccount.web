@@ -5,9 +5,8 @@ import './accountReport.css';
 // import AccountReportDetail from './AccountReportDetail/AccountReportDetail';
 // import SalesReport from './AccountReportDetail/SalesReport';
 
-
 function AccountReport() {
-	const { localData3, reconcileData } = useAuth();
+	const { localData3 } = useAuth();
 	const navigate = useNavigate();
 	const headerKeys = Object.keys(Object.assign({}, ...localData3));
 
@@ -100,9 +99,6 @@ function AccountReport() {
 					Back
 				</button>
 				<button
-					onClick={() => {
-						reconcileData();
-					}}
 					type="button"
 					className="button2 text-white bg-[#2E90FA] w-[30%] py-[0.5em] lg:w-[15%] rounded-md"
 				>

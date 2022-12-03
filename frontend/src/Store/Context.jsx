@@ -24,7 +24,7 @@ export const UserProvider = ({ children }) => {
 		'https://reconcileai.hng.tech/api/v1/upload_statement'; 
 	const salesRecordUrl = `https://reconcileai.hng.tech/api/v1/upload_record`;
 	const reconcileUrl = `https://reconcileai.hng.tech/api/v1/reconcile_documents`;
-	const downloadUrl = ""
+	const downloadUrl = '';
 
 	// ////////bank statement GET request
 	const getData = async () => {
