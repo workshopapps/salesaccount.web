@@ -19,13 +19,13 @@ def reconcile():
 	return response
 
 
-# @router.get("/download") # needs reworking
-# def download():
-# 	""" Returns reconciled document as pdf """
-# 	with req.get('https://salesaccount-web-hng.vercel.app/dashboard/accountreport') as rq:
-# 		with open('test.csv', 'wb') as file:
-# 			file.write(rq.content)
-# 			df1 = pd.read_csv('test.csv')
-# 			html_string = df1.to_html()
-# 			pdfkit.from_string(html_string, 'test.pdf')
-# 	return {}
+@router.get("/download") # needs reworking
+def download():
+	""" Returns reconciled document as pdf """
+	with req.get('https://salesaccount-web-hng.vercel.app/dashboard/accountreport') as rq:
+		with open('test.csv', 'wb') as file:
+			file.write(rq.content)
+			df1 = pd.read_csv('test.csv')
+			html_string = df1.to_html()
+			pdfkit.from_string(html_string, 'test.pdf')
+	return {}
