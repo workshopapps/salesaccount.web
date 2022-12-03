@@ -30,7 +30,7 @@ const ErrorProcessing = () => (
 					any errors. Please be patient.
 				</p>
 			</div>
-			<div className="bg-[#F9FAFB] rounded-[12px] absolute top-[40%] left-[25%] translate-[-50%, -50%] w-[737px] h-[364px] text-center">
+			<div className="matching-data bg-[#F9FAFB] rounded-[12px] absolute top-[40%] left-[25%] translate-[-50%, -50%] w-[737px] h-[364px] text-center">
 				<h3 className="mt-[100px] font-['Lexend'] font-medium text-[36px] leading-[136.02%] text-[#101828]">
 					Matching data...
 				</h3>
