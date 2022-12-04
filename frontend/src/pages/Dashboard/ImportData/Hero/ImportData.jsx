@@ -26,56 +26,12 @@ function ImportData() {
 		getSalesData,
 	} = useAuth();
 
-	// const headerKeys = Object.keys(localData);
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
-	// const headerKeys2 = Object.keys(Object.assign({}, ...localData2));
-	const newData = [];
-	for (let i = 0; i < localData.length; i += 1) {
-		newData.push({
-			date: localData[i].Date,
-			description: localData[i].Description,
-			details: localData[i].Details,
-			balance: localData[i][' Balance '],
-			money_out: localData[i][' Money out '],
-			money_in: localData[i][' Money in '],
-		});
-	}
-	// CSV to Array
-	// const [csvArray, setCsvArray] = useState([]);
-
-	// const processCSV = (str, delim = ',') => {
-	// 	const headers = str.slice(0, str.indexOf('\n')).split(delim);
-	// 	const rows = str.slice(str.indexOf('\n') + 1).split('\n');
-
-	// 	const newArray = rows.map((row) => {
-	// 		const values = row.split(delim);
-	// 		/* eslint-disable no-param-reassign */
-	// 		const eachObject = headers.reduce((obj, header, i) => {
-	// 			obj[header] = values[i];
-	// 			return obj;
-	// 		}, {});
-	// 		/* eslint-disable no-param-reassign */
-	// 		return eachObject;
-	// 	});
-
-	// 	setCsvArray(newArray);
-
-	// 	return newArray;
-	// };
 
 	const handleSubmit = () => {
 		getSalesData();
 		navigate('/dashboard/reconcile');
-		// const fileReader = new FileReader();
-		// fileReader.onload = (e) => {
-		// 	const text = e.target.result;
-		// 	const data = processCSV(text);
-		// 	setLocalData2(data);
-		// };
-
-		// fileReader.readAsText(fileDropped2);
 	};
-	// CSV to array ends
 
 	// click functions
 	const clickShowDisplayHandler = () =>
@@ -83,8 +39,6 @@ function ImportData() {
 
 	const clickShowSortHandler = () =>
 		showSort === false ? setShowSortDisplay(true) : setShowSortDisplay(false);
-
-	//  make post request function
 
 	return (
 		<div className="w-full">
@@ -155,8 +109,6 @@ function ImportData() {
 						</tbody>
 					</table>
 				</div>
-
-				{/* { localData?.map((lData)=><p>{ lData.Date }</p>) } */}
 			</div>
 
 			{showDisplay && (
@@ -191,7 +143,6 @@ function ImportData() {
 					</div>
 				</div>
 			)}
-			{/* <Transactions localData={localData} headerKeys={headerKeys}/> */}
 
 			{/* modal here */}
 			<div className="space-y-[2em] w-full mt-[2em]">
