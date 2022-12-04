@@ -25,6 +25,7 @@ import reportWebVitals from './reportWebVitals';
 import DashBoard from './pages/Dashboard';
 import Gpt3 from './pages/Gpt-3';
 import Blogs from './pages/Blogs/Index';
+import Error404 from './pages/Error404/index'
 import ErrorProcessing from './pages/ErrorProcessing/index'
 // import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
 // import Upload from './pages/Dashboard/DashboardMain/UploadFile/Upload';
@@ -178,6 +179,10 @@ const router = createBrowserRouter([
 	{
 		path: '/privacy',
 		element: <Privacy />,
+	},
+	{
+		path: '/404error',
+		element: <Error404 />,
 	},
 	// {
 	// 	path: '/settings',
