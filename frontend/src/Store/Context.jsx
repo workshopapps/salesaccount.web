@@ -78,7 +78,10 @@ export const UserProvider = ({ children }) => {
 				setLocalData3(res?.data);
 				setLoading(false);
 			})
-			.catch((e) => setRError(e.message));
+			.catch((e) => {
+				setLoading(false)
+				setRError(e.message)
+			});
 	};
 
 	const dragHandler = (e) => {

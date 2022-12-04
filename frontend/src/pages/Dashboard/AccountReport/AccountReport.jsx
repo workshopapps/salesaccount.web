@@ -10,7 +10,7 @@ function AccountReport() {
 	const headerKeys = Object.keys(Object.assign({}, ...localData3));
 
 	return (
-		<div className="space-y-[1em]">
+		<div className="space-y-[1em] mb-[5em]">
 			<div className="flex items-center">
 				<h1 className=" font-bold text-xl ">Account Balance Report Ready!</h1>
 				{localData3 && (
@@ -22,10 +22,11 @@ function AccountReport() {
 				)}
 			</div>
 
+
 			{rError && <p>{rError}</p>}
 			{loading && (
 				<div>
-					<p> Account Report is loading, hold on, might take a while...</p>
+					<p> Account Report is loading, might take a while, please do not refresh...</p>
 					<img
 						className="w-full md:h-[400px] object-contain"
 						src="https://media2.giphy.com/media/a7oVsf3WTOaoE/giphy.gif"
