@@ -48,12 +48,8 @@ pipeline {
                // sh "cd Backend && cd myvenv && . bin/activate"
                 sh "cd Backend && pip install -r requirements.txt"
                 // start the fastapi server on port 55502 with Uvicorn
-<<<<<<< HEAD
-                sh 'sudo pm2 restart -s reconcileaibackend'
-=======
-                sh 'sudo pm2 restart -s reconcileaibackend || :'
->>>>>>> 5276a5ef18a78ce24e5c28f6df72abd0a2f4c74d
-                //sh "cd Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502' --name reconcileaibackend"
+                sh 'sudo pm2 delete -s reconcileaibackend || :'
+                sh "cd Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502' --name reconcileaibackend"
             }
         }
     }

@@ -15,8 +15,11 @@ router = APIRouter()
 @router.get("/reconcile_documents")
 def reconcile():
 	""" Matches similar transactions in the documents """
-	response = match(account_statements[0], financial_records[0])
-	return response
+	try:
+		response = match(account_statements[0], financial_records[0])
+		return response
+	except Exception as e:
+		return {"message": f"Error: {e}"}
 
 
 @router.get("/download")
