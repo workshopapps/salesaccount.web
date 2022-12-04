@@ -52,7 +52,7 @@ const resourcesData = [
 // removed according to new design ];
 
 const Footer = () => (
-	<footer className='bg-[#D1E9FF]'>
+	<footer className='bg-[#D1E9FF] px-0 py-0'>
 	<div className="w-full flex flex-col max-w-[1440px] mx-auto max-md:flex-col-reverse max-md:justify-center max-md:items-center max-md:py-8 md:flex-row justify-between xl:py-[136px] max-xl:py-[81px] max-xl:px-[80px] xl:px-[160px]">
 		
 		<div>
