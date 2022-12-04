@@ -1,22 +1,21 @@
 import React from 'react';
+import padlock from '../../assets/images/Privacy/padlock.svg';
+import Key from '../../assets/images/Privacy/Key.svg';
+import Camera from '../../assets/images/Privacy/camera.svg';
+import Globe from '../../assets/images/Privacy/globe.svg';
+import Partnership from '../../assets/images/Privacy/partnership.svg';
+import photo1 from '../../assets/images/Privacy/photo4.png';
+import photo2 from '../../assets/images/Privacy/photo2.png';
+import photo3 from '../../assets/images/Privacy/photo3.png';
 import Footer from '../../components/Footer';
 import Navbar from '../../components/NavigationBar';
-import DataPrivacy from '../../assets/images/Privacy/dataprivacy.webp';
-import PrivacyCustomer from '../../assets/images/Privacy/privacyforcustomer.webp';
-import GlobalPrivacy from '../../assets/images/Privacy/globalprivacysupport.webp';
-import SecurityIcon from '../../assets/images/Privacy/security.webp';
-import Control from '../../assets/images/Privacy/control.webp';
-import Transparent from '../../assets/images/Privacy/transparent.webp';
-import Compliance from '../../assets/images/Privacy/compliance.webp';
-import Partnership from '../../assets/images/Privacy/partnership.webp';
-import './privacy.css'
 
 const Privacy = () => (
 	<div>
 		<Navbar />
 		<div className="mx-auto">
 			<div className="">
-				<div className="p-4 md:p-10 lg:px-20 xl:px-36 2xl:px-40 bg-[#F2F4F7] w-full lg:py-20 lg:px-36">
+				<div className="p-4 md:p-10 lg:px-20 xl:px-36 2xl:px-40 bg-[#F2F4F7] w-full lg:py-20 ">
 					<div className="max-w-screen-xl mx-auto md:flex md:flex-row md:gap-10">
 						<div className="w-full md:w-3/5">
 							<h2 className=" text-xl sm:text-2xl md:text-3xl font-semibold">
