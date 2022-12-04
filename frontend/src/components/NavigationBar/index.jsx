@@ -18,8 +18,8 @@ const navLinks = [
 
 function NavigationBar() {
 	const activeStyle =
-		'underline underline-offset-8 px-[10px] font-medium text-xl text-[#2E90FA]';
-	const normalStyle = 'px-[10px] font-medium text-[#101828] text-xl ';
+		'underline whitespace-nowrap underline-offset-8 px-[10px] font-medium text-xl text-[#2E90FA] max-lg:text-sm';
+	const normalStyle = 'px-[10px] whitespace-nowrap font-medium text-[#101828] text-xl max-lg:text-sm';
 	const [nav, setNav] = useState(false);
 	const toggle = () => {
 		setNav(!nav);
@@ -28,7 +28,7 @@ function NavigationBar() {
 		<nav className="bg-[#F9FAFB] ">
 			<div className="h-[112px] max-w-[1440px] w-full mx-auto px-[72px] flex items-center justify-between max-md:px-[30px] max-md:h-20 max-sm:h-14 ">
 				<Link to="/">
-					<figure className="h-[50px] mr-4 max-sm:w-[120px]">
+					<figure className="h-[50px] mr-4 max-sm:w-[120px] max-lg:w-[200px]">
 						<img
 							src={logoUpdate}
 							alt="Company logo"
@@ -37,7 +37,7 @@ function NavigationBar() {
 					</figure>
 				</Link>
 
-				<div className="hidden xl:flex xl:gap-7 text-xl">
+				<div className="hidden md:flex lg:gap-7 text-xl max-lg:gap-3 max-md:text-base">
 					{navLinks.map((item) => (
 						<NavLink
 							to={item.path}
@@ -53,7 +53,7 @@ function NavigationBar() {
 
 				{/* Hamburger */}
 				<div
-					className=" block xl:hidden pr-2"
+					className=" block md:hidden pr-2"
 					onClick={() => {
 						toggle();
 					}}
@@ -69,7 +69,7 @@ function NavigationBar() {
 				<div
 					className={
 						nav
-							? 'xl:hidden w-full absolute top-[112px] md:top-[80px] max-md:top-[56px] left-0 p-2 space-y-[40px] pt-[70px] max-md:pt-[30px] h-4/5 bg-[#F9FAFB] z-50 flex flex-col items-center'
+							? 'md:hidden w-full absolute top-[112px] md:top-[80px] max-md:top-[56px] left-0 p-2 space-y-[40px] pt-[70px] max-md:pt-[30px] h-4/5 bg-[#F9FAFB] z-50 flex flex-col items-center'
 							: 'absolute left-[-100%] top-[-50%]'
 					}
 				>
