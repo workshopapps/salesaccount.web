@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ FILE CONVERSION MODULE """
-# from tabula import read_pdf
+from tabula import read_pdf
 import json
 import pandas as pd
 
