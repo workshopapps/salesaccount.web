@@ -1,14 +1,15 @@
 import React from 'react';
-import padlock from '../../assets/images/Privacy/padlock.svg';
-import Key from '../../assets/images/Privacy/Key.svg';
-import Camera from '../../assets/images/Privacy/camera.svg';
-import Globe from '../../assets/images/Privacy/globe.svg';
-import Partnership from '../../assets/images/Privacy/partnership.svg';
-import photo1 from '../../assets/images/Privacy/photo4.png';
-import photo2 from '../../assets/images/Privacy/photo2.png';
-import photo3 from '../../assets/images/Privacy/photo3.png';
 import Footer from '../../components/Footer';
 import Navbar from '../../components/NavigationBar';
+import DataPrivacy from '../../assets/images/Privacy/dataprivacy.webp';
+import PrivacyCustomer from '../../assets/images/Privacy/privacyforcustomer.webp';
+import GlobalPrivacy from '../../assets/images/Privacy/globalprivacysupport.webp';
+import SecurityIcon from '../../assets/images/Privacy/security.webp';
+import Control from '../../assets/images/Privacy/control.webp';
+import Transparent from '../../assets/images/Privacy/transparent.webp';
+import Compliance from '../../assets/images/Privacy/compliance.webp';
+import Partnership from '../../assets/images/Privacy/partnership.webp';
+import './privacy.css'
 
 const Privacy = () => (
 	<div>
@@ -154,13 +155,18 @@ const Privacy = () => (
 				<div className="w-1/3 bg-[#F9FAFB] px-6 py-12">
 					<div className="">
 						<img
-							className="w-12 sm:w-20 md:w-68 mx-auto"
+							className="w-[75px] h-[58.33px] mb-[36.5px]"
 							src={Partnership}
-							alt="partnership"
+							alt=""
 						/>
-						<h2 className="text-blue-600 text-center font-bold text-2xl pt-7">
+						<h3 className="font-['Lexend'] font-semibold text-[40px] leading-[50px] text-[#1570EF] max-w-[1163px] mb-[24px]">
 							Partnership
-						</h2>
+						</h3>
+						<p className="max-w-[390px] text-[20px] leading-[136.52%] text-center text-[#101828]">
+							Safeguarding data is a team effort. We listen to your feedback,
+							and we provide information and customizable security and privacy
+							tools to you.
+						</p>
 					</div>
 					<p className="text-left w-full sm:text-lg md:text-xl lg:text-2xl">
 						Safeguarding data is a team effort. We listen to your feedback, and
@@ -169,7 +175,7 @@ const Privacy = () => (
 					</p>
 				</div>
 			</div>
-		</div>
+			</div>
 		<Footer />
 	</div>
 );
