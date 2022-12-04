@@ -1,26 +1,39 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../Store/Context';
+import ok from '../../../assets/Ok.png';
 import './accountReport.css';
 
 function AccountReport() {
-	const { localData3, error, loading } = useAuth();
+	const { localData3, rError, loading } = useAuth();
 	const navigate = useNavigate();
-	// const headerKeys = Object.keys(Object.assign({}, ...localData3));
+	const headerKeys = Object.keys(Object.assign({}, ...localData3));
 
 	return (
 		<div className="space-y-[1em]">
-			<h1 className=" font-bold text-xl ">Account Balance Report Ready!</h1>
-			This Page is under Construction
-			<img
-				className="w-full md:h-[400px] object-contain"
-				src="https://media2.giphy.com/media/a7oVsf3WTOaoE/giphy.gif"
-				alt="constructionGif"
-			/>
-			{/* {error && <p>{error}</p>}
-			{loading && <p>Loading</p>} */}
-			{/* {localData3 && localData3} */}
-			{/* {localData3 && (
+			<div className="flex items-center">
+				<h1 className=" font-bold text-xl ">Account Balance Report Ready!</h1>
+				{localData3 && (
+					<img
+						className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] object-contain"
+						src={ok}
+						alt="ok"
+					/>
+				)}
+			</div>
+
+			{rError && <p>{rError}</p>}
+			{loading && (
+				<div>
+					<p> Your Report is under Construction</p>
+					<img
+						className="w-full md:h-[400px] object-contain"
+						src="https://media2.giphy.com/media/a7oVsf3WTOaoE/giphy.gif"
+						alt="constructionGif"
+					/>
+				</div>
+			)}
+			{localData3 && (
 				<div className="overflow-scroll">
 					<table className="table-auto w-full text-xs md:text-base ">
 						<thead className="bg-[#D1E9FF] py-2 my-2">
@@ -42,7 +55,7 @@ function AccountReport() {
 						</tbody>
 					</table>
 				</div>
-			)} */}
+			)}
 			{/* report buttons */}
 			<div className="sale-button flex justify-center space-x-[1em] mx-auto pb-[1em]">
 				<button

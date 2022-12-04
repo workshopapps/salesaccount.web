@@ -11,7 +11,7 @@ export const UserProvider = ({ children }) => {
 	const [bankStatementFile, setBankStatementFile] = useState([]);
 	const [error, setError] = useState('');
 	const [localFile, setLocalFile] = useState([]);
-	const [localFile2, setLocalFile2] = useState([]);
+	const [localFile2, setLocalFile2] = useState();
 
 	const [localData, setLocalData] = useState([]);
 	const [localData2, setLocalData2] = useState([]);
@@ -24,10 +24,8 @@ export const UserProvider = ({ children }) => {
 	const [fileDropped, setFileDropped] = useState([]);
 	const [fileDropped2, setFileDropped2] = useState([]);
 
-	const bankStatementUrl =
-		'https://reconcileai.hng.tech/api/v1/upload_statement';
-	const salesRecordUrl = `https://reconcileai.hng.tech/api/v1/upload_record`;
-	const reconcileUrl = `https://reconcileai.hng.tech/api/v1/reconcile_documents`;
+	const uploadUrl = 'https://api.reconcileai.hng.tech/upload';
+	const reconcileUrl = `https://api.reconcileai.hng.tech/reconcile`;
 	const downloadUrl = '';
 
 	// ////////bank statement GET request
@@ -36,13 +34,13 @@ export const UserProvider = ({ children }) => {
 		formData.append('file', fileDropped);
 
 		axios
-			.post(bankStatementUrl, formData, {
+			.post(uploadUrl, formData, {
 				headers: {
 					'Content-Type': 'multipart/form-data',
 				},
 			})
 			.then((res) => setLocalData(res?.data))
-			.catch((e) => setError(e));
+			.catch((e) => setError(e.message));
 	};
 
 	// ////sales Record ///////
@@ -51,26 +49,36 @@ export const UserProvider = ({ children }) => {
 		formData.append('file', fileDropped2);
 
 		axios
-			.post(salesRecordUrl, formData, {
+			.post(uploadUrl, formData, {
 				headers: {
 					'Content-Type': 'multipart/form-data',
 				},
 			})
 			.then((res) => setLocalData2(res?.data))
-			.catch((e) => setError(e));
+			.catch((e) => setError(e.message));
 	};
 
 	// reconcile get request
 	const reconcileData = async () => {
+		const formData = new FormData();
+		const files = [fileDropped, fileDropped2];
+
+		files.forEach((item) => {
+			formData.append('files', item);
+		});
+
 		setLoading(true);
 		axios
-			.get(reconcileUrl)
+			.post(reconcileUrl, formData, {
+				headers: {
+					'Content-Type': 'multipart/form-data',
+				},
+			})
 			.then((res) => {
 				setLocalData3(res?.data);
 				setLoading(false);
 			})
-			.catch((e) => setError(e.message))
-			.finally(() => setLoading(false));
+			.catch((e) => setRError(e.message));
 	};
 
 	const dragHandler = (e) => {
