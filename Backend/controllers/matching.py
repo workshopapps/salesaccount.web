@@ -33,12 +33,12 @@ def openai_call(prompt):
 	return response
 
 
-def match(account_statement, financial_record):
+def match(file1, file2):
 		""" Matches similar transactions in the documents
 		
 		Args:
-		account_statement: bank account statement
-		financial_record: client financial record
+		file1: first document uploaded
+		file2: second document uploaded
 
 		Return:
 		object: json
@@ -47,9 +47,9 @@ def match(account_statement, financial_record):
 			Match all details in these csv below. No title.
 			Response in JSON\n
 			"""
-		statement_table = pd.read_json(convert_file(account_statement))
+		statement_table = pd.read_json(convert_file(file1))
 		statement_csv = statement_table.to_csv()
-		records_table = pd.read_json(convert_file(financial_record))
+		records_table = pd.read_json(convert_file(file2))
 		records_csv = records_table.to_csv()
 
 		columns = list(statement_table.columns) + list(records_table.columns)
@@ -73,6 +73,7 @@ def match(account_statement, financial_record):
 				print(f"{flag} failed requests")
 			else:
 				flag = 5
+
 
 		string = response.choices[0].text
 		return eval(string)
