@@ -55,7 +55,7 @@ const Documentation = () => (
 					</ul>
 				</div>
 			</aside>
-			<main className="main flex flex-col flex-grow  md:ml-0 p-3 md:p-[3rem] transition-all duration-150 ease-in h-[100vh] overflow-scroll">
+			<main className="main flex flex-col flex-grow mx-2 md:ml-0 md:p-[3rem] transition-all duration-150 ease-in h-[100vh] overflow-scroll">
 
 				<div className="flex flex-col flex-grow p-2 md:p-4 main-content">
 					<div className="flex flex-col flex-grow mt-4 rounded">
@@ -117,7 +117,7 @@ const Documentation = () => (
 
 							<picture >
 							<img className='hidden mb-5 md:inline' src ={stepOne} alt= ' ' />
-							<img className='inline-block  mx-[76px] mb-5 md:hidden' src ={steponeMobile} alt= ' '/>
+							<img className=' mx-[33%] mb-5 md:hidden' src ={steponeMobile} alt= ' '/>
 							</picture>
               				
 
@@ -128,7 +128,7 @@ const Documentation = () => (
 							</p>
 							<picture >
 							<img className='hidden mb-5 md:inline' src ={stepTwo} alt= ' ' />
-							<img className='inline-block  mx-[76px] mb-5 md:hidden' src ={steptwoMobile} alt= ' '/>
+							<img className='mx-[33%] mb-5 md:hidden' src ={steptwoMobile} alt= ' '/>
 							</picture>
 							<h2 className="text-[#194185] mb-2 text-base text-center md:text-start font-bold md:text-xl">Step Three</h2>
 							<p className='mb-5 text-xs text-[#101828] text-center md:text-start md:text-lg'>
@@ -137,7 +137,7 @@ const Documentation = () => (
 							</p>
 							<picture >
 							<img className='hidden mb-5 md:inline' src ={stepThree} alt= ' ' />
-							<img className='inline-block  mx-[76px] mb-5 md:hidden' src ={stepthreeMobile} alt= ' '/>
+							<img className=' mx-[33%] mb-5 md:hidden' src ={stepthreeMobile} alt= ' '/>
 							</picture>
 							<h2 className="text-[#194185] text-center md:text-start mb-2 text-base font-bold md:text-xl">Step Four</h2>
 							<p className='mb-5 text-xs text-[#101828] text-center md:text-start md:text-lg'>

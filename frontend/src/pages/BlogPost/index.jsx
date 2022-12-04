@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import BlogPreview from '../../components/BlogPreview';
 import { otherPost } from '../Blogs/fakedata/index';
 import NavigationBar from '../../components/NavigationBar';
@@ -17,7 +18,7 @@ function BlogPost() {
 						Published 20 Jan 2022
 					</p>
 				</div>
-				<div className=" mb-[67px]">
+				<div className=" mb-[67px] w-full">
 					<p className="font-normal text-[20px] leading-[35px] text-[#667085] mb-12 max-[675px]:text-base max-[675px]:leading-[25px]">
 						Debt can be beneficial to your company when managed properly.
 						However, if neglected or improperly managed, it may destroy you. We
@@ -26,7 +27,11 @@ function BlogPost() {
 						effectiveness of the three debt management techniques exxplained in
 						this piece.
 					</p>
-					<img src="../assets/images/blog/dummyBlogThumb.svg" alt="thumbnail" />
+					<img
+						className="w-full md:w-[90%] lg:w-[80%] h-[400px] mx-auto object-contain "
+						src="../assets/images/blog/dummyBlogThumb.svg"
+						alt="thumbnail"
+					/>
 				</div>
 				<div className="flex flex-col gap-12 mb-[30px]">
 					<p className="font-normal leading-[30px] text-lg text-[#667085] max-[675px]:text-base max-[675px]:leading-[25px]">
@@ -122,11 +127,11 @@ function BlogPost() {
 							Charge).
 						</p>
 					</div>
-					<div className="bg-[#F2F4F7] px-8 pt-8 pb-[40px] max-[675px]:px-1 max-[675px]:py-1">
-						<h3 className=" font-semibold text-[28px] text-[#101828] leading-snug mb-6 max-[675px]:text-2xl max-[675px]:text-[20px]">
+					<div className="bg-[#F2F4F7] rounded-2xl  max-[675px]:px-2 max-[675px]:py-2">
+						<h3 className=" font-semibold text-[28px] mt-3 text-[#101828] leading-snug mb-6 max-[675px]:text-2xl max-[675px]:text-[20px]">
 							Conclusion
 						</h3>
-						<p className="font-normal leading-[30px] text-lg text-[#667085] max-[675px]:text-base max-[675px]:leading-[25px]">
+						<p className="font-normal leading-[30px] text-lg text-[#667085] pb-2 max-[675px]:text-base max-[675px]:leading-[25px]">
 							In conclusion, don&apos;t wait until your business hits a
 							financial crisis. If you feel that your debt has become unwieldy
 							or worrisome, reach out to professionals to rescue the situation.
@@ -226,10 +231,12 @@ function BlogPost() {
 					</div>
 				</div>
 			</div>
-			<div className="flex items-center justify-center mb-6">
-				<div className=" bg-[#1570EF] border-[1px] border-solid border-[#1570EF] shadow-[0px_1px_2px_rgba(16,24,40,0.05)] rounded-lg  py-3 px-5 text-[#FFFFFF]">
-					View all posts
-				</div>
+			<div className="flex justify-center items-center mb-6">
+				<Link to="/blogs">
+					<div className=" bg-[#1570EF] border-[1px] border-solid border-[#1570EF] shadow-[0px_1px_2px_rgba(16,24,40,0.05)] rounded-lg  py-3 px-5 text-[#FFFFFF]">
+						View all posts
+					</div>
+				</Link>
 			</div>
 			<Footer />
 		</>

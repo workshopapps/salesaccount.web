@@ -1,56 +1,26 @@
 #!/usr/bin/python3
 """ DOCUMENT MATCHING MODULE """
-import os
-#from .api_key import API_KEY # uncomment this line if you have a personal API key
+from .api_key import API_KEY
 from .convert_file import convert_file
-#import json
-import openai
 import os
 import openai
-from .convert_file import convert_file
-#from .api_key import API_KEY #uncomment this line to use your personal openai api key
 import pandas as pd
-import json,csv,io
-#import openai
-
-# KINDLY ADD YOUR API KEY TO DEFUALT 
-API_KEY = os.getenv("OPENAI_API_KEY", default='API_KEY')
-
-openai.api_key = API_KEY
 
 
-def match(account_statement, financial_record):
-		""" Matches similar transactions in the documents
+API_KEY = os.getenv("OPENAI_API_KEY", default=API_KEY) #comment this line to use your personal openai api key. This is for the production environment
+
+openai.api_key = API_KEY # replace API_KEY with personal api secret key
+
+
+def openai_call(prompt):
+	""" Send a request to openai GPT3 for matching
 		
 		Args:
-		account_statement: bank account statement
-		financial_record: client financial record
-
+		prompt: string containing prompt for GPT3
 		Return:
 		object: json
 		"""
-		keyword = """
-			Match all details in these csv below. No need to title response.
-			Response as JSON\n
-			"""
-		
-		statement_table = pd.read_json(convert_file(account_statement))
-		statement_csv = statement_table.to_csv()
-		records_table = pd.read_json(convert_file(financial_record))
-		records_csv = records_table.to_csv()
-
-		columns = list(statement_table.columns) + list(records_table.columns)
-
-		example = "Example\n{"
-
-		for x in columns:
-			example += f"\n    \"{x}\":"
-
-		example += "\n  }\n"
-
-		prompt = f"{keyword}{example}{statement_csv}\n{records_csv}"
-
-		response = openai.Completion.create(
+	response = openai.Completion.create(
   					model="text-davinci-003",
   					prompt = prompt,
 					temperature=0.62,
@@ -58,33 +28,50 @@ def match(account_statement, financial_record):
 					top_p=1,
 					frequency_penalty=0,
 					presence_penalty=0
-					)
-		string = response.choices[0].text
-
-		return string
+				)
+	return response
 
 
-		keyword = "Below are two files Account Statement and Sales Record\nReconcile both Account Statement and Sales Record \n\n\n"
-
-		statement_table = pd.read_json(convert_file(account_statement))
+def match(file1, file2):
+		""" Matches similar transactions in the documents
+		
+		Args:
+		file1: first document uploaded
+		file2: second document uploaded
+		Return:
+		object: json
+		"""
+		keyword = """
+			Match all details in these csv below. No title.
+			Response in JSON\n
+			"""
+		statement_table = pd.read_json(convert_file(file1))
 		statement_csv = statement_table.to_csv()
-		records_table = pd.read_json(convert_file(financial_record))
+		records_table = pd.read_json(convert_file(file2))
 		records_csv = records_table.to_csv()
 
+		columns = list(statement_table.columns) + list(records_table.columns)
 
-		prompt = f"{keyword}{statement_csv}\n\n\n{records_csv}"
+		example = "Example\n[\n{"
 
-		response = openai.Completion.create(
-  					model="text-davinci-003",
-  					prompt = prompt ,
-					temperature=0.25,
-					max_tokens=1257,
-					top_p=1,
-					frequency_penalty=0,
-					presence_penalty=0
-					)
+		for x in columns:
+			example += f"\n    \"{x}\":"
+
+		example += "\n  }\n]"
+
+		prompt = f"{keyword}{example}{statement_csv}\n{records_csv}"
+		
+		response = openai_call(prompt)
+		
+		flag = 0
+		while flag < 5:
+			if response.choices[0].text == None:
+				response = openai_call(prompt)
+				flag += 1
+				print(f"{flag} failed requests")
+			else:
+				flag = 5
+
+
 		string = response.choices[0].text
-		# reader = csv.DictReader(io.StringIO(string))
-
-		return json.dumps(string)
-	
+		return eval(string)

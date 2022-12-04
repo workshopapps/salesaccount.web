@@ -13,7 +13,7 @@ import Documentation from './pages/Documentation';
 import Faqs from './pages/Faqs';
 import Guides from './pages/Guides';
 import Pricing from './pages/Pricing';
-import PrivacyAndHelp from './pages/PrivacyAndHelp';
+import Help from './pages/Help';
 import Resources from './pages/Resources';
 import UploadAccountsStatementReady from './pages/UploadAccountsStatementReady';
 import Userupload from './pages/UserUpload';
@@ -25,6 +25,8 @@ import reportWebVitals from './reportWebVitals';
 import DashBoard from './pages/Dashboard';
 import Gpt3 from './pages/Gpt-3';
 import Blogs from './pages/Blogs/Index';
+import Error404 from './pages/Error404/index'
+import ErrorProcessing from './pages/ErrorProcessing/index'
 // import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
 // import Upload from './pages/Dashboard/DashboardMain/UploadFile/Upload';
 import UploadReady from './pages/Dashboard/DashboardMain/UploadReady/UploadReady';
@@ -123,8 +125,8 @@ const router = createBrowserRouter([
 	},
 
 	{
-		path: '/privacyandhelp',
-		element: <PrivacyAndHelp />,
+		path: '/help',
+		element: <Help />,
 	},
 
 	{
@@ -178,14 +180,18 @@ const router = createBrowserRouter([
 		path: '/privacy',
 		element: <Privacy />,
 	},
+	{
+		path: '/404error',
+		element: <Error404 />,
+	},
 	// {
 	// 	path: '/settings',
 	// 	element: <Settings />,
 	// },
-	// {
-	// 	path: '/processingerror',
-	// 	element: <ErrorProcessing />,
-	// },
+	{
+		path: '/processingerror',
+		element: <ErrorProcessing />,
+	},
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
