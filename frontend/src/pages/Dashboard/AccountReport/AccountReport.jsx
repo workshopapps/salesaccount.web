@@ -25,7 +25,7 @@ function AccountReport() {
 			{rError && <p>{rError}</p>}
 			{loading && (
 				<div>
-					<p> Your Report is under Construction</p>
+					<p> Account Report is loading, hold on, might take a while...</p>
 					<img
 						className="w-full md:h-[400px] object-contain"
 						src="https://media2.giphy.com/media/a7oVsf3WTOaoE/giphy.gif"
