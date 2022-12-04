@@ -53,7 +53,7 @@ const resourcesData = [
 
 const Footer = () => (
 	<footer className='bg-[#D1E9FF]'>
-	<div className="w-full flex flex-col max-w-[1440px] mx-auto max-md:flex-col-reverse max-md:justify-center max-md:items-center max-md:py-8 md:flex-row justify-between xl:py-[136px] xl:px-[160px]">
+	<div className="w-full flex flex-col max-w-[1440px] mx-auto max-md:flex-col-reverse max-md:justify-center max-md:items-center max-md:py-8 md:flex-row justify-between xl:py-[136px] max-xl:py-[81px] max-xl:px-[80px] xl:px-[160px]">
 		
 		<div>
 			<figure className='flex flex-col max-md:h-[25px] max-md:mt-10'>
@@ -71,7 +71,7 @@ const Footer = () => (
 				<BsInstagram className='max-md:w-5' size={34} />
 			</div>
 		</div>
-		<div className='flex justify-center max-md:text-center gap-[276px] max-md:flex-col max-md:gap-10'>
+		<div className='flex justify-center max-md:text-center gap-[276px] max-md:flex-col max-lg:gap-36 max-md:gap-10'>
 		<div className="flex flex-col">
 			<h3 className="font-medium text-[#101828] text-[18px] xl:text-[28px]">
 				About Us
