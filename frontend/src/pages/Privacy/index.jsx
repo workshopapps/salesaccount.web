@@ -8,6 +8,13 @@ import Navbar from '../../components/NavigationBar';
 // import Control from '../../assets/images/Privacy/control.webp';
 // import Transparent from '../../assets/images/Privacy/transparent.webp';
 // import Compliance from '../../assets/images/Privacy/compliance.webp';
+import photo1 from '../../assets/images/Privacy/photo2.png'
+import photo2 from '../../assets/images/Privacy/photo3.png'
+import photo3 from '../../assets/images/Privacy/photo4.png'
+import Key from '../../assets/images/Privacy/Key.svg'
+import Camera from '../../assets/images/Privacy/camera.svg'
+import padlock from '../../assets/images/Privacy/padlock.svg'
+import Globe from '../../assets/images/Privacy/globe.svg'
 import Partnership from '../../assets/images/Privacy/partnership.webp';
 import './privacy.css'
 
