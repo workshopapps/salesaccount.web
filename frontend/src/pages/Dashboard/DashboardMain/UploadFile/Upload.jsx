@@ -11,7 +11,7 @@ function Upload() {
 	// Just some comment
 
 	return (
-		<div className="w-full flex flex-col items-center px-[1em] mb-10">
+		<div className="w-full flex flex-col items-center ">
 			<h1 className="font-semibold text-[#344054] text-[40px] mb-[1em]  md:text-2xl max-sm:text-2xl lg:mb-2">
 				Upload Account Statement
 			</h1>
