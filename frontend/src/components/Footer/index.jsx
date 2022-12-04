@@ -71,7 +71,7 @@ const Footer = () => (
 				<BsInstagram className='max-md:w-5' size={34} />
 			</div>
 		</div>
-		<div className='flex justify-center max-md:text-center gap-[276px] max-md:flex-col max-lg:gap-36 max-md:gap-10'>
+		<div className='flex justify-center max-md:text-center gap-[276px] max-md:flex-col px-10 max-lg:gap-8'>
 		<div className="flex flex-col">
 			<h3 className="font-medium text-[#101828] text-[18px] xl:text-[28px]">
 				About Us
@@ -86,7 +86,7 @@ const Footer = () => (
 				</Link>
 			))}
 		</div>
-		<div className="flex flex-col pt-[10px] xl:pt-0">
+		<div className="flex flex-col">
 			<h3 className="font-medium text-[#101828] text-[18px] xl:text-[28px]">
 				Resources
 			</h3>
