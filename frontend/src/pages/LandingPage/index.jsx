@@ -3,53 +3,53 @@ import Faq from 'react-faq-component';
 import { BsPlusCircle } from 'react-icons/bs';
 import { CiCircleMinus } from 'react-icons/ci';
 import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
+import { requirePropFactory } from '@mui/material';
+import { Link } from 'react-router-dom';
+import uploadIcon from '../../assets/images/landingPage/upload-icon-new.png';
+import howItWorks from '../../assets/images/landingPage/howitworks.png';
 import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
-import getInTouch from '../../assets/images/landingPage/landingpage__intouch.png';
-import userImage from '../../assets/images/landingPage/what_our_users_are_saying.png';
-import companyLogo from '../../assets/images/landingPage/landingpage_company_img.png';
-import headerImage from '../../assets/images/landingPage/recon-header-img.png';
-import cuttingImage from '../../assets/images/landingPage/landingpage__cutting.png';
-import mobileDashboard from '../../assets/images/landingPage/recon-mobile.png';
-import mobileCompany from '../../assets/images/landingPage/mobile_company.png';
-import iphoneScreen from '../../assets/images/landingPage/landingpage__iphone.png';
 
 const data = {
 	rows: [
 		{
+			id: 0,
+			title: 'What is ReconcileAI and how does it work?',
+			content:
+				'ReconcileAI is a web application that compares third-party and independent financial statements and records with internal financial records and ledgers. With the use of an AI Model and GPT -3, ReconcileAI automatically makes the accountant’s job easy and avoids errors. ReconcileAI automates tasks fast and easy for users who want to validate all transactions for the day, confirm payments and compare sales with the closing account statement.',
+		},
+		{
 			id: 1,
-			title: 'What is Account Pal and how does it work?',
-			content: `Account Pal is a web application that compares third-party and independent financial statements and records with internal financial records and ledgers. `,
+			title:
+				'Why should I make use of Account Pal to match my account statement to sales?',
+			content:
+				'ReconcileAI for SMES and SMBs saves time that would be spent if matching accounts to sales were done manually. With this web application, you can be sure to reduce human errors and fradulent risks associated with account reconciliation. ReconcileAI also ensures seamless and fast automation for users. We have put in place an amzing feature which allows users to track periodic net balance.',
 		},
 		{
 			id: 2,
-			title:
-				'Why should I make use of Account Pal to match my account statement to sales?',
-			content: `Account Pal for SME'S and SMBs helps save time that would otherwise be spent manually matching accounts statements to sales. 
-With this Web application, you can be sure to eliminate human errors and fraudulent risks associated with account reconciliation. 
-`,
+			title: 'How do I receive my report?',
+			content:
+				'On our ReconcileAI website, users can simply attach sales and bank statement files in a PDF file. With files uploaded, the document will be processed and returns with a file that contains the analysed and reconciled. The result can be downloaded as requested, or viewed right here on our website.',
 		},
 		{
 			id: 3,
-			title: 'How do I receive an overview of my report?',
-			content: `Account Pal allows users to import sales and bank statements. These documents will then be processed and you'll receive a file with the analysis and reconciliation.`,
+			title: 'Is ReconcileAI free for first time users?',
+			content:
+				'ReconcileAI has a 1-month trial period. When it expires, you can continue using the website for a small subscription fee.',
 		},
 		{
 			id: 4,
-			title: 'What are account statements?',
-			content: `It is a periodic summary of account activity within a defined period. `,
+			title:
+				'Is there a cap on the maximum number of transactions I can do daily, weekly or monthly?',
+			content:
+				'There is no cap on on the number of transactions one can carry out using ReconcileAI.',
 		},
 		{
 			id: 5,
-			title: 'Is Account Pal free for first-time users?',
-			content: `Account Pal has a free 1-month trial period. When this expires, you can continue using the site for a small subscription fee.`,
-		},
-		{
-			id: 6,
-			title:
-				'Is there a cap on the maximum number of transactions I can do weekly or monthly?',
-			content: `There is no cap on the number of transactions one can carry out using Account Pal.`,
+			title: 'Can my accountants and I collaborate on ReconcileAI?',
+			content:
+				'Yes, you can collaborate with others on your ReconcileAI by sharing your sign-in details with them.',
 		},
 	],
 };
@@ -94,27 +94,21 @@ const importantFeaturesData = [
 const whatAccountPalDoesData = [
 	{
 		id: 111,
-		title: 'Spot Errors',
+		title: 'API Technology',
 		content:
-			'Now you can seamlessly compile account statement and sales effectively',
+			'Create the stage for accurate account balance with our existing template. Add your sales or import them automatically from a spreadsheet.',
 	},
 	{
 		id: 222,
-		title: 'Balances your account statement',
+		title: 'GPT-3',
 		content:
-			'Automate Your bookkeeping easier with Account Pal to focus on what matters most, Your business',
+			'Import ot upload your sales with our existing template. Add your sales or import them automatically from a spreadsheet',
 	},
 	{
 		id: 333,
-		title: 'Track expenditure better',
+		title: 'SMEs and SMBs',
 		content:
-			'Never worry about income vs expenditure sheets. Account Pal there for you',
-	},
-	{
-		id: 444,
-		title: 'Stuck with a business idea?',
-		content:
-			'Our Open AI model combined with your business data can forecast future cost and predict if a new product will be profitable',
+			'After the import and matching the sales record the system with the AI system Balanced your account statement and download',
 	},
 ];
 
@@ -186,32 +180,67 @@ function LandingPage() {
 		<div>
 			<NavigationBar />
 			<div>
-				<div className="bg-[#EFF8FF] block md:flex space-around items-center justify-center gap-y-[8px] md:gap-y-[16px] md:pl-[0px] z-40 relative w-full h-[500px] md:h-[606px] pb-[50px] md:space-x-14 lg:space-x-3">
-					<div className="w-[256px] md:w-[350px] lg:w-[553px] xl:w-[1085px]  xl:leading-[58px] pb-[50px] pl-[30px]">
-						<h1 className="text-[#101828] w-[288px] md:w-[336px] lg:w-[600px] text-[28px] md:text-[35px] lg:text-[56px] md:leading-[40px] lg:leading-[56px]  font-semibold text-left pt-[10px]">
-							Lets make account
-							<span className="text-[#1570EF]"> reconciliation</span> easier and
-							faster for you!
+				<div className="bg-white flex flex-col md:flex-row justify-between w-full md:w-[95%] lg:w-[80%] my-[3em] lg:my-[5em] h-[40vh] py-[2em] px-[1em] mx-auto  ">
+					<div className="w-full md:w-[50%] md:mt-[3em] lg:mt-[2em] lg:w-[45%] space-y-[1em] leading-6">
+						<h1 className="text-[#101828] text-3xl md:text-4xl lg:text-6xl font-semibold  ">
+							Account
+							<span className="text-[#1570EF]"> Reconciliations</span> Made Easy
 						</h1>
-						<p className="xl:leading-[28px] w-[288px] md:w-[300px] lg:w-[410px] text-[#101828] font-normal text-[12px] xl:text-[20px] text-left  mb-5 ">
+						<p className="text-md font-light md:text-sm lg:text-lg">
 							Run your business effectively with a simplified solution to
 							reconcile your accounts & sales on a day-to-day basis
 						</p>
-						<Button title="Try it NOW" path="/dashboard/home" />
+						{/* <Button title="Try it NOW" path="/dashboard/home" /> */}
+
+						{/* CTA button  */}
+						<div className="md:hidden w-full">
+							<Link to="/dashboard/home">
+								<button
+									type="button"
+									className=" bg-[#2E90FA] text-white rounded flex justify-center align-center w-[90%] mx-auto py-[0.5em] mt-[3em]"
+								>
+									Upload Account Statement
+								</button>
+							</Link>
+						</div>
 					</div>
 
-					<img
-						src={headerImage}
-						alt="Dashboard"
-						className="hidden md:flex md:w-[350px] lg:w-[613px] md:h-[210px] lg:h-[387px]"
-					/>
-					<div className="flex justify-center">
-						<img src={mobileDashboard} alt="Dashboard" className=" md:hidden" />
+					{/* <img
+							src={headerImage}
+							alt="Dashboard"
+							className="hidden md:flex md:w-[350px] lg:w-[613px] md:h-[210px] lg:h-[387px]"
+						/>
+						<div className="flex justify-center">
+							<img
+								src={mobileDashboard}
+								alt="Dashboard"
+								className=" md:hidden"
+							/>
+						</div> */}
+
+					{/* upload files here only in desktop */}
+					<div className="hidden md:flex items-center justify-center w-[40%] lg:w-[35%] bg-[#F9FAFB] rounded-2xl flex-col shadow-xl">
+						<img
+							className="w-[60%] h-[60%] object-contain"
+							src={uploadIcon}
+							alt="uploadFile"
+						/>
+						<div className="w-full lg:w-[70%] mx-auto md:mt-[1em] ">
+							<Link to="/dashboard/home">
+								<button
+									type="button"
+									className=" bg-[#2E90FA] text-white text-xs py-2 w-[70%] mx-auto rounded border-[1px] border-[#2E90FA] flex justify-center align-center "
+								>
+									Upload Account Statement
+								</button>
+							</Link>
+						</div>
 					</div>
 				</div>
 			</div>
 
-			<div className="bg-[#F9FAFB] flex flex-col gap-y-[24px]  md:gap-y-[30px] md:mt-[-160px] md:z-50 md:relative">
+			{/* how it works  */}
+			<div className="bg-[#F9FAFB] flex flex-col gap-y-[24px]  md:gap-y-[30px] md:mt-[3em] md:z-50 md:relative">
 				{/* <h2 className="md:pt-[25px] pt-[20px] font-semibold md:text-[20px] text-[12px] text-[#344054] text-center">
 					Trusted By 100,000+ companies in 179 countries
 				</h2> */}
@@ -228,16 +257,13 @@ function LandingPage() {
 					/>
 				</div> */}
 
-				<div className="bg-[#175CD3] h-[938px] md:h-[938px] lg:h-[398px]">
+				<div className="bg-[#F9FAFB]">
 					<div className="pt-[30px] flex flex-col gap-y-[1px] items-center px-[44px] md:px-0 ">
-						<h2 className="font-semibold text-[#fff] md:text-[36px] text-[20px] text-center">
+						<h2 className="font-semibold text-[#101828] md:text-4xl text-xl text-center">
 							How it works
 						</h2>
-						<p className="text-[#fff] md:text-[20px] text-[16px] font-normal">
-							Balance your account in 3 Steps
-						</p>
 					</div>
-					<div className="flex flex-col xl:flex-row gap-[10px] xl:gap-[120px] px-[44px] md:px-[110px] pb-[34px] md:pb-[68px]">
+					{/* <div className="flex flex-col xl:flex-row gap-[10px] xl:gap-[120px] px-[44px] md:px-[110px] pb-[34px] md:pb-[68px]">
 						{trustedByFeaturesData.map((item) => (
 							<div className="flex flex-col items-center w-full ">
 								<h3 className="text-[#fff] font-bold text-[56px] md:text-[80px]">
@@ -253,6 +279,9 @@ function LandingPage() {
 								</div>
 							</div>
 						))}
+					</div> */}
+					<div className="flex justify-center items-center px-4 my-[2em] md:my-[4em]">
+						<img src={howItWorks} alt="how it works" />
 					</div>
 				</div>
 			</div>
@@ -325,22 +354,25 @@ function LandingPage() {
 				/>
 			</div> */}
 
-			<div className=" bg-[#F9FAFB] relative mt-[-200px] md:mt-0">
-				<h1 className="text-[#101828] font-semibold text-center text-[28px] md:text-[36px] pt-[24px] md:pt-[48px] px-[44px] md:px-0">
-					Why Choose Recon?
-				</h1>
-				<p className="text-[#667085] font-normal text-center text-[12px] md:text-[20px] pt-0 md:pt-[8px] pb-[24px]">
-					Important Features
-				</p>
-				<div className="flex flex-col xl:flex-row items-center xl:gap-[100px] px-[44px] md:px-[110px]">
+			<div className=" bg-[#F9FAFB] md:mt-0  p-[1em] md:p-[3em] text-left md:text-center py-[3em] md:py-[5em] lg:py-[7em]">
+				<h2 className="text-[#101828] font-semibold text-lg md:text-2xl lg:text-[36px] pt-[24px] md:pt-[48px] px-[44px] md:px-0">
+					Why Choose reconcile.<span className="text-[#2E90FA]">AI</span>?
+				</h2>
+
+				<div className="flex flex-col w-full md:flex-row justify-evenly md:text-center md:py-[2em]">
 					{whatAccountPalDoesData.map((item) => (
-						<div className="md:w-[400px]" key={item.id}>
-							<h2 className="font-semibold text-[#101828] text-[16px] pb-[4px] text-center">
-								{item.title}
-							</h2>
-							<p className="text-[#667085] font-normal text-[14px] text-center pb-[48px]">
-								{item.content}
-							</p>
+						<div
+							className=" w-full md:w-[30%] lg:w-[20%] mt-[2em]  "
+							key={item.id}
+						>
+							<div className="md:text-center space-y-[1em]">
+								<h2 className="font-semibold text-[#101828]  text-xl lg:text-2xl ">
+									{item.title}
+								</h2>
+								<p className="text-[#667085] flex justify-center font-normal text-md  md:text-sm md:text-center sm:text-xs">
+									{item.content}
+								</p>
+							</div>
 						</div>
 					))}
 				</div>
@@ -359,7 +391,6 @@ function LandingPage() {
 							<h3 className="text-[#101828] font-bold text-[80px]">
 								{item.number}
 							</h3>
-
 							<h4 className="text-[#101828] font-normal text-center text-[16px] ">
 								{item.content}
 							</h4>
@@ -411,43 +442,50 @@ function LandingPage() {
 				</div>
 			</div> */}
 
-			<div className="bg-[#F9FAFB] md:py-[84px] py-[48px]">
-				<div className="xl:px-[336px]  px-[44px]">
-					<div className="leading-[20px]">
-						<h2 className="font-semibold text-3xl text-center">
+			<div className="bg-[#F9FAFB] md:py-[3em] md:pb-[5em] py-[1em] lg:max-w-full space-y-[5em]">
+				<div className="lg:px-[50px]  px-[14px] ">
+					<div className="leading-[20px] my-[2em]">
+						<h2 className="font-semibold text-xl md:text-3xl text-center">
 							Frequently Asked Questions
 						</h2>
-						<p className="text-[#667085] text-center">
+						<p className="text-[#667085] text-center py-4">
 							Everything you need to know about the product and billing
 						</p>
 					</div>
-					<Faq data={data} styles={styles} config={config} />
-				</div>
-
-				<div className=" md:px-[54px] xl:px-[282px] mt-[120px]">
-					<div className="bg-[#F2F4F7] rounded-3xl px-[44px] md:px-[217px] py-[26px] flex flex-col items-center">
-						<img
-							src={getInTouch}
-							alt="Get in touch"
-							className="max-w-[130px] h-[63px] object-contain"
-						/>
-						<p className="text-[#101828] text-[16px] md:text-[18px] font-medium">
-							Still have questions?
-						</p>
-						<p className="font-normal text-[#667085] text-[10px] md:text-[18px] pb-[24px] text-center px-[44px] md:px-0">
-							Can&apos;t find the answer you&apos;re looking for?
-						</p>
-						<Button path="/faqs" title="View more" />
+					<div className="md:w-[80%] text-xs md:text-md leading-[200%] mx-auto">
+						<Faq data={data} styles={styles} config={config} />
 					</div>
 				</div>
+
+				{/* <div className="bg-[#F2F4F7] md:rounded-md flex flex-col items-center w-full md:w-[80%] lg:w-[60%] mx-auto  py-[3em] md:py-[2em] ">
+					<img
+						src={getInTouch}
+						alt="Get in touch"
+						className="max-w-[130px] h-[63px] object-contain"
+					/>
+					<p className="text-[#101828] text-[16px] md:text-[18px] font-medium">
+						Still have questions?
+					</p>
+					<p className="font-normal text-[#667085] text-[10px] md:text-[18px] pb-[24px] text-center px-[44px] md:px-0">
+						Can&apos;t find the answer you&apos;re looking for?
+					</p>
+					<Button path="/faqs" title="View more" />
+				</div> */}
 			</div>
-			<div className="text-center bg-[#F2F4F7] py-[30px] ">
-				<p className="font-semibold text-[20px] md:text-[36px] ">
-					Start your free trial.
+			<div className="text-center bg-[#F2F4F7] py-[3em] md:py-[3em]  ">
+				<p className="font-semibold text-xl md:text-3xl ">
+					Start your free trial
 				</p>
-				<p>Join over 4,000 startups already growing with Recon</p>
-				<div className="flex space-x-12 justify-center mt-[20px]">
-					<Button path="/aboutus" title="Learn more" />
+				<p className="text-slate-700">
+					Join over 4,000 startups already growing with reconcileAI
+				</p>
+				<div className="flex space-x-12 justify-center mt-[20px] ">
+					<button
+						type="button"
+						className="bg-white text-[#2E90FA] rounded px-[18px] py-[10px]"
+					>
+						Learn More
+					</button>
 					<Button path="/contact" title="Get in touch" />
 				</div>
 			</div>

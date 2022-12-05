@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import Transactions from '../Transactions/Transactions';
 import CurrentNav from '../../../../components/DashBoardCurrentNav/DashCurrentNav';
 import { useAuth } from '../../../../Store/Context';
+import ok from '../../../../assets/Ok.png';
 
 function ImportData() {
 	const [showDisplay, setShowDisplay] = useState(false);
@@ -25,56 +26,12 @@ function ImportData() {
 		getSalesData,
 	} = useAuth();
 
-	// const headerKeys = Object.keys(localData);
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
-	// const headerKeys2 = Object.keys(Object.assign({}, ...localData2));
-	const newData = [];
-	for (let i = 0; i < localData.length; i += 1) {
-		newData.push({
-			date: localData[i].Date,
-			description: localData[i].Description,
-			details: localData[i].Details,
-			balance: localData[i][' Balance '],
-			money_out: localData[i][' Money out '],
-			money_in: localData[i][' Money in '],
-		});
-	}
-	// CSV to Array
-	// const [csvArray, setCsvArray] = useState([]);
-
-	// const processCSV = (str, delim = ',') => {
-	// 	const headers = str.slice(0, str.indexOf('\n')).split(delim);
-	// 	const rows = str.slice(str.indexOf('\n') + 1).split('\n');
-
-	// 	const newArray = rows.map((row) => {
-	// 		const values = row.split(delim);
-	// 		/* eslint-disable no-param-reassign */
-	// 		const eachObject = headers.reduce((obj, header, i) => {
-	// 			obj[header] = values[i];
-	// 			return obj;
-	// 		}, {});
-	// 		/* eslint-disable no-param-reassign */
-	// 		return eachObject;
-	// 	});
-
-	// 	setCsvArray(newArray);
-
-	// 	return newArray;
-	// };
 
 	const handleSubmit = () => {
 		getSalesData();
 		navigate('/dashboard/reconcile');
-		// const fileReader = new FileReader();
-		// fileReader.onload = (e) => {
-		// 	const text = e.target.result;
-		// 	const data = processCSV(text);
-		// 	setLocalData2(data);
-		// };
-
-		// fileReader.readAsText(fileDropped2);
 	};
-	// CSV to array ends
 
 	// click functions
 	const clickShowDisplayHandler = () =>
@@ -83,8 +40,6 @@ function ImportData() {
 	const clickShowSortHandler = () =>
 		showSort === false ? setShowSortDisplay(true) : setShowSortDisplay(false);
 
-	//  make post request function
-
 	return (
 		<div className="w-full">
 			<div className="space-y-[1em]">
@@ -92,9 +47,16 @@ function ImportData() {
 					<CurrentNav />
 				</div>
 
-				<h1 className="text-[1.1em] md:text-[2em] font-bold">
-					Uploaded Account Statement Ready!
-				</h1>
+				<div className="flex items-center">
+					<h1 className="text-[1em] md:text-[1.5em] font-bold">
+						Uploaded Account Statement Ready!
+					</h1>
+					<img
+						className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] object-contain"
+						src={ok}
+						alt="ok"
+					/>
+				</div>
 
 				<div className="flex justify-between items-center ">
 					<div
@@ -147,8 +109,6 @@ function ImportData() {
 						</tbody>
 					</table>
 				</div>
-
-				{/* { localData?.map((lData)=><p>{ lData.Date }</p>) } */}
 			</div>
 
 			{showDisplay && (
@@ -183,7 +143,6 @@ function ImportData() {
 					</div>
 				</div>
 			)}
-			{/* <Transactions localData={localData} headerKeys={headerKeys}/> */}
 
 			{/* modal here */}
 			<div className="space-y-[2em] w-full mt-[2em]">
@@ -191,7 +150,7 @@ function ImportData() {
 				<div
 					onDragOver={dragHandlerFile2}
 					onDrop={dropHandlerFile2}
-					className=" text-center flex flex-col justify-center items-center mx-auto bg-[#F2F4F7] py-[4em] px-[1em] w-full md:w-[80%] lg:w-[60%] space-y-3 border border-black border-dashed "
+					className=" text-center flex flex-col justify-center items-center mx-auto bg-[#F2F4F7] py-[4em]  px-[1em] md:py-[2em] w-full md:w-[70%] lg:w-[40%] space-y-3 border border-black border-dashed "
 				>
 					<CloudUploadIcon sx={{ fontSize: '5em', color: '#2E90FA' }} />
 					<p>Drag and drop your file in this grey area</p>
