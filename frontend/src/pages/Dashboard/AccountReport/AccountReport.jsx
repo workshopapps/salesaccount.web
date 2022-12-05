@@ -1,10 +1,15 @@
+import * as ReactDOM from 'react-dom/client';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../Store/Context';
 import ok from '../../../assets/Ok.png';
 import './accountReport.css';
 
+
+
 function AccountReport() {
+
+
 	const { localData3, rError, loading } = useAuth();
 	const navigate = useNavigate();
 	const headerKeys = Object.keys(Object.assign({}, ...localData3));
@@ -78,3 +83,8 @@ function AccountReport() {
 }
 
 export default AccountReport;
+
+
+// const root = ReactDOM.createRoot();
+// 
+// root.render(<AccountReport />)
