@@ -181,7 +181,7 @@ const router = createBrowserRouter([
 		element: <Privacy />,
 	},
 	{
-		path: '/404error',
+		path: '/*',
 		element: <Error404 />,
 	},
 	// {
