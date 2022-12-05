@@ -19,12 +19,12 @@ export default function Error404 () {
 					<p className=" error-text font-['Lexend] text-[28px] leading-[38px] text-[#000] mb-[40px]">
 						We could not find what you searched for. Try searching again
 					</p>
-					<a
-						className="py-[16px] px-[28px] w-[131px] h-[60px] bg-[#2E90FA] text-[#fff] rounded-[8px] shadow-[0_1px_2px_rgba(16, 24, 40, 0.05)] text-center"
+					<aext
+						className="py-[16px] px-[28px] w-[150px] h-[60px] bg-[#2E90FA] text-[#fff] rounded-[8px] shadow-[0_1px_2px_rgba(16, 24, 40, 0.05)] text-center"
 						href="https://reconcileai.hng.tech/"
 					>
 						Go to Home
-					</a>
+					</aext>
 				</div>
 			</div>
 		);
