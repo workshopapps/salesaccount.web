@@ -43,6 +43,7 @@ import Privacy from './pages/Privacy';
 // } from './pages/Dashboard/DashboardMain/UploadFile/Upload';
 
 const router = createBrowserRouter([
+
 	{
 		path: '/',
 		element: <LandingPage />,
