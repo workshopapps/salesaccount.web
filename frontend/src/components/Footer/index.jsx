@@ -41,13 +41,15 @@ const Footer = () => (
 	<footer className="bg-[#D1E9FF] py-[5em] md:py-[12em]">
 		<div className="flex flex-col-reverse justify-center items-center lg:items-start lg:flex-row lg:justify-between w-9/12 mx-auto gap-[4em] lg:gap-0 align-top">
 			<div className="flex flex-col justify-center lg:max-w-[20%] align-center lg:justify-start gap-[0.5rem] lg:gap-6">
-				<figure className="flex justify-start items-center flex-col lg:items-start">
-					<img
-						className="w-8/12 lg:w-10/12"
-						src={logoUpdate}
-						alt="Company logo"
-					/>
-				</figure>
+				<Link to="/">
+					<figure className="flex justify-start items-center flex-col lg:items-start">
+						<img
+							className="w-8/12 lg:w-10/12"
+							src={logoUpdate}
+							alt="Company logo"
+						/>
+					</figure>
+				</Link>
 
 				<div className="hidden text-[#98A2B3] lg:flex justify-center lg:justify-start items-center gap-6 mt-6">
 					<BsTwitter size={24} />

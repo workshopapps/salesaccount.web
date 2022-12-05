@@ -23,7 +23,7 @@ export default function Error404 () {
 						className="py-[16px] px-[28px] w-[131px] h-[60px] bg-[#2E90FA] text-[#fff] rounded-[8px] shadow-[0_1px_2px_rgba(16, 24, 40, 0.05)] text-center"
 						href="https://reconcileai.hng.tech/"
 					>
-						Go Back
+						Go to Home
 					</a>
 				</div>
 			</div>
