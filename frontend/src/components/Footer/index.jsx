@@ -10,25 +10,25 @@ const aboutUsData = [
 		path: '/resources',
 	},
 	{
-		name: 'Our Team',
-		path: '/teams',
+		name: 'Our Vision',
+		path: '/aboutus',
 	},
 	{
-		name: 'Get in touch ',
-		path: '/contact',
+		name: 'Our Core values',
+		path: '/aboutus',
 	},
 ];
 const resourcesData = [
 	{
 		name: 'Support',
-		path: '/help',
+		path: '/contact',
 	},
 	{
 		name: 'Privacy',
 		path: '/privacy',
 	},
 	{
-		name: 'Blog',
+		name: 'Blogs',
 		path: '/blogs',
 	},
 	{
@@ -36,6 +36,20 @@ const resourcesData = [
 		path: '/faqs',
 	},
 ];
+// const ProductData = [
+// 	{
+// 		name: 'Pricing',
+// 		path: '/pricing',
+// 	},
+// 	{
+// 		name: 'How it works',
+// 		path: '/guides',
+// 	},
+// 	{
+// 		name: 'Features',
+// 		path: '/resources',
+// 	},
+// removed according to new design ];
 
 const Footer = () => (
 	<footer className="bg-[#D1E9FF] py-[5em] md:py-[12em]">
@@ -100,6 +114,36 @@ const Footer = () => (
 						</Link>
 					))}
 				</div>
+			</div>
+		</div>
+		<div className='flex justify-center max-md:text-center gap-[276px] max-md:flex-col px-10 max-lg:gap-8'>
+			<div className="flex flex-col">
+				<h3 className="font-medium text-[#101828] text-[18px] xl:text-[28px]">
+					About Us
+				</h3>
+				{aboutUsData.map((item) => (
+					<Link
+						to={item.path}
+						key={uuid()}
+						className="text-[#344054] font-normal  text-[16px] xl:text-[20px] py-[4px]"
+					>
+						{item.name}
+					</Link>
+				))}
+			</div>
+			<div className="flex flex-col">
+				<h3 className="font-medium text-[#101828] text-[18px] xl:text-[28px]">
+					Resources
+				</h3>
+				{resourcesData.map((item) => (
+					<Link
+						key={uuid()}
+						to={item.path}
+						className="text-[#344054] font-normal text-[16px] xl:text-[20px] py-[4px]"
+					>
+						{item.name}
+					</Link>
+				))}
 			</div>
 		</div>
 	</footer>
