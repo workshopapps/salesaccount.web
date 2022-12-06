@@ -1,20 +1,24 @@
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-import { useContext, useState, createContext, useMemo } from 'react';
+import { useContext, useState, createContext, useMemo, useEffect } from 'react';
 
 const UserContext = createContext();
 export const useAuth = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
+	const AccountStatementsaved = JSON.parse(localStorage.getItem("localData") || "[]");
+	const SalesRecordsaved = JSON.parse(localStorage.getItem("localData2") || "[]");
+	// const ReconciledRecordsSaved = JSON.parse(localStorage.getItem("localData3") || "[]");
+
 	const [saleAccountFiles, setSalesAccountFiles] = useState([]);
 	const [bankStatementFile, setBankStatementFile] = useState([]);
 	const [error, setError] = useState('');
 	const [localFile, setLocalFile] = useState([]);
 	const [localFile2, setLocalFile2] = useState();
 
-	const [localData, setLocalData] = useState([]);
-	const [localData2, setLocalData2] = useState([]);
+	const [localData, setLocalData] = useState(AccountStatementsaved);
+	const [localData2, setLocalData2] = useState(SalesRecordsaved);
 
 	// reconcile data
 	const [localData3, setLocalData3] = useState([]);
@@ -27,6 +31,9 @@ export const UserProvider = ({ children }) => {
 	const uploadUrl = 'https://api.reconcileai.hng.tech/upload';
 	const reconcileUrl = `https://api.reconcileai.hng.tech/reconcile`;
 	const downloadUrl = '';
+
+	// Persist Data on refresh
+
 
 	// ////////bank statement GET request
 	const getData = async () => {
