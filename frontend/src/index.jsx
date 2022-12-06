@@ -59,7 +59,6 @@ Sentry.init({
   });
 
 
-
 const router = createBrowserRouter([
 	{
 		path: '/',
