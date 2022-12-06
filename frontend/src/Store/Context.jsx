@@ -12,7 +12,6 @@ export const UserProvider = ({ children }) => {
 	const SalesRecordsaved = JSON.parse(localStorage.getItem("localData2") || "[]");
 	// const ReconciledRecordsSaved = JSON.parse(localStorage.getItem("localData3") || "[]");
 
-
 	const [saleAccountFiles, setSalesAccountFiles] = useState([]);
 	const [bankStatementFile, setBankStatementFile] = useState([]);
 	const [error, setError] = useState('');
@@ -34,6 +33,9 @@ export const UserProvider = ({ children }) => {
 	const reconcileUrl = `https://api.reconcileai.hng.tech/reconcile`;
 	const downloadUrl = '';
 
+	// Persist Data on refresh
+
+
 	// ////////bank statement GET request
 	const getData = async () => {
 		const formData = new FormData();
@@ -48,9 +50,6 @@ export const UserProvider = ({ children }) => {
 			.then((res) => setLocalData(res?.data))
 			.catch((e) => setError(e.message));
 	};
-	useEffect(() => {
-		localStorage.setItem('localData2', JSON.stringify(localData2));
-	}, [localData2]);
 
 	// ////sales Record ///////
 	const getSalesData = async () => {

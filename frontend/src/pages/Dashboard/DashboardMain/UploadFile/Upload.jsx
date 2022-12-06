@@ -11,10 +11,8 @@ function Upload() {
 	// Just some comment
 
 	return (
-		<div className="w-full flex flex-col items-center ">
-			<h1 className="font-semibold text-[#344054] text-[40px] mb-[1em]  md:text-2xl max-sm:text-2xl lg:mb-2">
-				Upload Account Statement
-			</h1>
+		<div className="w-full flex flex-col items-center mt-[3em] md:mt-[5em]">
+			<h1 className="font-bold text-2xl my-[1em] ">Upload Account Statement</h1>
 			<div
 				onDrop={dropHandler}
 				onDragOver={dragHandler}
