@@ -5,6 +5,7 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useAuth } from '../../../Store/Context';
 import ok from '../../../assets/Ok.png';
 import './accountReport.css';
+import ScrollToTop from '../../../components/ScrollToTop';
 
 function AccountReport() {
 	const { localData3, rError, loading } = useAuth();
@@ -13,6 +14,7 @@ function AccountReport() {
 
 	return (
 		<div className="space-y-[1em] mb-[5em]">
+      <ScrollToTop />
 			<div className="md:flex">
 				<div className="flex ">
 					<div className=" text-slate-500 font-semibold hover:text-black">

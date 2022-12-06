@@ -51,6 +51,7 @@ Sentry.init({
 	tracesSampleRate: 1.0,
 });
 
+
 const router = createBrowserRouter([
 	{
 		path: '/',

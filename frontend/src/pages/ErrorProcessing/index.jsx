@@ -1,7 +1,9 @@
 import React from 'react';
 import { FaGreaterThan } from 'react-icons/fa';
 import DashBoardHeader from '../../components/DashBoardHeader';
+import ScrollToTop from '../../components/ScrollToTop';
 import NavigationBar from '../../components/NavigationBar';
+
 
 const styles = {
 	bgColor: '#1570EF',
@@ -19,6 +21,7 @@ const processData = {
 
 const ErrorProcessing = () => (
 	<>
+    <ScrollToTop />
 		<NavigationBar />
 		<main className="m-[65px]">
 			<div className="processing-text">

@@ -7,6 +7,7 @@ import faqArray from '../../components/Faqs/faqArray';
 import Accordion from '../../components/Faqs/index';
 import Footer from '../../components/Footer';
 import NavigationBar from '../../components/NavigationBar';
+import ScrollToTop from '../../components/ScrollToTop';
 
 const data = {
 	rows: [
@@ -113,6 +114,7 @@ const Faqx = () => {
 
 	return (
 		<div>
+			<ScrollToTop />
 			<NavigationBar />
 			<div className="bg-[#F9FAFB] w-full flex justify-center">
 				<div className=" w-full font-body py-[3em] px-[1em]">

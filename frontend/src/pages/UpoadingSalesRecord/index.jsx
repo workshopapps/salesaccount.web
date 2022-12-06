@@ -3,12 +3,14 @@
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import data from './mockdata.json';
+import ScrollToTop from '../../components/ScrollToTop';
 
 const UpoadingSalesRecord = () => {
 	const [contacts, setContacts] = useState(data);
 
 	return (
 		<div className="m-8 ">
+			<ScrollToTop />
 			<div className="inline px-2 py-8 ml-2">
 				<div className="left-0 h-10 top-9">
 					<h2 className="h-10 text-xl font-semibold md:text-2xl lg:text-5xl font-Lexend">

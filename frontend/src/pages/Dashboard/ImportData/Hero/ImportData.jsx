@@ -9,7 +9,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useAuth } from '../../../../Store/Context';
 import ok from '../../../../assets/Ok.png';
+
+import ScrollToTop from '../../../../components/ScrollToTop';
 import signedDocument from '../../../../assets/images/DashboardImages/upload/signed document.png';
+
 
 function ImportData() {
 	const [showDisplay, setShowDisplay] = useState(false);
@@ -58,6 +61,7 @@ function ImportData() {
 
 	return (
 		<div className="w-full h-max pb-[10em]">
+    <ScrollToTop />
 			<div className="space-y-[1em]">
 				<div className="hidden md:flex">
 					<div className="flex ">
