@@ -14,40 +14,6 @@ function UploadReady() {
 		navigate('/dashboard/importpage');
 	};
 
-	// const [csvArray, setCsvArray] = useState([]);
-
-	// const processCSV = (str, delim = ',') => {
-	// 	const headers = str.slice(0, str.indexOf('\n')).split(delim);
-	// 	const rows = str.slice(str.indexOf('\n') + 1).split('\n');
-
-	// 	const newArray = rows.map((row) => {
-	// 		const values = row.split(delim);
-	// 		/* eslint-disable no-param-reassign */
-	// 		const eachObject = headers.reduce((obj, header, i) => {
-	// 			obj[header] = values[i];
-	// 			return obj;
-	// 		}, {});
-	// 		/* eslint-disable no-param-reassign */
-	// 		return eachObject;
-	// 	});
-
-	// 	setCsvArray(newArray);
-
-	// 	return newArray;
-	// };
-
-	// const handleSubmit = () => {
-	// 	getData();
-	// 	e.preventDefault();
-	// 	const fileReader = new FileReader();
-	// 	fileReader.onload = (e) => {
-	// 		const text = e.target.result;
-	// 		const data = processCSV(text);
-	// 		setLocalData(data);
-	// 	};
-	// 	fileReader.readAsText(fileDropped);
-	// };
-
 	return (
 		<div className="space-y-[1em] w-full mt-[10%] lg:mt-[5%] flex flex-col items-center ">
 			<h1 className="font-bold text-2xl ">Ready for Upload</h1>
@@ -65,13 +31,13 @@ function UploadReady() {
 						<p>You are almost set</p>
 						<p>
 							<span
-								className="text-[#53B1FD]"
+								className="text-[#53B1FD] "
 								role="presentation"
 								onClick={() => setLocalData(null)}
 							>
 								click here
-							</span> &nbsp;
-							to upload a different file
+							</span>
+							&nbsp; to upload a different file
 						</p>
 					</div>
 				</div>
@@ -87,7 +53,7 @@ function UploadReady() {
 				className="bg-[#2E90FA] text-white px-[1.5em] py-[0.8em] rounded-md "
 				type="submit"
 			>
-				Upload 
+				Upload
 			</button>
 		</div>
 	);

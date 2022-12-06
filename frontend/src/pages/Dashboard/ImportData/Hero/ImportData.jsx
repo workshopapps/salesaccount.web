@@ -49,8 +49,12 @@ function ImportData() {
 		showSort === false ? setShowSortDisplay(true) : setShowSortDisplay(false);
 
 	useEffect(() => {
-		localStorage.setItem("localData", JSON.stringify(localData));
+		localStorage.setItem('localData', JSON.stringify(localData));
 	}, [localData]);
+
+	useEffect(() => {
+		localStorage.setItem('localData2', JSON.stringify(localData2));
+	}, [localData2]);
 
 	return (
 		<div className="w-full h-max pb-[10em]">
@@ -168,7 +172,7 @@ function ImportData() {
 				</div>
 			)}
 
-			{!showTable && (
+			{localData2.length < 1 && (
 				<div className="space-y-[2em] w-full mt-[2em] ">
 					<h1 className="text-[1.5em] font-bold">Next, upload Sales Record</h1>
 					{showUpload ? (
@@ -234,7 +238,7 @@ function ImportData() {
 			)}
 
 			{/* Sales Data  */}
-			{showTable && (
+			{localData2.length > 1 && (
 				<div>
 					<div className="mt-[3em]">
 						<div className="space-y-[1em]">
@@ -290,36 +294,35 @@ function ImportData() {
 			)}
 
 			{/* Upload sales Record */}
-			{showUpload && (
-				<div className="flex justify-center pb-[5em] mt-[1em] ">
-					{localData2.length > 0 ? (
-						<button
-							type="submit"
-							onClick={(e) => {
-								e.preventDefault();
-								handleSubmit2();
-							}}
-							className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2   md:w-[30%] lg:w-[10%] active:color-#1849A9"
-						>
-							Reconcile
-						</button>
-					) : (
-						<button
-							onClick={(e) => {
-								e.preventDefault();
-								if (fileDropped2) {
-									handleSubmit();
-								}
-								setShowTable(true);
-							}}
-							type="submit"
-							className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2   md:w-[30%] lg:w-[10%] active:color-#1849A9"
-						>
-							Upload Sales Record
-						</button>
-					)}
-				</div>
-			)}
+
+			<div className="flex justify-center pb-[5em] mt-[1em] ">
+				{localData2.length > 0 ? (
+					<button
+						type="submit"
+						onClick={(e) => {
+							e.preventDefault();
+							handleSubmit2();
+						}}
+						className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2 border w-[70%]  md:w-[30%] lg:w-[10%] active:color-#1849A9"
+					>
+						Reconcile
+					</button>
+				) : (
+					<button
+						onClick={(e) => {
+							e.preventDefault();
+							if (fileDropped2) {
+								handleSubmit();
+							}
+							setShowTable(true);
+						}}
+						type="submit"
+						className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2   w-[70%]  md:w-[30%]  lg:w-[10%] active:color-#1849A9"
+					>
+						Upload Sales Record
+					</button>
+				)}
+			</div>
 		</div>
 	);
 }
