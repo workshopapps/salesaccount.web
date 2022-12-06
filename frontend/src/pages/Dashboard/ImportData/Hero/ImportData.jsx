@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import './Hero.css';
 import '../Transactions/User/user.css';
@@ -47,6 +47,10 @@ function ImportData() {
 
 	const clickShowSortHandler = () =>
 		showSort === false ? setShowSortDisplay(true) : setShowSortDisplay(false);
+
+	useEffect(() => {
+		localStorage.setItem("localData", JSON.stringify(localData));
+	}, [localData]);
 
 	return (
 		<div className="w-full h-max pb-[10em]">
