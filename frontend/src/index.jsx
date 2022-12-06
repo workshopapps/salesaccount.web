@@ -62,6 +62,7 @@ Sentry.init({
 
 
 const router = createBrowserRouter([
+
 	{
 		path: '/',
 		element: <LandingPage />,
@@ -200,7 +201,7 @@ const router = createBrowserRouter([
 		element: <Privacy />,
 	},
 	{
-		path: '/*',
+		path: '*',
 		element: <Error404 />,
 	},
 	// {
