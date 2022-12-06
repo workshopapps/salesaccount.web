@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes import api_status, post_documents, reconcile_documents
 
-app = FastAPI(root_path="/api/v1")
+app = FastAPI()
 
 
 app.add_middleware(
