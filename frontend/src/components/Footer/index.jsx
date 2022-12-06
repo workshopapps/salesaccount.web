@@ -6,8 +6,8 @@ import logoUpdate from '../../assets/logoUpdate.svg';
 
 const aboutUsData = [
 	{
-		name: 'Our Mission',
-		path: '/aboutus',
+		name: 'Resources',
+		path: '/resources',
 	},
 	{
 		name: 'Our Vision',
