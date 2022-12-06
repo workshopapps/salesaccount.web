@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 // Application Monitoring and Error Reporting by DeVops
-import * as Sentry from "@sentry/react";
-import { BrowserTracing } from "@sentry/tracing";
+import * as Sentry from '@sentry/react';
+import { BrowserTracing } from '@sentry/tracing';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
@@ -30,10 +30,8 @@ import reportWebVitals from './reportWebVitals';
 import DashBoard from './pages/Dashboard';
 import Gpt3 from './pages/Gpt-3';
 import Blogs from './pages/Blogs/Index';
-import Error404 from './pages/Error404/index'
-import ErrorProcessing from './pages/ErrorProcessing/index'
-// import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
-// import Upload from './pages/Dashboard/DashboardMain/UploadFile/Upload';
+import Error404 from './pages/Error404/index';
+import ErrorProcessing from './pages/ErrorProcessing/index';
 import UploadReady from './pages/Dashboard/DashboardMain/UploadReady/UploadReady';
 import ImportData from './pages/Dashboard/ImportData/Hero/ImportData';
 import Reconcile from './pages/Dashboard/ImportData/Hero/Reconcile';
@@ -41,25 +39,17 @@ import { UserProvider } from './Store/Context';
 import AccountReport from './pages/Dashboard/AccountReport/AccountReport';
 import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
 import Privacy from './pages/Privacy';
-// import ImportData from './pages/Dashboard/ImportData/Hero/ImportData';
-// import {
-// 	Upload,
-// 	UploadReady,
-// } from './pages/Dashboard/DashboardMain/UploadFile/Upload';
 
 // using sentry for error reporting and monitoring in react production mode
 Sentry.init({
-	dsn: "https://4a3e104ad3e7451c8276d1ab491fbd56@o4504281023315968.ingest.sentry.io/4504281163825152",
+	dsn: 'https://4a3e104ad3e7451c8276d1ab491fbd56@o4504281023315968.ingest.sentry.io/4504281163825152',
 	integrations: [new BrowserTracing()],
-  
+
 	// Set tracesSampleRate to 1.0 to capture 100%
 	// of transactions for performance monitoring.
 	// We recommend adjusting this value in production
 	tracesSampleRate: 1.0,
-  });
-
-  
-
+});
 
 const router = createBrowserRouter([
 	{
@@ -200,11 +190,7 @@ const router = createBrowserRouter([
 		element: <Privacy />,
 	},
 	{
-<<<<<<< HEAD
 		path: '*',
-=======
-		path: '/*',
->>>>>>> be7da691122ba1103490c136ce90fa14abc7c1b1
 		element: <Error404 />,
 	},
 	// {
