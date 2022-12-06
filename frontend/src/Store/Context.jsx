@@ -7,6 +7,7 @@ const UserContext = createContext();
 export const useAuth = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
+	// Persisting data
 	const AccountStatementsaved = JSON.parse(localStorage.getItem("localData") || "[]");
 	const SalesRecordsaved = JSON.parse(localStorage.getItem("localData2") || "[]");
 	// const ReconciledRecordsSaved = JSON.parse(localStorage.getItem("localData3") || "[]");
@@ -15,7 +16,7 @@ export const UserProvider = ({ children }) => {
 	const [bankStatementFile, setBankStatementFile] = useState([]);
 	const [error, setError] = useState('');
 	const [localFile, setLocalFile] = useState([]);
-	const [localFile2, setLocalFile2] = useState();
+	const [localFile2, setLocalFile2] = useState([]);
 
 	const [localData, setLocalData] = useState(AccountStatementsaved);
 	const [localData2, setLocalData2] = useState(SalesRecordsaved);
@@ -49,6 +50,9 @@ export const UserProvider = ({ children }) => {
 			.then((res) => setLocalData(res?.data))
 			.catch((e) => setError(e.message));
 	};
+	useEffect(() => {
+		localStorage.setItem('localData2', JSON.stringify(localData2));
+	}, [localData2]);
 
 	// ////sales Record ///////
 	const getSalesData = async () => {

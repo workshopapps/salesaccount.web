@@ -41,9 +41,8 @@ function ImportData() {
 		showSort === false ? setShowSortDisplay(true) : setShowSortDisplay(false);
 
 	useEffect(() => {
-			localStorage.setItem('localData', JSON.stringify(localData))
-	}, [localData])
-
+		localStorage.setItem("localData", JSON.stringify(localData));
+	}, [localData]);
 
 	return (
 		<div className="w-full">
