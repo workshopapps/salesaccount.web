@@ -6,13 +6,14 @@ from typing import List
 import pandas as pd
 import pdfkit
 import requests as req
+import asyncio
 
 
 router = APIRouter()
 
 
 @router.post("/reconcile")
-def reconcile(files: List[UploadFile]):
+async def reconcile(files: List[UploadFile]):
 	""" Matches similar transactions in the documents """
 	if len(files) == 2:
 		try:
@@ -21,7 +22,7 @@ def reconcile(files: List[UploadFile]):
 				file_dir = f"Media\{file.filename}"
 				with open(file_dir, 'wb') as f:
 					f.write(contents)
-			response = match(f"Media\{files[0].filename}", f"Media\{files[1].filename}")
+			response = await match(f"Media\{files[0].filename}", f"Media\{files[1].filename}")
 			return response
 		except Exception as e:
 			return {"message": f"Error: {e} occured. Inform team. Thanks."}
