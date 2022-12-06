@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+
+// Application Monitoring and Error Reporting by DeVops
+import * as Sentry from "@sentry/react";
+import { BrowserTracing } from "@sentry/tracing";
+
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import AboutUs from './pages/AboutUs';
@@ -41,6 +46,19 @@ import Privacy from './pages/Privacy';
 // 	Upload,
 // 	UploadReady,
 // } from './pages/Dashboard/DashboardMain/UploadFile/Upload';
+
+// using sentry for error reporting and monitoring in react production mode
+Sentry.init({
+	dsn: "https://4a3e104ad3e7451c8276d1ab491fbd56@o4504281023315968.ingest.sentry.io/4504281163825152",
+	integrations: [new BrowserTracing()],
+  
+	// Set tracesSampleRate to 1.0 to capture 100%
+	// of transactions for performance monitoring.
+	// We recommend adjusting this value in production
+	tracesSampleRate: 1.0,
+  });
+
+
 
 const router = createBrowserRouter([
 	{
