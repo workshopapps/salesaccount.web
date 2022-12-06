@@ -30,9 +30,12 @@ pipeline {
                 //copy workspace to directory
                 //sh 'sudo cp -rf ${WORKSPACE}/frontend/build/* /var/www/html'
                 sh 'sudo cp -rf ${WORKSPACE}/frontend/build/* /home/dcnc/salesaccount.web/frontend/build'
+                sh 'sudo cp -rf ${WORKSPACE}/frontend/ /var/www/salesaccount.web'
                 //sh 'pm2 stop reconcileaifrontend && pm2 delete reconcileaifrontend'
                 sh 'sudo su dcnc && whoami'
-                sh 'sudo pm2 serve /home/dcnc/salesaccount.web/frontend/build --port 55501 --name reconcileaifrontend'
+                sh 'sudo pm2 delete -s reconcileaifrontend || :'
+                //sh 'cd frontend && pm2 serve -s build 55501 --name reconcileaifrontend --spa'
+                sh 'sudo pm2 serve -s /home/dcnc/salesaccount.web/frontend/build --port 55501 --name reconcileaifrontend --spa'
             }
         }
 
@@ -42,16 +45,16 @@ pipeline {
                 sh 'sudo cp -rf ${WORKSPACE}/Backend/* /home/dcnc/salesaccount.web/Backend'
                 sh "pwd"
                 sh "cd Backend && ls -l"
-                sh "python3 -m venv myvenv"
-                sh "source myvenv/bin/activate"
-                sh "pip install -r requirements.txt"
+               // sh "cd Backend && python3 -m venv myvenv"
+               // sh "cd Backend && cd myvenv && . bin/activate"
+                sh "cd Backend && pip install -r requirements.txt"
                 // start the fastapi server on port 55502 with Uvicorn
-                //sh "sudo pm2 start uvicorn main:app --name reconcileaibackend --interpreter python3 --bind"
-                sh "ls -la"
-                sh "uvicorn main:app --host 0.0.0.0 --port 55502"
-                //sh 'pip install -r requirements.txt'
-                //sh 'python app.py'
+                sh 'sudo pm2 delete -s reconcileaibackend || :'
+                sh "cd Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502' --name reconcileaibackend"
             }
         }
     }
 }
+
+//create a cron job to run the curl localhost:55501 on the first of every month at 7:00 AM
+//0 7 1 * * curl localhost:55501

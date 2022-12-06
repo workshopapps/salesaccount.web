@@ -4,20 +4,20 @@ import csv
 from pathlib import Path
 import pandas as pd
 from sqlalchemy.orm import Session as  db
-from config.db import engine
-from models.Account_statement import Transaction_Statement as TS 
+# from config.db import engine
+# from models.Account_statement import Transaction_Statement as TS 
 
 
 
-def insert_Csv_Database(filepath):
-    df =  pd.read_csv(filepath, sep=',')
-    print(df)
-    # with open(filepath, 'r',encoding='utf-8' ) as file:
-    #   contents = csv.reader(file, delimiter = ",")
-    df.to_sql('transaction_statement',
-              con=engine,
-              index=False,
-              if_exists='append')
+# def insert_Csv_Database(filepath):
+#     df =  pd.read_csv(filepath, sep=',')
+#     print(df)
+#     # with open(filepath, 'r',encoding='utf-8' ) as file:
+#     #   contents = csv.reader(file, delimiter = ",")
+#     df.to_sql('transaction_statement',
+#               con=engine,
+#               index=False,
+#               if_exists='append')
     
     # with open(filepath, 'r',encoding='utf-8' ) as file:
     #     contents = csv.reader(file, delimiter = ",")

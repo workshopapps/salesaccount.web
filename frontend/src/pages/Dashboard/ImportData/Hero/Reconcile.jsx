@@ -6,10 +6,8 @@ import '../Transactions/User/user.css';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { Link, useNavigate } from 'react-router-dom';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import Transactions from '../Transactions/Transactions';
-import CurrentNav from '../../../../components/DashBoardCurrentNav/DashCurrentNav';
 import { useAuth } from '../../../../Store/Context';
-import SalesReport from '../Transactions/SalesReport';
+import ok from '../../../../assets/Ok.png';
 
 function Reconcile() {
 	const [showDisplay, setShowDisplay] = useState(false);
@@ -17,32 +15,10 @@ function Reconcile() {
 	const [showDisplay2, setShowDisplay2] = useState(false);
 	const [showSort2, setShowSortDisplay2] = useState(false);
 	const navigate = useNavigate();
-	const {
-		localData,
-		fileDropped,
-		localData2,
-		fileDropped2,
-		reconcileData,
-		localData3,
-	} = useAuth();
+	const { localData, fileDropped, localData2, fileDropped2, reconcileData } =
+		useAuth();
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
 	const headerKeys2 = Object.keys(Object.assign({}, ...localData2));
-
-	// 	const generatePDF = () => {
-	//
-	// 		const report = new JsPDF('portrait', 'pt', 'a4');
-	// 		report.html(document.querySelector('#report')).then(() => {
-	// 			report.save('report.pdf');
-	// 		});
-
-	// const generatePDF = () =>{
-	// 	const report = new jsPDF();
-	// 	// const contentRef = useRef(null)
-
-	// 	report.html(document.querySelector('#reportCanvas')).then(()=>{
-	// 		report.save('ReconcileAI.pdf')
-	// 	})
-	// }
 
 	// click functions
 	const clickShowDisplayHandler = () =>
@@ -88,10 +64,16 @@ function Reconcile() {
 					</div>
 				</div>
 
-				<h1 className="text-[1.1em] md:text-[2em] font-bold">
-					Uploaded Account Statement Ready!
-				</h1>
-
+				<div className="flex items-center">
+					<h1 className="text-[1em] md:text-[1.5em] font-bold">
+						Uploaded Account Statement Ready!
+					</h1>
+					<img
+						className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] object-contain"
+						src={ok}
+						alt="ok"
+					/>
+				</div>
 				<div className="flex justify-between items-center ">
 					<div
 						onClick={clickShowDisplayHandler}
@@ -149,7 +131,6 @@ function Reconcile() {
 					</div>
 				</div>
 			)}
-			{/* <Transactions /> */}
 
 			{/* Mapped Dynamic Data from CSV for  bank statements */}
 			<div className="my-8">
@@ -176,17 +157,22 @@ function Reconcile() {
 						</tbody>
 					</table>
 				</div>
-
-				{/* { localData?.map((lData)=><p>{ lData.Date }</p>) } */}
 			</div>
 
 			{/* Sale Record here  */}
 
 			<div className="mt-[3em]">
 				<div className="space-y-[1em]">
-					<h1 className="text-[1.1em] md:text-[2em] font-bold">
-						Uploaded Sales Record Ready!
-					</h1>
+					<div className="flex items-center">
+						<h1 className="text-[1.1em] md:text-[2em] font-bold">
+							Uploaded Sales Record Ready!
+						</h1>
+						<img
+							className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] object-contain"
+							src={ok}
+							alt="ok"
+						/>
+					</div>
 
 					<div className="flex justify-between items-center ">
 						<div className="relative w-[35%] md:w-[25%] lg:w-[15%]">
@@ -250,7 +236,6 @@ function Reconcile() {
 				</div>
 			</div>
 
-			{/* <SalesReport /> */}
 			{/* Mapped Dynamic Data from CSV for salesreport */}
 			<div className="my-8" id="reportCanvas">
 				<p className="my-4 text-green-600 font-bold">{fileDropped2.name}</p>
@@ -281,8 +266,6 @@ function Reconcile() {
 						</tbody>
 					</table>
 				</div>
-
-				{/* { localData?.map((lData)=><p>{ lData.Date }</p>) } */}
 			</div>
 
 			{/* sync to data baseButton */}
@@ -291,10 +274,7 @@ function Reconcile() {
 					type="submit"
 					onClick={(e) => {
 						e.preventDefault();
-						// generatePDF();
 						handleSubmit();
-						reconcileData();
-						// console.log(localData3);
 					}}
 					className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2  w-[70%] md:w-[60%] lg:w-[30%] active:color-#1849A9"
 				>
