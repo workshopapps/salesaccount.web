@@ -94,11 +94,11 @@ const Resources = () => (
 			{data.map((item) => (
 				<div key={item.id} className="my-[2em] ">
 					<div className="flex-grow ">
-						<div className="p-5 border rounded-md  w-72 drop-shadow">
+						<div className="p-5 border rounded-md shadow-md w-72">
 							<div className="w-full mb-4">
 								<img src={item.image} alt="" className="w-[120%]" />
 							</div>
-							<p className="pt-4 text-blue-500  text-md">{item.header}</p>
+							<p className="pt-4 text-blue-500 text-md">{item.header}</p>
 							<h1 className="py-3 font-semibold ">{item.subtext}</h1>
 							<Link to={item.to} className="">
 								<img src={arrowright} alt="" />

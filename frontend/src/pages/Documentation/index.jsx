@@ -39,9 +39,9 @@ const Documentation = () => (
 						<li className="my-px w-[100%]  text-center">
 							<a
 								href="#howToUse"
-								className="flex flex-row items-center h-10 min-w-max  text-[#101828] hover:bg-[#2E90FA]  first:first:hover:text-[white] hover:text-[#F9FAFB]"
+								className="flex flex-row items-center h-10 min-w-max  text-[#101828] hover:bg-[#2E90FA] hover:text-[#F9FAFB] group"
 							>
-								<span className="ml-3">How to use reconcile.<span className='text-[#2E90FA]'>AI</span> </span>
+								<span className="ml-3">How to use reconcile.</span><span className='text-[#2E90FA] group-hover:text-[#F9FAFB]'>AI</span> 
 							</a>
 						</li>
                         <li className="my-px w-[100%]  text-center">
