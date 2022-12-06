@@ -7,6 +7,7 @@ import { FaGreaterThan } from 'react-icons/fa';
 import { CgProfile } from 'react-icons/cg';
 import DashBoardSideBar from '../../components/DashBoardSideBar';
 import DashBoardHeader from '../../components/DashBoardHeader';
+import ScrollToTop from '../../components/ScrollToTop';
 
 const styles = {
 	bgColor: '#1570EF',
@@ -26,6 +27,7 @@ const processData = {
 
 const Userupload = () => (
 	<>
+		<ScrollToTop />
 		<DashBoardHeader />
 		<div className="dashboard-main-cont">
 			<DashBoardSideBar />

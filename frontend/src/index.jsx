@@ -34,6 +34,7 @@ import { UserProvider } from './Store/Context';
 import AccountReport from './pages/Dashboard/AccountReport/AccountReport';
 import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
 import Privacy from './pages/Privacy';
+// import ScrollToTop from './components/ScrollToTop';
 // import ImportData from './pages/Dashboard/ImportData/Hero/ImportData';
 // import {
 // 	Upload,
@@ -192,6 +193,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
 		<UserProvider>
+			{/* <ScrollToTop /> */}
 			<RouterProvider router={router} />
 		</UserProvider>
 	</React.StrictMode>

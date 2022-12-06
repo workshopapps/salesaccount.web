@@ -10,6 +10,7 @@ import Transactions from '../Transactions/Transactions';
 import CurrentNav from '../../../../components/DashBoardCurrentNav/DashCurrentNav';
 import { useAuth } from '../../../../Store/Context';
 import ok from '../../../../assets/Ok.png';
+import ScrollToTop from '../../../../components/ScrollToTop';
 
 function ImportData() {
 	const [showDisplay, setShowDisplay] = useState(false);
@@ -88,6 +89,7 @@ function ImportData() {
 
 	return (
 		<div className="w-full">
+			<ScrollToTop />
 			<div className="space-y-[1em]">
 				<div className="hidden md:flex">
 					<CurrentNav />

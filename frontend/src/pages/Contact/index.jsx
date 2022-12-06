@@ -3,9 +3,11 @@ import { Form } from '../../components/ContactForm/Form';
 import ContactUsImage from '../../assets/images/contact-page-images/contact-page-image.png';
 import NavigationBar from '../../components/NavigationBar/index';
 import Footer from '../../components/Footer/index';
+import ScrollToTop from '../../components/ScrollToTop';
 
 const ContactUs = () => (
 	<>
+		<ScrollToTop />
 		<NavigationBar />
 
 		<main className="bg-very-light-blue flex flex-col justify-center items-center py-[50px] px-[30px] ">

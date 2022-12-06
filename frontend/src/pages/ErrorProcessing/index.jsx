@@ -2,6 +2,7 @@ import React from 'react';
 import { FaGreaterThan } from 'react-icons/fa';
 import DashBoardSideBar from '../../components/DashBoardSideBar';
 import DashBoardHeader from '../../components/DashBoardHeader';
+import ScrollToTop from '../../components/ScrollToTop';
 
 const styles = {
 	bgColor: '#1570EF',
@@ -19,6 +20,7 @@ const processData = {
 
 const ErrorProcessing = () => (
 	<>
+		<ScrollToTop />
 		<DashBoardHeader />
 		<div className="dashboard-main-cont">
 			<DashBoardSideBar />

@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../Store/Context';
 import './accountReport.css';
+import ScrollToTop from '../../../components/ScrollToTop';
 // import AccountReportDetail from './AccountReportDetail/AccountReportDetail';
 // import SalesReport from './AccountReportDetail/SalesReport';
 
@@ -28,6 +29,7 @@ function AccountReport() {
 
 	return (
 		<div className="space-y-[1em]">
+			<ScrollToTop />
 			<h1 className=" font-bold text-xl ">Account Balance Report Ready!</h1>
 			{/* report table */}
 			{/* <div className="report space-y-[1em] md:space-y-[2em] pb-[2em] border"> */}

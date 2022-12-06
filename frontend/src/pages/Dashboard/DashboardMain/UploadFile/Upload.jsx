@@ -1,7 +1,8 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import document from '../../../../assets/images/DashboardImages/upload/document.png';
 import './upload.css';
 import { useAuth } from '../../../../Store/Context';
+import ScrollToTop from '../../../../components/ScrollToTop';
 
 function Upload() {
 	const { dragHandler, dropHandler, setLocalFile, setFileDropped } = useAuth();
@@ -12,6 +13,7 @@ function Upload() {
 
 	return (
 		<div className="w-full flex flex-col items-center ">
+			<ScrollToTop />
 			<h1 className="font-semibold text-[#344054] text-[40px] mb-[1em]  md:text-2xl max-sm:text-2xl lg:mb-2">
 				Upload Account Statement
 			</h1>

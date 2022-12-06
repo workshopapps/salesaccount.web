@@ -13,6 +13,7 @@ import briefCase from '../../assets/images/careers-page/Suitcase 1.png';
 import location from '../../assets/images/careers-page/location.png';
 import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
+import ScrollToTop from '../../components/ScrollToTop';
 
 const Careers = () => {
 	const teams = [
@@ -111,6 +112,7 @@ const Careers = () => {
 
 	return (
 		<>
+			<ScrollToTop />
 			<NavigationBar />
 			<div>
 				<div className="text-center bg-hero bg-cover bg-no-repeat h-[460px] md:h-[600px] bg-center">

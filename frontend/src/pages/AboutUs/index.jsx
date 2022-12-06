@@ -7,9 +7,11 @@ import blueSquaremob from '../../assets/images/about-us/bluesquaremob.png';
 import mission from '../../assets/images/about-us/mission.png';
 import valueImg from '../../assets/images/about-us/values.png';
 import NavigationBar from '../../components/NavigationBar';
+import ScrollToTop from '../../components/ScrollToTop';
 
 const AboutUs = () => (
 	<div>
+		<ScrollToTop />
 		<NavigationBar />
 		<section className="lg:pt-24 lg:pb-24 lg:pl-36 lg:pr-36 p-8 pb-16 bg-[#F2F4F7] z-0 ">
 			<div className="flex lg:flex-row lg:gap-48  items-center flex-col justify-between">

@@ -7,9 +7,11 @@ import stepthreeMobile from '../../assets/images/documentation/stepthreeMobile.p
 import stepTwo from '../../assets/images/documentation/steptwo.png';
 import stepThree from '../../assets/images/documentation/stepthree.png';
 import Footer from '../../components/Footer';
+import ScrollToTop from '../../components/ScrollToTop'
 
 const Documentation = () => (
 	<div className="text-gray-800 bg-white ">
+		<ScrollToTop />
 		<NavigationBar />
 		<header className="header bg-[#2E90FA] md:bg-[#D7DBDF] text-white md:text-[#101828] shadow py-4 px-4">
 

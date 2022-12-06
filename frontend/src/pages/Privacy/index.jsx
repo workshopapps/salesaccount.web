@@ -1,4 +1,3 @@
-import React from 'react';
 import padlock from '../../assets/images/Privacy/padlock.svg';
 import Key from '../../assets/images/Privacy/Key.svg';
 import Camera from '../../assets/images/Privacy/camera.svg';
@@ -9,9 +8,11 @@ import photo2 from '../../assets/images/Privacy/photo2.png';
 import photo3 from '../../assets/images/Privacy/photo3.png';
 import Footer from '../../components/Footer';
 import Navbar from '../../components/NavigationBar';
+import ScrollToTop from '../../components/ScrollToTop';
 
 const Privacy = () => (
 	<div>
+		<ScrollToTop />
 		<Navbar />
 		<div className="mx-auto">
 			<div className="">
@@ -77,7 +78,7 @@ const Privacy = () => (
 							src={padlock}
 							alt="padlock"
 						/>
-						<p className="text-xl text-blue-600 text-center font-bold pt-6">
+						<p className="text-2xl text-blue-600 text-center font-bold pt-6">
 							Security
 						</p>
 					</div>

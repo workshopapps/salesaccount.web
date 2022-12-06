@@ -2,10 +2,12 @@ import React from 'react';
 import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
 import heroImage from '../../assets/images/HelpCenter/hero.png';
+import ScrollToTop from '../../components/ScrollToTop'
 
 function Help() {
 	return (
 		<div>
+			<ScrollToTop />
 			<NavigationBar />
 			<div className="w-full text-[#101828]">
 				{/* Hero Section  */}
