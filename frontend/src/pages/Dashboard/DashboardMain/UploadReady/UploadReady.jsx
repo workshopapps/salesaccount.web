@@ -70,7 +70,7 @@ function UploadReady() {
 								onClick={() => setLocalData(null)}
 							>
 								click here
-							</span>
+							</span> &nbsp;
 							to upload a different file
 						</p>
 					</div>
@@ -87,7 +87,7 @@ function UploadReady() {
 				className="bg-[#2E90FA] text-white px-[1.5em] py-[0.8em] rounded-md "
 				type="submit"
 			>
-				Upload here
+				Upload 
 			</button>
 		</div>
 	);

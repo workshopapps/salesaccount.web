@@ -46,7 +46,7 @@ function Reconcile() {
 	return (
 		<div className="w-full">
 			<div className="space-y-[1em]">
-				<div className="hidden md:flex">
+				<div className="md:flex">
 					{/* <CurrentNav /> */}
 
 					<div className="flex ">
@@ -56,11 +56,11 @@ function Reconcile() {
 
 						<NavigateNextIcon />
 						<div className=" text-slate-500 font-semibold hover:text-black">
-							<Link to="/dashboard/importpage"> Imported Data</Link>
+							<Link to="/dashboard/importpage"> Reconcile</Link>
 						</div>
 
 						<NavigateNextIcon />
-						<div className="text-black-600 font-semibold ">Reconcile</div>
+						<div className="text-black-600 font-semibold ">Download</div>
 					</div>
 				</div>
 
