@@ -50,9 +50,6 @@ export const UserProvider = ({ children }) => {
 			.then((res) => setLocalData(res?.data))
 			.catch((e) => setError(e.message));
 	};
-	useEffect(() => {
-		localStorage.setItem('localData2', JSON.stringify(localData2));
-	}, [localData2]);
 
 	// ////sales Record ///////
 	const getSalesData = async () => {
