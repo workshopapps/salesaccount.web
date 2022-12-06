@@ -47,13 +47,15 @@ send = 'statement.text' + "  " + 'record.text'
 
 
 
+def openai():
+	response = openai.Completion.create(
+	model="text-davinci-003",
+	prompt="Match all details in the files below. No title. Response in JSON  {} \n\n\nReturn the response in this format: \n[\n{\n'Date':\n 'Description':\n 'Details':\n ' Money out ':\n ' Money in ':\n ' Balance ':\n 'Item no ':\n 'Item Name':\n 'Description':\n 'Price':\n}\n]\n".format(send),
+	temperature=0,
+	max_tokens=1000,
+	top_p=1,
+	frequency_penalty=0,
+	presence_penalty=0
+	)
 
-response = openai.Completion.create(
-  model="text-davinci-003",
-  prompt="Match all details in the files below. No title. Response in JSON  {} \n\n\nReturn the response in this format: \n[\n{\n'Date':\n 'Description':\n 'Details':\n ' Money out ':\n ' Money in ':\n ' Balance ':\n 'Item no ':\n 'Item Name':\n 'Description':\n 'Price':\n}\n]\n".format(send),
-  temperature=0,
-  max_tokens=1000,
-  top_p=1,
-  frequency_penalty=0,
-  presence_penalty=0
-)
+	return response	
