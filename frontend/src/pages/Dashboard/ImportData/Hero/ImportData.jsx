@@ -1,82 +1,47 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import './Hero.css';
 import '../Transactions/User/user.css';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import FileCopyOutlinedIcon from '@mui/icons-material/FileCopyOutlined';
-import { useNavigate } from 'react-router-dom';
-import Transactions from '../Transactions/Transactions';
-import CurrentNav from '../../../../components/DashBoardCurrentNav/DashCurrentNav';
+import { Link, useNavigate } from 'react-router-dom';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useAuth } from '../../../../Store/Context';
 import ok from '../../../../assets/Ok.png';
 import ScrollToTop from '../../../../components/ScrollToTop';
+import signedDocument from '../../../../assets/images/DashboardImages/upload/signed document.png';
+
 
 function ImportData() {
 	const [showDisplay, setShowDisplay] = useState(false);
 	const [showSort, setShowSortDisplay] = useState(false);
-	const [showFeedback, setShowFeedback] = useState(false);
+	const [showUpload, setShowUpload] = useState(false);
+	const [showTable, setShowTable] = useState(false);
 	const { dropHandlerFile2, dragHandlerFile2 } = useAuth();
 	const inputRef = useRef();
 	const navigate = useNavigate();
 	const {
 		localData,
+		localData2,
+		localData3,
 		fileDropped,
 		fileDropped2,
 		setFileDropped2,
 		getSalesData,
+		reconcileData,
 	} = useAuth();
 
-	// const headerKeys = Object.keys(localData);
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
-	// const headerKeys2 = Object.keys(Object.assign({}, ...localData2));
-	const newData = [];
-	for (let i = 0; i < localData.length; i += 1) {
-		newData.push({
-			date: localData[i].Date,
-			description: localData[i].Description,
-			details: localData[i].Details,
-			balance: localData[i][' Balance '],
-			money_out: localData[i][' Money out '],
-			money_in: localData[i][' Money in '],
-		});
-	}
-	// CSV to Array
-	// const [csvArray, setCsvArray] = useState([]);
-
-	// const processCSV = (str, delim = ',') => {
-	// 	const headers = str.slice(0, str.indexOf('\n')).split(delim);
-	// 	const rows = str.slice(str.indexOf('\n') + 1).split('\n');
-
-	// 	const newArray = rows.map((row) => {
-	// 		const values = row.split(delim);
-	// 		/* eslint-disable no-param-reassign */
-	// 		const eachObject = headers.reduce((obj, header, i) => {
-	// 			obj[header] = values[i];
-	// 			return obj;
-	// 		}, {});
-	// 		/* eslint-disable no-param-reassign */
-	// 		return eachObject;
-	// 	});
-
-	// 	setCsvArray(newArray);
-
-	// 	return newArray;
-	// };
+	const headerKeys2 = Object.keys(Object.assign({}, ...localData2));
 
 	const handleSubmit = () => {
 		getSalesData();
-		navigate('/dashboard/reconcile');
-		// const fileReader = new FileReader();
-		// fileReader.onload = (e) => {
-		// 	const text = e.target.result;
-		// 	const data = processCSV(text);
-		// 	setLocalData2(data);
-		// };
-
-		// fileReader.readAsText(fileDropped2);
 	};
-	// CSV to array ends
+	const handleSubmit2 = async () => {
+		reconcileData();
+		navigate('/dashboard/accountreport');
+	};
 
 	// click functions
 	const clickShowDisplayHandler = () =>
@@ -85,14 +50,32 @@ function ImportData() {
 	const clickShowSortHandler = () =>
 		showSort === false ? setShowSortDisplay(true) : setShowSortDisplay(false);
 
-	//  make post request function
+	useEffect(() => {
+		localStorage.setItem('localData', JSON.stringify(localData));
+	}, [localData]);
+
+	useEffect(() => {
+		localStorage.setItem('localData2', JSON.stringify(localData2));
+	}, [localData2]);
 
 	return (
-		<div className="w-full">
-			<ScrollToTop />
+		<div className="w-full h-max pb-[10em]">
+    <ScrollToTop />
 			<div className="space-y-[1em]">
 				<div className="hidden md:flex">
-					<CurrentNav />
+					<div className="flex ">
+						<div className=" text-slate-500 font-semibold hover:text-black">
+							<Link to="/dashboard/home">Dashboard</Link>
+						</div>
+						<NavigateNextIcon />
+						<div className="text-black-600 font-semibold ">Reconcile</div>
+						<NavigateNextIcon />
+						{localData3.length > 0 && (
+							<div className=" text-slate-500 font-semibold hover:text-black">
+								<Link to="/dashboard/accountreport">Download</Link>
+							</div>
+						)}
+					</div>
 				</div>
 
 				<div className="flex items-center">
@@ -157,8 +140,6 @@ function ImportData() {
 						</tbody>
 					</table>
 				</div>
-
-				{/* { localData?.map((lData)=><p>{ lData.Date }</p>) } */}
 			</div>
 
 			{showDisplay && (
@@ -193,60 +174,157 @@ function ImportData() {
 					</div>
 				</div>
 			)}
-			{/* <Transactions localData={localData} headerKeys={headerKeys}/> */}
 
-			{/* modal here */}
-			<div className="space-y-[2em] w-full mt-[2em]">
-				<h1 className="text-[1.5em] font-bold">Next, upload Sales Record</h1>
-				<div
-					onDragOver={dragHandlerFile2}
-					onDrop={dropHandlerFile2}
-					className=" text-center flex flex-col justify-center items-center mx-auto bg-[#F2F4F7] py-[4em]  px-[1em] md:py-[2em] w-full md:w-[70%] lg:w-[40%] space-y-3 border border-black border-dashed "
-				>
-					<CloudUploadIcon sx={{ fontSize: '5em', color: '#2E90FA' }} />
-					<p>Drag and drop your file in this grey area</p>
-					<p>OR</p>
-					<input
-						type="file"
-						accept=".csv"
-						hidden
-						onChange={(e) => {
-							setFileDropped2(e.target.files[0]);
-							setShowFeedback(true);
-						}}
-						ref={inputRef}
-					/>
-					<div>
-						<button
-							type="button"
-							onClick={() => inputRef.current.click()}
-							className=" flex bg-white p-[1em]  rounded-lg border-2"
+			{localData2.length < 1 && (
+				<div className="space-y-[2em] w-full mt-[2em] ">
+					<h1 className="text-[1.5em] font-bold">Next, upload Sales Record</h1>
+					{showUpload ? (
+						<div className=" text-center flex flex-col justify-center items-center mx-auto bg-[#F2F4F7] py-[4em]  px-[1em] md:py-[2em] w-full md:w-[70%] lg:w-[40%] space-y-3 border border-black border-dashed ">
+							<img
+								src={signedDocument}
+								alt="document"
+								className="w-[120px] h-[120px] object-fill"
+							/>
+							<div className="text-center  space-y-[0.5em]">
+								<h2 className="font-semibold text-[#344054] text-lg">
+									File Selected: &#34; {fileDropped2?.name} &#34;
+								</h2>
+								<div className="text-sm text-[#98A2B3]">
+									<p>You are almost set</p>
+									<p>
+										<span
+											className="text-[#53B1FD]"
+											role="presentation"
+											onClick={() => {
+												setFileDropped2(null);
+												setShowUpload(false);
+											}}
+										>
+											click here
+										</span>{' '}
+										&nbsp; to upload a different file
+									</p>
+								</div>
+							</div>
+						</div>
+					) : (
+						<div
+							onDragOver={dragHandlerFile2}
+							onDrop={dropHandlerFile2}
+							className=" text-center flex flex-col justify-center items-center mx-auto bg-[#F2F4F7] py-[4em]  px-[1em] md:py-[2em] w-full md:w-[70%] lg:w-[40%] space-y-3 border border-black border-dashed "
 						>
-							Browse File <FileCopyOutlinedIcon />
-						</button>
+							<CloudUploadIcon sx={{ fontSize: '5em', color: '#2E90FA' }} />
+							<p>Drag and drop your file in this grey area</p>
+							<p>OR</p>
+							<input
+								type="file"
+								accept=".csv"
+								hidden
+								onChange={(e) => {
+									setFileDropped2(e.target.files[0]);
+									setShowUpload(true);
+								}}
+								ref={inputRef}
+							/>
+							<div>
+								<button
+									type="button"
+									onClick={() => inputRef.current.click()}
+									className=" flex bg-white p-[1em]  rounded-lg border-2"
+								>
+									Browse File <FileCopyOutlinedIcon />
+								</button>
+							</div>
+						</div>
+					)}
+				</div>
+			)}
+
+			{/* Sales Data  */}
+			{localData2.length > 1 && (
+				<div>
+					<div className="mt-[3em]">
+						<div className="space-y-[1em]">
+							<div className="flex items-center">
+								<h1 className="text-[1.1em] md:text-[2em] font-bold">
+									Uploaded Sales Record Ready!
+								</h1>
+								<img
+									className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] object-contain"
+									src={ok}
+									alt="ok"
+								/>
+							</div>
+
+							<div>
+								<h1 className="text-lg  my-[1em] font-semibold">
+									Recent Sales
+								</h1>
+							</div>
+						</div>
+					</div>
+					<div className="mb-8 mt-4" id="reportCanvas">
+						<p className="my-4 text-green-600 font-bold">{fileDropped2.name}</p>
+
+						<div className="overflow-scroll" id="reportCanvas">
+							<table
+								className="table-auto w-full text-xs md:text-base "
+								id="reportCanvas"
+							>
+								<thead className="bg-[#D1E9FF] py-2 my-2">
+									<tr>
+										{headerKeys2?.map((key) => (
+											<th className="py-2 pl-8 text-left" key={Math.random()}>
+												{key}
+											</th>
+										))}
+									</tr>
+								</thead>
+
+								<tbody className="py-2 px-6">
+									{localData2?.map((item) => (
+										<tr className="py-2 pl-8" key={Math.random()}>
+											{Object.values(item).map((eachItem) => (
+												<td className="text- py-2 pl-8">{eachItem}</td>
+											))}
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
-			</div>
-			{/* Feedback Message */}
-			{showFeedback && (
-				<h1 className="font-bold text-lg text-center text-green-600">
-					File Upload Sucessful
-				</h1>
 			)}
-			{/* sync to data baseButton */}
+
+			{/* Upload sales Record */}
+
 			<div className="flex justify-center pb-[5em] mt-[1em] ">
-				<button
-					onClick={(e) => {
-						e.preventDefault();
-						if (fileDropped2) {
-							handleSubmit();
-						}
-					}}
-					type="submit"
-					className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2   md:w-[30%] lg:w-[15%] active:color-#1849A9"
-				>
-					Sync to Database
-				</button>
+				{localData2.length > 0 ? (
+					<button
+						type="submit"
+						onClick={(e) => {
+							e.preventDefault();
+							handleSubmit2();
+						}}
+						className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2 border w-[70%]  md:w-[30%] lg:w-[10%] active:color-#1849A9"
+					>
+						Reconcile
+					</button>
+				) : (
+					<button
+						onClick={(e) => {
+							e.preventDefault();
+							if (fileDropped2) {
+								handleSubmit();
+							}
+							setShowTable(true);
+						}}
+						type="submit"
+						className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2   w-[70%]  md:w-[30%]  lg:w-[10%] active:color-#1849A9"
+					>
+						Upload Sales Record
+					</button>
+				)}
 			</div>
 		</div>
 	);

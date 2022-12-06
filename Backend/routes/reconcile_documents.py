@@ -1,24 +1,33 @@
 #!/usr/bin/python3
 """ ENDPOINT TO RECONCILE DOCUMENTS """
 from controllers.matching import match
-from fastapi import APIRouter
-from .post_documents import account_statements, financial_records
+from fastapi import APIRouter, UploadFile
+from typing import List
 import pandas as pd
 import pdfkit
 import requests as req
+import asyncio
 
 
 router = APIRouter()
 
 
-@router.get("/reconcile_documents")
-def reconcile():
+@router.post("/reconcile")
+async def reconcile(files: List[UploadFile]):
 	""" Matches similar transactions in the documents """
-	try:
-		response = match(account_statements[0], financial_records[0])
-		return response
-	except IndexError:
-		return {"message": "Need two files for reconconciliation"}
+	if len(files) == 2:
+		try:
+			for file in files:
+				contents = file.file.read()
+				file_dir = f"Media\{file.filename}"
+				with open(file_dir, 'wb') as f:
+					f.write(contents)
+			response = await match(f"Media\{files[0].filename}", f"Media\{files[1].filename}")
+			return response
+		except Exception as e:
+			return {"message": f"Error: {e} occured. Inform team. Thanks."}
+	else:
+		return {"message": "Sorry, you need two files for reconconciliation"}
 
 
 @router.get("/download")

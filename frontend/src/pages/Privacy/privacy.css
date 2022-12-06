@@ -1,0 +1,167 @@
+@media (min-width: 768px) and (max-width:768px) {
+    .privacy-data {
+        flex-direction: column;
+    }
+    .privacy-data h2 {
+        font-size: 30px;
+    }
+    .privacy-data p {
+        font-size: 16px;
+    }
+    .privacy-data img {
+        width: 300px;
+        height: 200px;
+    }
+    .privacy-section h2 {
+        font-size: 25px;
+        margin-left: 0;
+    }
+    .top-privacy {
+        display: flex;
+        gap: 30px;
+    }
+    .privacy-box {
+        width: 350px;
+        height: 300px;
+    }
+    .security {
+        margin-top: 25px;
+        width: 40px;
+        height: 55px;
+    }
+    .compliance {
+        width: 60px;
+        height: 60px;
+        margin-top: 30px;
+    }
+    .privacy-box h3 {
+        margin-top: -35px;
+        font-size: 30px;
+    }
+    .privacy-box p {
+        margin-top: -25px;
+        font-size: 16px;
+        max-width: 200px;
+        margin-bottom: 30px;
+    }
+    .partnership {
+        margin-left: 150px;
+    }
+}
+
+@media (min-width: 375px) and (max-width:415px) {
+    .privacy-data {
+        display: block;
+        padding: 32px 16px;
+    }
+    .privacy-data h2 {
+        font-family: 'Lexend';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 27px;
+        color: #101828;
+    }
+    .privacy-data p {
+        font-family: 'Lexend';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 23px;
+        color: #1D2939;
+        margin-bottom: 25px;
+    }
+    .right img {
+        margin-top: 32px;
+        width: 320px;
+        height: 200px
+    }
+    .privacy-section h2 {
+        width: 323px;
+        height: 81px;
+        font-family: 'Lexend';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 27px;
+        margin-left: 5px;
+        margin-top: 40px;
+        color: #101828
+    }
+    .top-privacy {
+        display: block;
+        margin-top: -50px;
+    }
+    .security {
+        background: #fff;
+        margin-top: -150px;
+        margin-bottom: 30px;
+        width: 28px;
+        height: 36px;
+    }
+    .control {
+        width: 32px;
+        height: 29px;
+        margin-top: -500px;
+        margin-bottom: 30px;
+        filter: contrast(101%);
+    }
+    .transparent {
+        width: 36px;
+        height: 32px;
+        margin-top: -750px;
+    }
+    .compliance {
+        width: 40px;
+        height: 40px;
+        margin-top: -1050px;
+    }
+    .privacy-box {
+        background: #fff;
+        width: 323px;
+    }
+    .top-privacy h3 {
+        font-family: 'Lexend';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 20px;
+        line-height: 27px;
+        color: #1570EF;
+        margin-bottom: 10px;
+        margin-top: -20px;
+    }
+    .top-privacy p {
+        font-family: 'Lexend';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 25px;
+        text-align: center;
+        color: #101828;
+        max-width: 300px;
+    }
+    .partnership img {
+        width: 36px;
+        height: 28px;
+        margin-top: -320px;
+        margin-left: 145px;
+    }
+    .partnership h3 {
+        margin-bottom: 10px;
+        margin-top: -20px;
+        text-align: center;
+    }
+    .partnership p {
+        margin-left: 10px;
+    }
+    .privacy-box {
+        margin: 0;
+    }
+}
+
+@media (min-width:414px) and (max-width: 415px) {
+    .top-privacy {
+        margin-left: 20px;
+        display: block;
+        margin-top: -50px;
+    }
+}

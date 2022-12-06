@@ -6,29 +6,29 @@ import logoUpdate from '../../assets/logoUpdate.svg';
 
 const aboutUsData = [
 	{
-		name: 'Our Mission',
-		path: '/history',
+		name: 'Resources',
+		path: '/resources',
 	},
 	{
-		name: 'Our Team',
-		path: '/teams',
+		name: 'Our Vision',
+		path: '/aboutus',
 	},
 	{
-		name: 'Get in touch ',
-		path: '/contact',
+		name: 'Our Core values',
+		path: '/aboutus',
 	},
 ];
 const resourcesData = [
 	{
 		name: 'Support',
-		path: '/help',
+		path: '/contact',
 	},
 	{
 		name: 'Privacy',
 		path: '/privacy',
 	},
 	{
-		name: 'Blog',
+		name: 'Blogs',
 		path: '/blogs',
 	},
 	{
@@ -36,18 +36,34 @@ const resourcesData = [
 		path: '/faqs',
 	},
 ];
+// const ProductData = [
+// 	{
+// 		name: 'Pricing',
+// 		path: '/pricing',
+// 	},
+// 	{
+// 		name: 'How it works',
+// 		path: '/guides',
+// 	},
+// 	{
+// 		name: 'Features',
+// 		path: '/resources',
+// 	},
+// removed according to new design ];
 
 const Footer = () => (
 	<footer className="bg-[#D1E9FF] py-[5em] md:py-[12em]">
 		<div className="flex flex-col-reverse justify-center items-center lg:items-start lg:flex-row lg:justify-between w-9/12 mx-auto gap-[4em] lg:gap-0 align-top">
 			<div className="flex flex-col justify-center lg:max-w-[20%] align-center lg:justify-start gap-[0.5rem] lg:gap-6">
-				<figure className="flex justify-start items-center flex-col lg:items-start">
-					<img
-						className="w-8/12 lg:w-10/12"
-						src={logoUpdate}
-						alt="Company logo"
-					/>
-				</figure>
+				<Link to='/'>
+					<figure className="flex justify-start items-center flex-col lg:items-start">
+						<img
+							className="w-8/12 lg:w-10/12"
+							src={logoUpdate}
+							alt="Company logo"
+						/>
+					</figure>
+				</Link>
 
 				<div className="hidden text-[#98A2B3] lg:flex justify-center lg:justify-start items-center gap-6 mt-6">
 					<BsTwitter size={24} />
@@ -99,6 +115,7 @@ const Footer = () => (
 					))}
 				</div>
 			</div>
+
 		</div>
 	</footer>
 );
