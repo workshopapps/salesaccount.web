@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ DOCUMENT MATCHING MODULE """
-#from .api_key import API_KEY
+from .api_key import API_KEY
 from .convert_file import convert_file
 import os
 import openai
@@ -8,9 +8,9 @@ import pandas as pd
 import asyncio
 
 
-#API_KEY = os.getenv("OPENAI_API_KEY", default=API_KEY) #comment this line to use your personal openai api key. This is for the production environment
+API_KEY = os.getenv("OPENAI_API_KEY", default=API_KEY) #comment this line to use your personal openai api key. This is for the production environment
 
-openai.api_key = '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' # replace API_KEY with personal api secret key
+openai.api_key = API_KEY # replace API_KEY with personal api secret key
 
 async def openai_call(prompt):
 	""" Send a request to openai GPT3 for matching
