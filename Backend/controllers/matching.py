@@ -5,14 +5,14 @@ from .convert_file import convert_file
 import os
 import openai
 import pandas as pd
+import asyncio
 
 
 API_KEY = os.getenv("OPENAI_API_KEY", default=API_KEY) #comment this line to use your personal openai api key. This is for the production environment
 
-openai.api_key = API_KEY # replace API_KEY with personal api secret key
+openai.api_key = API_KEY # replace API_KEY with personal api secret key if you want to use your own account
 
-
-def openai_call(prompt):
+async def openai_call(prompt):
 	""" Send a request to openai GPT3 for matching
 		
 		Args:
@@ -29,10 +29,11 @@ def openai_call(prompt):
 					frequency_penalty=0,
 					presence_penalty=0
 				)
+	
 	return response
 
 
-def match(file1, file2):
+async def match(file1, file2):
 		""" Matches similar transactions in the documents
 		
 		Args:
@@ -45,10 +46,17 @@ def match(file1, file2):
 			Match all details in these csv below. No title.
 			Response in JSON\n
 			"""
-		statement_table = pd.read_json(convert_file(file1))
+		statement_table = pd.read_json(await convert_file(file1))
+		
 		statement_csv = statement_table.to_csv()
-		records_table = pd.read_json(convert_file(file2))
+		records_table = pd.read_json(await convert_file(file2))
+		
 		records_csv = records_table.to_csv()
+
+		
+		
+
+		
 
 		columns = list(statement_table.columns) + list(records_table.columns)
 
@@ -61,7 +69,9 @@ def match(file1, file2):
 
 		prompt = f"{keyword}{example}{statement_csv}\n{records_csv}"
 		
-		response = openai_call(prompt)
+		response = await openai_call(prompt)
+
+		
 		
 		flag = 0
 		while flag < 5:
