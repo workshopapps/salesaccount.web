@@ -1,8 +1,10 @@
 import React from 'react';
+import ScrollToTop from '../../../../components/ScrollToTop';
 
 function AccountReportDetail() {
 	return (
 		<div className="report_main  ">
+			<ScrollToTop />
 			<div className="report-name text-sm font-md flex items-center my-[1em]">
 				<p>Segun Shegs</p>
 			</div>

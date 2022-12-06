@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaGreaterThan } from 'react-icons/fa';
 import DashBoardHeader from '../../components/DashBoardHeader';
+import ScrollToTop from '../../components/ScrollToTop';
 import NavigationBar from '../../components/NavigationBar';
 
 const styles = {
@@ -19,6 +20,7 @@ const processData = {
 
 const ErrorProcessing = () => (
 	<>
+    <ScrollToTop />
 		<NavigationBar />
 		<main className="m-[65px]">
 			<div className="processing-text">
@@ -26,6 +28,7 @@ const ErrorProcessing = () => (
 					Processing...
 				</h1>
 				<p className="font-['Lexend'] font-medium text-[20px] leading-[136.52%] text-[#667085]">
+
 					Our system is currently reconciling your records and will alert you of
 					any errors. Please be patient.
 				</p>

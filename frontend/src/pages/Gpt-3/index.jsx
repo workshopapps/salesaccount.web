@@ -4,10 +4,12 @@ import Footer from '../../components/Footer';
 import NavigationBar from '../../components/NavigationBar';
 import Banner from '../../assets/images/gpt3/banner.png';
 import LapTop from '../../assets/images/gpt3/laptop.png';
+import ScrollToTop from '../../components/ScrollToTop';
 
 function Gpt3() {
 	return (
 		<div>
+			<ScrollToTop />
 			<NavigationBar />
 			<img src={Banner} className="w-[100vw]" alt="banner" />
 			<div className="py-20 mt-20">

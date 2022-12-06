@@ -207,6 +207,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
 		<UserProvider>
+			{/* <ScrollToTop /> */}
 			<RouterProvider router={router} />
 		</UserProvider>
 	</React.StrictMode>

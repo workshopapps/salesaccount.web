@@ -14,6 +14,7 @@ function Reconcile() {
 	const [showSort, setShowSortDisplay] = useState(false);
 	const [showDisplay2, setShowDisplay2] = useState(false);
 	const [showSort2, setShowSortDisplay2] = useState(false);
+	const [message, errorMessage] = useState(false);
 	const navigate = useNavigate();
 	const { localData, fileDropped, localData2, fileDropped2, reconcileData } =
 		useAuth();
@@ -40,6 +41,12 @@ function Reconcile() {
 
 	const handleSubmit = async () => {
 		reconcileData();
+
+		errorMessage(true);
+
+		setTimeout(() => {
+			errorMessage(false);
+		}, 5000);
 		navigate('/dashboard/accountreport');
 	};
 
@@ -269,17 +276,23 @@ function Reconcile() {
 			</div>
 
 			{/* sync to data baseButton */}
-			<div className="flex justify-center pb-[5em] mt-[1em] ">
+			<div className="max-w-screen-xl mx-auto text-center pb-[5em] mt-[1em] ">
 				<button
 					type="submit"
 					onClick={(e) => {
 						e.preventDefault();
 						handleSubmit();
 					}}
-					className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2  w-[70%] md:w-[60%] lg:w-[30%] active:color-#1849A9"
+					className="mx-auto bg-[#1849A9] hover:bg-[#516ba0] text-white text-sm py-2 px-2  w-[70%] md:w-[60%] lg:w-[30%] active:color-#1849A9"
 				>
 					Reconcile
 				</button>
+				<br />
+				{message && (
+					<small className="text-sm mx-auto w-40 text-[#FF9494] text-center mt-0 mb-10">
+						One or more files missing: Please upload the file to reconcile
+					</small>
+				)}
 			</div>
 		</div>
 	);
