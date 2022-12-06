@@ -34,6 +34,7 @@ function Upload() {
 					</p>
 				</div>
 			</div>
+
 			<input
 				type="file"
 				hidden
@@ -44,6 +45,7 @@ function Upload() {
 					setFileDropped(e.target.files[0]);
 				}}
 			/>
+
 
 			<button
 				onClick={() => {
