@@ -10,7 +10,7 @@ import asyncio
 
 API_KEY = os.getenv("OPENAI_API_KEY", default=API_KEY) #comment this line to use your personal openai api key. This is for the production environment
 
-openai.api_key = API_KEY # replace API_KEY with personal api secret key
+openai.api_key = API_KEY # replace API_KEY with personal api secret key if you want to use your own account
 
 async def openai_call(prompt):
 	""" Send a request to openai GPT3 for matching
