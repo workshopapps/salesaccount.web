@@ -1,30 +1,40 @@
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-import { useContext, useState, createContext, useMemo } from 'react';
+import { useContext, useState, createContext, useMemo, useEffect } from 'react';
 
 const UserContext = createContext();
 export const useAuth = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
+	// Persisting data
+	const AccountStatementsaved = JSON.parse(localStorage.getItem("localData") || "[]");
+	const SalesRecordsaved = JSON.parse(localStorage.getItem("localData2") || "[]");
+	// const ReconciledRecordsSaved = JSON.parse(localStorage.getItem("localData3") || "[]");
+
 	const [saleAccountFiles, setSalesAccountFiles] = useState([]);
 	const [bankStatementFile, setBankStatementFile] = useState([]);
-	const [error, setError] = useState(false);
+	const [error, setError] = useState('');
 	const [localFile, setLocalFile] = useState([]);
 	const [localFile2, setLocalFile2] = useState([]);
 
-	const [localData, setLocalData] = useState([]);
-	const [localData2, setLocalData2] = useState([]);
+	const [localData, setLocalData] = useState(AccountStatementsaved);
+	const [localData2, setLocalData2] = useState(SalesRecordsaved);
+
+	// reconcile data
 	const [localData3, setLocalData3] = useState([]);
+	const [loading, setLoading] = useState(false);
+	const [rError, setRError] = useState('');
 
 	const [fileDropped, setFileDropped] = useState([]);
 	const [fileDropped2, setFileDropped2] = useState([]);
 
-	const bankStatementUrl =
-		'https://reconcileai.hng.tech/api/v1/upload_statement';
-	const salesRecordUrl = `https://reconcileai.hng.tech/api/v1/upload_record`;
-	const reconcileUrl = `https://reconcileai.hng.tech/api/v1/reconcile_documents`;
-	const downloadUrl = ""
+	const uploadUrl = 'https://api.reconcileai.hng.tech/upload';
+	const reconcileUrl = `https://api.reconcileai.hng.tech/reconcile`;
+	const downloadUrl = '';
+
+	// Persist Data on refresh
+
 
 	// ////////bank statement GET request
 	const getData = async () => {
@@ -32,14 +42,13 @@ export const UserProvider = ({ children }) => {
 		formData.append('file', fileDropped);
 
 		axios
-			.post(bankStatementUrl, formData, {
+			.post(uploadUrl, formData, {
 				headers: {
 					'Content-Type': 'multipart/form-data',
 				},
 			})
-			.then((res) => setLocalData(JSON.parse(res?.data)))
-			.then((res) => console.log(res))
-			.catch((e) => setError(e));
+			.then((res) => setLocalData(res?.data))
+			.catch((e) => setError(e.message));
 	};
 
 	// ////sales Record ///////
@@ -48,24 +57,39 @@ export const UserProvider = ({ children }) => {
 		formData.append('file', fileDropped2);
 
 		axios
-			.post(salesRecordUrl, formData, {
+			.post(uploadUrl, formData, {
 				headers: {
 					'Content-Type': 'multipart/form-data',
 				},
 			})
-			.then((res) => setLocalData2(JSON.parse(res?.data)))
-			.catch((e) => setError(e));
+			.then((res) => setLocalData2(res?.data))
+			.catch((e) => setError(e.message));
 	};
 
 	// reconcile get request
 	const reconcileData = async () => {
+		const formData = new FormData();
+		const files = [fileDropped, fileDropped2];
+
+		files.forEach((item) => {
+			formData.append('files', item);
+		});
+
+		setLoading(true);
 		axios
-			.get(reconcileUrl)
-			.then((res) => {
-				setLocalData3(JSON.parse(res?.data));
+			.post(reconcileUrl, formData, {
+				headers: {
+					'Content-Type': 'multipart/form-data',
+				},
 			})
-			.then((res) => console.log(res))
-			.catch((e) => setError(e));
+			.then((res) => {
+				setLocalData3(res?.data);
+				setLoading(false);
+			})
+			.catch((e) => {
+				setLoading(false)
+				setRError(e.message)
+			});
 	};
 
 	const dragHandler = (e) => {
@@ -115,6 +139,8 @@ export const UserProvider = ({ children }) => {
 			reconcileData,
 			localData3,
 			setLocalData3,
+			loading,
+			rError,
 		}),
 		[
 			localFile,
@@ -128,7 +154,8 @@ export const UserProvider = ({ children }) => {
 			setFileDropped2,
 			setLocalData2,
 			localData3,
-			setLocalData3,
+			loading,
+			rError,
 		]
 	);
 
