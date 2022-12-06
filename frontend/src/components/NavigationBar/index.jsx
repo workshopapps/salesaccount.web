@@ -37,7 +37,7 @@ function NavigationBar() {
 					</figure>
 				</Link>
 
-				<div className="hidden md:flex lg:gap-7 text-xl max-lg:gap-3 max-md:text-base">
+				<div className="hidden text-xl md:flex lg:gap-7 max-lg:gap-3 max-md:text-base">
 					{navLinks.map((item) => (
 						<NavLink
 							to={item.path}
@@ -53,7 +53,7 @@ function NavigationBar() {
 
 				{/* Hamburger */}
 				<div
-					className=" block md:hidden pr-2"
+					className="block pr-2  md:hidden"
 					onClick={() => {
 						toggle();
 					}}

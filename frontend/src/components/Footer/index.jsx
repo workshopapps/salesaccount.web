@@ -57,7 +57,11 @@ const Footer = () => (
 		
 		<div>
 			<figure className='flex flex-col max-md:h-[25px] max-md:mt-10'>
-			<img className='w-full h-full' src={logoUpdate}  alt="Company logo" />
+			<Link to = '/'> 
+				<div>
+				<img className='w-full h-full' src={logoUpdate}  alt="Company logo" />
+				</div>
+			</Link>
 			{/* <p className='font-semibold text-[40px] leading-[50px]'>reconcile.<span className='text-[#2E90FA]'>AI</span></p> */}
 			</figure>
 			{/* <div className="pt-[4px] mb-[18px] w-[230px]">
