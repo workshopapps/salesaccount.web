@@ -28,6 +28,7 @@ export const UserProvider = ({ children }) => {
 		localStorage.getItem('fileDropped2') || '[]'
 	);
 
+	const [progress, setProgress] = useState(0);
 	const [saleAccountFiles, setSalesAccountFiles] = useState([]);
 	const [bankStatementFile, setBankStatementFile] = useState([]);
 	const [error, setError] = useState('');
@@ -90,12 +91,16 @@ export const UserProvider = ({ children }) => {
 		});
 
 		setLoading(true);
+		const config = {
+			onUploadProgress: function (progressEvent) {
+				setProgress(
+					Math.round((progressEvent.loaded * 100) / progressEvent.total)
+				);
+			},
+		};
+
 		axios
-			.post(reconcileUrl, formData, {
-				headers: {
-					'Content-Type': 'multipart/form-data',
-				},
-			})
+			.post(reconcileUrl, formData, config)
 			.then((res) => {
 				setLocalData3(res?.data);
 				setLoading(false);
@@ -169,6 +174,7 @@ export const UserProvider = ({ children }) => {
 			loading,
 			rError,
 			removeItem,
+			progress,
 		}),
 		[
 			localFile,

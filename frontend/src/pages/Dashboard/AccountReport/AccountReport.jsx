@@ -5,6 +5,7 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useAuth } from '../../../Store/Context';
 import ok from '../../../assets/Ok.png';
 import './accountReport.css';
+import Processing from '../../ErrorProcessing/index';
 
 function AccountReport() {
 	const { localData3, rError, loading, removeItem } = useAuth();
@@ -54,7 +55,7 @@ function AccountReport() {
 			)}
 
 			{rError && <p>{rError}</p>}
-			{loading && (
+			{/* {loading && (
 				<div>
 					<p>
 						{' '}
@@ -67,7 +68,8 @@ function AccountReport() {
 						alt="constructionGif"
 					/>
 				</div>
-			)}
+			)} */}
+			{loading && <Processing />}
 			{localData3 && (
 				<div className="overflow-scroll">
 					<table className="table-auto w-full text-xs md:text-base ">
