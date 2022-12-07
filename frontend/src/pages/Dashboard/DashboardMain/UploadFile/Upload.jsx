@@ -41,7 +41,6 @@ function Upload() {
 				}}
 			/>
 
-
 			<button
 				onClick={() => {
 					inputRef.current.click();

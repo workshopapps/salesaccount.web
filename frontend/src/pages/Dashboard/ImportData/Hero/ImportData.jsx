@@ -18,7 +18,7 @@ function ImportData() {
 	const [userInput, setUserInput] = useState('');
 	const [userInput2, setUserInput2] = useState('');
 	const [showTable, setShowTable] = useState(false);
-	const { dropHandlerFile2, dragHandlerFile2 } = useAuth();
+	const { dropHandlerFile2, dragHandlerFile2, removeItem } = useAuth();
 	const inputRef = useRef();
 	const navigate = useNavigate();
 	const {
@@ -42,6 +42,10 @@ function ImportData() {
 		reconcileData();
 		navigate('/dashboard/accountreport');
 	};
+	const userClickedUpload = () => {
+		removeItem();
+		navigate('/dashboard/home');
+	};
 
 	// click functions
 	// const clickShowDisplayHandler = () =>
@@ -58,6 +62,10 @@ function ImportData() {
 		localStorage.setItem('localData2', JSON.stringify(localData2));
 	}, [localData2]);
 
+	useEffect(() => {
+		localStorage.setItem('fileDropped2', JSON.stringify(fileDropped2));
+	}, [fileDropped2]);
+
 	// search function here
 
 	const filteredResult = localData?.filter((table) =>
@@ -68,14 +76,16 @@ function ImportData() {
 		table?.Description?.toLowerCase().includes(userInput2.trim().toLowerCase())
 	);
 
-
-	
 	return (
 		<div className="w-full h-max pb-[10em]">
 			<div className="space-y-[3em]">
 				<div className="flex">
 					<div className="flex ">
-						<div className=" text-slate-500 font-semibold hover:text-black">
+						<div
+							onClick={userClickedUpload}
+							role="presentation"
+							className=" text-slate-500 font-semibold hover:text-black"
+						>
 							<Link to="/dashboard/home">Upload</Link>
 						</div>
 						<NavigateNextIcon />
@@ -222,12 +232,12 @@ function ImportData() {
 											className="text-[#53B1FD]"
 											role="presentation"
 											onClick={() => {
-												setFileDropped2(null);
+												setFileDropped2([]);
 												setShowUpload(false);
 											}}
 										>
 											click here
-										</span>{' '}
+										</span>
 										&nbsp; to upload a different file
 									</p>
 								</div>
@@ -363,7 +373,7 @@ function ImportData() {
 						type="submit"
 						className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2   w-[70%]  md:w-[30%]  lg:w-[10%] active:color-#1849A9"
 					>
-						Upload Sales Record
+						Upload
 					</button>
 				)}
 			</div>

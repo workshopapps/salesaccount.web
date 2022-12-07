@@ -4,9 +4,9 @@ import Upload from './UploadFile/Upload';
 import UploadReady from './UploadReady/UploadReady';
 
 function DashboardMain() {
-	const { localFile } = useAuth();
+	const { fileDropped } = useAuth();
 
-	return <div>{localFile.length < 1 ? <Upload /> : <UploadReady />}</div>;
+	return <div>{fileDropped.length < 1 ? <Upload /> : <UploadReady />}</div>;
 }
 
 export default DashboardMain;
