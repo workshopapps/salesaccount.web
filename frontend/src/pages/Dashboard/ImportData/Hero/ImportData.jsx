@@ -15,6 +15,8 @@ function ImportData() {
 	const [showDisplay, setShowDisplay] = useState(false);
 	const [showSort, setShowSortDisplay] = useState(false);
 	const [showUpload, setShowUpload] = useState(false);
+	const [userInput, setUserInput] = useState('');
+	const [userInput2, setUserInput2] = useState('');
 	const [showTable, setShowTable] = useState(false);
 	const { dropHandlerFile2, dragHandlerFile2 } = useAuth();
 	const inputRef = useRef();
@@ -42,11 +44,11 @@ function ImportData() {
 	};
 
 	// click functions
-	const clickShowDisplayHandler = () =>
-		showDisplay === false ? setShowDisplay(true) : setShowDisplay(false);
+	// const clickShowDisplayHandler = () =>
+	// 	showDisplay === false ? setShowDisplay(true) : setShowDisplay(false);
 
-	const clickShowSortHandler = () =>
-		showSort === false ? setShowSortDisplay(true) : setShowSortDisplay(false);
+	// const clickShowSortHandler = () =>
+	// 	showSort === false ? setShowSortDisplay(true) : setShowSortDisplay(false);
 
 	useEffect(() => {
 		localStorage.setItem('localData', JSON.stringify(localData));
@@ -56,13 +58,25 @@ function ImportData() {
 		localStorage.setItem('localData2', JSON.stringify(localData2));
 	}, [localData2]);
 
+	// search function here
+
+	const filteredResult = localData?.filter((table) =>
+		table?.Description?.toLowerCase().includes(userInput.trim().toLowerCase())
+	);
+
+	const filteredResult2 = localData2?.filter((table) =>
+		table?.Description?.toLowerCase().includes(userInput2.trim().toLowerCase())
+	);
+
+
+	
 	return (
 		<div className="w-full h-max pb-[10em]">
-			<div className="space-y-[1em]">
-				<div className="hidden md:flex">
+			<div className="space-y-[3em]">
+				<div className="flex">
 					<div className="flex ">
 						<div className=" text-slate-500 font-semibold hover:text-black">
-							<Link to="/dashboard/home">Dashboard</Link>
+							<Link to="/dashboard/home">Upload</Link>
 						</div>
 						<NavigateNextIcon />
 						<div className="text-black-600 font-semibold ">Reconcile</div>
@@ -85,7 +99,7 @@ function ImportData() {
 						alt="ok"
 					/>
 				</div>
-
+				{/* 
 				<div className="flex justify-between items-center ">
 					<div
 						onClick={clickShowDisplayHandler}
@@ -104,11 +118,18 @@ function ImportData() {
 						<p className="font-bold">Sort by</p>
 						<FilterListIcon />
 					</div>
-				</div>
-				<div>
-					<h1 className="text-lg  my-[1em] font-semibold">
+				</div> */}
+				<div className="flex justify-between items-center">
+					<h1 className="text-base md:text-lg my-[1em] font-semibold">
 						Recent Transactions
 					</h1>
+					<input
+						className="w-[40%] md:w-[30%] lg:w-[15%] border rounded-lg p-2"
+						type="text"
+						value={userInput}
+						onChange={(e) => setUserInput(e.target.value)}
+						placeholder="Quick Search"
+					/>
 				</div>
 			</div>
 
@@ -116,8 +137,8 @@ function ImportData() {
 			<div className="my-8 ">
 				<p className="my-4 text-green-600 font-bold">{fileDropped.name}</p>
 
-				<div className="overflow-scroll">
-					<table className="table-auto w-full text-xs md:text-base ">
+				<div className="overflow-scroll ">
+					<table className="table-auto w-full text-xs md:text-base  ">
 						<thead className="bg-[#D1E9FF] py-2 my-2">
 							<tr>
 								{headerKeys?.map((key) => (
@@ -126,20 +147,28 @@ function ImportData() {
 							</tr>
 						</thead>
 
-						<tbody className="py-2 px-6">
-							{localData?.map((sData) => (
-								<tr className="py-2 pl-8">
-									{Object.values(sData).map((iData) => (
-										<td className="text- py-2 pl-8">{iData}</td>
-									))}
-								</tr>
-							))}
-						</tbody>
+						{userInput.length > 0 && filteredResult.length === 0 ? (
+							<div className="w-max text-red-600 my-[3em] ">
+								No result found
+							</div>
+						) : (
+							<tbody className="py-2 px-6">
+								{filteredResult?.map((item) => (
+									<tr className="py-2 pl-8" key={Math.random()}>
+										{Object.values(item).map((eachItem) => (
+											<td className="text-sm py-5 md:py-10 pl-8 ">
+												{eachItem}
+											</td>
+										))}
+									</tr>
+								))}
+							</tbody>
+						)}
 					</table>
 				</div>
 			</div>
 
-			{showDisplay && (
+			{/* {showDisplay && (
 				<div className=" border absolute bg-white z-1 w-[50%] md:w-[25%] lg:w-[15%] left-[1em] md:left-[1em] top-[7em]  md:top-[10em] rounded-lg p-4">
 					<div className="flex justify-between ">
 						<p>Value</p>
@@ -170,10 +199,10 @@ function ImportData() {
 						<input type="checkbox" />
 					</div>
 				</div>
-			)}
+			)} */}
 
 			{localData2.length < 1 && (
-				<div className="space-y-[2em] w-full mt-[2em] ">
+				<div className="space-y-[3em] w-full mt-[2em] ">
 					<h1 className="text-[1.5em] font-bold">Next, upload Sales Record</h1>
 					{showUpload ? (
 						<div className=" text-center flex flex-col justify-center items-center mx-auto bg-[#F2F4F7] py-[4em]  px-[1em] md:py-[2em] w-full md:w-[70%] lg:w-[40%] space-y-3 border border-black border-dashed ">
@@ -240,8 +269,8 @@ function ImportData() {
 			{/* Sales Data  */}
 			{localData2.length > 1 && (
 				<div>
-					<div className="mt-[3em]">
-						<div className="space-y-[1em]">
+					<div className="mt-[3em] ">
+						<div className="space-y-[2em]">
 							<div className="flex items-center">
 								<h1 className="text-[1.1em] md:text-[2em] font-bold">
 									Uploaded Sales Record Ready!
@@ -253,10 +282,17 @@ function ImportData() {
 								/>
 							</div>
 
-							<div>
-								<h1 className="text-lg  my-[1em] font-semibold">
-									Recent Sales
+							<div className="flex justify-between items-center">
+								<h1 className="text-base md:text-lg my-[1em] font-semibold">
+									Recent Transactions
 								</h1>
+								<input
+									className="w-[40%] md:w-[30%] lg:w-[15%] border rounded-lg p-2"
+									type="text"
+									value={userInput2}
+									onChange={(e) => setUserInput2(e.target.value)}
+									placeholder="Quick Search"
+								/>
 							</div>
 						</div>
 					</div>
@@ -265,7 +301,7 @@ function ImportData() {
 
 						<div className="overflow-scroll" id="reportCanvas">
 							<table
-								className="table-auto w-full text-xs md:text-base "
+								className="scrolling table-auto w-full text-xs md:text-base "
 								id="reportCanvas"
 							>
 								<thead className="bg-[#D1E9FF] py-2 my-2">
@@ -278,15 +314,23 @@ function ImportData() {
 									</tr>
 								</thead>
 
-								<tbody className="py-2 px-6">
-									{localData2?.map((item) => (
-										<tr className="py-2 pl-8" key={Math.random()}>
-											{Object.values(item).map((eachItem) => (
-												<td className="text- py-2 pl-8">{eachItem}</td>
-											))}
-										</tr>
-									))}
-								</tbody>
+								{userInput2.length > 0 && filteredResult2.length === 0 ? (
+									<div className="w-max text-red-600 my-[3em] ">
+										No result found
+									</div>
+								) : (
+									<tbody className="py-2 px-6">
+										{filteredResult2?.map((item) => (
+											<tr className="py-2 pl-8" key={Math.random()}>
+												{Object.values(item).map((eachItem) => (
+													<td className="text-sm py-5 md:py-10 pl-8 ">
+														{eachItem}
+													</td>
+												))}
+											</tr>
+										))}
+									</tbody>
+								)}
 							</table>
 						</div>
 					</div>
