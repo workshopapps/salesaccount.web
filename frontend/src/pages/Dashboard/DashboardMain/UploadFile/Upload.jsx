@@ -6,9 +6,6 @@ import { useAuth } from '../../../../Store/Context';
 function Upload() {
 	const { dragHandler, dropHandler, setLocalFile, setFileDropped } = useAuth();
 	const inputRef = useRef();
-	// const {  } = useAuth();
-
-	// Just some comment
 
 	return (
 		<div className="w-full flex flex-col items-center mt-[3em] md:mt-[5em]">
@@ -32,6 +29,7 @@ function Upload() {
 					</p>
 				</div>
 			</div>
+
 			<input
 				type="file"
 				hidden
@@ -42,6 +40,7 @@ function Upload() {
 					setFileDropped(e.target.files[0]);
 				}}
 			/>
+
 
 			<button
 				onClick={() => {
