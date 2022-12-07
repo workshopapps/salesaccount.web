@@ -3,6 +3,8 @@ import document from '../../../../assets/images/DashboardImages/upload/document.
 import './upload.css';
 import { useAuth } from '../../../../Store/Context';
 
+
+
 function Upload() {
 	const { dragHandler, dropHandler, setLocalFile, setFileDropped } = useAuth();
 	const inputRef = useRef();
@@ -13,6 +15,7 @@ function Upload() {
 			<div
 				onDrop={dropHandler}
 				onDragOver={dragHandler}
+				
 				className="flex flex-col items-center py-[2em] space-y-[2em] w-full md:w-[60%] lg:w-[40%]  rounded-xl border-[2px] border-dashed border-[#1D2939]"
 			>
 				<img
