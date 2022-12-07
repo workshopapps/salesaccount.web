@@ -92,10 +92,10 @@ const Resources = () => (
 
 		<div className=" mx-auto px-7 flex flex-wrap py-8 gap-[5%] justify-center my-[1em] px:10 md:px-11 lg:px-6 xl:px-36">
 			{data.map((item) => (
-				<Link to={item.to}>
-					<div key={item.id} className="my-[2em] ">
+				<div key={item.id} className="my-[2em] ">
 						<div className=" flex-grow">
-							<div className=" w-72 p-5 rounded-md drop-shadow border ">
+						<Link to={item.to}>
+							<div className=" w-72 p-5 rounded-md drop-shadow border cursor-pointer">
 								<div className="w-full mb-4">
 									<img src={item.image} alt="" className="w-[120%]" />
 								</div>
@@ -105,9 +105,9 @@ const Resources = () => (
 									<img src={arrowright} alt="" />
 								</Link>
 							</div>
+						</Link>
 						</div>
 					</div>
-				</Link>
 			))}
 		</div>
 		<Footer />
