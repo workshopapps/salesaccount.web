@@ -12,6 +12,7 @@ API_KEY = os.getenv("OPENAI_API_KEY", default=API_KEY) #comment this line to use
 
 openai.api_key = API_KEY # replace API_KEY with personal api secret key
 
+
 async def openai_call(prompt):
 	""" Send a request to openai GPT3 for matching
 		
@@ -24,8 +25,8 @@ async def openai_call(prompt):
 	response = openai.Completion.create(
   					model="text-davinci-003",
   					prompt = prompt,
-					temperature=0.62,
-					max_tokens=2857,
+					temperature=0.4,
+					max_tokens=2500,
 					top_p=1,
 					frequency_penalty=0,
 					presence_penalty=0
@@ -86,4 +87,4 @@ async def match(file1, file2):
 
 
 		string = response.choices[0].text
-		return eval(string)
+		return (string)
