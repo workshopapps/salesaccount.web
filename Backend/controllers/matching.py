@@ -75,14 +75,14 @@ async def match(file1, file2):
 
 		
 		
-		flag = 0
-		while flag < 7:
-			if response.choices[0].text == None:
-				response = openai_call(prompt)
-				flag += 1
-				print(f"{flag} failed requests")
-			else:
-				flag = 7
+		# flag = 0
+		# while flag < 7:
+		# 	if response.choices[0].text == None:
+		# 		response = openai_call(prompt)
+		# 		flag += 1
+		# 		print(f"{flag} failed requests")
+		# 	else:
+		# 		flag = 7
 
 
 		string = response.choices[0].text
