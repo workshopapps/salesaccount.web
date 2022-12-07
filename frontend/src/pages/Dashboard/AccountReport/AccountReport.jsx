@@ -6,6 +6,7 @@ import { useAuth } from '../../../Store/Context';
 import ok from '../../../assets/Ok.png';
 import './accountReport.css';
 import Processing from '../../ErrorProcessing/index';
+import DownloadButton from '../DownloadButton/DownloadButton';
 
 function AccountReport() {
 	const { localData3, rError, loading, removeItem } = useAuth();
@@ -21,7 +22,7 @@ function AccountReport() {
 	};
 
 	return (
-		<div className="space-y-[1em] mb-[5em]">
+		<div className="space-y-[3em]">
 			<div className="md:flex">
 				<div className="flex">
 					<div
@@ -55,23 +56,9 @@ function AccountReport() {
 			)}
 
 			{rError && <p>{rError}</p>}
-			{/* {loading && (
-				<div>
-					<p>
-						{' '}
-						Account Report is loading, might take a while, please do not
-						refresh...
-					</p>
-					<img
-						className="w-full md:h-[400px] object-contain"
-						src="https://media2.giphy.com/media/a7oVsf3WTOaoE/giphy.gif"
-						alt="constructionGif"
-					/>
-				</div>
-			)} */}
 			{loading && <Processing />}
 			{localData3 && (
-				<div className="overflow-scroll">
+				<div className="overflow-scroll " id="pagetodownload">
 					<table className="table-auto w-full text-xs md:text-base ">
 						<thead className="bg-[#D1E9FF] py-2 my-2">
 							<tr>
@@ -94,7 +81,7 @@ function AccountReport() {
 				</div>
 			)}
 			{/* report buttons */}
-			<div className="sale-button flex justify-center space-x-[1em] mx-auto pb-[1em]">
+			<div className="sale-button flex justify-center space-x-[1em] mx-auto pb-[1em] mt-[5em]">
 				<button
 					onClick={() => navigate(-1)}
 					type="button"
@@ -102,12 +89,9 @@ function AccountReport() {
 				>
 					Back
 				</button>
-				<button
-					type="button"
-					className="button2 text-white bg-[#2E90FA] w-[30%] py-[0.5em] lg:w-[15%] rounded-md"
-				>
-					Download
-				</button>
+				<div className=" flex justify-center items-center button2 text-white bg-[#2E90FA] w-[30%] py-[0.5em] lg:w-[15%] rounded-md">
+					<DownloadButton fileId="pagetodownload" fileName="reconcile" />
+				</div>
 			</div>
 		</div>
 	);

@@ -13,7 +13,7 @@
 		"@testing-library/react": "^13.4.0",
 		"@testing-library/user-event": "^13.5.0",
 		"axios": "^1.2.0",
-		"html2canvas": "^1.0.0-rc.1",
+		"html2canvas": "^1.4.1",
 		"jspdf": "^2.5.1",
 		"material-icons": "^1.12.2",
 		"prop-types": "^15.8.1",

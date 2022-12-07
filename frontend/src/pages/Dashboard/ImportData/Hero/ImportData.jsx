@@ -75,7 +75,6 @@ function ImportData() {
 	const filteredResult2 = localData2?.filter((table) =>
 		table?.Description?.toLowerCase().includes(userInput2.trim().toLowerCase())
 	);
-
 	return (
 		<div className="w-full h-max pb-[10em]">
 			<div className="space-y-[3em]">
@@ -229,7 +228,7 @@ function ImportData() {
 									<p>You are almost set</p>
 									<p>
 										<span
-											className="text-[#53B1FD]"
+											className="text-[#53B1FD] cursor-pointer"
 											role="presentation"
 											onClick={() => {
 												setFileDropped2([]);

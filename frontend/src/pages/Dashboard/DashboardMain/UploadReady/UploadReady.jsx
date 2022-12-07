@@ -16,7 +16,6 @@ function UploadReady() {
 		getData();
 		navigate('/dashboard/importpage');
 	};
-
 	return (
 		<div className="space-y-[1em] w-full mt-[10%] lg:mt-[5%] flex flex-col items-center ">
 			<h1 className="font-bold text-2xl ">Ready for Upload</h1>
@@ -34,7 +33,7 @@ function UploadReady() {
 						<p>You are almost set</p>
 						<p>
 							<span
-								className="text-[#53B1FD] "
+								className="text-[#53B1FD] cursor-pointer"
 								role="presentation"
 								onClick={() => setFileDropped([])}
 							>
