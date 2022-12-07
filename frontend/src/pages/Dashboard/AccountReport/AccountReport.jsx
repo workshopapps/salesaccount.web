@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../Store/Context';
 import ok from '../../../assets/Ok.png';
 import './accountReport.css';
+import Processing from '../../ErrorProcessing/index';
 
 function AccountReport() {
 	const { localData3, rError, loading } = useAuth();
@@ -22,9 +23,8 @@ function AccountReport() {
 				)}
 			</div>
 
-
 			{rError && <p>{rError}</p>}
-			{loading && (
+			{/* {loading && (
 				<div>
 					<p> Account Report is loading, might take a while, please do not refresh...</p>
 					<img
@@ -33,7 +33,8 @@ function AccountReport() {
 						alt="constructionGif"
 					/>
 				</div>
-			)}
+			)} */}
+			{loading && <Processing />}
 			{localData3 && (
 				<div className="overflow-scroll">
 					<table className="table-auto w-full text-xs md:text-base ">

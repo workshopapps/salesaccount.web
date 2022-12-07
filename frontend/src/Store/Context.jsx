@@ -8,11 +8,15 @@ export const useAuth = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
 	// Persisting data
-	const AccountStatementsaved = JSON.parse(localStorage.getItem("localData") || "[]");
-	const SalesRecordsaved = JSON.parse(localStorage.getItem("localData2") || "[]");
+	const AccountStatementsaved = JSON.parse(
+		localStorage.getItem('localData') || '[]'
+	);
+	const SalesRecordsaved = JSON.parse(
+		localStorage.getItem('localData2') || '[]'
+	);
 	// const ReconciledRecordsSaved = JSON.parse(localStorage.getItem("localData3") || "[]");
 
-
+	const [progress, setProgress] = useState(0);
 	const [saleAccountFiles, setSalesAccountFiles] = useState([]);
 	const [bankStatementFile, setBankStatementFile] = useState([]);
 	const [error, setError] = useState('');
@@ -77,19 +81,22 @@ export const UserProvider = ({ children }) => {
 		});
 
 		setLoading(true);
+		const config = {
+			onUploadProgress: function (progressEvent) {
+				setProgress(90);
+			},
+		};
+		console.log(progress);
+
 		axios
-			.post(reconcileUrl, formData, {
-				headers: {
-					'Content-Type': 'multipart/form-data',
-				},
-			})
+			.post(reconcileUrl, formData, config)
 			.then((res) => {
 				setLocalData3(res?.data);
 				setLoading(false);
 			})
 			.catch((e) => {
-				setLoading(false)
-				setRError(e.message)
+				setLoading(false);
+				setRError(e.message);
 			});
 	};
 
@@ -142,6 +149,7 @@ export const UserProvider = ({ children }) => {
 			setLocalData3,
 			loading,
 			rError,
+			progress,
 		}),
 		[
 			localFile,
