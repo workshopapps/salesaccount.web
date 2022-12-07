@@ -50,7 +50,7 @@ function Upload() {
 				className="bg-[#2E90FA] font-semibold text-lg text-white px-[1.5em] py-[0.8em] rounded-md mt-12 max-md:mt-3 max-md:text-sm"
 				type="button"
 			>
-				Upload Account Statement
+				Upload
 			</button>
 		</div>
 	);

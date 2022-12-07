@@ -16,7 +16,7 @@ function AccountReport() {
 			<div className="md:flex">
 				<div className="flex ">
 					<div className=" text-slate-500 font-semibold hover:text-black">
-						<Link to="/dashboard/home">Dashboard</Link>
+						<Link to="/dashboard/home">Upload</Link>
 					</div>
 
 					<NavigateNextIcon />
