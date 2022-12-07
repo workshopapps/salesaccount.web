@@ -23,7 +23,6 @@ export const UserProvider = ({ children }) => {
 	const fileDroppedSaved = JSON.parse(
 		localStorage.getItem('fileDropped') || '[]'
 	);
-
 	const fileDroppedSaved2 = JSON.parse(
 		localStorage.getItem('fileDropped2') || '[]'
 	);
@@ -94,7 +93,7 @@ export const UserProvider = ({ children }) => {
 		const config = {
 			onUploadProgress: function (progressEvent) {
 				setProgress(
-					Math.round((progressEvent.loaded * 100) / progressEvent.total)
+					Math.round(progressEvent.loaded / progressEvent.total) * 100
 				);
 			},
 		};
@@ -119,7 +118,7 @@ export const UserProvider = ({ children }) => {
 
 	const dropHandler = (e) => {
 		e.preventDefault();
-		setLocalFile(e.dataTransfer?.files);
+		setFileDropped(e.dataTransfer?.files[0]);
 	};
 
 	const dragHandlerFile2 = (e) => {
@@ -128,7 +127,7 @@ export const UserProvider = ({ children }) => {
 
 	const dropHandlerFile2 = (e) => {
 		e.preventDefault();
-		setLocalFile(e.dataTransfer?.files);
+		setFileDropped2(e.dataTransfer?.files[0]);
 	};
 
 	const removeItem = () => {
