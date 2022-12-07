@@ -1,19 +1,21 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../../Store/Context';
 import signedDocument from '../../../../assets/images/DashboardImages/upload/signed document.png';
 
 function UploadReady() {
-	const { setLocalData, getData, fileDropped } = useAuth();
+	const { setFileDropped, getData, fileDropped } = useAuth();
 
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		localStorage.setItem('fileDropped', JSON.stringify(fileDropped));
+	}, [fileDropped]);
 
 	const uploadHandler = () => {
 		getData();
 		navigate('/dashboard/importpage');
 	};
-
 	return (
 		<div className="space-y-[1em] w-full mt-[10%] lg:mt-[5%] flex flex-col items-center ">
 			<h1 className="font-bold text-2xl ">Ready for Upload</h1>
@@ -31,9 +33,9 @@ function UploadReady() {
 						<p>You are almost set</p>
 						<p>
 							<span
-								className="text-[#53B1FD] "
+								className="text-[#53B1FD] cursor-pointer"
 								role="presentation"
-								onClick={() => setLocalData(null)}
+								onClick={() => setFileDropped([])}
 							>
 								click here
 							</span>
