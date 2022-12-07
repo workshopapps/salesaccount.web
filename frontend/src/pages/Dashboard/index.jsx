@@ -11,11 +11,11 @@ const DashBoard = () => (
 			<NavigationBar />
 			<div className="flex flex-col items-center justify-center mt-[1em] md:mt-[3em]">
 				{/* <DashBoardSideBar /> */}
-				<div className="w-full md:w-[90%] mx-auto p-[1em] ">
+				<div className="w-full md:w-[80%] mx-auto p-[1em] md:p-0">
 					<Outlet />
 				</div>
 			</div>
-			<Footer />
+			{/* <Footer /> */}
 		</div>
 		<div className="fixed bottom-0 bg-[#F9FAFB] flex justify-center items-center py-4 w-full max-md:hidden">
 			<p className="font-normal text-xl text-[#1D2939] ">©reconcile.AI 2022</p>

@@ -1,5 +1,7 @@
+import * as ReactDOM from 'react-dom/client';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useAuth } from '../../../Store/Context';
 import ok from '../../../assets/Ok.png';
 import './accountReport.css';
@@ -12,21 +14,42 @@ function AccountReport() {
 
 	return (
 		<div className="space-y-[1em] mb-[5em]">
-			<div className="flex items-center">
-				<h1 className=" font-bold text-xl ">Account Balance Report Ready!</h1>
-				{localData3 && (
-					<img
-						className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] object-contain"
-						src={ok}
-						alt="ok"
-					/>
-				)}
+			<div className="md:flex">
+				<div className="flex ">
+					<div className=" text-slate-500 font-semibold hover:text-black">
+						<Link to="/dashboard/home">Upload</Link>
+					</div>
+
+					<NavigateNextIcon />
+					<div className=" text-slate-500 font-semibold hover:text-black">
+						<Link to="/dashboard/importpage"> Reconcile</Link>
+					</div>
+
+					<NavigateNextIcon />
+					<div className="text-black-600 font-semibold ">Download</div>
+				</div>
 			</div>
+			{localData3.length > 1 && (
+				<div className="flex items-center">
+					<h1 className=" font-bold text-xl ">Account Balance Report Ready!</h1>
+					{localData3 && (
+						<img
+							className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] object-contain"
+							src={ok}
+							alt="ok"
+						/>
+					)}
+				</div>
+			)}
 
 			{rError && <p>{rError}</p>}
 			{/* {loading && (
 				<div>
-					<p> Account Report is loading, might take a while, please do not refresh...</p>
+					<p>
+						{' '}
+						Account Report is loading, might take a while, please do not
+						refresh...
+					</p>
 					<img
 						className="w-full md:h-[400px] object-contain"
 						src="https://media2.giphy.com/media/a7oVsf3WTOaoE/giphy.gif"
@@ -79,3 +102,7 @@ function AccountReport() {
 }
 
 export default AccountReport;
+
+// const root = ReactDOM.createRoot();
+//
+// root.render(<AccountReport />)

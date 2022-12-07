@@ -52,9 +52,6 @@ export const UserProvider = ({ children }) => {
 			.then((res) => setLocalData(res?.data))
 			.catch((e) => setError(e.message));
 	};
-	useEffect(() => {
-		localStorage.setItem('localData2', JSON.stringify(localData2));
-	}, [localData2]);
 
 	// ////sales Record ///////
 	const getSalesData = async () => {
@@ -83,10 +80,11 @@ export const UserProvider = ({ children }) => {
 		setLoading(true);
 		const config = {
 			onUploadProgress: function (progressEvent) {
-				setProgress(90);
+				setProgress(
+					Math.round((progressEvent.loaded * 100) / progressEvent.total)
+				);
 			},
 		};
-		console.log(progress);
 
 		axios
 			.post(reconcileUrl, formData, config)

@@ -32,8 +32,6 @@ import Gpt3 from './pages/Gpt-3';
 import Blogs from './pages/Blogs/Index';
 import Error404 from './pages/Error404/index';
 import ErrorProcessing from './pages/ErrorProcessing/index';
-// import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
-// import Upload from './pages/Dashboard/DashboardMain/UploadFile/Upload';
 import UploadReady from './pages/Dashboard/DashboardMain/UploadReady/UploadReady';
 import ImportData from './pages/Dashboard/ImportData/Hero/ImportData';
 import Reconcile from './pages/Dashboard/ImportData/Hero/Reconcile';
@@ -41,11 +39,6 @@ import { UserProvider } from './Store/Context';
 import AccountReport from './pages/Dashboard/AccountReport/AccountReport';
 import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
 import Privacy from './pages/Privacy';
-// import ImportData from './pages/Dashboard/ImportData/Hero/ImportData';
-// import {
-// 	Upload,
-// 	UploadReady,
-// } from './pages/Dashboard/DashboardMain/UploadFile/Upload';
 
 // using sentry for error reporting and monitoring in react production mode
 Sentry.init({
@@ -197,7 +190,7 @@ const router = createBrowserRouter([
 		element: <Privacy />,
 	},
 	{
-		path: '/*',
+		path: '*',
 		element: <Error404 />,
 	},
 	// {

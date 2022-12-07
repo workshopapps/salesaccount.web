@@ -12,6 +12,9 @@ function Processing() {
 	// 	}
 	// }, 1000);
 
+	// eslint-disable-next-line
+	console.log(progress);
+
 	return (
 		<div>
 			<div className="mb-[83px]">

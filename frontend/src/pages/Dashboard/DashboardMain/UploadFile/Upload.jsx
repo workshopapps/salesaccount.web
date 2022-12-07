@@ -6,15 +6,10 @@ import { useAuth } from '../../../../Store/Context';
 function Upload() {
 	const { dragHandler, dropHandler, setLocalFile, setFileDropped } = useAuth();
 	const inputRef = useRef();
-	// const {  } = useAuth();
-
-	// Just some comment
 
 	return (
-		<div className="w-full flex flex-col items-center ">
-			<h1 className="font-semibold text-[#344054] text-[40px] mb-[1em]  md:text-2xl max-sm:text-2xl lg:mb-2">
-				Upload Account Statement
-			</h1>
+		<div className="w-full flex flex-col items-center mt-[3em] md:mt-[5em]">
+			<h1 className="font-bold text-2xl my-[1em] ">Upload Account Statement</h1>
 			<div
 				onDrop={dropHandler}
 				onDragOver={dragHandler}
@@ -34,6 +29,7 @@ function Upload() {
 					</p>
 				</div>
 			</div>
+
 			<input
 				type="file"
 				hidden
@@ -45,6 +41,7 @@ function Upload() {
 				}}
 			/>
 
+
 			<button
 				onClick={() => {
 					inputRef.current.click();
@@ -52,7 +49,7 @@ function Upload() {
 				className="bg-[#2E90FA] font-semibold text-lg text-white px-[1.5em] py-[0.8em] rounded-md mt-12 max-md:mt-3 max-md:text-sm"
 				type="button"
 			>
-				Upload Account Statement
+				Upload
 			</button>
 		</div>
 	);
