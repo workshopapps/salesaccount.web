@@ -1,5 +1,5 @@
 import * as ReactDOM from 'react-dom/client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useAuth } from '../../../Store/Context';
@@ -8,15 +8,27 @@ import './accountReport.css';
 import Processing from '../../ErrorProcessing/index';
 
 function AccountReport() {
-	const { localData3, rError, loading } = useAuth();
+	const { localData3, rError, loading, removeItem } = useAuth();
 	const navigate = useNavigate();
 	const headerKeys = Object.keys(Object.assign({}, ...localData3));
+
+	useEffect(() => {
+		localStorage.setItem('localData3', JSON.stringify(localData3));
+	}, [localData3]);
+	const userClickedUpload = () => {
+		removeItem();
+		navigate('/dashboard/home');
+	};
 
 	return (
 		<div className="space-y-[1em] mb-[5em]">
 			<div className="md:flex">
-				<div className="flex ">
-					<div className=" text-slate-500 font-semibold hover:text-black">
+				<div className="flex">
+					<div
+						onClick={userClickedUpload}
+						role="presentation"
+						className=" text-slate-500 font-semibold hover:text-black"
+					>
 						<Link to="/dashboard/home">Upload</Link>
 					</div>
 
@@ -69,11 +81,11 @@ function AccountReport() {
 							</tr>
 						</thead>
 
-						<tbody className="py-2 px-6 border">
+						<tbody className="py-2 px-6">
 							{localData3?.map((sData) => (
 								<tr className="py-2 pl-8">
 									{Object.values(sData).map((iData) => (
-										<td className="text- py-2 pl-8">{iData}</td>
+										<td className="text-sm py-5 md:py-10 pl-8 ">{iData}</td>
 									))}
 								</tr>
 							))}
