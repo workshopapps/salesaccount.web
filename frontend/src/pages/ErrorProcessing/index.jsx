@@ -1,59 +1,65 @@
-import React from 'react';
-import { FaGreaterThan } from 'react-icons/fa';
-import DashBoardHeader from '../../components/DashBoardHeader';
+import React, { useState, useEffect } from 'react';
 import NavigationBar from '../../components/NavigationBar';
+import Footer from '../../components/DashboardFooter/DashboardFooter';
+import { useAuth } from '../../Store/Context';
 
-const styles = {
-	bgColor: '#1570EF',
-	titleTextColor: '#101828',
-	inputwidth: '500px',
-	sideWidth: '248px',
-	dasboardwidth: '150px',
-};
-const processData = {
-	status: 'Processing...',
-	statusHeader: 'Maching data...',
-	statusMessage: 'imbalancing (s) found so far',
-	numberOfimbalance: 0,
-};
+function Processing() {
+	const { progress } = useAuth();
 
-const ErrorProcessing = () => (
-	<>
-		<NavigationBar />
-		<main className="m-[65px]">
-			<div className="processing-text">
-				<h1 className="font-['Lexend'] font-semibold text-[28px] leading-[136.02%] text-[#344054]">
-					Processing...
-				</h1>
-				<p className="font-['Lexend'] font-medium text-[20px] leading-[136.52%] text-[#667085]">
+	// setTimeout(() => {
+	// 	if (progress < 100) {
+	// 		setProgress(100);
+	// 	}
+	// }, 1000);
+
+	// eslint-disable-next-line
+	console.log(progress);
+
+	return (
+		<div>
+			<div className="mb-[83px]">
+				<div>
+					<p className="text-[36px] font-semibold animate-pulse">
+						Processing...
+					</p>
+				</div>
+				<p className="text-[#667085]">
 					Our system is currently reconciling your records and will alert you of
 					any errors. Please be patient.
 				</p>
 			</div>
-			<div className="bg-[#F9FAFB] rounded-[12px] absolute top-[40%] left-[25%] translate-[-50%, -50%] w-[737px] h-[364px] text-center">
-				<h3 className="mt-[100px] font-['Lexend'] font-medium text-[36px] leading-[136.02%] text-[#101828]">
-					Matching data...
-				</h3>
-				<div className="my-[10px] flex items-center justify-center gap-[10px]">
-					<span className="text-[28px] text-[#F04438]">0</span>
-					<p className="font-['Lexend'] font-semibold text-[28px] leading-[136.02%] text-[#667085]">
-						imbalance(s) found so far
-					</p>
-				</div>
-				<div className="flex justify-center items-center gap-[5px]">
-					<input
-						className="bg-[#f2f4f7] w-[544px] rounded-[24px]"
-						type="range"
-						min="0"
-						max="100"
-						value="5"
-						step="5"
-					/>
-					<span>1%</span>
+
+			<div className="flex justify-center">
+				<div className="h-[346px] w-[737px] bg-[#F9FAFB] rounded flex justify-center items-center">
+					<div>
+						<h3 className="text-[36px] text-center font-semibold">
+							Matching Data...
+						</h3>
+						<p className="text-[#667085] text-center font-semibold">
+							<span className="text-[#F04438]">0</span> imbalance(s) found so
+							far
+						</p>
+
+						<div className="relative h-[40px] w-[544px] bg-[#F2F4F7] rounded-3xl mt-[25.5px]">
+							<span
+								className={`w-[${progress}%] ease-in duration-500 absolute h-[40px]  rounded-3xl bg-[#175CD3]`}
+							>
+								{progress}%
+							</span>
+						</div>
+					</div>
 				</div>
 			</div>
-		</main>
-	</>
-);
+			<div className="flex justify-center mt-[45px]">
+				<button
+					type="button"
+					className="text-white bg-blue-600 w-[224px] h-[48px] rounded"
+				>
+					Cancel
+				</button>
+			</div>
+		</div>
+	);
+}
 
-export default ErrorProcessing;
+export default Processing;

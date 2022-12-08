@@ -12,6 +12,15 @@
 		font-family: 'Lexend', sans-serif;
 	}
 }
+
+a {
+	-webkit-tap-highlight-color: transparent;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
 /* body{
 	display: grid;
 	place-items: center;
