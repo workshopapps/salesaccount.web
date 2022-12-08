@@ -9,14 +9,6 @@ function UploadReady() {
 
 	const navigate = useNavigate();
 
-<<<<<<< HEAD
-	
-	// useEffect(() => {
-	// 	localStorage.setItem('fileDropped', JSON.stringify(setFileDropped));
-	// }, [setFileDropped]);
-
-=======
->>>>>>> 7acfb8deffbd3b1761447e8504c25edd179d0b1f
 	const uploadHandler = () => {
 		getData();
 		navigate('/dashboard/importpage');
