@@ -14,28 +14,28 @@ router = APIRouter()
 
 @router.post("/reconcile")
 async def reconcile(files: List[UploadFile]):
-	""" Matches similar transactions in the documents """
-	if len(files) == 2:
-		try:
-			for file in files:
-				contents = file.file.read()
-				file_dir = f"Media\{file.filename}"
-				with open(file_dir, 'wb') as f:
-					f.write(contents)
-			response = await match(f"Media\{files[0].filename}", f"Media\{files[1].filename}")
-			return response
-		except Exception as e:
-			return {"message": f"Error: {e} occured. Inform team. Thanks."}
-	else:
-		return {"message": "Sorry, you need two files for reconconciliation"}
+    """ Matches similar transactions in the documents """
+    if len(files) == 2:
+        try:
+            for file in files:
+                contents = file.file.read()
+                file_dir = f"Media/{file.filename}"
+                with open(file_dir, "wb") as f:
+                    f.write(contents)
+            response = await match(f"Media/{files[0].filename}", f"Media/{files[1].filename}")
+            return response
+        except Exception as e:
+            return {"message": f"Error: {e} occurred. Inform team. Thanks."}
+    else:
+        return {"message": "Sorry, you need two files for reconconciliation"}
 
 
 @router.get("/download")
 def download():
-	""" Returns reconciled document as pdf """
-	with req.get('https://salesaccount-web-hng.vercel.app/dashboard/accountreport') as rq:
-		with open('test.csv', 'wb') as file:
-			file.write(rq.content)
-			df1 = pd.read_csv('test.csv')
-			html_string = df1.to_html()
-			pdfkit.from_string(html_string, 'test.pdf')
+    """ Returns reconciled document as pdf """
+    with req.get("https://salesaccount-web-hng.vercel.app/dashboard/accountreport") as rq:
+        with open("test.csv", "wb") as file:
+            file.write(rq.content)
+            df1 = pd.read_csv("test.csv")
+            html_string = df1.to_html()
+            pdfkit.from_string(html_string, "test.pdf")
