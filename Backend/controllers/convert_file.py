@@ -1,38 +1,21 @@
 #!/usr/bin/python3
 """ FILE CONVERSION MODULE """
-from tabula import read_pdf
+import asyncio
 import json
 import pandas as pd
-import asyncio
 
+from tabula import read_pdf
 
-
-# async def df_to_json(filename):
-#     """ Converts dataframe to json object
-    
-#     Args:
-#     df: dataframe
-
-#     Return:
-#     object: json
-#     """
-    # df = pd.DataFrame(filename)
-    # result = df.to_json(orient='records')
-    # parsed = json.loads(result)
-    # response = json.dumps(parsed, indent=4)
-    
-    # return response
 
 async def convert_file(filename: str):
-    """ Converts csv/pdf/xls files to json
-    
+    """Converts csv/pdf/xls files to json
+
     Args:
-    filename: directory containing file
+        filename: directory containing file
 
     Return:
-    object: json
+        object: json
     """
-
     if filename.endswith(".csv"):
         df = pd.read_csv(filename)
         result1 = pd.DataFrame(df)
@@ -57,9 +40,8 @@ async def convert_file(filename: str):
         parsed = json.loads(json_str)
         response = json.dumps(parsed, indent=4)
         return response
-        # df = pd.read_excel(filename, sheet_name= "")
-        # result1 = pd.to_json()
-        # result = result1.to_json(orient='records')
-        # parsed = json.loads(result)
-        # response = json.dumps(parsed, indent=4)
-        # return response
+        
+    else:
+        return {"file extension error": "unsupported file type"}
+
+

@@ -13,6 +13,10 @@ function Upload() {
 			<div
 				onDrop={dropHandler}
 				onDragOver={dragHandler}
+				onClick={() => {
+					inputRef.current.click();
+				}}
+				role="presentation"
 				className="flex flex-col items-center py-[2em] space-y-[2em] w-full md:w-[60%] lg:w-[40%]  rounded-xl border-[2px] border-dashed border-[#1D2939]"
 			>
 				<img

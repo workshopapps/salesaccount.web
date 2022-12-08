@@ -6,13 +6,11 @@ import signedDocument from '../../../../assets/images/DashboardImages/upload/sig
 function UploadReady() {
 	const { setFileDropped, getData, fileDropped } = useAuth();
 
-
 	const navigate = useNavigate();
 
 	const uploadHandler = () => {
 		getData();
 		navigate('/dashboard/importpage');
-		
 	};
 	return (
 		<div className="space-y-[1em] w-full mt-[10%] lg:mt-[5%] flex flex-col items-center ">
@@ -25,7 +23,14 @@ function UploadReady() {
 				/>
 				<div className="text-center  space-y-[0.5em]">
 					<h2 className="font-semibold text-[#344054] text-lg">
-						File Selected: &#34; {fileDropped?.name} &#34;
+						{!fileDropped?.name.includes('.csv' || '.pdf' || '.doc') ? (
+							<p className="text-red-600">Wrong file type! Choose another.</p>
+						) : (
+							<h2 className="font-semibold text-[#344054] text-lg">
+								File Selected: &#34; {fileDropped?.name} &#34;
+							</h2>
+						)}
+						{/* File Selected: &#34; {fileDropped?.name} &#34; */}
 					</h2>
 					<div className="text-sm text-[#98A2B3]">
 						<p>You are almost set</p>

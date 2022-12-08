@@ -12,12 +12,12 @@ router = APIRouter()
 @router.post("/upload")
 async def upload(file: UploadFile = File(... )):
     """ Uploads a file
-    
+   
     Arg:
-    file: uploaded file
+        file: uploaded file
 
-    Returns: json object from file uploaded
-    
+    Returns:
+        json object from file uploaded
     """
     try:
         if file.content_type == "application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" or "text/csv":
@@ -34,5 +34,9 @@ async def upload(file: UploadFile = File(... )):
         detail=f'File {file.filename} has unsupported extension type {e}',
         
     )
+        return {
+            "message": f"There was an error uploading the file {e}"
+        }
+        
     finally:
         file.file.close()

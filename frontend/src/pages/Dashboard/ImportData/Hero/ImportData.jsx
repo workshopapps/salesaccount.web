@@ -19,6 +19,8 @@ function ImportData() {
 	const [userInput2, setUserInput2] = useState('');
 	const [showTable, setShowTable] = useState(false);
 	const { dropHandlerFile2, dragHandlerFile2, removeItem } = useAuth();
+	const [sorted, setSorted] = useState({ sorted: 'amount', reversed: false });
+
 	const inputRef = useRef();
 	const navigate = useNavigate();
 	const {
@@ -245,11 +247,10 @@ function ImportData() {
 					) : (
 						<div
 							onDragOver={dragHandlerFile2}
-							onDrop={(e)=>{
-							e.preventDefault();
-							setShowUpload(true);
-							setFileDropped2(e.dataTransfer?.files[0])
-
+							onDrop={(e) => {
+								e.preventDefault();
+								setShowUpload(true);
+								setFileDropped2(e.dataTransfer?.files[0]);
 							}}
 							className=" text-center flex flex-col justify-center items-center mx-auto bg-[#F2F4F7] py-[4em]  px-[1em] md:py-[2em] w-full md:w-[70%] lg:w-[40%] space-y-3 border border-black border-dashed "
 						>
@@ -355,35 +356,28 @@ function ImportData() {
 
 			<div className="flex justify-center pb-[5em] mt-[1em] ">
 				{localData2.length > 0 ? (
-					<div className='flex justify-center items-center gap-[2em]'>
+					<div className="flex justify-center items-center gap-[2em]">
+						<button
+							type="submit"
+							onClick={(e) => {
+								e.preventDefault();
+								handleSubmit2();
+							}}
+							className="bg-[#2E90FA] rounded-md text-white text-sm py-[10px] px-[20px]  border  active:color-#1849A9"
+						>
+							Reconcile
+						</button>
 
-					
-					<button
-						type="submit"
-						onClick={(e) => {
-							e.preventDefault();
-							handleSubmit2();
-						}}
-						className="bg-[#1849A9] rounded-md  hover:bg-[#516ba0] text-white text-sm py-2 px-2 border  active:color-#1849A9"
-					>
-						Reconcile
-					</button>
-
-					<button
-						type="submit"
-						onClick={(e) => {
-							e.preventDefault();
-							userClickedUpload()
-							
-						}}
-						className="bg-red-600 rounded-md  hover:bg-[#516ba0] text-white text-sm py-2 px-2 border active:color-#1849A9"
-					>
-						Reset Files
-					</button>
-
-
-					
-					
+						<button
+							type="submit"
+							onClick={(e) => {
+								e.preventDefault();
+								userClickedUpload();
+							}}
+							className="bg-white rounded-md text-[#2E90FA] text-sm py-[10px] px-[20px] border-[1px] border-[#2E90FA] active:color-#2E90FA"
+						>
+							Refresh
+						</button>
 					</div>
 				) : (
 					<button
@@ -395,7 +389,7 @@ function ImportData() {
 							setShowTable(true);
 						}}
 						type="submit"
-						className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2   w-[70%]  md:w-[30%]  lg:w-[10%] active:color-#1849A9"
+						className="bg-[#2E90FA] text-white text-sm py-[10px] px-[20px] w-[70%]  md:w-[30%]  lg:w-[10%] active:color-#1849A9 rounded-lg"
 					>
 						Upload
 					</button>
