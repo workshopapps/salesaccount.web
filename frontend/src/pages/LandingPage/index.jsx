@@ -180,7 +180,7 @@ function LandingPage() {
 		<div>
 			<NavigationBar />
 			<div>
-				<div className="bg-white flex flex-col md:flex-row justify-between w-full md:w-[95%] lg:w-[80%] my-[3em] lg:my-[5em] h-[40vh] py-[2em] px-[1em] mx-auto  ">
+				<div className="bg-white flex flex-col md:flex-row justify-between w-full md:w-[95%] lg:w-[80%] my-[3em] lg:my-[5em] h-[48vh] py-[2em] px-[1em] mx-auto  ">
 					<div className="w-full md:w-[50%] md:mt-[3em] lg:mt-[2em] lg:w-[45%] space-y-[1em] leading-6">
 						<h1 className="text-[#101828] text-3xl md:text-4xl lg:text-6xl font-semibold  ">
 							Account
@@ -354,8 +354,8 @@ function LandingPage() {
 				/>
 			</div> */}
 
-			<div className=" bg-[#F9FAFB] md:mt-0  p-[1em] md:p-[3em] text-left md:text-center py-[3em] md:py-[5em] lg:py-[7em]">
-				<h2 className="text-[#101828] font-semibold text-lg md:text-2xl lg:text-[36px] pt-[24px] md:pt-[48px] px-[44px] md:px-0">
+			<div className=" bg-[#F9FAFB] md:mt-0  p-[1em] md:p-[3em] text-left md:text-center py-[3em] md:py-[5em] lg:py-[1em]">
+				<h2 className="text-[#101828] text-left lg:text-center md:text-center font-semibold text-lg md:text-2xl lg:text-[36px] pt-[24px] md:pt-[48px] md:x-[44px] lg:x-[44px] md:px-0">
 					Why Choose reconcile.<span className="text-[#2E90FA]">AI</span>?
 				</h2>
 
