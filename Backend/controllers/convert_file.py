@@ -7,20 +7,21 @@ import asyncio
 
 
 
-def df_to_json(df):
-    """ Converts dataframe to json object
+# async def df_to_json(filename):
+#     """ Converts dataframe to json object
     
-    Args:
-    df: dataframe
+#     Args:
+#     df: dataframe
 
-    Return:
-    object: json
-    """
-    result = df.to_json(orient='records')
-    parsed = json.loads(result)
-    response = json.dumps(parsed, indent=4)
+#     Return:
+#     object: json
+#     """
+    # df = pd.DataFrame(filename)
+    # result = df.to_json(orient='records')
+    # parsed = json.loads(result)
+    # response = json.dumps(parsed, indent=4)
     
-    return response
+    # return response
 
 async def convert_file(filename: str):
     """ Converts csv/pdf/xls files to json
@@ -34,18 +35,31 @@ async def convert_file(filename: str):
 
     if filename.endswith(".csv"):
         df = pd.read_csv(filename)
-        response = df_to_json(df)
+        result1 = pd.DataFrame(df)
+        result = result1.to_json(orient ='records')
+        parsed = json.loads(result)
+        response = json.dumps(parsed, indent=4)
         return response
       
-    elif filename.endswith('.pdf'):  
-        df = read_pdf(filename)
-        response = df_to_json(df)
-        return response
+    # elif filename.endswith('.pdf'):  
+    #     df = read_pdf(filename)
+    #     csv_dataframe= pd.DataFrame(df)
+    #     result = csv_dataframe.to_json(orient='records')
+    #     parsed = json.loads(result)
+    #     response = json.dumps(parsed, indent=4)
+    #     return response
   
-    elif filename.endswith('.xls'):
-        df = pd.read_excel(filename)
-        response = df_to_json(df)
+    elif filename.endswith('.xlsx'):
+    
+        excel_data_df = pd.read_excel(filename)
+        excel_dataframe = pd.DataFrame(excel_data_df)
+        json_str = excel_dataframe.to_json(orient = 'records')
+        parsed = json.loads(json_str)
+        response = json.dumps(parsed, indent=4)
         return response
-
-    else:
-        return {'file extension error': 'unsupported file type'}
+        # df = pd.read_excel(filename, sheet_name= "")
+        # result1 = pd.to_json()
+        # result = result1.to_json(orient='records')
+        # parsed = json.loads(result)
+        # response = json.dumps(parsed, indent=4)
+        # return response
