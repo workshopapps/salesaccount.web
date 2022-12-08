@@ -62,9 +62,9 @@ function ImportData() {
 		localStorage.setItem('localData2', JSON.stringify(localData2));
 	}, [localData2]);
 
-	useEffect(() => {
-		localStorage.setItem('fileDropped2', JSON.stringify(fileDropped2));
-	}, [fileDropped2]);
+	// useEffect(() => {
+	// 	localStorage.setItem('fileDropped2', JSON.stringify(fileDropped2));
+	// }, [fileDropped2]);
 
 	// search function here
 
