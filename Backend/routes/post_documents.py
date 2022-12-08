@@ -10,13 +10,13 @@ router = APIRouter()
 
 @router.post("/upload")
 async def upload(file: UploadFile = File(...)):
-    """ Uploads a file
-    
-    Arg:
-    file: uploaded file
+    """Uploads a file
 
-    Returns: json object from file uploaded
-    
+    Arg:
+        file: uploaded file
+
+    Returns:
+        json object from file uploaded
     """
     try:
         contents = file.file.read()
@@ -27,6 +27,8 @@ async def upload(file: UploadFile = File(...)):
         return eval(response)
 
     except Exception as e:
-        return {"message": f"There was an error uploading the file {e}"}
+        return {
+            "message": f"There was an error uploading the file {e}"
+        }
     finally:
         file.file.close()
