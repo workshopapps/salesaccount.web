@@ -6,7 +6,7 @@ import { useAuth } from '../../../../Store/Context';
 
 
 function Upload() {
-	const { dragHandler, dropHandler, setFileDropped } = useAuth();
+	const { dragHandler, dropHandler, setLocalFile, setFileDropped } = useAuth();
 	const inputRef = useRef();
 
 	return (
@@ -39,20 +39,10 @@ function Upload() {
 				accept=".csv"
 				ref={inputRef}
 				onChange={(e) => {
-					console.log(e.target.files[0]);
+					setLocalFile(e.target.files);
 					setFileDropped(e.target.files[0]);
 				}}
 			/>
-
-			<button
-				onClick={() => {
-					inputRef.current.click();
-				}}
-				className="bg-[#2E90FA] font-semibold text-lg text-white px-[1.5em] py-[0.8em] rounded-md mt-12 max-md:mt-3 max-md:text-sm"
-				type="button"
-			>
-				Upload
-			</button>
 
 			<button
 				onClick={() => {

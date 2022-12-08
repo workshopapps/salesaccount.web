@@ -390,7 +390,7 @@ function ImportData() {
 							setShowTable(true);
 						}}
 						type="submit"
-						className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2   w-[70%]  md:w-[30%]  lg:w-[10%] active:color-#1849A9"
+						className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2   w-[100%]  md:w-[30%]  lg:w-[10%] active:color-#1849A9"
 					>
 						Upload
 					</button>

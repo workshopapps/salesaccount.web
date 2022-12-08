@@ -54,18 +54,30 @@ function UploadReady() {
 				</div>
 			</div>
 
-			<button
-				onClick={(e) => {
-					e.preventDefault();
-					if (fileDropped) {
-						uploadHandler();
-					}
-				}}
-				className="bg-[#2E90FA] text-white px-[1.5em] py-[0.8em] rounded-md "
-				type="submit"
-			>
-				Upload
-			</button>
+			<div className="flex gap-[20px]">
+				<button
+					onClick={(e) => {
+						e.preventDefault();
+						setFileDropped([]);
+					}}
+					className="bg-[#2E90FA] text-white px-[1.5em] py-[0.8em] rounded-md "
+					type="submit"
+				>
+					Refresh
+				</button>
+				<button
+					onClick={(e) => {
+						e.preventDefault();
+						if (fileDropped) {
+							uploadHandler();
+						}
+					}}
+					className="bg-[#2E90FA] text-white px-[1.5em] py-[0.8em] rounded-md "
+					type="submit"
+				>
+					Upload
+				</button>
+			</div>
 		</div>
 	);
 }
