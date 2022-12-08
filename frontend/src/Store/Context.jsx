@@ -127,7 +127,6 @@ export const UserProvider = ({ children }) => {
 	};
 
 	const dropHandlerFile2 = (e) => {
-		e.preventDefault();
 		setFileDropped2(e.dataTransfer?.files[0]);
 	};
 

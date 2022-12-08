@@ -5,20 +5,9 @@ import signedDocument from '../../../../assets/images/DashboardImages/upload/sig
 
 function UploadReady() {
 	const { setFileDropped, getData, fileDropped } = useAuth();
-	
-	// const formData = new FormData();
-	// formData.append('file', fileDropped);
 
-	console.log("Uploaded: ", fileDropped)
-
-	// console.group('formData', formData);
 
 	const navigate = useNavigate();
-
-	
-	// useEffect(() => {
-	// 	localStorage.setItem('fileDropped', JSON.stringify(fileDropped));
-	// }, [fileDropped]);
 
 	const uploadHandler = () => {
 		getData();

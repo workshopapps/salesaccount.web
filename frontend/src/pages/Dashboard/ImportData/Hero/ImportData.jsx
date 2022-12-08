@@ -245,7 +245,12 @@ function ImportData() {
 					) : (
 						<div
 							onDragOver={dragHandlerFile2}
-							onDrop={dropHandlerFile2}
+							onDrop={(e)=>{
+							e.preventDefault();
+							setShowUpload(true);
+							setFileDropped2(e.dataTransfer?.files[0])
+
+							}}
 							className=" text-center flex flex-col justify-center items-center mx-auto bg-[#F2F4F7] py-[4em]  px-[1em] md:py-[2em] w-full md:w-[70%] lg:w-[40%] space-y-3 border border-black border-dashed "
 						>
 							<CloudUploadIcon sx={{ fontSize: '5em', color: '#2E90FA' }} />
