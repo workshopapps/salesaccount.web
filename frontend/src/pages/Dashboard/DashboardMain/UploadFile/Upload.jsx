@@ -15,7 +15,14 @@ function Upload() {
 			<div
 				onDrop={dropHandler}
 				onDragOver={dragHandler}
+<<<<<<< HEAD
 				
+=======
+				onClick={() => {
+					inputRef.current.click();
+				}}
+				role="presentation"
+>>>>>>> 7acfb8deffbd3b1761447e8504c25edd179d0b1f
 				className="flex flex-col items-center py-[2em] space-y-[2em] w-full md:w-[60%] lg:w-[40%]  rounded-xl border-[2px] border-dashed border-[#1D2939]"
 			>
 				<img
@@ -39,7 +46,10 @@ function Upload() {
 				accept=".csv"
 				ref={inputRef}
 				onChange={(e) => {
+<<<<<<< HEAD
 					setLocalFile(e.target.files);
+=======
+>>>>>>> 7acfb8deffbd3b1761447e8504c25edd179d0b1f
 					setFileDropped(e.target.files[0]);
 				}}
 			/>

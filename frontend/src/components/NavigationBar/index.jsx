@@ -27,7 +27,7 @@ function NavigationBar() {
 	};
 	return (
 		<nav className="bg-[#F9FAFB] ">
-			<div className="h-[7vh] w-full mx-auto px-[3em] flex items-center justify-between md:px-[5em]   ">
+			<div className="py-[] md:py-[0.5em] lg:py-[2em] w-full mx-auto px-[3em] flex items-center justify-between md:px-[5em]   ">
 				<Link to="/">
 					<figure className="h-[50px] lg:h-[40px] max-sm:w-[120px] max-lg:w-[200px]">
 						<img
