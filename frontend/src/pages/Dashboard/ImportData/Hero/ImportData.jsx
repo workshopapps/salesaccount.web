@@ -62,9 +62,9 @@ function ImportData() {
 		localStorage.setItem('localData2', JSON.stringify(localData2));
 	}, [localData2]);
 
-	useEffect(() => {
-		localStorage.setItem('fileDropped2', JSON.stringify(fileDropped2));
-	}, [fileDropped2]);
+	// useEffect(() => {
+	// 	localStorage.setItem('fileDropped2', JSON.stringify(fileDropped2));
+	// }, [fileDropped2]);
 
 	// search function here
 
@@ -350,16 +350,36 @@ function ImportData() {
 
 			<div className="flex justify-center pb-[5em] mt-[1em] ">
 				{localData2.length > 0 ? (
+					<div className='flex justify-center items-center gap-[2em]'>
+
+					
 					<button
 						type="submit"
 						onClick={(e) => {
 							e.preventDefault();
 							handleSubmit2();
 						}}
-						className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2 border w-[70%]  md:w-[30%] lg:w-[10%] active:color-#1849A9"
+						className="bg-[#1849A9] rounded-md  hover:bg-[#516ba0] text-white text-sm py-2 px-2 border  active:color-#1849A9"
 					>
 						Reconcile
 					</button>
+
+					<button
+						type="submit"
+						onClick={(e) => {
+							e.preventDefault();
+							userClickedUpload()
+							
+						}}
+						className="bg-red-600 rounded-md  hover:bg-[#516ba0] text-white text-sm py-2 px-2 border active:color-#1849A9"
+					>
+						Reset Files
+					</button>
+
+
+					
+					
+					</div>
 				) : (
 					<button
 						onClick={(e) => {
