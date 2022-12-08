@@ -21,6 +21,7 @@ pandas-stubs==1.5.2.221124
 pdfkit==1.0.0
 protobuf==3.20.1
 pydantic==1.10.2
+PyPDF2==2.11.2
 PyMySQL==1.0.2
 PyMysqlDB==0.0.2
 python-dateutil==2.8.2
