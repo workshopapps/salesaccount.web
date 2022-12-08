@@ -41,7 +41,7 @@ pipeline {
 
         stage('Build and Deploy FastAPI Backend') {
             steps {
-                sh "chmod +x -R ${env.WORKSPACE}"
+                sh "sudo chmod +x -R ${env.WORKSPACE}"
                 sh 'echo "Building FastAPI Backend"'
                 sh 'sudo cp -rf ${WORKSPACE}/Backend/* /home/dcnc/salesaccount.web/Backend'
                 sh "pwd"
