@@ -10,8 +10,7 @@ import asyncio
 
 API_KEY = os.getenv("OPENAI_API_KEY", default=API_KEY) #comment this line to use your personal openai api key. This is for the production environment
 
-openai.api_key = API_KEY # replace API_KEY with personal api secret key
-
+openai.api_key = API_KEY # replace API_KEY with personal api secret key if you want to use your own account
 
 async def openai_call(prompt):
 	""" Send a request to openai GPT3 for matching
@@ -25,8 +24,8 @@ async def openai_call(prompt):
 	response = openai.Completion.create(
   					model="text-davinci-003",
   					prompt = prompt,
-					temperature=0.4,
-					max_tokens=2500,
+					temperature=0.62,
+					max_tokens=2857,
 					top_p=1,
 					frequency_penalty=0,
 					presence_penalty=0
@@ -77,14 +76,14 @@ async def match(file1, file2):
 		
 		
 		flag = 0
-		while flag < 5:
+		while flag < 7:
 			if response.choices[0].text == None:
 				response = openai_call(prompt)
 				flag += 1
 				print(f"{flag} failed requests")
 			else:
-				flag = 5
+				flag = 7
 
 
 		string = response.choices[0].text
-		return (string)
+		return eval(string)
