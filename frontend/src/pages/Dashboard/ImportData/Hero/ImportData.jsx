@@ -62,10 +62,14 @@ function ImportData() {
 		localStorage.setItem('localData2', JSON.stringify(localData2));
 	}, [localData2]);
 
+	
+	useEffect(() => {
+		localStorage.setItem('fileName', JSON.stringify(fileDropped?.name));
+	}, [fileDropped?.name]);
+	
 	// useEffect(() => {
-	// 	localStorage.setItem('fileDropped2', JSON.stringify(fileDropped2));
+	// 	localStorage.setItem('fileDropped2', JSON.stringify(fileName2));
 	// }, [fileDropped2]);
-
 	// search function here
 
 	const filteredResult = localData?.filter((table) =>

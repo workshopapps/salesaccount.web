@@ -18,6 +18,7 @@ export const UserProvider = ({ children }) => {
 		localStorage.getItem('localData3') || '[]'
 	);
 
+	
 	//  Persisting data for uploaded files
 
 	// const fileDroppedSaved = JSON.parse(
@@ -37,28 +38,29 @@ export const UserProvider = ({ children }) => {
 
 	const [localData, setLocalData] = useState(AccountStatementsaved);
 	const [localData2, setLocalData2] = useState(SalesRecordsaved);
-
+	
 	// reconcile data
 	const [localData3, setLocalData3] = useState(ReconciledRecordsSaved);
 	const [loading, setLoading] = useState(true);
 	const [rError, setRError] = useState('');
-
+	
 	const [fileDropped, setFileDropped] = useState([]);
 	const [fileDropped2, setFileDropped2] = useState([]);
-
+	
 	const uploadUrl = 'https://api.reconcileai.hng.tech/upload';
 	const reconcileUrl = `https://api.reconcileai.hng.tech/reconcile`;
 	const downloadUrl = '';
+	
 
 	// ////////bank statement GET request
 	const getData = async () => {
 		const formData = new FormData();
 		formData.append('file', fileDropped);
-
+		
 		axios
-			.post(uploadUrl, formData, {
-				headers: {
-					'Content-Type': 'multipart/form-data',
+		.post(uploadUrl, formData, {
+			headers: {
+				'Content-Type': 'multipart/form-data',
 				},
 			})
 			.then((res) => setLocalData(res?.data))

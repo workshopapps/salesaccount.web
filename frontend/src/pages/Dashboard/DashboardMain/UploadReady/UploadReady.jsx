@@ -17,8 +17,8 @@ function UploadReady() {
 
 	
 	// useEffect(() => {
-	// 	localStorage.setItem('fileDropped', JSON.stringify(fileDropped));
-	// }, [fileDropped]);
+	// 	localStorage.setItem('fileDropped', JSON.stringify(setFileDropped));
+	// }, [setFileDropped]);
 
 	const uploadHandler = () => {
 		getData();
