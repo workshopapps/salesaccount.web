@@ -10,7 +10,6 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useAuth } from '../../../../Store/Context';
 import ok from '../../../../assets/Ok.png';
 import signedDocument from '../../../../assets/images/DashboardImages/upload/signed document.png';
-import Button from '../../../../components/Button';
 
 function ImportData() {
 	const [showDisplay, setShowDisplay] = useState(false);
@@ -20,6 +19,8 @@ function ImportData() {
 	const [userInput2, setUserInput2] = useState('');
 	const [showTable, setShowTable] = useState(false);
 	const { dropHandlerFile2, dragHandlerFile2, removeItem } = useAuth();
+	const [sorted, setSorted] = useState({ sorted: 'amount', reversed: false });
+
 	const inputRef = useRef();
 	const navigate = useNavigate();
 	const {
