@@ -36,7 +36,6 @@ function Upload() {
 				accept=".csv"
 				ref={inputRef}
 				onChange={(e) => {
-					console.log(e.target.files[0]);
 					setFileDropped(e.target.files[0]);
 				}}
 			/>
