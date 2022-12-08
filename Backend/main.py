@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 """ FASTAPI APPLICATION """
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from routes import api_status, post_documents, reconcile_documents
+from fastapi.encoders import jsonable_encoder
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse
 
 app = FastAPI()
 
@@ -14,6 +17,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
 
 
 app.include_router(api_status.router)
