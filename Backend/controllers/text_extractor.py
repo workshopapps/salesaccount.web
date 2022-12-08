@@ -1,21 +1,23 @@
-import easyocr 
-import cv2 
+import cv2
+import easyocr
 
-class OCR_Reader():
-    """
-    Initialize the reader with a jpg image.
-    
+
+class OCR_Reader:
+    """Initialize the reader with a jpg image.
+
     Parameters:
-     -image/frame: numpy array
-     -languages: list of languages to use for OCR, default is ['en', 'it']
+        - image/frame: numpy array
+        - languages: list of languages to use for OCR, default is ['en', 'it']
     """
 
-    def __init__(self, gpu=False, languages=['en', 'it']):
+    def __init__(self, gpu=False, languages=["en", "it"]):
         self.reader = easyocr.Reader(languages, gpu=gpu)
 
     def read_text(self, image):
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        adapted = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 85, 11)
+        adapted = cv2.adaptiveThreshold(
+            gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 85, 11
+        )
         result = self.reader.readtext(gray)
         text = []
         boxes = []
@@ -25,8 +27,8 @@ class OCR_Reader():
             text.append(detection[1])
             boxes.append(f"Box: {top_left + bottom_right}")
             try:
-                image = cv2.rectangle(image,top_left,bottom_right,(0,255,0),2)
+                image = cv2.rectangle(image, top_left, bottom_right, (0, 255, 0), 2)
             except:
                 continue
-        return image, text, boxes 
+        return image, text, boxes
         
