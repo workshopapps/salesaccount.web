@@ -24,8 +24,8 @@ async def openai_call(prompt):
 	response = openai.Completion.create(
   					model="text-davinci-003",
   					prompt = prompt,
-					temperature=0.62,
-					max_tokens=2857,
+					temperature=0.58,
+					max_tokens=2850,
 					top_p=1,
 					frequency_penalty=0,
 					presence_penalty=0
