@@ -19,16 +19,17 @@ const navLinks = [
 function NavigationBar() {
 	const activeStyle =
 		'underline whitespace-nowrap underline-offset-8 px-[10px] font-medium text-xl text-[#2E90FA] max-lg:text-sm';
-	const normalStyle = 'px-[10px] whitespace-nowrap font-medium text-[#101828] text-xl max-lg:text-sm';
+	const normalStyle =
+		'px-[10px] whitespace-nowrap font-medium text-[#101828] text-xl max-lg:text-sm';
 	const [nav, setNav] = useState(false);
 	const toggle = () => {
 		setNav(!nav);
 	};
 	return (
 		<nav className="bg-[#F9FAFB] ">
-			<div className="h-[112px] max-w-[1440px] w-full mx-auto px-[72px] flex items-center justify-between max-md:px-[30px] max-md:h-20 max-lg:h-[72px] max-sm:h-14 ">
+			<div className="py-[] md:py-[0.5em] lg:py-[2em] w-full mx-auto px-[3em] flex items-center justify-between md:px-[5em]   ">
 				<Link to="/">
-					<figure className="h-[50px] mr-4 max-sm:w-[120px] max-lg:w-[200px]">
+					<figure className="h-[50px] lg:h-[40px] max-sm:w-[120px] max-lg:w-[200px]">
 						<img
 							src={logoUpdate}
 							alt="Company logo"

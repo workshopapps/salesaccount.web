@@ -7,18 +7,40 @@ const UserContext = createContext();
 export const useAuth = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
+	// Persisting data
+	const AccountStatementsaved = JSON.parse(
+		localStorage.getItem('localData') || '[]'
+	);
+	const SalesRecordsaved = JSON.parse(
+		localStorage.getItem('localData2') || '[]'
+	);
+	const ReconciledRecordsSaved = JSON.parse(
+		localStorage.getItem('localData3') || '[]'
+	);
+
+	//  Persisting data for uploaded files
+
+	// const fileDroppedSaved = JSON.parse(
+	// 	localStorage.getItem('fileDropped') || '[]'
+	// );
+	// const fileDroppedSaved2 = JSON.parse(
+	// 	localStorage.getItem('fileDropped2') || '[]'
+	// );
+
+	const [progress, setProgress] = useState(0);
 	const [saleAccountFiles, setSalesAccountFiles] = useState([]);
 	const [bankStatementFile, setBankStatementFile] = useState([]);
 	const [error, setError] = useState('');
-	const [localFile, setLocalFile] = useState([]);
-	const [localFile2, setLocalFile2] = useState();
 
-	const [localData, setLocalData] = useState([]);
-	const [localData2, setLocalData2] = useState([]);
+	const [localFile, setLocalFile] = useState([]);
+	const [localFile2, setLocalFile2] = useState([]);
+
+	const [localData, setLocalData] = useState(AccountStatementsaved);
+	const [localData2, setLocalData2] = useState(SalesRecordsaved);
 
 	// reconcile data
-	const [localData3, setLocalData3] = useState([]);
-	const [loading, setLoading] = useState(false);
+	const [localData3, setLocalData3] = useState(ReconciledRecordsSaved);
+	const [loading, setLoading] = useState(true);
 	const [rError, setRError] = useState('');
 
 	const [fileDropped, setFileDropped] = useState([]);
@@ -67,30 +89,37 @@ export const UserProvider = ({ children }) => {
 			formData.append('files', item);
 		});
 
-		setLoading(true);
+		
+		// const config = {
+		// 	onUploadProgress: function (progressEvent) {
+		// 		setProgress(
+		// 			Math.round(progressEvent.loaded / progressEvent.total) * 100
+		// 		);
+		// 	},
+		// };
+
 		axios
-			.post(reconcileUrl, formData, {
-				headers: {
-					'Content-Type': 'multipart/form-data',
-				},
-			})
+			.post(reconcileUrl, formData)
 			.then((res) => {
+				// setLoading(true);
 				setLocalData3(res?.data);
+				setRError('');
 				setLoading(false);
 			})
 			.catch((e) => {
-				setLoading(false)
-				setRError(e.message)
+				setLoading(false);
+				setRError(e.message);
 			});
 	};
 
+	// functions
 	const dragHandler = (e) => {
 		e.preventDefault();
 	};
 
 	const dropHandler = (e) => {
 		e.preventDefault();
-		setLocalFile(e.dataTransfer?.files);
+		setFileDropped(e.dataTransfer?.files[0]);
 	};
 
 	const dragHandlerFile2 = (e) => {
@@ -98,8 +127,18 @@ export const UserProvider = ({ children }) => {
 	};
 
 	const dropHandlerFile2 = (e) => {
-		e.preventDefault();
-		setLocalFile(e.dataTransfer?.files);
+		setFileDropped2(e.dataTransfer?.files[0]);
+	};
+
+	const removeItem = () => {
+		localStorage.removeItem('localData');
+		localStorage.removeItem('localData2');
+		localStorage.removeItem('fileDropped');
+		localStorage.removeItem('fileDropped2');
+		setLocalData([]);
+		setLocalData2([]);
+		setFileDropped([]);
+		setFileDropped2([]);
 	};
 
 	const value = useMemo(
@@ -133,6 +172,8 @@ export const UserProvider = ({ children }) => {
 			setLocalData3,
 			loading,
 			rError,
+			removeItem,
+			progress,
 		}),
 		[
 			localFile,
@@ -146,8 +187,6 @@ export const UserProvider = ({ children }) => {
 			setFileDropped2,
 			setLocalData2,
 			localData3,
-			loading,
-			rError,
 		]
 	);
 

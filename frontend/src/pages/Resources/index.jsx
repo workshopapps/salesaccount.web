@@ -93,19 +93,21 @@ const Resources = () => (
 		<div className=" mx-auto px-7 flex flex-wrap py-8 gap-[5%] justify-center my-[1em] px:10 md:px-11 lg:px-6 xl:px-36">
 			{data.map((item) => (
 				<div key={item.id} className="my-[2em] ">
-					<div className=" flex-grow">
-						<div className=" w-72 p-5 rounded-md drop-shadow border ">
-							<div className="w-full mb-4">
-								<img src={item.image} alt="" className="w-[120%]" />
+						<div className=" flex-grow">
+						<Link to={item.to}>
+							<div className=" w-72 p-5 rounded-md drop-shadow border cursor-pointer">
+								<div className="w-full mb-4">
+									<img src={item.image} alt="" className="w-[120%]" />
+								</div>
+								<p className=" text-md text-blue-500 pt-4">{item.header}</p>
+								<h1 className=" font-semibold py-3">{item.subtext}</h1>
+								<Link to={item.to} className="">
+									<img src={arrowright} alt="" />
+								</Link>
 							</div>
-							<p className=" text-md text-blue-500 pt-4">{item.header}</p>
-							<h1 className=" font-semibold py-3">{item.subtext}</h1>
-							<Link to={item.to} className="">
-								<img src={arrowright} alt="" />
-							</Link>
+						</Link>
 						</div>
 					</div>
-				</div>
 			))}
 		</div>
 		<Footer />
