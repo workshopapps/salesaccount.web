@@ -17,9 +17,9 @@ a {
 	-webkit-tap-highlight-color: transparent;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
 	display: none;
-}
+} */
 
 /* body{
 	display: grid;
