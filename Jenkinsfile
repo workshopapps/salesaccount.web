@@ -41,6 +41,7 @@ pipeline {
 
         stage('Build and Deploy FastAPI Backend') {
             steps {
+                sh "chmod +x -R ${env.WORKSPACE}"
                 sh 'echo "Building FastAPI Backend"'
                 sh 'sudo cp -rf ${WORKSPACE}/Backend/* /home/dcnc/salesaccount.web/Backend'
                 sh "pwd"
@@ -50,7 +51,7 @@ pipeline {
                 sh "cd Backend && pip install -r requirements.txt"
                 // start the fastapi server on port 55502 with Uvicorn
                 sh 'sudo pm2 delete -s reconcileaibackend || :'
-                sh "cd Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502 --timeout=3000' --name reconcileaibackend"
+                sh "cd /home/dcnc/salesaccount.web/Backend/ && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502 --timeout=3000' --name reconcileaibackend"
             }
         }
     }
