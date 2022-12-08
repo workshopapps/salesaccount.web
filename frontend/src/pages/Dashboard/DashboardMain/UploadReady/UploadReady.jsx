@@ -5,16 +5,25 @@ import signedDocument from '../../../../assets/images/DashboardImages/upload/sig
 
 function UploadReady() {
 	const { setFileDropped, getData, fileDropped } = useAuth();
+	
+	// const formData = new FormData();
+	// formData.append('file', fileDropped);
+
+	console.log("Uploaded: ", fileDropped)
+
+	// console.group('formData', formData);
 
 	const navigate = useNavigate();
 
-	useEffect(() => {
-		localStorage.setItem('fileDropped', JSON.stringify(fileDropped));
-	}, [fileDropped]);
+	
+	// useEffect(() => {
+	// 	localStorage.setItem('fileDropped', JSON.stringify(fileDropped));
+	// }, [fileDropped]);
 
 	const uploadHandler = () => {
 		getData();
 		navigate('/dashboard/importpage');
+		
 	};
 	return (
 		<div className="space-y-[1em] w-full mt-[10%] lg:mt-[5%] flex flex-col items-center ">

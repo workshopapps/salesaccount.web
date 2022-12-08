@@ -2,6 +2,7 @@ import * as ReactDOM from 'react-dom/client';
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import { HashLoader } from 'react-spinners';
 import { useAuth } from '../../../Store/Context';
 import ok from '../../../assets/Ok.png';
 import './accountReport.css';
@@ -56,7 +57,15 @@ function AccountReport() {
 			)}
 
 			{rError && <p>{rError}</p>}
-			{loading && <Processing />}
+			{/* {loading && <Processing />} */}
+
+			{ loading && 
+				<div className='flex justify-center items-center'>
+					<HashLoader color="#2E90FA" size={150}/>
+					
+				</div>
+			}
+
 			{localData3 && (
 				<div className="overflow-scroll " id="pagetodownload">
 					<table className="table-auto w-full text-xs md:text-base ">
