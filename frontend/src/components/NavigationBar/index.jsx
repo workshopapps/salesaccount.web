@@ -11,44 +11,40 @@ import logo from '../../assets/logo.png';
 
 const navLinks = [
 	{ name: 'Home', path: '/' },
-	{ name: 'AboutUs', path: '/aboutus' },
+	{ name: 'About Us', path: '/aboutus' },
 	{ name: 'Resources', path: '/resources' },
 	{ name: 'Documentation', path: '/documentation' },
 ];
 
 function NavigationBar() {
-	const activeStyle = {
-		textDecoration: 'underline',
-		color: '#2E90FA',
-		textUnderlineOffset: '0.5em',
-	};
+	const activeStyle =
+		'underline whitespace-nowrap underline-offset-8 px-[10px] font-medium text-xl text-[#2E90FA] max-lg:text-sm';
+	const normalStyle =
+		'px-[10px] whitespace-nowrap font-medium text-[#101828] text-xl max-lg:text-sm';
 	const [nav, setNav] = useState(false);
 	const toggle = () => {
 		setNav(!nav);
 	};
 	return (
-		<nav className="bg-[#F9FAFB] border-b py-2">
-			<div className="h-[7vh] w-full px-[1em] md:px-[3em] lg:px-[7em] flex items-center justify-between">
+		<nav className="bg-[#F9FAFB] ">
+			<div className="py-[] md:py-[0.5em] lg:py-[2em] w-full mx-auto px-[3em] flex items-center justify-between md:px-[5em]   ">
 				<Link to="/">
-					<div className="flex items-center w-[30%]">
+					<figure className="h-[50px] lg:h-[40px] max-sm:w-[120px] max-lg:w-[200px]">
 						<img
-							src={logo}
-							alt="logo"
-							className="w-[50px] h-[50px] md:w-[100px] md:h-[100px] object-contain"
+							src={logoUpdate}
+							alt="Company logo"
+							className="w-full h-full cursor-pointer"
 						/>
-
-						<p className="mt-1 md:text-lg lg:text-xl">
-							reconcile.<span className="text-[#2E90FA] font-bold">AI</span>{' '}
-						</p>
-					</div>
+					</figure>
 				</Link>
 
-				<div className="hidden lg:flex lg:gap-12 text-md">
+				<div className="hidden md:flex lg:gap-7 text-xl max-lg:gap-3 max-md:text-base">
 					{navLinks.map((item) => (
 						<NavLink
 							to={item.path}
-							style={({ isActive }) => (isActive ? activeStyle : undefined)}
-							className="px-[10px] self-center font-medium text-[#101828] "
+							className={({ isActive }) =>
+								isActive ? activeStyle : normalStyle
+							}
 							key={uuid()}
 						>
 							{item.name}
@@ -58,35 +54,37 @@ function NavigationBar() {
 
 				{/* Hamburger */}
 				<div
-					className=" block lg:hidden"
+					className=" block md:hidden pr-2"
 					onClick={() => {
 						toggle();
 					}}
 					aria-hidden="true"
 				>
-					{nav ? <AiOutlineClose size={28} /> : <FiMenu size={28} />}
+					{nav ? (
+						<AiOutlineClose color="#2E90FA" size={24} />
+					) : (
+						<FiMenu color="#2E90FA" size={24} />
+					)}
 				</div>
 
 				<div
 					className={
 						nav
-							? 'lg:hidden w-full absolute top-[3em] md:top-[7vh] left-0 p-2 space-y-[40px] pt-[70px] h-[60vh] bg-[#F9FAFB] z-50 flex flex-col items-center border-b '
+							? 'md:hidden w-full absolute top-[112px] md:top-[80px] max-md:top-[56px] left-0 p-2 space-y-[40px] pt-[70px] max-md:pt-[30px] h-4/5 bg-[#F9FAFB] z-50 flex flex-col items-center'
 							: 'absolute left-[-100%] top-[-50%]'
 					}
 				>
 					{navLinks.map((item) => (
 						<NavLink
-							style={({ isActive }) => (isActive ? activeStyle : undefined)}
+							className={({ isActive }) =>
+								isActive ? activeStyle : normalStyle
+							}
 							to={item.path}
-							className="px-[30px] font-medium text-[#101828] text-xl"
 							key={uuid()}
 						>
 							{item.name}
 						</NavLink>
 					))}
-					<div>
-						<Button title="Try it NOW" path="/dashboard/home" />
-					</div>
 				</div>
 			</div>
 		</nav>
