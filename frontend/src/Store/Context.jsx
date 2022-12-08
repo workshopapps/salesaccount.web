@@ -20,12 +20,12 @@ export const UserProvider = ({ children }) => {
 
 	//  Persisting data for uploaded files
 
-	const fileDroppedSaved = JSON.parse(
-		localStorage.getItem('fileDropped') || '[]'
-	);
-	const fileDroppedSaved2 = JSON.parse(
-		localStorage.getItem('fileDropped2') || '[]'
-	);
+	// const fileDroppedSaved = JSON.parse(
+	// 	localStorage.getItem('fileDropped') || '[]'
+	// );
+	// const fileDroppedSaved2 = JSON.parse(
+	// 	localStorage.getItem('fileDropped2') || '[]'
+	// );
 
 	const [progress, setProgress] = useState(0);
 	const [saleAccountFiles, setSalesAccountFiles] = useState([]);
@@ -40,11 +40,11 @@ export const UserProvider = ({ children }) => {
 
 	// reconcile data
 	const [localData3, setLocalData3] = useState(ReconciledRecordsSaved);
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(true);
 	const [rError, setRError] = useState('');
 
-	const [fileDropped, setFileDropped] = useState(fileDroppedSaved);
-	const [fileDropped2, setFileDropped2] = useState(fileDroppedSaved2);
+	const [fileDropped, setFileDropped] = useState([]);
+	const [fileDropped2, setFileDropped2] = useState([]);
 
 	const uploadUrl = 'https://api.reconcileai.hng.tech/upload';
 	const reconcileUrl = `https://api.reconcileai.hng.tech/reconcile`;
@@ -89,21 +89,22 @@ export const UserProvider = ({ children }) => {
 			formData.append('files', item);
 		});
 
-		setLoading(true);
-		const config = {
-			onUploadProgress: function (progressEvent) {
-				setProgress(
-					Math.round(progressEvent.loaded / progressEvent.total) * 100
-				);
-			},
-		};
+		
+		// const config = {
+		// 	onUploadProgress: function (progressEvent) {
+		// 		setProgress(
+		// 			Math.round(progressEvent.loaded / progressEvent.total) * 100
+		// 		);
+		// 	},
+		// };
 
 		axios
-			.post(reconcileUrl, formData, config)
+			.post(reconcileUrl, formData)
 			.then((res) => {
+				// setLoading(true);
 				setLocalData3(res?.data);
-				setLoading(false);
 				setRError('');
+				setLoading(false);
 			})
 			.catch((e) => {
 				setLoading(false);
@@ -126,7 +127,6 @@ export const UserProvider = ({ children }) => {
 	};
 
 	const dropHandlerFile2 = (e) => {
-		e.preventDefault();
 		setFileDropped2(e.dataTransfer?.files[0]);
 	};
 

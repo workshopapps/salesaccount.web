@@ -4,7 +4,7 @@ import './upload.css';
 import { useAuth } from '../../../../Store/Context';
 
 function Upload() {
-	const { dragHandler, dropHandler, setLocalFile, setFileDropped } = useAuth();
+	const { dragHandler, dropHandler, setFileDropped } = useAuth();
 	const inputRef = useRef();
 
 	return (
@@ -36,7 +36,6 @@ function Upload() {
 				accept=".csv"
 				ref={inputRef}
 				onChange={(e) => {
-					setLocalFile(e.target.files);
 					setFileDropped(e.target.files[0]);
 				}}
 			/>
