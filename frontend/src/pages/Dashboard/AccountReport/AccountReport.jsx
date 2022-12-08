@@ -1,5 +1,5 @@
 import * as ReactDOM from 'react-dom/client';
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { HashLoader } from 'react-spinners';
@@ -14,6 +14,8 @@ function AccountReport() {
 	const navigate = useNavigate();
 	const headerKeys = Object.keys(Object.assign({}, ...localData3));
 
+	const [text, setText] = useState(false);
+
 	useEffect(() => {
 		localStorage.setItem('localData3', JSON.stringify(localData3));
 	}, [localData3]);
@@ -21,6 +23,10 @@ function AccountReport() {
 		removeItem();
 		navigate('/dashboard/home');
 	};
+
+	useEffect(() => {
+		setTimeout(() => setText(true), 3000);
+	}, []);
 
 	return (
 		<div className="space-y-[3em]">
@@ -59,12 +65,20 @@ function AccountReport() {
 			{rError && <p>{rError}</p>}
 			{/* {loading && <Processing />} */}
 
-			{ loading && 
-				<div className='flex justify-center items-center'>
-					<HashLoader color="#2E90FA" size={150}/>
-					
+			{loading && (
+				<div className="flex flex-col justify-center items-center">
+					<h2 className="animate-pulse text-[30px] text-[#2E90FA] font-semibold">
+						Matching data...
+					</h2>
+					{/* <p>Test</p> */}
+
+					{text && (
+						<h2 className="animate-pulse mb-10">Just a few more moments...</h2>
+					)}
+
+					<HashLoader color="#2E90FA" size={150} />
 				</div>
-			}
+			)}
 
 			{localData3 && (
 				<div className="overflow-scroll " id="pagetodownload">
