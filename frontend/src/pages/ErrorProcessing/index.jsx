@@ -1,60 +1,65 @@
-import React from 'react';
-import { FaGreaterThan } from 'react-icons/fa';
-import DashBoardSideBar from '../../components/DashBoardSideBar';
-import DashBoardHeader from '../../components/DashBoardHeader';
+import React, { useState, useEffect } from 'react';
+import NavigationBar from '../../components/NavigationBar';
+import Footer from '../../components/DashboardFooter/DashboardFooter';
+import { useAuth } from '../../Store/Context';
 
-const styles = {
-	bgColor: '#1570EF',
-	titleTextColor: '#101828',
-	inputwidth: '500px',
-	sideWidth: '248px',
-	dasboardwidth: '150px',
-};
-const processData = {
-	status: 'Processing...',
-	statusHeader: 'Maching data...',
-	statusMessage: 'imbalancing (s) found so far',
-	numberOfimbalance: 0,
-};
+function Processing() {
+	const { progress } = useAuth();
 
-const ErrorProcessing = () => (
-	<>
-		<DashBoardHeader />
-		<div className="dashboard-main-cont">
-			<DashBoardSideBar />
-			<main className="">
-				<div className="breadcrum text-[#667085] mb-4">
-					Dashboard &gt; Upload{' '}
+	// setTimeout(() => {
+	// 	if (progress < 100) {
+	// 		setProgress(100);
+	// 	}
+	// }, 1000);
+
+	// eslint-disable-next-line
+	console.log(progress);
+
+	return (
+		<div>
+			<div className="mb-[83px]">
+				<div>
+					<p className="text-[36px] font-semibold animate-pulse">
+						Processing...
+					</p>
 				</div>
-				<h1 className="font-bold text-2xl">{processData.status}</h1>
-				<p className="text-[#667085] pb-2">
+				<p className="text-[#667085]">
 					Our system is currently reconciling your records and will alert you of
-					any errors. Please be patient.{' '}
+					any errors. Please be patient.
 				</p>
-				<div className="center">
-					<div className="process-card p-10 mt-2">
-						<h1 className="font-bold text-base">{processData.statusHeader}</h1>
-						<p className="">
-							<span className="numberOfErrors">
-								{processData.numberOfimbalance}
-							</span>
-							{processData.statusMessage}
+			</div>
+
+			<div className="flex justify-center">
+				<div className="h-[346px] w-[737px] bg-[#F9FAFB] rounded flex justify-center items-center">
+					<div>
+						<h3 className="text-[36px] text-center font-semibold">
+							Matching Data...
+						</h3>
+						<p className="text-[#667085] text-center font-semibold">
+							<span className="text-[#F04438]">0</span> imbalance(s) found so
+							far
 						</p>
 
-						<div className="w-full bg-gray-200 rounded-full h-5 mt-2 dark:bg-gray-700">
-							<div className="bg-blue-600 h-5 rounded-full w-10"> </div>
+						<div className="relative h-[40px] w-[544px] bg-[#F2F4F7] rounded-3xl mt-[25.5px]">
+							<span
+								className={`w-[${progress}%] ease-in duration-500 absolute h-[40px]  rounded-3xl bg-[#175CD3]`}
+							>
+								{progress}%
+							</span>
 						</div>
 					</div>
-					<a
-						href="/processingerror"
-						className="flex items-center p-2 mt-3 sm:mx-auto rounded bg-[#1570EF] text-white"
-					>
-						cancel
-					</a>
 				</div>
-			</main>
+			</div>
+			<div className="flex justify-center mt-[45px]">
+				<button
+					type="button"
+					className="text-white bg-blue-600 w-[224px] h-[48px] rounded"
+				>
+					Cancel
+				</button>
+			</div>
 		</div>
-	</>
-);
+	);
+}
 
-export default ErrorProcessing;
+export default Processing;
