@@ -9,7 +9,7 @@ router = APIRouter()
 
 
 @router.post("/upload")
-async def upload(file: UploadFile = File(...)):
+def upload(file: UploadFile = File(...)):
     """Uploads a file
 
     Arg:
@@ -20,12 +20,11 @@ async def upload(file: UploadFile = File(...)):
     """
     try:
         contents = file.file.read()
-        with open(file.filename, 'wb') as f:
+        with open(f"media/{file.filename}", 'wb') as f:
             f.write(contents)
-        response = await convert_file(file.filename)
+        response = convert_file(f"media/{file.filename}")
         null = "null"
         return eval(response)
-
     except Exception as e:
         return {
             "message": f"There was an error uploading the file {e}"

@@ -11,4 +11,4 @@ api_key.py
 # Ignore testing files
 *csv
 *pdf
-*xls
+*xls*
