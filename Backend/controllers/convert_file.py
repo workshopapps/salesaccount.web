@@ -7,22 +7,6 @@ import pandas as pd
 from tabula import read_pdf
 
 
-def df_to_json(df):
-    """Converts dataframe to json object
-
-    Args:
-        df: dataframe
-
-    Return:
-        object: json
-    """
-    result = df.to_json(orient="records")
-    parsed = json.loads(result)
-    response = json.dumps(parsed, indent=4)
-
-    return response
-
-
 async def convert_file(filename: str):
     """Converts csv/pdf/xls files to json
 
@@ -34,19 +18,29 @@ async def convert_file(filename: str):
     """
     if filename.endswith(".csv"):
         df = pd.read_csv(filename)
-        response = df_to_json(df)
+        result1 = pd.DataFrame(df)
+        result = result1.to_json(orient ='records')
+        parsed = json.loads(result)
+        response = json.dumps(parsed, indent=4)
         return response
-
-    elif filename.endswith(".pdf"):
-        df = read_pdf(filename)
-        response = df_to_json(df)
+      
+    # elif filename.endswith('.pdf'):  
+    #     df = read_pdf(filename)
+    #     csv_dataframe= pd.DataFrame(df)
+    #     result = csv_dataframe.to_json(orient='records')
+    #     parsed = json.loads(result)
+    #     response = json.dumps(parsed, indent=4)
+    #     return response
+  
+    elif filename.endswith('.xlsx'):
+    
+        excel_data_df = pd.read_excel(filename)
+        excel_dataframe = pd.DataFrame(excel_data_df)
+        json_str = excel_dataframe.to_json(orient = 'records')
+        parsed = json.loads(json_str)
+        response = json.dumps(parsed, indent=4)
         return response
-
-    elif filename.endswith(".xls"):
-        df = pd.read_excel(filename)
-        response = df_to_json(df)
-        return response
-
+        
     else:
         return {"file extension error": "unsupported file type"}
 
