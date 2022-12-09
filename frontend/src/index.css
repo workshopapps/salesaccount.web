@@ -21,6 +21,10 @@ a {
 	display: none;
 }
 
+button:disabled {
+	background-color: #2e91fa6d;
+}
+
 /* body{
 	display: grid;
 	place-items: center;

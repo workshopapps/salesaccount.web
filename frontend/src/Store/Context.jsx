@@ -32,6 +32,8 @@ export const UserProvider = ({ children }) => {
 	const [bankStatementFile, setBankStatementFile] = useState([]);
 	const [error, setError] = useState('');
 
+	const [fileErr, setFileErr] = useState(false);
+
 	const [localFile, setLocalFile] = useState([]);
 	const [localFile2, setLocalFile2] = useState([]);
 
@@ -89,7 +91,6 @@ export const UserProvider = ({ children }) => {
 			formData.append('files', item);
 		});
 
-		
 		// const config = {
 		// 	onUploadProgress: function (progressEvent) {
 		// 		setProgress(
@@ -120,6 +121,15 @@ export const UserProvider = ({ children }) => {
 	const dropHandler = (e) => {
 		e.preventDefault();
 		setFileDropped(e.dataTransfer?.files[0]);
+		if (!e.dataTransfer?.files[0]?.name.includes('.csv' || '.pdf' || '.doc')) {
+			// eslint-disable-next-line
+			console.log(e.dataTransfer?.files[0].name);
+			setFileErr(true);
+		} else {
+			setFileErr(false);
+			// eslint-disable-next-line
+			console.log(fileErr);
+		}
 	};
 
 	const dragHandlerFile2 = (e) => {
@@ -174,6 +184,7 @@ export const UserProvider = ({ children }) => {
 			rError,
 			removeItem,
 			progress,
+			fileErr,
 		}),
 		[
 			localFile,
