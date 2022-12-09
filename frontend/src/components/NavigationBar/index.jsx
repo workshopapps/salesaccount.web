@@ -8,6 +8,7 @@ import uuid from 'react-uuid';
 import Button from '../Button';
 import logoUpdate from '../../assets/logoUpdate.svg';
 import logo from '../../assets/logo.png';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 const navLinks = [
 	{ name: 'Home', path: '/' },
@@ -26,68 +27,71 @@ function NavigationBar() {
 		setNav(!nav);
 	};
 	return (
-		<nav className="bg-[#F9FAFB] ">
-			<div className="py-[] md:py-[0.5em] lg:py-[2em] w-full mx-auto px-[3em] flex items-center justify-between md:px-[5em]   ">
-				<Link to="/">
-					<figure className="h-[50px] lg:h-[40px] max-sm:w-[120px] max-lg:w-[200px]">
-						<img
-							src={logoUpdate}
-							alt="Company logo"
-							className="w-full h-full cursor-pointer"
-						/>
-					</figure>
-				</Link>
+		<>
+			<ScrollToTop />
+			<nav className="bg-[#F9FAFB] ">
+				<div className="py-[] md:py-[0.5em] lg:py-[2em] w-full mx-auto px-[3em] flex items-center justify-between md:px-[5em]   ">
+					<Link to="/">
+						<figure className="h-[50px] lg:h-[40px] max-sm:w-[120px] max-lg:w-[200px]">
+							<img
+								src={logoUpdate}
+								alt="Company logo"
+								className="w-full h-full cursor-pointer"
+							/>
+						</figure>
+					</Link>
 
-				<div className="hidden md:flex lg:gap-7 text-xl max-lg:gap-3 max-md:text-base">
-					{navLinks.map((item) => (
-						<NavLink
-							to={item.path}
-							className={({ isActive }) =>
-								isActive ? activeStyle : normalStyle
-							}
-							key={uuid()}
-						>
-							{item.name}
-						</NavLink>
-					))}
-				</div>
+					<div className="hidden md:flex lg:gap-7 text-xl max-lg:gap-3 max-md:text-base">
+						{navLinks.map((item) => (
+							<NavLink
+								to={item.path}
+								className={({ isActive }) =>
+									isActive ? activeStyle : normalStyle
+								}
+								key={uuid()}
+							>
+								{item.name}
+							</NavLink>
+						))}
+					</div>
 
-				{/* Hamburger */}
-				<div
-					className=" block md:hidden pr-2"
-					onClick={() => {
-						toggle();
-					}}
-					aria-hidden="true"
-				>
-					{nav ? (
-						<AiOutlineClose color="#2E90FA" size={24} />
-					) : (
-						<FiMenu color="#2E90FA" size={24} />
-					)}
-				</div>
+					{/* Hamburger */}
+					<div
+						className=" block md:hidden pr-2"
+						onClick={() => {
+							toggle();
+						}}
+						aria-hidden="true"
+					>
+						{nav ? (
+							<AiOutlineClose color="#2E90FA" size={24} />
+						) : (
+							<FiMenu color="#2E90FA" size={24} />
+						)}
+					</div>
 
-				<div
-					className={
-						nav
-							? 'md:hidden w-full absolute top-[112px] md:top-[80px] max-md:top-[56px] left-0 p-2 space-y-[40px] pt-[70px] max-md:pt-[30px] h-4/5 bg-[#F9FAFB] z-50 flex flex-col items-center'
-							: 'absolute left-[-100%] top-[-50%]'
-					}
-				>
-					{navLinks.map((item) => (
-						<NavLink
-							className={({ isActive }) =>
-								isActive ? activeStyle : normalStyle
-							}
-							to={item.path}
-							key={uuid()}
-						>
-							{item.name}
-						</NavLink>
-					))}
+					<div
+						className={
+							nav
+								? 'md:hidden w-full absolute top-[112px] md:top-[80px] max-md:top-[56px] left-0 p-2 space-y-[40px] pt-[70px] max-md:pt-[30px] h-4/5 bg-[#F9FAFB] z-50 flex flex-col items-center'
+								: 'absolute left-[-100%] top-[-50%]'
+						}
+					>
+						{navLinks.map((item) => (
+							<NavLink
+								className={({ isActive }) =>
+									isActive ? activeStyle : normalStyle
+								}
+								to={item.path}
+								key={uuid()}
+							>
+								{item.name}
+							</NavLink>
+						))}
+					</div>
 				</div>
-			</div>
-		</nav>
+			</nav>
+		</>
 	);
 }
 

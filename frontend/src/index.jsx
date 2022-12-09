@@ -39,7 +39,7 @@ import { UserProvider } from './Store/Context';
 import AccountReport from './pages/Dashboard/AccountReport/AccountReport';
 import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
 import Privacy from './pages/Privacy';
-import ServerError from './pages/ServerError/index'
+import ServerError from './pages/ServerError/index';
 
 // using sentry for error reporting and monitoring in react production mode
 Sentry.init({
