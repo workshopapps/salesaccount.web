@@ -4,11 +4,11 @@
         height: 300px;
     }
     .server-text {
-        max-width: 650px;
+        max-width: 500px;
         font-family: 'Lexend';
         font-weight: 400;
         font-size: 15px;
-        line-height: 16px;
+        line-height: 30px;
         display: flex;
         align-items: center;
         text-align: center;
@@ -28,13 +28,13 @@
         font-family: 'Lexend';
         font-weight: 400;
         font-size: 15px;
-        line-height: 16px;
+        line-height: 30px;
         display: flex;
         align-items: center;
         text-align: center;
         color: #101828
     }
     button {
-        margin-top: 50px;
+        margin-top: 65px;
     }
 }
