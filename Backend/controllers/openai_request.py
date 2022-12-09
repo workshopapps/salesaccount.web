@@ -13,7 +13,7 @@ API_KEY = os.getenv("OPENAI_API_KEY", default=API_KEY)  # comment this line to u
 openai.api_key = API_KEY  # replace API_KEY with personal api secret key if you want to use your own account
 
 
-def openai_call(prompt):
+def openai_call(prompt, temperature=0.62):
     """Send a request to openai GPT3
 
     Args:
@@ -26,8 +26,8 @@ def openai_call(prompt):
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=prompt,
-        temperature=0.62,
-        max_tokens=2850,
+        temperature=temperature,
+        max_tokens=3000,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0

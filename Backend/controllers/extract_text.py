@@ -20,20 +20,19 @@ def pdf_to_text(filename:str):
 
     pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
     output = ""
-    for i in range(1):
+    response = ""
+    keyword = """Match only transaction details with a date attached in this text below into a table. No title. 
+                Response only as JSON format inside an array.\n Example: [{Your response}]"""
+    for i in range(pdfReader.numPages):
         pageObj = pdfReader.getPage(i)
-        output += pageObj.extractText()
-    # output  = output.strip()
-    keyword = """
-        Extract just transactions details in this text below. Arrange into a table.
-        No title. Response only as a JSON inside an array\n
-        """
-    prompt = f"{keyword}\n{output}"
+        output = pageObj.extractText()
+        output  = output.strip('\n')
+        output = output[:2000]
+        prompt = f"{keyword}\n\n{output}\n\n"
+        result = openai_call(prompt, 0.1)
+        response += result
     pdfFileObj.close()
-
-    response = openai_call(prompt)
-    return response
-
+    return response.strip()
 
 
 class OCR_Reader:

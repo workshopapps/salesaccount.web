@@ -7,7 +7,7 @@ from .convert_file import convert_file
 from .openai_request import openai_call
 
 
-async def match(file1, file2):
+def match(file1, file2):
     """Matches similar transactions in two documents
 
     Args:
@@ -21,10 +21,10 @@ async def match(file1, file2):
         Match all details in these files content below. No title.
         Response in JSON\n
         """
-    statement_table = pd.read_json(await convert_file(file1))
+    statement_table = pd.read_json(convert_file(file1))
 
     statement_csv = statement_table.to_csv()
-    records_table = pd.read_json(await convert_file(file2))
+    records_table = pd.read_json(convert_file(file2))
 
     records_csv = records_table.to_csv()
 
