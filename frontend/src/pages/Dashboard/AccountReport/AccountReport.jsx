@@ -82,11 +82,16 @@ function AccountReport() {
 
 			{localData3 && (
 				<div className="overflow-scroll " id="pagetodownload">
-					<table className="table-auto w-full text-xs md:text-base ">
+					<table className="table-auto w-full text-xs md:text-base">
 						<thead className="bg-[#D1E9FF] py-2 my-2">
 							<tr>
 								{headerKeys.map((key) => (
-									<th className="py-2 pl-8 text-left">{key}</th>
+									<th
+										onClick={() => console.log(key)}
+										className="py-2 pl-8 text-left"
+									>
+										{key}
+									</th>
 								))}
 							</tr>
 						</thead>
