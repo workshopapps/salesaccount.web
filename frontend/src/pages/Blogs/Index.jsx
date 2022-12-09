@@ -6,9 +6,11 @@ import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
 import SearchBar from '../../components/Blogs/searchBar';
 
+
 function Blogs() {
 	return (
 		<>
+		
 			<NavigationBar />
 			<div className=" md:bg-[#D1E9FF] pt-6 md:pt-16 pb-16">
 				<h1 className="text-[#101828] font-semibold leading-[60px] text-4xl md:text-5xl text-center pb-3 md:pb-6">
@@ -18,9 +20,8 @@ function Blogs() {
 					Get access to the latest industry news, interviews, technologies, and
 					resources.
 				</p>
-				
 
-			<SearchBar />
+				<SearchBar />
 			</div>
 			<div className="pt-6 pb-[278px]">
 				<div className="px-20 max-sm:px-0">
