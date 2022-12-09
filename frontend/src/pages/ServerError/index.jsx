@@ -1,14 +1,15 @@
 import React from 'react'
 import SadBot from '../../assets/images/Error404/sadbot.webp'
 import NavigationBar from '../../components/NavigationBar';
+import './server-error.css'
 
 export default function ServerError() {
     return (
         <div className="container">
             <NavigationBar />
 			<div className="mt-[45px] flex flex-col items-center">
-				<img src={SadBot} alt="" className="w-[500px] h-[375px]" />
-				<h2 className="max-w-[858.83px] text-center h-[134px]">
+				<img src={SadBot} alt="" className="w-[500px] h-[375px] sad-bot" />
+				<h2 className="max-w-[858.83px] text-center h-[134px] server-text">
 					We’re sorry, but something went wrong on our end. Our team has been
 					notified and is working to fix the problem. Please try again later or
 					refresh the page.

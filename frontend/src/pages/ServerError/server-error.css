@@ -1,0 +1,40 @@
+@media (max-width: 768px) {
+    .sad-bot {
+        width: 450px;
+        height: 300px;
+    }
+    .server-text {
+        max-width: 650px;
+        font-family: 'Lexend';
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 16px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #101828
+    }
+    button {
+        margin-top: 50px;
+    }
+}
+@media (max-width: 416px) {
+    .sad-bot {
+        width: 320px;
+        height: 240px;
+    }
+    .server-text {
+        max-width: 330px;
+        font-family: 'Lexend';
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 16px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #101828
+    }
+    button {
+        margin-top: 50px;
+    }
+}
