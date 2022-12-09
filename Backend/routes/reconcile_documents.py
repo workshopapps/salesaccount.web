@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ ENDPOINT TO RECONCILE DOCUMENTS """
 from controllers.matching import match
-from fastapi import APIRouter, UploadFile
+from fastapi import APIRouter, UploadFile,status,HTTPException
 from typing import List
 import pandas as pd
 import pdfkit
@@ -14,21 +14,27 @@ router = APIRouter()
 
 @router.post("/reconcile")
 async def reconcile(files: List[UploadFile]):
-    """ Matches similar transactions in the documents """
-    if len(files) == 2:
-        try:
-            for file in files:
-                contents = file.file.read()
-                file_dir = f"Media/{file.filename}"
-                with open(file_dir, "wb") as f:
-                    f.write(contents)
-            response = await match(f"Media/{files[0].filename}", f"Media/{files[1].filename}")
-            return response
-        except Exception as e:
-            return {"message": f"Error: {e} occurred. Inform team. Thanks."}
-    else:
-        return {"message": "Sorry, you need two files for reconconciliation"}
 
+	""" Matches similar transactions in the documents """
+	if len(files) == 2:
+		try:
+			for file in files:
+				if file.content_type == "application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" or "text/csv":
+					contents = file.file.read()
+					file_dir = f"Media\{file.filename}"
+					with open(file_dir, 'wb') as f:
+						f.write(contents)
+				response = await match(f"Media\{files[0].filename}", f"Media\{files[1].filename}")
+			return response
+		except Exception as e:
+			raise HTTPException(
+        status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
+        detail=f'File {file.filename} has unsupported extension type {e}')
+	else:
+		return {"message": "Sorry, you need two files for reconconciliation"}
+
+    
+        
 
 @router.get("/download")
 def download():
