@@ -13,11 +13,14 @@ router = APIRouter()
 async def upload(file: UploadFile = File(... )):
     """ Uploads a file
     
-    Arg:
-    file: uploaded file
+async def upload(file: UploadFile = File(...)):
+    Uploads a fil
 
-    Returns: json object from file uploaded
-    
+    Arg:
+        file: uploaded file
+
+    Returns:
+        json object from file uploaded
     """
     try:
         if file.content_type == "application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" or "text/csv" or "application/pdf":
@@ -29,13 +32,13 @@ async def upload(file: UploadFile = File(... )):
             return eval(response)
 
     except Exception as e:
+
         raise HTTPException(
         status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
         detail=f'File {file.filename} has unsupported extension type',
         )
     else:
         return{f'{e}'}
-
 
     finally:
         file.file.close()
