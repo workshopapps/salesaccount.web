@@ -4,9 +4,15 @@ import { useAuth } from '../../../../Store/Context';
 import signedDocument from '../../../../assets/images/DashboardImages/upload/signed document.png';
 
 function UploadReady() {
-	const { setFileDropped, getData, fileDropped } = useAuth();
+	const { setFileDropped, getData, fileDropped, fileErr, removeItem } =
+		useAuth();
 
 	const navigate = useNavigate();
+
+	const userClickedUpload = () => {
+		removeItem();
+		navigate('/dashboard/home');
+	};
 
 	const uploadHandler = () => {
 		getData();
@@ -23,14 +29,13 @@ function UploadReady() {
 				/>
 				<div className="text-center  space-y-[0.5em]">
 					<h2 className="font-semibold text-[#344054] text-lg">
-						{!fileDropped?.name.includes('.csv' || '.pdf' || '.doc') ? (
+						{fileErr ? (
 							<p className="text-red-600">Wrong file type! Choose another.</p>
 						) : (
 							<h2 className="font-semibold text-[#344054] text-lg">
 								File Selected: &#34; {fileDropped?.name} &#34;
 							</h2>
 						)}
-						{/* File Selected: &#34; {fileDropped?.name} &#34; */}
 					</h2>
 					<div className="text-sm text-[#98A2B3]">
 						<p>You are almost set</p>
@@ -48,6 +53,7 @@ function UploadReady() {
 				</div>
 			</div>
 
+<<<<<<< HEAD
 			<div className="flex gap-[20px]">
 				<button
 					onClick={(e) => {
@@ -59,6 +65,9 @@ function UploadReady() {
 				>
 					Refresh
 				</button>
+=======
+			<div className="flex space-x-7">
+>>>>>>> e0b3af2215bfc59022b6e88f0bd4ec2f96bfcfb8
 				<button
 					onClick={(e) => {
 						e.preventDefault();
@@ -68,9 +77,26 @@ function UploadReady() {
 					}}
 					className="bg-[#2E90FA] text-white px-[1.5em] py-[0.8em] rounded-md "
 					type="submit"
+<<<<<<< HEAD
 				>
 					Upload
 				</button>
+=======
+					disabled={fileErr}
+				>
+					Upload
+				</button>
+				<button
+					type="submit"
+					onClick={(e) => {
+						e.preventDefault();
+						userClickedUpload();
+					}}
+					className="bg-white rounded-md text-[#2E90FA] text-sm py-[10px] px-[20px] border-[1px] border-[#2E90FA] active:color-#2E90FA"
+				>
+					Refresh
+				</button>
+>>>>>>> e0b3af2215bfc59022b6e88f0bd4ec2f96bfcfb8
 			</div>
 		</div>
 	);
