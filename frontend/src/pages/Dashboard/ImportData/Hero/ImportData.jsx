@@ -152,7 +152,7 @@ function ImportData() {
 			<div className="my-8 ">
 				<p className="my-4 text-green-600 font-bold">{fileDropped.name}</p>
 
-				<div className="overflow-scroll ">
+				{/* <div className="overflow-scroll ">
 					<table className="table-auto w-full text-xs md:text-base  ">
 						<thead className="bg-[#D1E9FF] py-2 my-2">
 							<tr>
@@ -179,6 +179,27 @@ function ImportData() {
 								))}
 							</tbody>
 						)}
+					</table>
+				</div> */}
+				<div className="overflow-scroll " id="pagetodownload">
+					<table className="table-auto w-full text-xs md:text-base">
+						<thead className="bg-[#D1E9FF] py-2 my-2">
+							<tr>
+								{headerKeys.map((key) => (
+									<th className="py-2 pl-8 text-left">{key}</th>
+								))}
+							</tr>
+						</thead>
+
+						<tbody className="py-2 px-6">
+							{localData?.map((sData) => (
+								<tr className="py-2 pl-8">
+									{Object.values(sData).map((iData) => (
+										<td className="text-sm py-5 md:py-10 pl-8 ">{iData}</td>
+									))}
+								</tr>
+							))}
+						</tbody>
 					</table>
 				</div>
 			</div>
