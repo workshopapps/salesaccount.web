@@ -53,21 +53,7 @@ function UploadReady() {
 				</div>
 			</div>
 
-<<<<<<< HEAD
-			<div className="flex gap-[20px]">
-				<button
-					onClick={(e) => {
-						e.preventDefault();
-						setFileDropped([]);
-					}}
-					className="bg-[#2E90FA] text-white px-[1.5em] py-[0.8em] rounded-md "
-					type="submit"
-				>
-					Refresh
-				</button>
-=======
 			<div className="flex space-x-7">
->>>>>>> e0b3af2215bfc59022b6e88f0bd4ec2f96bfcfb8
 				<button
 					onClick={(e) => {
 						e.preventDefault();
@@ -77,11 +63,6 @@ function UploadReady() {
 					}}
 					className="bg-[#2E90FA] text-white px-[1.5em] py-[0.8em] rounded-md "
 					type="submit"
-<<<<<<< HEAD
-				>
-					Upload
-				</button>
-=======
 					disabled={fileErr}
 				>
 					Upload
@@ -96,7 +77,6 @@ function UploadReady() {
 				>
 					Refresh
 				</button>
->>>>>>> e0b3af2215bfc59022b6e88f0bd4ec2f96bfcfb8
 			</div>
 		</div>
 	);
