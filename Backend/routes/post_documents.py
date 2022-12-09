@@ -20,7 +20,7 @@ async def upload(file: UploadFile = File(... )):
     
     """
     try:
-        if file.content_type == "application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" or "text/csv":
+        if file.content_type == "application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" or "text/csv" or "application/pdf":
             contents = file.file.read()
             with open(file.filename, 'wb') as f:
                 f.write(contents)
@@ -31,8 +31,11 @@ async def upload(file: UploadFile = File(... )):
     except Exception as e:
         raise HTTPException(
         status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
-        detail=f'File {file.filename} has unsupported extension type {e}',
-        
-    )
+        detail=f'File {file.filename} has unsupported extension type',
+        )
+    else:
+        return{f'{e}'}
+
+
     finally:
         file.file.close()

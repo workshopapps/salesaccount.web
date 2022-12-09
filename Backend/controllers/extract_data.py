@@ -3,9 +3,6 @@ import openai
 import PyPDF2
 from .api_key import API_KEY
 
-API_KEY = os.getenv("OPENAI_API_KEY", default=API_KEY)
-openai.api_key = API_KEY # replace API_KEY with personal api secret key
-
 
 
 def statement(): #Function that converts the account statement(pdf format) to string(.text)
