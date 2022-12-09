@@ -28,12 +28,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 6451c85ba68f60dfab271cbf74cd7bb53bc55e17
 app.include_router(api_status.router)
 app.include_router(post_documents.router)
 app.include_router(reconcile_documents.router)
