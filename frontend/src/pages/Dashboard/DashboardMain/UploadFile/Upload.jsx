@@ -37,7 +37,7 @@ function Upload() {
 			<input
 				type="file"
 				hidden
-				accept=".csv"
+				// accept=".pdf"
 				ref={inputRef}
 				onChange={(e) => {
 					setFileDropped(e.target.files[0]);

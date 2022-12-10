@@ -121,10 +121,20 @@ export const UserProvider = ({ children }) => {
 	const dropHandler = (e) => {
 		e.preventDefault();
 		setFileDropped(e.dataTransfer?.files[0]);
-		if (!e.dataTransfer?.files[0]?.name.includes('.csv' || '.pdf' || '.doc')) {
+
+		// let i;
+		// for (i = 0; i < fileTypes.length; i + 1) {
+		// 	console.log(i);
+		// }
+
+		if (!e.dataTransfer?.files[0].includes('.pdf')) {
 			// eslint-disable-next-line
-			console.log(e.dataTransfer?.files[0].name);
+			// console.log(e.dataTransfer?.files[0].name);
+			console.log(e.dataTransfer?.files[0]);
+
 			setFileErr(true);
+			// eslint-disable-next-line
+			console.log(fileErr);
 		} else {
 			setFileErr(false);
 			// eslint-disable-next-line
