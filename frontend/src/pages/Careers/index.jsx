@@ -122,7 +122,7 @@ const Careers = () => {
 				</div>
 				<div>
 					<div className="mx-16 py-12 md:mx-auto md:px-10">
-						<h1 className="text-center text-4xl md:text-4xl lg:text-8xl font-bold text-[#1849A9] font-normal">
+						<h1 className="text-center text-4xl md:text-4xl lg:text-8xl font-bold text-[#1849A9]">
 							JOIN US
 						</h1>
 						<p className="text-center text-xl sm:text-2xl leading-[25px] md:text-2xl w-50">

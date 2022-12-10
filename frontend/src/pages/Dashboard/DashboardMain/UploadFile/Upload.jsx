@@ -37,7 +37,7 @@ function Upload() {
 			<input
 				type="file"
 				hidden
-				accept=".csv"
+				accept=".csv, .pdf, .txt, .xls, .xlsx"
 				ref={inputRef}
 				onChange={(e) => {
 					setFileDropped(e.target.files[0]);
@@ -51,7 +51,7 @@ function Upload() {
 				className="bg-[#2E90FA] font-semibold text-lg text-white px-[1.5em] py-[0.8em] rounded-md mt-12 max-md:mt-3 max-md:text-sm"
 				type="button"
 			>
-				Upload
+				Browse Files
 			</button>
 		</div>
 	);

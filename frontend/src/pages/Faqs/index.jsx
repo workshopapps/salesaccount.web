@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import Faq from 'react-faq-component';
 import { BsPlusCircle } from 'react-icons/bs';
 import { CiCircleMinus } from 'react-icons/ci';
+import axios from 'axios';
 import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
 import faqArray from '../../components/Faqs/faqArray';
 import Accordion from '../../components/Faqs/index';
 import Footer from '../../components/Footer';
+import Feedback from '../../components/FormFeedback';
 import NavigationBar from '../../components/NavigationBar';
 
 const data = {
@@ -110,10 +112,23 @@ const Faqx = () => {
 	const [currentPosts, setCurrentPosts] = useState(faqArray.slice(0, 9));
 	const [nextDisplay, setNextDisplay] = useState(false);
 	const [smallFAQ, setSmallFAQ] = useState(false); // Not working yet
+	const [showForm, setShowForm] = useState(false);
+	const [showFeedBack, setShowFeedback] = useState(false);
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+
+		// Get the form data
+		const formData = new FormData(event.target);
+
+		// Send the form data to the backend server using Axios
+		axios.post('/use/reviews', formData);
+	};
 
 	return (
 		<div>
 			<NavigationBar />
+
 			<div className="bg-[#F9FAFB] w-full flex justify-center">
 				<div className=" w-full font-body py-[3em] px-[1em]">
 					<div className="flex-col w-full md:w-[80%] lg:w-[40%] mx-auto space-y-[25px] sm:space-y-[72px]">
@@ -133,9 +148,27 @@ const Faqx = () => {
 							</div>
 						))} */}
 
-						<div className="md:w-[80%] text-xs md:text-md leading-[200%] mx-auto">
-							<Faq data={data} styles={styles} config={config} />
-						</div>
+						{showForm ? (
+							''
+						) : (
+							<>
+								<div className="md:w-[80%] text-xs md:text-md leading-[200%] mx-auto">
+									<Faq data={data} styles={styles} config={config} />
+								</div>
+								<div className="text-center">
+									<p>
+										Any other question?{' '}
+										<button
+											type="button"
+											className="underline text-[#1570EF]"
+											onClick={() => setShowForm(true)}
+										>
+											Ask here
+										</button>
+									</p>
+								</div>
+							</>
+						)}
 
 						{/* When on first page */}
 						{/* {nextDisplay ? (
@@ -239,6 +272,52 @@ const Faqx = () => {
 					</div>
 				</div>
 			</div>
+
+			{showForm ? (
+				<div className="flex justify-center items-center mb-[50px]">
+					<form
+						className="flex flex-col justify-center w-[500px]"
+						onSubmit={handleSubmit}
+					>
+						<div className="m-[10px] flex flex-col justify-center items-center relative ">
+							<p htmlFor="email" className="text-left font-medium">
+								Email address
+							</p>
+							<input
+								type="text"
+								name="email"
+								className="border-[1px] border-[#D0D5DD] rounded-lg w-[343px] p-[10px]"
+								placeholder="Enter your email address"
+							/>
+						</div>
+
+						<div className="m-[10px] flex flex-col justify-center items-center">
+							<p htmlFor="message" className="block font-medium">
+								Ask your question
+							</p>
+							<textarea
+								className="border-[1px] border-[#D0D5DD] rounded-lg w-[343px] h-[154px] resize-none "
+								id="message"
+								placeholder="Write it here."
+								type="textarea"
+							/>
+						</div>
+
+						<div className="flex justify-center items-center mt-[29px]">
+							<button
+								onClick={() => setShowFeedback(true)}
+								type="submit"
+								className="bg-[#2E90FA] text-white rounded-lg h-[44px] w-[343px] "
+							>
+								Submit
+							</button>
+						</div>
+					</form>
+				</div>
+			) : (
+				''
+			)}
+			{showFeedBack ? <Feedback /> : ''}
 			<Footer />
 		</div>
 	);
