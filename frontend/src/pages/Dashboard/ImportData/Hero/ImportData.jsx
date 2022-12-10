@@ -365,13 +365,13 @@ function ImportData() {
 								ref={inputRef}
 							/>
 							<div>
-								{/* <button
+								<button
 									type="button"
 									onClick={() => inputRef.current.click()}
 									className=" flex bg-white p-[1em]  rounded-lg border-2"
 								>
 									Browse File <FileCopyOutlinedIcon />
-								</button> */}
+								</button>
 							</div>
 						</div>
 					)}
