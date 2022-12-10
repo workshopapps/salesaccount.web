@@ -7,6 +7,7 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import FileCopyOutlinedIcon from '@mui/icons-material/FileCopyOutlined';
 import { Link, useNavigate } from 'react-router-dom';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import { HashLoader } from 'react-spinners';
 import { useAuth } from '../../../../Store/Context';
 import ok from '../../../../assets/Ok.png';
 import signedDocument from '../../../../assets/images/DashboardImages/upload/signed document.png';
@@ -19,7 +20,14 @@ function ImportData() {
 	const [userInput, setUserInput] = useState('');
 	const [userInput2, setUserInput2] = useState('');
 	const [showTable, setShowTable] = useState(false);
-	const { dropHandlerFile2, dragHandlerFile2, removeItem } = useAuth();
+	const [text, setText] = useState(false);
+	const {
+		dropHandlerFile2,
+		dragHandlerFile2,
+		removeItem,
+		uploadLoading,
+		uploadLoading2,
+	} = useAuth();
 	const [sorted, setSorted] = useState({ sorted: 'amount', reversed: false });
 
 	const inputRef = useRef();
@@ -148,38 +156,57 @@ function ImportData() {
 					/>
 				</div>
 			</div>
+			{/* loading state for file 1 */}
+			{uploadLoading && (
+				<div className="flex flex-col justify-center items-center">
+					<h2 className="animate-pulse text-[30px] text-[#2E90FA] font-semibold">
+						Matching data...
+					</h2>
+					{/* <p>Test</p> */}
+
+					{text && (
+						<h2 className="animate-pulse mb-10">Just a few more moments...</h2>
+					)}
+
+					<HashLoader color="#2E90FA" size={150} />
+				</div>
+			)}
 
 			{/* Mapped Dynamic Data from CSV */}
 			<div className="my-8 ">
 				<p className="my-4 text-green-600 font-bold">{fileDropped.name}</p>
 
-				{/* <div className="overflow-scroll " id="pagetodownload">
-					<table className="table-auto w-full text-xs md:text-base">
-						<thead className="bg-[#D1E9FF] py-2 my-2">
-							<tr>
-								{headerKeys.map((key) => (
-									<th className="py-[1em] md:py-[1.5em] pl-8 text-left">
-										{key}
-									</th>
-								))}
-							</tr>
-						</thead>
+				{/* file 1 table */}
 
-						<tbody className="py-2 px-6">
-							{filteredResult?.map((sData) => (
-								<tr className="py-2 pl-8">
-									{Object.values(sData).map((iData) => (
-										<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
-											{iData}
-										</td>
+				{localData && (
+					<div className="overflow-scroll">
+						<table className="table-auto w-full text-xs md:text-base">
+							<thead className="bg-[#D1E9FF] py-2 my-2">
+								<tr>
+									{headerKeys.map((key) => (
+										<th className="py-[1em] md:py-[1.5em] pl-8 text-left">
+											{key}
+										</th>
 									))}
 								</tr>
-							))}
-						</tbody>
-					</table>
-				</div> */}
+							</thead>
 
-				<div className="overflow-scroll">
+							<tbody className="py-2 px-6">
+								{localData?.map((sData) => (
+									<tr className="py-2 pl-8">
+										{Object.values(sData).map((iData) => (
+											<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
+												{iData}
+											</td>
+										))}
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				)}
+
+				{/* <div className="overflow-scroll">
 					<table
 						className="scrolling table-auto w-full text-xs md:text-base "
 						id="reportCanvas"
@@ -215,7 +242,7 @@ function ImportData() {
 							</tbody>
 						)}
 					</table>
-				</div>
+				</div> */}
 			</div>
 
 			{/* {showDisplay && (
@@ -384,7 +411,54 @@ function ImportData() {
 					<div className="mb-8 mt-4" id="reportCanvas">
 						<p className="my-4 text-green-600 font-bold">{fileDropped2.name}</p>
 
-						<div className="overflow-scroll" id="reportCanvas">
+						{/* loadinf state for file 2  */}
+						{uploadLoading2 && (
+							<div className="flex flex-col justify-center items-center">
+								<h2 className="animate-pulse text-[30px] text-[#2E90FA] font-semibold">
+									Matching data...
+								</h2>
+								{/* <p>Test</p> */}
+
+								{text && (
+									<h2 className="animate-pulse mb-10">
+										Just a few more moments...
+									</h2>
+								)}
+
+								<HashLoader color="#2E90FA" size={150} />
+							</div>
+						)}
+
+						{/* file2 table  */}
+						{localData2 && (
+							<div className="overflow-scroll " id="pagetodownload">
+								<table className="table-auto w-full text-xs md:text-base">
+									<thead className="bg-[#D1E9FF] py-2 my-2">
+										<tr>
+											{headerKeys2.map((key) => (
+												<th className="py-[1em] md:py-[1.5em] pl-8 text-left">
+													{key}
+												</th>
+											))}
+										</tr>
+									</thead>
+
+									<tbody className="py-2 px-6">
+										{localData2?.map((sData) => (
+											<tr className="py-2 pl-8">
+												{Object.values(sData).map((iData) => (
+													<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
+														{iData}
+													</td>
+												))}
+											</tr>
+										))}
+									</tbody>
+								</table>
+							</div>
+						)}
+
+						{/* <div className="overflow-scroll" id="reportCanvas">
 							<table
 								className="scrolling table-auto w-full text-xs md:text-base "
 								id="reportCanvas"
@@ -420,7 +494,7 @@ function ImportData() {
 									</tbody>
 								)}
 							</table>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			)}

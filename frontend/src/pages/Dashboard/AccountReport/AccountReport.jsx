@@ -87,6 +87,7 @@ function AccountReport() {
 							<tr>
 								{headerKeys.map((key) => (
 									<th
+										// eslint-disable-next-line
 										onClick={() => console.log(key)}
 										className="py-2 pl-8 text-left"
 									>
