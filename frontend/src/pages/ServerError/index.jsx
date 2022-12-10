@@ -7,14 +7,14 @@ export default function ServerError() {
     return (
         <div className="container">
             <NavigationBar />
-			<div className="mt-[45px] flex flex-col items-center">
+			<div className="mt-[15px] flex flex-col items-center">
 				<img src={SadBot} alt="" className="w-[500px] h-[375px] sad-bot" />
-				<h2 className="max-w-[858.83px] text-center h-[134px] server-text">
+				<h2 className="max-w-[800px] text-center h-[134px] server-text leading-[45px]">
 					We’re sorry, but something went wrong on our end. Our team has been
 					notified and is working to fix the problem. Please try again later or
 					refresh the page.
 				</h2>
-				<a href="https://reconcileai.hng.tech/dashboard/home" className='mt-[-50px]'>
+				<a href="https://reconcileai.hng.tech/dashboard/home" className='mt-[-10px]'>
 					<button
 						href="https://reconcileai.hng.tech/dashboard/home"
 						type="button"
