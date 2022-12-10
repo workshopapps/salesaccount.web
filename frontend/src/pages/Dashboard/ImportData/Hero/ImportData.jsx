@@ -153,12 +153,46 @@ function ImportData() {
 			<div className="my-8 ">
 				<p className="my-4 text-green-600 font-bold">{fileDropped.name}</p>
 
-				{/* <div className="overflow-scroll ">
-					<table className="table-auto w-full text-xs md:text-base  ">
+				{/* <div className="overflow-scroll " id="pagetodownload">
+					<table className="table-auto w-full text-xs md:text-base">
+						<thead className="bg-[#D1E9FF] py-2 my-2">
+							<tr>
+								{headerKeys.map((key) => (
+									<th className="py-[1em] md:py-[1.5em] pl-8 text-left">
+										{key}
+									</th>
+								))}
+							</tr>
+						</thead>
+
+						<tbody className="py-2 px-6">
+							{filteredResult?.map((sData) => (
+								<tr className="py-2 pl-8">
+									{Object.values(sData).map((iData) => (
+										<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
+											{iData}
+										</td>
+									))}
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div> */}
+
+				<div className="overflow-scroll">
+					<table
+						className="scrolling table-auto w-full text-xs md:text-base "
+						id="reportCanvas"
+					>
 						<thead className="bg-[#D1E9FF] py-2 my-2">
 							<tr>
 								{headerKeys?.map((key) => (
-									<th className="py-2 pl-8 text-left">{key}</th>
+									<th
+										className="py-[1em] md:py-[1.5em] pl-8 text-left"
+										key={Math.random()}
+									>
+										{key}
+									</th>
 								))}
 							</tr>
 						</thead>
@@ -172,7 +206,7 @@ function ImportData() {
 								{filteredResult?.map((item) => (
 									<tr className="py-2 pl-8" key={Math.random()}>
 										{Object.values(item).map((eachItem) => (
-											<td className="text-sm py-5 md:py-10 pl-8 ">
+											<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc]">
 												{eachItem}
 											</td>
 										))}
@@ -180,27 +214,6 @@ function ImportData() {
 								))}
 							</tbody>
 						)}
-					</table>
-				</div> */}
-				<div className="overflow-scroll " id="pagetodownload">
-					<table className="table-auto w-full text-xs md:text-base">
-						<thead className="bg-[#D1E9FF] py-2 my-2">
-							<tr>
-								{headerKeys.map((key) => (
-									<th className="py-2 pl-8 text-left">{key}</th>
-								))}
-							</tr>
-						</thead>
-
-						<tbody className="py-2 px-6">
-							{localData?.map((sData) => (
-								<tr className="py-2 pl-8">
-									{Object.values(sData).map((iData) => (
-										<td className="text-sm py-5 md:py-10 pl-8 ">{iData}</td>
-									))}
-								</tr>
-							))}
-						</tbody>
 					</table>
 				</div>
 			</div>
@@ -243,11 +256,19 @@ function ImportData() {
 					<h1 className="text-[1.5em] font-bold">Next, upload Sales Record</h1>
 					{showUpload ? (
 						<div className=" text-center flex flex-col justify-center items-center mx-auto bg-[#F2F4F7] py-[4em]  px-[1em] md:py-[2em] w-full md:w-[70%] lg:w-[40%] space-y-3 border border-black border-dashed ">
-							<img
-								src={signedDocument}
-								alt="document"
-								className="w-[120px] h-[120px] object-fill"
-							/>
+							{fileErr ? (
+								<img
+									src="https://icons.iconarchive.com/icons/hopstarter/sleek-xp-software/256/Windows-Close-Program-icon.png"
+									alt="document"
+									className="w-[120px] h-[120px] object-fill"
+								/>
+							) : (
+								<img
+									src={signedDocument}
+									alt="document"
+									className="w-[120px] h-[120px] object-fill"
+								/>
+							)}
 							<div className="text-center  space-y-[0.5em]">
 								<h2 className="font-semibold text-[#344054] text-lg">
 									{fileErr ? (
@@ -371,7 +392,10 @@ function ImportData() {
 								<thead className="bg-[#D1E9FF] py-2 my-2">
 									<tr>
 										{headerKeys2?.map((key) => (
-											<th className="py-2 pl-8 text-left" key={Math.random()}>
+											<th
+												className="py-[1em] md:py-[1.5em] pl-8 text-left"
+												key={Math.random()}
+											>
 												{key}
 											</th>
 										))}
@@ -387,7 +411,7 @@ function ImportData() {
 										{filteredResult2?.map((item) => (
 											<tr className="py-2 pl-8" key={Math.random()}>
 												{Object.values(item).map((eachItem) => (
-													<td className="text-sm py-5 md:py-10 pl-8 ">
+													<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc]">
 														{eachItem}
 													</td>
 												))}
