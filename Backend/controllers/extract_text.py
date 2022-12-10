@@ -22,7 +22,7 @@ def pdf_to_text(filename:str):
     output = ""
     response = ""
     keyword = """Match only transaction details with a date attached in this text below into a table. No title. 
-                Response only as JSON format inside an array.\n Example: [{Your response}]"""
+                Response only as JSON format inside an array.\n Example: [{"key_response":"value_response"}]"""
     for i in range(pdfReader.numPages):
         pageObj = pdfReader.getPage(i)
         output = pageObj.extractText()

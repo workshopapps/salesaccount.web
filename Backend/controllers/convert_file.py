@@ -44,9 +44,12 @@ def convert_file(filename: str):
 
     elif filename.endswith(".pdf"):
         response = pdf_to_text(filename)
-        df = pd.read_json(response)
-        response = df_to_json(df)
-        return response
+        try:
+            df = pd.read_json(response)
+            response = df_to_json(df)
+            return response
+        except:
+            return response
         # try:
         #     response = eval(response)
         #     return response
