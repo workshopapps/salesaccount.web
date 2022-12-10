@@ -22,11 +22,10 @@ def match(file1, file2):
         Response in JSON\n
         """
     statement_table = pd.read_json(convert_file(file1))
-
-    statement_csv = statement_table.to_csv()[:2000]
     records_table = pd.read_json(convert_file(file2))
-
-    records_csv = records_table.to_csv()[:2000]
+    
+    statement_csv = statement_table.to_csv()[:1000]
+    records_csv = records_table.to_csv()[:1000]
 
     columns = list(statement_table.columns) + list(records_table.columns)
 
