@@ -111,6 +111,7 @@ const Careers = () => {
 
 	return (
 		<>
+	
 			<NavigationBar />
 			<div>
 				<div className="text-center bg-hero bg-cover bg-no-repeat h-[460px] md:h-[600px] bg-center">
