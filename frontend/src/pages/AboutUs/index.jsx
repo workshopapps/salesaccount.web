@@ -8,8 +8,10 @@ import mission from '../../assets/images/about-us/mission.png';
 import valueImg from '../../assets/images/about-us/values.png';
 import NavigationBar from '../../components/NavigationBar';
 
+
 const AboutUs = () => (
 	<div>
+
 		<NavigationBar />
 		<section className="lg:pt-24 lg:pb-24 lg:pl-36 lg:pr-36 p-8 pb-16 bg-[#F2F4F7] z-0 ">
 			<div className="flex lg:flex-row lg:gap-48  items-center flex-col justify-between">
@@ -104,10 +106,9 @@ const AboutUs = () => (
 		<section className=" lg:pl-36 lg:pr-36 lg:pb-20 z-0 bg-[#EFF8FF] pl-11 pr-11 pt-12 pb-8 ">
 			<div className="flex lg:gap-48  items-center lg:flex-row-reverse flex-col md:justify-between">
 				<div className="relative w-full md:w-auto z-10">
-					
 					<div className="relative z-10  lg:mb-8">
 						<h3 className="text-[#101828] lg:mt-8 font-semibold text-center lg:text-right md:font-medium text-2xl  md:text-5xl md:text-center md:mb-12 lg:mb-0 mb-8">
-						Our Mission
+							Our Mission
 						</h3>
 
 						<p className="bg-[#F9FAFB] mb-4 md:mt-14 text-center text-xs h-[120px] px-[31px] py-[18px] lg:text-left md:text-center md:w-[507px] md:text-xl md:h-[250px] md:px-[52px] md:py-[58px]">

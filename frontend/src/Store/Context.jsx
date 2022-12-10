@@ -91,14 +91,6 @@ export const UserProvider = ({ children }) => {
 			formData.append('files', item);
 		});
 
-		// const config = {
-		// 	onUploadProgress: function (progressEvent) {
-		// 		setProgress(
-		// 			Math.round(progressEvent.loaded / progressEvent.total) * 100
-		// 		);
-		// 	},
-		// };
-
 		axios
 			.post(reconcileUrl, formData)
 			.then((res) => {
@@ -120,26 +112,16 @@ export const UserProvider = ({ children }) => {
 
 	const dropHandler = (e) => {
 		e.preventDefault();
-		setFileDropped(e.dataTransfer?.files[0]);
-
-		// let i;
-		// for (i = 0; i < fileTypes.length; i + 1) {
-		// 	console.log(i);
-		// }
-
-		if (!e.dataTransfer?.files[0].includes('.pdf')) {
-			// eslint-disable-next-line
-			// console.log(e.dataTransfer?.files[0].name);
-			console.log(e.dataTransfer?.files[0]);
-
+		const validFile =
+			e.dataTransfer?.files[0].name.includes('.txt') ||
+			e.dataTransfer?.files[0].name.includes('.csv') ||
+			e.dataTransfer?.files[0].name.includes('.xls') ||
+			e.dataTransfer?.files[0].name.includes('.pdf') ||
+			e.dataTransfer?.files[0].name.includes('.xlsx');
+		if (!validFile) {
 			setFileErr(true);
-			// eslint-disable-next-line
-			console.log(fileErr);
-		} else {
-			setFileErr(false);
-			// eslint-disable-next-line
-			console.log(fileErr);
 		}
+		setFileDropped(e.dataTransfer?.files[0]);
 	};
 
 	const dragHandlerFile2 = (e) => {
@@ -147,6 +129,16 @@ export const UserProvider = ({ children }) => {
 	};
 
 	const dropHandlerFile2 = (e) => {
+		e.preventDefault();
+		const validFile =
+			e.dataTransfer?.files[0].name.includes('.txt') ||
+			e.dataTransfer?.files[0].name.includes('.csv') ||
+			e.dataTransfer?.files[0].name.includes('.xls') ||
+			e.dataTransfer?.files[0].name.includes('.pdf') ||
+			e.dataTransfer?.files[0].name.includes('.xlsx');
+		if (!validFile) {
+			setFileErr(true);
+		}
 		setFileDropped2(e.dataTransfer?.files[0]);
 	};
 
@@ -155,10 +147,12 @@ export const UserProvider = ({ children }) => {
 		localStorage.removeItem('localData2');
 		localStorage.removeItem('fileDropped');
 		localStorage.removeItem('fileDropped2');
+		localStorage.removeItem('localData3');
 		setLocalData([]);
 		setLocalData2([]);
 		setFileDropped([]);
 		setFileDropped2([]);
+		setLocalData3([]);
 	};
 
 	const value = useMemo(

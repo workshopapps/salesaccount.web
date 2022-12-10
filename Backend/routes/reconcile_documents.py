@@ -3,17 +3,18 @@
 from controllers.matching import match
 from fastapi import APIRouter, UploadFile
 from typing import List
+import asyncio
 import pandas as pd
 import pdfkit
 import requests as req
-import asyncio
+
 
 
 router = APIRouter()
 
 
 @router.post("/reconcile")
-async def reconcile(files: List[UploadFile]):
+def reconcile(files: List[UploadFile]):
     """ Matches similar transactions in the documents """
     if len(files) == 2:
         try:
@@ -22,10 +23,11 @@ async def reconcile(files: List[UploadFile]):
                 file_dir = f"Media/{file.filename}"
                 with open(file_dir, "wb") as f:
                     f.write(contents)
-            response = await match(f"Media/{files[0].filename}", f"Media/{files[1].filename}")
-            return response
+            response = match(f"Media/{files[0].filename}", f"Media/{files[1].filename}")
+            null = "null"
+            return eval(response)
         except Exception as e:
-            return {"message": f"Error: {e} occurred. Inform team. Thanks."}
+            return {"Error": f"{e} occurred. Inform team. Thanks."}
     else:
         return {"message": "Sorry, you need two files for reconconciliation"}
 
