@@ -43,6 +43,8 @@ export const UserProvider = ({ children }) => {
 	// reconcile data
 	const [localData3, setLocalData3] = useState(ReconciledRecordsSaved);
 	const [loading, setLoading] = useState(true);
+	const [uploadLoading, setUploadLoading] = useState(true);
+	const [uploadLoading2, setUploadLoading2] = useState(true);
 	const [rError, setRError] = useState('');
 
 	const [fileDropped, setFileDropped] = useState([]);
@@ -63,7 +65,10 @@ export const UserProvider = ({ children }) => {
 					'Content-Type': 'multipart/form-data',
 				},
 			})
-			.then((res) => setLocalData(res?.data))
+			.then((res) => {
+				setLocalData(res?.data);
+				setUploadLoading(false);
+			})
 			.catch((e) => setError(e.message));
 	};
 
@@ -71,14 +76,16 @@ export const UserProvider = ({ children }) => {
 	const getSalesData = async () => {
 		const formData = new FormData();
 		formData.append('file', fileDropped2);
-
 		axios
 			.post(uploadUrl, formData, {
 				headers: {
 					'Content-Type': 'multipart/form-data',
 				},
 			})
-			.then((res) => setLocalData2(res?.data))
+			.then((res) => {
+				setLocalData2(res?.data);
+				setUploadLoading2(false);
+			})
 			.catch((e) => setError(e.message));
 	};
 
@@ -94,7 +101,6 @@ export const UserProvider = ({ children }) => {
 		axios
 			.post(reconcileUrl, formData)
 			.then((res) => {
-				// setLoading(true);
 				setLocalData3(res?.data);
 				setRError('');
 				setLoading(false);
@@ -189,6 +195,8 @@ export const UserProvider = ({ children }) => {
 			removeItem,
 			progress,
 			fileErr,
+			uploadLoading,
+			uploadLoading2,
 		}),
 		[
 			localFile,
