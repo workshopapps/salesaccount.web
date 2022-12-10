@@ -10,6 +10,7 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useAuth } from '../../../../Store/Context';
 import ok from '../../../../assets/Ok.png';
 import signedDocument from '../../../../assets/images/DashboardImages/upload/signed document.png';
+import document from '../../../../assets/images/DashboardImages/upload/document.png';
 
 function ImportData() {
 	const [showDisplay, setShowDisplay] = useState(false);
@@ -32,6 +33,7 @@ function ImportData() {
 		setFileDropped2,
 		getSalesData,
 		reconcileData,
+		fileErr,
 	} = useAuth();
 
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
@@ -248,8 +250,18 @@ function ImportData() {
 							/>
 							<div className="text-center  space-y-[0.5em]">
 								<h2 className="font-semibold text-[#344054] text-lg">
-									File Selected: &#34; {fileDropped2?.name} &#34;
+									{fileErr ? (
+										<p className="text-red-600">
+											We are sorry, looks like you have uploaded the wrong file.
+											Kindly check again.
+										</p>
+									) : (
+										<h2 className="font-semibold text-[#344054] text-lg">
+											File Selected: &#34; {fileDropped?.name} &#34;
+										</h2>
+									)}
 								</h2>
+
 								<div className="text-sm text-[#98A2B3]">
 									<p>You are almost set</p>
 									<p>
@@ -270,17 +282,30 @@ function ImportData() {
 						</div>
 					) : (
 						<div
+							onClick={() => inputRef.current.click()}
+							role="presentation"
 							onDragOver={dragHandlerFile2}
 							onDrop={(e) => {
 								e.preventDefault();
 								setShowUpload(true);
 								setFileDropped2(e.dataTransfer?.files[0]);
 							}}
-							className=" text-center flex flex-col justify-center items-center mx-auto bg-[#F2F4F7] py-[4em]  px-[1em] md:py-[2em] w-full md:w-[70%] lg:w-[40%] space-y-3 border border-black border-dashed "
+							className=" text-center flex flex-col justify-center items-center mx-auto bg-white py-[4em]  px-[1em] md:py-[2em] w-full md:w-[70%] lg:w-[40%] space-y-3 border border-black border-dashed "
 						>
-							<CloudUploadIcon sx={{ fontSize: '5em', color: '#2E90FA' }} />
-							<p>Drag and drop your file in this grey area</p>
-							<p>OR</p>
+							<img
+								src={document}
+								alt="document"
+								className="w-[120px] h-[120px] object-fill"
+							/>
+							{/* <CloudUploadIcon sx={{ fontSize: '5em', color: '#2E90FA' }} /> */}
+
+							<h2 className="font-bold text-[#344054] text-lg md:text-xl ">
+								Drag and drop sales record here.
+							</h2>
+							<p className="font-normal text-[#98A2B3] md:text-base text-sm">
+								Supported formats: PDF, Word DOCS, Excel
+							</p>
+
 							<input
 								type="file"
 								accept=".csv, .pdf, .txt, .xls, .xlsx"
@@ -292,13 +317,13 @@ function ImportData() {
 								ref={inputRef}
 							/>
 							<div>
-								<button
+								{/* <button
 									type="button"
 									onClick={() => inputRef.current.click()}
 									className=" flex bg-white p-[1em]  rounded-lg border-2"
 								>
 									Browse File <FileCopyOutlinedIcon />
-								</button>
+								</button> */}
 							</div>
 						</div>
 					)}
