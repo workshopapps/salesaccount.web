@@ -45,17 +45,15 @@ def extract_text(filename: str): #Function that converts the sales record(pdf fo
 
     pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
 
-    print(pdfReader.numPages)
-
-    pageObj = pdfReader.getPage(0)
-
-    text = pageObj.extractText()
-
-    keyword = """
+    for i in range(pdfReader.numPages):
+        pageObj = pdfReader.getPage(0)
+        text = pageObj.extractText()
+        keyword = """
         Extract just transactions details in this text below. Arrange into a table.
         No title. Response only as a JSON inside an array\n
         """
-    prompt = f"{keyword}\n{text}"
+        prompt = f"{keyword}\n{text}"
 
-    openai(prompt=prompt)
+    AIvalue = openai(prompt=prompt)
     pdfFileObj.close()
+    return prompt, AIvalue
