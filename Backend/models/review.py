@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 """ Review module """
-from models.base_model import BaseModel
+from pydantic import BaseModel
 
 
 class Review(BaseModel):
-    """ Review class to store review information """
-    id = ""
-    text = ""
+    id: str
+    email: str
+    text: str 
+    stars: int
+    date: float 

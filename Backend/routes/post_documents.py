@@ -3,7 +3,7 @@
 from controllers.convert_file import convert_file
 from fastapi import File, UploadFile, APIRouter
 import asyncio
-
+import os
 
 router = APIRouter()
 
@@ -26,6 +26,7 @@ def upload(file: UploadFile = File(...)):
         null = "null"
         return eval(response)
     except Exception as e:
+        os.remove(f"media/{file.filename}")
         return {
             "message": f"There was an error uploading the file {e}"
         }
