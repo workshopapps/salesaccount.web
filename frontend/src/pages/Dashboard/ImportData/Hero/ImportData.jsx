@@ -64,11 +64,10 @@ function ImportData() {
 		localStorage.setItem('localData2', JSON.stringify(localData2));
 	}, [localData2]);
 
-	
 	useEffect(() => {
 		localStorage.setItem('fileName', JSON.stringify(fileDropped?.name));
 	}, [fileDropped?.name]);
-	
+
 	// useEffect(() => {
 	// 	localStorage.setItem('fileDropped2', JSON.stringify(fileName2));
 	// }, [fileDropped2]);
@@ -284,7 +283,7 @@ function ImportData() {
 							<p>OR</p>
 							<input
 								type="file"
-								accept=".csv"
+								accept=".csv, .pdf, .txt, .xls, .xlsx"
 								hidden
 								onChange={(e) => {
 									setFileDropped2(e.target.files[0]);
