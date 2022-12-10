@@ -20,10 +20,10 @@ def reconcile(files: List[UploadFile]):
         try:
             for file in files:
                 contents = file.file.read()
-                file_dir = f"Media/{file.filename}"
+                file_dir = f"Media\{file.filename}"
                 with open(file_dir, "wb") as f:
                     f.write(contents)
-            response = match(f"Media/{files[0].filename}", f"Media/{files[1].filename}")
+            response = match(f"Media\{files[0].filename}", f"Media\{files[1].filename}")
             null = "null"
             return eval(response)
         except Exception as e:
