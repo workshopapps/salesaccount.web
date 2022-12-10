@@ -4,7 +4,7 @@ import sentry_sdk
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import api_status, post_documents, reconcile_documents, post_reviews
+from routes import api_status, post_documents, reconcile_documents, api_reviews
 
 
 sentry_sdk.init(
@@ -29,4 +29,4 @@ app.add_middleware(
 app.include_router(api_status.router)
 app.include_router(post_documents.router)
 app.include_router(reconcile_documents.router)
-app.include_router(post_reviews.router)
+app.include_router(api_reviews.router)
