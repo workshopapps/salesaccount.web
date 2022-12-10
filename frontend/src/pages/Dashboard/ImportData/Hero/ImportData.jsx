@@ -106,7 +106,7 @@ function ImportData() {
 
 				<div className="flex items-center">
 					<h1 className="text-[1em] md:text-[1.5em] font-bold">
-						Uploaded Account Statement Ready!
+						First Document Ready
 					</h1>
 					<img
 						className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] object-contain"
@@ -313,7 +313,7 @@ function ImportData() {
 						<div className="space-y-[2em]">
 							<div className="flex items-center">
 								<h1 className="text-[1.1em] md:text-[2em] font-bold">
-									Uploaded Sales Record Ready!
+									Second Document Ready!
 								</h1>
 								<img
 									className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] object-contain"
