@@ -10,7 +10,6 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useAuth } from '../../../../Store/Context';
 import ok from '../../../../assets/Ok.png';
 import signedDocument from '../../../../assets/images/DashboardImages/upload/signed document.png';
-import Button from '../../../../components/Button';
 
 function ImportData() {
 	const [showDisplay, setShowDisplay] = useState(false);
@@ -20,6 +19,8 @@ function ImportData() {
 	const [userInput2, setUserInput2] = useState('');
 	const [showTable, setShowTable] = useState(false);
 	const { dropHandlerFile2, dragHandlerFile2, removeItem } = useAuth();
+	const [sorted, setSorted] = useState({ sorted: 'amount', reversed: false });
+
 	const inputRef = useRef();
 	const navigate = useNavigate();
 	const {
@@ -63,10 +64,14 @@ function ImportData() {
 		localStorage.setItem('localData2', JSON.stringify(localData2));
 	}, [localData2]);
 
+	
+	useEffect(() => {
+		localStorage.setItem('fileName', JSON.stringify(fileDropped?.name));
+	}, [fileDropped?.name]);
+	
 	// useEffect(() => {
-	// 	localStorage.setItem('fileDropped2', JSON.stringify(fileDropped2));
+	// 	localStorage.setItem('fileDropped2', JSON.stringify(fileName2));
 	// }, [fileDropped2]);
-
 	// search function here
 
 	const filteredResult = localData?.filter((table) =>
@@ -147,7 +152,7 @@ function ImportData() {
 			<div className="my-8 ">
 				<p className="my-4 text-green-600 font-bold">{fileDropped.name}</p>
 
-				<div className="overflow-scroll ">
+				{/* <div className="overflow-scroll ">
 					<table className="table-auto w-full text-xs md:text-base  ">
 						<thead className="bg-[#D1E9FF] py-2 my-2">
 							<tr>
@@ -174,6 +179,27 @@ function ImportData() {
 								))}
 							</tbody>
 						)}
+					</table>
+				</div> */}
+				<div className="overflow-scroll " id="pagetodownload">
+					<table className="table-auto w-full text-xs md:text-base">
+						<thead className="bg-[#D1E9FF] py-2 my-2">
+							<tr>
+								{headerKeys.map((key) => (
+									<th className="py-2 pl-8 text-left">{key}</th>
+								))}
+							</tr>
+						</thead>
+
+						<tbody className="py-2 px-6">
+							{localData?.map((sData) => (
+								<tr className="py-2 pl-8">
+									{Object.values(sData).map((iData) => (
+										<td className="text-sm py-5 md:py-10 pl-8 ">{iData}</td>
+									))}
+								</tr>
+							))}
+						</tbody>
 					</table>
 				</div>
 			</div>

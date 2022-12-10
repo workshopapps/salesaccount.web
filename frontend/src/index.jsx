@@ -39,6 +39,7 @@ import { UserProvider } from './Store/Context';
 import AccountReport from './pages/Dashboard/AccountReport/AccountReport';
 import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
 import Privacy from './pages/Privacy';
+import ServerError from './pages/ServerError/index';
 
 // using sentry for error reporting and monitoring in react production mode
 Sentry.init({
@@ -48,7 +49,7 @@ Sentry.init({
 	// Set tracesSampleRate to 1.0 to capture 100%
 	// of transactions for performance monitoring.
 	// We recommend adjusting this value in production
-	tracesSampleRate: 1.0,
+	tracesSampleRate: 0.5,
 });
 
 const router = createBrowserRouter([
@@ -200,6 +201,10 @@ const router = createBrowserRouter([
 	{
 		path: '/processingerror',
 		element: <ErrorProcessing />,
+	},
+	{
+		path: '/servererror',
+		element: <ServerError />,
 	},
 ]);
 

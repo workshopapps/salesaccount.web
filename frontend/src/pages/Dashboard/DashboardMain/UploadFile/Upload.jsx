@@ -3,8 +3,10 @@ import document from '../../../../assets/images/DashboardImages/upload/document.
 import './upload.css';
 import { useAuth } from '../../../../Store/Context';
 
+
+
 function Upload() {
-	const { dragHandler, dropHandler, setFileDropped } = useAuth();
+	const { dragHandler, dropHandler, setLocalFile, setFileDropped } = useAuth();
 	const inputRef = useRef();
 
 	return (
