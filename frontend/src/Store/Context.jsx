@@ -18,7 +18,6 @@ export const UserProvider = ({ children }) => {
 		localStorage.getItem('localData3') || '[]'
 	);
 
-	
 	//  Persisting data for uploaded files
 
 	// const fileDroppedSaved = JSON.parse(
@@ -40,29 +39,28 @@ export const UserProvider = ({ children }) => {
 
 	const [localData, setLocalData] = useState(AccountStatementsaved);
 	const [localData2, setLocalData2] = useState(SalesRecordsaved);
-	
+
 	// reconcile data
 	const [localData3, setLocalData3] = useState(ReconciledRecordsSaved);
 	const [loading, setLoading] = useState(true);
 	const [rError, setRError] = useState('');
-	
+
 	const [fileDropped, setFileDropped] = useState([]);
 	const [fileDropped2, setFileDropped2] = useState([]);
-	
+
 	const uploadUrl = 'https://api.reconcileai.hng.tech/upload';
 	const reconcileUrl = `https://api.reconcileai.hng.tech/reconcile`;
 	const downloadUrl = '';
-	
 
 	// ////////bank statement GET request
 	const getData = async () => {
 		const formData = new FormData();
 		formData.append('file', fileDropped);
-		
+
 		axios
-		.post(uploadUrl, formData, {
-			headers: {
-				'Content-Type': 'multipart/form-data',
+			.post(uploadUrl, formData, {
+				headers: {
+					'Content-Type': 'multipart/form-data',
 				},
 			})
 			.then((res) => setLocalData(res?.data))
@@ -93,14 +91,6 @@ export const UserProvider = ({ children }) => {
 			formData.append('files', item);
 		});
 
-		// const config = {
-		// 	onUploadProgress: function (progressEvent) {
-		// 		setProgress(
-		// 			Math.round(progressEvent.loaded / progressEvent.total) * 100
-		// 		);
-		// 	},
-		// };
-
 		axios
 			.post(reconcileUrl, formData)
 			.then((res) => {
@@ -122,16 +112,16 @@ export const UserProvider = ({ children }) => {
 
 	const dropHandler = (e) => {
 		e.preventDefault();
-		setFileDropped(e.dataTransfer?.files[0]);
-		if (!e.dataTransfer?.files[0]?.name.includes('.csv' || '.pdf' || '.doc')) {
-			// eslint-disable-next-line
-			console.log(e.dataTransfer?.files[0].name);
+		const validFile =
+			e.dataTransfer?.files[0].name.includes('.txt') ||
+			e.dataTransfer?.files[0].name.includes('.csv') ||
+			e.dataTransfer?.files[0].name.includes('.xls') ||
+			e.dataTransfer?.files[0].name.includes('.pdf') ||
+			e.dataTransfer?.files[0].name.includes('.xlsx');
+		if (!validFile) {
 			setFileErr(true);
-		} else {
-			setFileErr(false);
-			// eslint-disable-next-line
-			console.log(fileErr);
 		}
+		setFileDropped(e.dataTransfer?.files[0]);
 	};
 
 	const dragHandlerFile2 = (e) => {
@@ -140,6 +130,15 @@ export const UserProvider = ({ children }) => {
 
 	const dropHandlerFile2 = (e) => {
 		e.preventDefault();
+		const validFile =
+			e.dataTransfer?.files[0].name.includes('.txt') ||
+			e.dataTransfer?.files[0].name.includes('.csv') ||
+			e.dataTransfer?.files[0].name.includes('.xls') ||
+			e.dataTransfer?.files[0].name.includes('.pdf') ||
+			e.dataTransfer?.files[0].name.includes('.xlsx');
+		if (!validFile) {
+			setFileErr(true);
+		}
 		setFileDropped2(e.dataTransfer?.files[0]);
 	};
 
