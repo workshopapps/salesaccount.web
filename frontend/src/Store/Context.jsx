@@ -147,10 +147,12 @@ export const UserProvider = ({ children }) => {
 		localStorage.removeItem('localData2');
 		localStorage.removeItem('fileDropped');
 		localStorage.removeItem('fileDropped2');
+		localStorage.removeItem('localData3');
 		setLocalData([]);
 		setLocalData2([]);
 		setFileDropped([]);
 		setFileDropped2([]);
+		setLocalData3([]);
 	};
 
 	const value = useMemo(
