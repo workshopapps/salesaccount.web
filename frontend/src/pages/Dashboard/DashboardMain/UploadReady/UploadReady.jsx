@@ -39,7 +39,10 @@ function UploadReady() {
 				<div className="text-center  space-y-[0.5em]">
 					<h2 className="font-semibold text-[#344054] text-lg">
 						{fileErr ? (
-							<p className="text-red-600">Wrong file type! Choose another.</p>
+							<p className="text-red-600">
+								We are sorry, looks like you have uploaded the wrong file.
+								Kindly check again.
+							</p>
 						) : (
 							<h2 className="font-semibold text-[#344054] text-lg">
 								File Selected: &#34; {fileDropped?.name} &#34;
@@ -81,6 +84,7 @@ function UploadReady() {
 					onClick={(e) => {
 						e.preventDefault();
 						userClickedUpload();
+						window.location.reload(false);
 					}}
 					className="bg-white rounded-md text-[#2E90FA] text-sm py-[10px] px-[20px] border-[1px] border-[#2E90FA] active:color-#2E90FA"
 				>
