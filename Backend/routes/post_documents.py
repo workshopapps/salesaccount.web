@@ -20,13 +20,17 @@ def upload(file: UploadFile = File(...)):
     """
     try:
         contents = file.file.read()
-        with open(f"Media/{file.filename}", 'wb') as f:
+        with open(f"media\{file.filename}", 'wb') as f:
             f.write(contents)
-        response = convert_file(f"Media/{file.filename}")
+        response = convert_file(f"media\{file.filename}")
         null = "null"
-        return eval(response)
+        try:
+            response = eval(response)
+            return response
+        except:
+            return response
     except Exception as e:
-        os.remove(f"Media/{file.filename}")
+        os.remove(f"media\{file.filename}")
         return {
             "message": f"There was an error uploading the file {e}"
         }
