@@ -32,6 +32,7 @@ function ImportData() {
 		setFileDropped2,
 		getSalesData,
 		reconcileData,
+		fileErr,
 	} = useAuth();
 
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
@@ -241,11 +242,19 @@ function ImportData() {
 					<h1 className="text-[1.5em] font-bold">Next, upload Sales Record</h1>
 					{showUpload ? (
 						<div className=" text-center flex flex-col justify-center items-center mx-auto bg-[#F2F4F7] py-[4em]  px-[1em] md:py-[2em] w-full md:w-[70%] lg:w-[40%] space-y-3 border border-black border-dashed ">
-							<img
-								src={signedDocument}
-								alt="document"
-								className="w-[120px] h-[120px] object-fill"
-							/>
+							{fileErr ? (
+								<img
+									src="https://icons.iconarchive.com/icons/hopstarter/sleek-xp-software/256/Windows-Close-Program-icon.png"
+									alt="document"
+									className="w-[120px] h-[120px] object-fill"
+								/>
+							) : (
+								<img
+									src={signedDocument}
+									alt="document"
+									className="w-[120px] h-[120px] object-fill"
+								/>
+							)}
 							<div className="text-center  space-y-[0.5em]">
 								<h2 className="font-semibold text-[#344054] text-lg">
 									File Selected: &#34; {fileDropped2?.name} &#34;
