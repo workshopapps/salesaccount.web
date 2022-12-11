@@ -17,7 +17,7 @@ function Upload() {
 					inputRef.current.click();
 				}}
 				role="presentation"
-				className="flex flex-col items-center py-[2em] space-y-[2em] w-full md:w-[60%] lg:w-[40%]  rounded-xl border-[2px] border-dashed border-[#1D2939]"
+				className="flex flex-col items-center py-[4em] space-y-[2em] w-full md:w-[60%] lg:w-[40%]  rounded-xl border-[2px] border-dashed border-[#1D2939] cursor-pointer"
 			>
 				<img
 					src={document}
@@ -26,7 +26,7 @@ function Upload() {
 				/>
 				<div className="text-center  space-y-[0.5em]  ">
 					<h2 className=" font-bold text-[#344054] text-lg md:text-xl ">
-						Drop your account statement in here
+						Drag & Drop first record in here
 					</h2>
 					<p className="font-normal text-[#98A2B3] md:text-base text-sm">
 						Supported formats: PDF, Word DOCS, Excel
