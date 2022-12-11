@@ -3,8 +3,9 @@
 import asyncio
 import json
 import pandas as pd
+import re
 
-from tabula import read_pdf
+from .extract_text import pdf_to_text #image_to_text
 
 
 def df_to_json(df):
@@ -19,11 +20,10 @@ def df_to_json(df):
     result = df.to_json(orient="records")
     parsed = json.loads(result)
     response = json.dumps(parsed, indent=4)
-
     return response
 
 
-async def convert_file(filename: str):
+def convert_file(filename: str):
     """Converts csv/pdf/xls files to json
 
     Args:
@@ -37,17 +37,32 @@ async def convert_file(filename: str):
         response = df_to_json(df)
         return response
 
-    elif filename.endswith(".pdf"):
-        df = read_pdf(filename)
-        response = df_to_json(df)
-        return response
-
-    elif filename.endswith(".xls"):
+    elif re.match(".*xls*", filename):
         df = pd.read_excel(filename)
         response = df_to_json(df)
         return response
 
+    elif filename.endswith(".pdf"):
+        response = pdf_to_text(filename)
+        try:
+            df = pd.read_json(response)
+            response = df_to_json(df)
+            return response
+        except:
+            return response
+        # try:
+        #     response = eval(response)
+        #     return response
+        # except:
+        #     return response
+
+    # elif filename.endswith(".png"):
+    #     response = image_to_text(filename)
+    #     return response
+
+    # elif filename.endswith(".jpg"):
+    #     response = image_to_text(filename)
+    #     return response
+
     else:
         return {"file extension error": "unsupported file type"}
-
-

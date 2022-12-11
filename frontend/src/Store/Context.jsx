@@ -18,7 +18,6 @@ export const UserProvider = ({ children }) => {
 		localStorage.getItem('localData3') || '[]'
 	);
 
-	
 	//  Persisting data for uploaded files
 
 	// const fileDroppedSaved = JSON.parse(
@@ -40,39 +39,25 @@ export const UserProvider = ({ children }) => {
 
 	const [localData, setLocalData] = useState(AccountStatementsaved);
 	const [localData2, setLocalData2] = useState(SalesRecordsaved);
-	
+
 	// reconcile data
 	const [localData3, setLocalData3] = useState(ReconciledRecordsSaved);
 	const [loading, setLoading] = useState(true);
+	const [uploadLoading, setUploadLoading] = useState(true);
+	const [uploadLoading2, setUploadLoading2] = useState(true);
 	const [rError, setRError] = useState('');
-	
+
 	const [fileDropped, setFileDropped] = useState([]);
 	const [fileDropped2, setFileDropped2] = useState([]);
-	
+
 	const uploadUrl = 'https://api.reconcileai.hng.tech/upload';
 	const reconcileUrl = `https://api.reconcileai.hng.tech/reconcile`;
 	const downloadUrl = '';
-	
 
 	// ////////bank statement GET request
 	const getData = async () => {
 		const formData = new FormData();
 		formData.append('file', fileDropped);
-		
-		axios
-		.post(uploadUrl, formData, {
-			headers: {
-				'Content-Type': 'multipart/form-data',
-				},
-			})
-			.then((res) => setLocalData(res?.data))
-			.catch((e) => setError(e.message));
-	};
-
-	// ////sales Record ///////
-	const getSalesData = async () => {
-		const formData = new FormData();
-		formData.append('file', fileDropped2);
 
 		axios
 			.post(uploadUrl, formData, {
@@ -80,7 +65,27 @@ export const UserProvider = ({ children }) => {
 					'Content-Type': 'multipart/form-data',
 				},
 			})
-			.then((res) => setLocalData2(res?.data))
+			.then((res) => {
+				setLocalData(res?.data);
+				setUploadLoading(false);
+			})
+			.catch((e) => setError(e.message));
+	};
+
+	// ////sales Record ///////
+	const getSalesData = async () => {
+		const formData = new FormData();
+		formData.append('file', fileDropped2);
+		axios
+			.post(uploadUrl, formData, {
+				headers: {
+					'Content-Type': 'multipart/form-data',
+				},
+			})
+			.then((res) => {
+				setLocalData2(res?.data);
+				setUploadLoading2(false);
+			})
 			.catch((e) => setError(e.message));
 	};
 
@@ -93,18 +98,9 @@ export const UserProvider = ({ children }) => {
 			formData.append('files', item);
 		});
 
-		// const config = {
-		// 	onUploadProgress: function (progressEvent) {
-		// 		setProgress(
-		// 			Math.round(progressEvent.loaded / progressEvent.total) * 100
-		// 		);
-		// 	},
-		// };
-
 		axios
 			.post(reconcileUrl, formData)
 			.then((res) => {
-				// setLoading(true);
 				setLocalData3(res?.data);
 				setRError('');
 				setLoading(false);
@@ -122,16 +118,16 @@ export const UserProvider = ({ children }) => {
 
 	const dropHandler = (e) => {
 		e.preventDefault();
-		setFileDropped(e.dataTransfer?.files[0]);
-		if (!e.dataTransfer?.files[0]?.name.includes('.csv' || '.pdf' || '.doc')) {
-			// eslint-disable-next-line
-			console.log(e.dataTransfer?.files[0].name);
+		const validFile =
+			e.dataTransfer?.files[0].name.includes('.txt') ||
+			e.dataTransfer?.files[0].name.includes('.csv') ||
+			e.dataTransfer?.files[0].name.includes('.xls') ||
+			e.dataTransfer?.files[0].name.includes('.pdf') ||
+			e.dataTransfer?.files[0].name.includes('.xlsx');
+		if (!validFile) {
 			setFileErr(true);
-		} else {
-			setFileErr(false);
-			// eslint-disable-next-line
-			console.log(fileErr);
 		}
+		setFileDropped(e.dataTransfer?.files[0]);
 	};
 
 	const dragHandlerFile2 = (e) => {
@@ -140,6 +136,15 @@ export const UserProvider = ({ children }) => {
 
 	const dropHandlerFile2 = (e) => {
 		e.preventDefault();
+		const validFile =
+			e.dataTransfer?.files[0].name.includes('.txt') ||
+			e.dataTransfer?.files[0].name.includes('.csv') ||
+			e.dataTransfer?.files[0].name.includes('.xls') ||
+			e.dataTransfer?.files[0].name.includes('.pdf') ||
+			e.dataTransfer?.files[0].name.includes('.xlsx');
+		if (!validFile) {
+			setFileErr(true);
+		}
 		setFileDropped2(e.dataTransfer?.files[0]);
 	};
 
@@ -148,10 +153,12 @@ export const UserProvider = ({ children }) => {
 		localStorage.removeItem('localData2');
 		localStorage.removeItem('fileDropped');
 		localStorage.removeItem('fileDropped2');
+		localStorage.removeItem('localData3');
 		setLocalData([]);
 		setLocalData2([]);
 		setFileDropped([]);
 		setFileDropped2([]);
+		setLocalData3([]);
 	};
 
 	const value = useMemo(
@@ -188,6 +195,8 @@ export const UserProvider = ({ children }) => {
 			removeItem,
 			progress,
 			fileErr,
+			uploadLoading,
+			uploadLoading2,
 		}),
 		[
 			localFile,

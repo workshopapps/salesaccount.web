@@ -22,15 +22,27 @@ function UploadReady() {
 		<div className="space-y-[1em] w-full mt-[10%] lg:mt-[5%] flex flex-col items-center ">
 			<h1 className="font-bold text-2xl ">Ready for Upload</h1>
 			<div className=" flex flex-col items-center p-[1em] space-y-[2em] w-full md:w-[60%] lg:w-[40%] border-[2px] border-dashed border-[#1D2939]">
-				<img
-					src={signedDocument}
-					alt="document"
-					className="w-[120px] h-[120px] object-fill"
-				/>
+				{fileErr ? (
+					<img
+						src="https://icons.iconarchive.com/icons/hopstarter/sleek-xp-software/256/Windows-Close-Program-icon.png"
+						alt="document"
+						className="w-[120px] h-[120px] object-fill"
+					/>
+				) : (
+					<img
+						src={signedDocument}
+						alt="document"
+						className="w-[120px] h-[120px] object-fill"
+					/>
+				)}
+
 				<div className="text-center  space-y-[0.5em]">
 					<h2 className="font-semibold text-[#344054] text-lg">
 						{fileErr ? (
-							<p className="text-red-600">Wrong file type! Choose another.</p>
+							<p className="text-red-600">
+								We are sorry, looks like you have uploaded the wrong file.
+								Kindly check again.
+							</p>
 						) : (
 							<h2 className="font-semibold text-[#344054] text-lg">
 								File Selected: &#34; {fileDropped?.name} &#34;
@@ -72,6 +84,7 @@ function UploadReady() {
 					onClick={(e) => {
 						e.preventDefault();
 						userClickedUpload();
+						window.location.reload(false);
 					}}
 					className="bg-white rounded-md text-[#2E90FA] text-sm py-[10px] px-[20px] border-[1px] border-[#2E90FA] active:color-#2E90FA"
 				>

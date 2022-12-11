@@ -39,9 +39,9 @@ import { UserProvider } from './Store/Context';
 import AccountReport from './pages/Dashboard/AccountReport/AccountReport';
 import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
 import Privacy from './pages/Privacy';
-import ServerError from './pages/ServerError/index'
+import ServerError from './pages/ServerError/index';
 
-// using sentry for error reporting and monitoring in react production mode
+// Kindly Comment when on testing on Local
 Sentry.init({
 	dsn: 'https://4a3e104ad3e7451c8276d1ab491fbd56@o4504281023315968.ingest.sentry.io/4504281163825152',
 	integrations: [new BrowserTracing()],
@@ -49,7 +49,7 @@ Sentry.init({
 	// Set tracesSampleRate to 1.0 to capture 100%
 	// of transactions for performance monitoring.
 	// We recommend adjusting this value in production
-	tracesSampleRate: 1.0,
+	tracesSampleRate: 0.5,
 });
 
 const router = createBrowserRouter([
