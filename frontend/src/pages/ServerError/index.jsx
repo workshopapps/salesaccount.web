@@ -1,12 +1,10 @@
 import React from 'react'
-import SadBot from '../../assets/images/Error404/sadbot.webp'
-// import NavigationBar from '../../components/NavigationBar';
+import SadBot from '../../assets/images/Error404/sadbot.webp'	
 import './server-error.css'
 
 export default function ServerError() {
     return (
         <div className="">
-            {/* <NavigationBar /> */}
 			<div className="mt-[15px] flex flex-col items-center">
 				<img src={SadBot} alt="" className="w-[500px] h-[375px] sad-bot" />
 				<h2 className="max-w-[800px] text-center h-[134px] server-text leading-[45px]">
