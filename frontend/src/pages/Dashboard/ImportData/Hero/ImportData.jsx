@@ -39,6 +39,9 @@ function ImportData() {
 
 	const handleSubmit = () => {
 		getSalesData();
+		console.log('localData2: ', localData2?.length)
+		console.log('localData: ', localData?.length)
+		console.log(typeof localData)
 	};
 	const handleSubmit2 = async () => {
 		reconcileData();
@@ -84,6 +87,7 @@ function ImportData() {
 	return (
 		<div className="w-full h-max pb-[10em]">
 			<div className="space-y-[3em]">
+				{/* Breadcrumbs here */}
 				<div className="flex">
 					<div className="flex ">
 						<div
@@ -182,6 +186,8 @@ function ImportData() {
 					</table>
 				</div> */}
 				<div className="overflow-scroll " id="pagetodownload">
+
+
 					<table className="table-auto w-full text-xs md:text-base">
 						<thead className="bg-[#D1E9FF] py-2 my-2">
 							<tr>
@@ -270,7 +276,7 @@ function ImportData() {
 							</div>
 						</div>
 					) : (
-						<div
+						<label htmlFor='localfile2'
 							onDragOver={dragHandlerFile2}
 							onDrop={(e) => {
 								e.preventDefault();
@@ -282,7 +288,7 @@ function ImportData() {
 							<CloudUploadIcon sx={{ fontSize: '5em', color: '#2E90FA' }} />
 							<p>Drag and drop your file in this grey area</p>
 							<p>OR</p>
-							<input
+							<input id='localfile2'
 								type="file"
 								accept=".csv"
 								hidden
@@ -301,7 +307,7 @@ function ImportData() {
 									Browse File <FileCopyOutlinedIcon />
 								</button>
 							</div>
-						</div>
+						</label>
 					)}
 				</div>
 			)}
@@ -387,6 +393,7 @@ function ImportData() {
 							onClick={(e) => {
 								e.preventDefault();
 								handleSubmit2();
+								console.log('LocalData2:', localData2.length)
 							}}
 							className="bg-[#2E90FA] rounded-md text-white text-sm py-[10px] px-[20px]  border  active:color-#1849A9"
 						>
