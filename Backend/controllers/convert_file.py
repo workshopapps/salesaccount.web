@@ -23,6 +23,22 @@ def df_to_json(df):
     return response
 
 
+def dt_inplace(df):
+    """Automatically detect and convert (in place!) each
+    dataframe column of datatype 'object' to a datetime just
+    when ALL of its non-NaN values can be successfully parsed
+    by pd.to_datetime().  Also returns a ref. to df for
+    convenient use in an expression.
+    """
+    from pandas.errors import ParserError
+    for c in df.columns[df.dtypes=='object']: #don't cnvt num
+        try:
+            df[c]=pd.to_datetime(df[c])
+        except (ParserError,ValueError): #Can't cnvrt some
+            pass # ...so leave whole column as-is unconverted
+    return df
+
+
 def convert_file(filename: str):
     """Converts csv/pdf/xls files to json
 
@@ -45,7 +61,7 @@ def convert_file(filename: str):
     elif filename.endswith(".pdf"):
         response = pdf_to_text(filename)
         try:
-            df = pd.read_json(response)
+            df = pd.read_json(response, convert_dates=False)
             response = df_to_json(df)
             return response
         except:
