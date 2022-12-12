@@ -233,6 +233,7 @@ function ImportData() {
 
 				{fileValidationError && !uploadLoading && (
 					<ServerError />
+
 				)}
 
 
@@ -241,7 +242,7 @@ function ImportData() {
 
 			{localData2.length < 1 && (
 				<div className="space-y-[3em] w-full mt-[2em] ">
-					<h1 className="text-[1.5em] font-bold">Next, upload Sales Record</h1>
+					<h1 className="text-[1.5em] font-bold text-center">Upload Second Document</h1>
 					{showUpload ? (
 
 						<div  className="flex flex-col justify-center items-center py-[2em] space-y-[2em] mb-[1em] w-full md:w-[60%] mx-auto lg:w-[40%]  rounded-xl border-[2px] border-dashed border-[#1D2939] bg-[#F2F4F7]">
@@ -300,7 +301,11 @@ function ImportData() {
 								setShowUpload(true);
 								setFileDropped2(e.dataTransfer?.files[0]);
 							}}
+<<<<<<< HEAD
+							className="ml-[450px] flex flex-col items-center py-[4em] space-y-[2em] w-full md:w-[60%] lg:w-[40%]  rounded-xl border-[2px] border-dashed border-[#1D2939] cursor-pointer"
+=======
 							className="flex flex-col items-center py-[2em] space-y-[1em] mb-[1em] w-full md:w-[60%] lg:w-[40%] mx-auto rounded-xl border-[2px] border-dashed border-[#1D2939]"
+>>>>>>> 2331ab9ea7c1e4816afccd9cb801ca6ff1b7ca00
 						>
 							<img
 								src={document}
@@ -310,7 +315,7 @@ function ImportData() {
 							{/* <CloudUploadIcon sx={{ fontSize: '5em', color: '#2E90FA' }} /> */}
 
 							<h2 className="font-bold text-[#344054] text-lg md:text-xl ">
-								Drag and drop sales record here.
+								Drag & Drop second document here.
 							</h2>
 							<p className="font-normal text-[#98A2B3] md:text-base text-sm">
 								Supported formats: PDF, Word DOCS, Excel
