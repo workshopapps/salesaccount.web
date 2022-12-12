@@ -22,7 +22,6 @@ def df_to_json(df):
     response = json.dumps(parsed, indent=4)
     return response
 
-
 def convert_file(filename: str):
     """Converts csv/pdf/xls files to json
 
@@ -45,16 +44,11 @@ def convert_file(filename: str):
     elif filename.endswith(".pdf"):
         response = pdf_to_text(filename)
         try:
-            df = pd.read_json(response)
+            df = pd.read_json(response, convert_dates=False)
             response = df_to_json(df)
             return response
         except:
             return response
-        # try:
-        #     response = eval(response)
-        #     return response
-        # except:
-        #     return response
 
     # elif filename.endswith(".png"):
     #     response = image_to_text(filename)
