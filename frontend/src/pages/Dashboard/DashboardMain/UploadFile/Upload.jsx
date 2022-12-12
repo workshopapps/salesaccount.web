@@ -17,7 +17,7 @@ function Upload() {
 					inputRef.current.click();
 				}}
 				role="presentation"
-				className="flex flex-col items-center py-[2em] space-y-[2em] w-full md:w-[60%] lg:w-[40%]  rounded-xl border-[2px] border-dashed border-[#1D2939]"
+				className="flex flex-col items-center py-[2em] space-y-[2em] mb-[1em] w-full md:w-[60%] lg:w-[40%]  rounded-xl border-[2px] border-dashed border-[#1D2939]"
 			>
 				<img
 					src={document}
@@ -29,7 +29,7 @@ function Upload() {
 						Drop your account statement in here
 					</h2>
 					<p className="font-normal text-[#98A2B3] md:text-base text-sm">
-						Supported formats: PDF, Word DOCS, Excel
+						Supported formats: .csv, .xls, .xlxs, .pdf
 					</p>
 				</div>
 			</div>
@@ -48,7 +48,7 @@ function Upload() {
 				onClick={() => {
 					inputRef.current.click();
 				}}
-				className="bg-[#2E90FA] font-semibold text-lg text-white px-[1.5em] py-[0.8em] rounded-md mt-12 max-md:mt-3 max-md:text-sm"
+				className="bg-[#2E90FA] text-white px-[1.5em] py-[0.8em] rounded-md "
 				type="button"
 			>
 				Browse Files
