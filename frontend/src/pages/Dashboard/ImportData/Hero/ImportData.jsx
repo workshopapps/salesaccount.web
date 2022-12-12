@@ -244,7 +244,7 @@ function ImportData() {
 					<h1 className="text-[1.5em] font-bold">Next, upload Sales Record</h1>
 					{showUpload ? (
 
-						<div  className="flex flex-col items-center py-[2em] space-y-[2em] mb-[1em] w-full md:w-[60%] lg:w-[40%]  rounded-xl border-[2px] border-dashed border-[#1D2939] bg-[#F2F4F7]">
+						<div  className="flex flex-col justify-center items-center py-[2em] space-y-[2em] mb-[1em] w-full md:w-[60%] mx-auto lg:w-[40%]  rounded-xl border-[2px] border-dashed border-[#1D2939] bg-[#F2F4F7]">
 							{fileErr ? (
 								<img
 									src="https://icons.iconarchive.com/icons/hopstarter/sleek-xp-software/256/Windows-Close-Program-icon.png"
@@ -300,7 +300,7 @@ function ImportData() {
 								setShowUpload(true);
 								setFileDropped2(e.dataTransfer?.files[0]);
 							}}
-							className="flex flex-col items-center py-[2em] space-y-[1em] mb-[1em] w-full md:w-[60%] lg:w-[40%]  rounded-xl border-[2px] border-dashed border-[#1D2939]"
+							className="flex flex-col items-center py-[2em] space-y-[1em] mb-[1em] w-full md:w-[60%] lg:w-[40%] mx-auto rounded-xl border-[2px] border-dashed border-[#1D2939]"
 						>
 							<img
 								src={document}
