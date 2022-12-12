@@ -50,8 +50,8 @@ function AccountReport() {
 				</div>
 			</div>
 			{localData3.length > 1 && (
-				<div className="flex items-center">
-					<h1 className=" font-bold text-xl ">Account Balance Report Ready!</h1>
+				<div className="flex items-center ">
+					<h1 className=" font-bold text-xl ">Your File is Ready!</h1>
 					{localData3 && (
 						<img
 							className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] object-contain"
@@ -65,7 +65,7 @@ function AccountReport() {
 			{rError && <p>{rError}</p>}
 			{/* {loading && <Processing />} */}
 
-			{loading && (
+			{loading && localData3.length === 0 && (
 				<div className="flex flex-col justify-center items-center">
 					<h2 className="animate-pulse text-[30px] text-[#2E90FA] font-semibold">
 						Matching data...
@@ -81,15 +81,15 @@ function AccountReport() {
 			)}
 
 			{localData3 && (
-				<div className="overflow-scroll " id="pagetodownload">
-					<table className="table-auto w-full text-xs md:text-base">
-						<thead className="bg-[#D1E9FF] py-2 my-2">
+				<div className="overflow-scroll">
+					<table className="table-auto w-full text-xs md:text-base p-[2em] pt-0" id="pagetodownload">
+						<thead className="bg-[#D1E9FF] py-4 ">
 							<tr>
 								{headerKeys.map((key) => (
 									<th
 										// eslint-disable-next-line
 										onClick={() => console.log(key)}
-										className="py-2 pl-8 text-left"
+										className="py-4 pl-8 text-left"
 									>
 										{key}
 									</th>
@@ -101,7 +101,7 @@ function AccountReport() {
 							{localData3?.map((sData) => (
 								<tr className="py-2 pl-8">
 									{Object.values(sData).map((iData) => (
-										<td className="text-sm py-5 md:py-10 pl-8 ">{iData}</td>
+										<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc]  ">{iData}</td>
 									))}
 								</tr>
 							))}
@@ -114,13 +114,12 @@ function AccountReport() {
 				<button
 					onClick={() => navigate(-1)}
 					type="button"
-					className="button1 text-[##1570EF] bg-[#D1E9FF] w-[30%] lg:w-[15%]  py-[0.5em] rounded-md "
+					className="button1 text-[#1570EF] bg-[#D1E9FF] w-[30%] lg:w-[15%]  py-[0.5em] rounded-md "
 				>
 					Back
 				</button>
-				<div className=" flex justify-center items-center button2 text-white bg-[#2E90FA] w-[30%] py-[0.5em] lg:w-[15%] rounded-md">
-					<DownloadButton fileId="pagetodownload" fileName="reconcile" />
-				</div>
+				<DownloadButton fileId="pagetodownload" fileName="reconcile" />
+
 			</div>
 		</div>
 	);
