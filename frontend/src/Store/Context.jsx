@@ -20,6 +20,10 @@ export const UserProvider = ({ children }) => {
 	const ReconciledRecordsSaved = JSON.parse(
 		localStorage.getItem('localData3') || '[]'
 	);
+	const ClearFileName = JSON.parse(
+		localStorage.removeItem('fileName') || '[]'
+	);
+
 
 	//  Persisting data for uploaded files
 
@@ -40,18 +44,18 @@ export const UserProvider = ({ children }) => {
 	const [localFile, setLocalFile] = useState([]);
 	const [localFile2, setLocalFile2] = useState([]);
 
-	const [localData, setLocalData] = useState(AccountStatementsaved);
-	const [localData2, setLocalData2] = useState(SalesRecordsaved);
+	const [localData, setLocalData] = useState(AccountStatementsaved, ClearFileName);
+	const [localData2, setLocalData2] = useState(SalesRecordsaved, ClearFileName);
 
 	// reconcile data
-	const [localData3, setLocalData3] = useState(ReconciledRecordsSaved);
+	const [localData3, setLocalData3] = useState(ReconciledRecordsSaved, ClearFileName);
 	const [loading, setLoading] = useState(true);
 	const [uploadLoading, setUploadLoading] = useState(true);
 	const [uploadLoading2, setUploadLoading2] = useState(true);
 	const [rError, setRError] = useState('');
 
-	const [fileDropped, setFileDropped] = useState([]);
-	const [fileDropped2, setFileDropped2] = useState([]);
+	const [fileDropped, setFileDropped] = useState(ClearFileName);
+	const [fileDropped2, setFileDropped2] = useState(ClearFileName);
 
 	const uploadUrl = 'https://api.reconcileai.hng.tech/upload';
 	const reconcileUrl = `https://api.reconcileai.hng.tech/reconcile`;
@@ -180,9 +184,9 @@ export const UserProvider = ({ children }) => {
 		localStorage.removeItem('localData3');
 		setLocalData([]);
 		setLocalData2([]);
-		setFileDropped([]);
-		setFileDropped2([]);
-		setLocalData3([]);
+		setFileDropped(fileDropped);
+		setFileDropped2(fileDropped2);
+		setLocalData3(localData3);
 	};
 
 	const value = useMemo(
