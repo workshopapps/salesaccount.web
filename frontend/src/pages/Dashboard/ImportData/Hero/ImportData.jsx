@@ -12,6 +12,7 @@ import { useAuth } from '../../../../Store/Context';
 import ok from '../../../../assets/Ok.png';
 import signedDocument from '../../../../assets/images/DashboardImages/upload/signed document.png';
 import document from '../../../../assets/images/DashboardImages/upload/document.png';
+import ServerError from '../../../ServerError';
 
 function ImportData() {
 	const [showDisplay, setShowDisplay] = useState(false);
@@ -21,18 +22,19 @@ function ImportData() {
 	const [userInput2, setUserInput2] = useState('');
 	const [showTable, setShowTable] = useState(false);
 	const [text, setText] = useState(false);
+
+	const [sorted, setSorted] = useState({ sorted: 'amount', reversed: false });
+
+	const inputRef = useRef();
+	const navigate = useNavigate();
 	const {
 		dropHandlerFile2,
 		dragHandlerFile2,
 		removeItem,
 		uploadLoading,
 		uploadLoading2,
-	} = useAuth();
-	const [sorted, setSorted] = useState({ sorted: 'amount', reversed: false });
-
-	const inputRef = useRef();
-	const navigate = useNavigate();
-	const {
+		fileValidationError,
+		fileValidationError2,
 		localData,
 		localData2,
 		localData3,
@@ -84,11 +86,34 @@ function ImportData() {
 	// search function here
 
 	const filteredResult = localData?.filter((table) =>
-		table?.Description?.toLowerCase().includes(userInput.trim().toLowerCase())
+		// table?.Description?.toLowerCase().includes(userInput.trim().toLowerCase())
+		Object.keys(table).some((key) => {
+			if (
+				table?.[key]
+					?.toString()
+					?.toLowerCase()
+					?.includes(userInput.trim().toLowerCase())
+			) {
+				return true;
+			}
+			return false;
+		})
 	);
 
 	const filteredResult2 = localData2?.filter((table) =>
-		table?.Description?.toLowerCase().includes(userInput2.trim().toLowerCase())
+		// table?.Description?.toLowerCase().includes(userInput2.trim().toLowerCase())
+
+		Object.keys(table).some((key) => {
+			if (
+				table?.[key]
+					?.toString()
+					?.toLowerCase()
+					?.includes(userInput2.trim().toLowerCase())
+			) {
+				return true;
+			}
+			return false;
+		})
 	);
 	return (
 		<div className="w-full h-max pb-[10em]">
@@ -178,7 +203,7 @@ function ImportData() {
 
 				{/* file 1 table */}
 
-				{localData && (
+				{Boolean(localData.length) && !uploadLoading && (
 					<div className="overflow-scroll">
 						<table className="table-auto w-full text-xs md:text-base">
 							<thead className="bg-[#D1E9FF] py-2 my-2">
@@ -192,7 +217,7 @@ function ImportData() {
 							</thead>
 
 							<tbody className="py-2 px-6">
-								{localData?.map((sData) => (
+								{filteredResult?.map((sData) => (
 									<tr className="py-2 pl-8">
 										{Object.values(sData).map((iData) => (
 											<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
@@ -206,77 +231,14 @@ function ImportData() {
 					</div>
 				)}
 
-				{/* <div className="overflow-scroll">
-					<table
-						className="scrolling table-auto w-full text-xs md:text-base "
-						id="reportCanvas"
-					>
-						<thead className="bg-[#D1E9FF] py-2 my-2">
-							<tr>
-								{headerKeys?.map((key) => (
-									<th
-										className="py-[1em] md:py-[1.5em] pl-8 text-left"
-										key={Math.random()}
-									>
-										{key}
-									</th>
-								))}
-							</tr>
-						</thead>
+				{fileValidationError && !uploadLoading && (
+					<ServerError />
+				)}
 
-						{userInput.length > 0 && filteredResult.length === 0 ? (
-							<div className="w-max text-red-600 my-[3em] ">
-								No result found
-							</div>
-						) : (
-							<tbody className="py-2 px-6">
-								{filteredResult?.map((item) => (
-									<tr className="py-2 pl-8" key={Math.random()}>
-										{Object.values(item).map((eachItem) => (
-											<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc]">
-												{eachItem}
-											</td>
-										))}
-									</tr>
-								))}
-							</tbody>
-						)}
-					</table>
-				</div> */}
+
 			</div>
 
-			{/* {showDisplay && (
-				<div className=" border absolute bg-white z-1 w-[50%] md:w-[25%] lg:w-[15%] left-[1em] md:left-[1em] top-[7em]  md:top-[10em] rounded-lg p-4">
-					<div className="flex justify-between ">
-						<p>Value</p>
-						<input type="checkbox" />
-					</div>
-					<div className="flex justify-between ">
-						<p>Date</p>
-						<input type="checkbox" />
-					</div>
-					<div className="flex justify-between ">
-						<p>Name</p>
-						<input type="checkbox" />
-					</div>
-					<div className="flex justify-between ">
-						<p>Desciption</p>
-						<input type="checkbox" />
-					</div>
-				</div>
-			)}
-			{showSort && (
-				<div className="border w-[30%] absolute z-1 right-[1em] top-[7em] md:top-[10em] md:w-[20%] lg:w-[10%] md:right-[1em] bg-white rounded-lg p-4">
-					<div className="flex justify-between ">
-						<p>Credit</p>
-						<input type="checkbox" />
-					</div>
-					<div className="flex justify-between ">
-						<p>Debit</p>
-						<input type="checkbox" />
-					</div>
-				</div>
-			)} */}
+
 
 			{localData2.length < 1 && (
 				<div className="space-y-[3em] w-full mt-[2em] ">
@@ -365,13 +327,13 @@ function ImportData() {
 								ref={inputRef}
 							/>
 							<div>
-								{/* <button
+								<button
 									type="button"
 									onClick={() => inputRef.current.click()}
 									className=" flex bg-white p-[1em]  rounded-lg border-2"
 								>
 									Browse File <FileCopyOutlinedIcon />
-								</button> */}
+								</button>
 							</div>
 						</div>
 					)}
@@ -408,6 +370,7 @@ function ImportData() {
 							</div>
 						</div>
 					</div>
+
 					<div className="mb-8 mt-4" id="reportCanvas">
 						<p className="my-4 text-green-600 font-bold">{fileDropped2.name}</p>
 
@@ -430,7 +393,7 @@ function ImportData() {
 						)}
 
 						{/* file2 table  */}
-						{localData2 && (
+						{Boolean(localData2.length) && !uploadLoading2 && (
 							<div className="overflow-scroll " id="pagetodownload">
 								<table className="table-auto w-full text-xs md:text-base">
 									<thead className="bg-[#D1E9FF] py-2 my-2">
@@ -458,44 +421,14 @@ function ImportData() {
 							</div>
 						)}
 
-						{/* <div className="overflow-scroll" id="reportCanvas">
-							<table
-								className="scrolling table-auto w-full text-xs md:text-base "
-								id="reportCanvas"
-							>
-								<thead className="bg-[#D1E9FF] py-2 my-2">
-									<tr>
-										{headerKeys2?.map((key) => (
-											<th
-												className="py-[1em] md:py-[1.5em] pl-8 text-left"
-												key={Math.random()}
-											>
-												{key}
-											</th>
-										))}
-									</tr>
-								</thead>
 
-								{userInput2.length > 0 && filteredResult2.length === 0 ? (
-									<div className="w-max text-red-600 my-[3em] ">
-										No result found
-									</div>
-								) : (
-									<tbody className="py-2 px-6">
-										{filteredResult2?.map((item) => (
-											<tr className="py-2 pl-8" key={Math.random()}>
-												{Object.values(item).map((eachItem) => (
-													<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc]">
-														{eachItem}
-													</td>
-												))}
-											</tr>
-										))}
-									</tbody>
-								)}
-							</table>
-						</div> */}
+
 					</div>
+
+					{fileValidationError2 && !uploadLoading2 && (
+						<ServerError />
+					)}
+					
 				</div>
 			)}
 
