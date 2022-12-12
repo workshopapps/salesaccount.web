@@ -21,7 +21,7 @@ function UploadReady() {
 	return (
 		<div className="space-y-[1em] w-full mt-[10%] lg:mt-[5%] flex flex-col items-center ">
 			<h1 className="font-bold text-2xl ">Ready for Upload</h1>
-			<div className=" flex flex-col items-center p-[1em] space-y-[2em] w-full md:w-[60%] lg:w-[40%] border-[2px] border-dashed border-[#1D2939]">
+			<div className="flex flex-col items-center py-[2em] space-y-[2em] mb-[1em] w-full md:w-[60%] lg:w-[40%]  rounded-xl border-[2px] border-dashed border-[#1D2939]">
 				{fileErr ? (
 					<img
 						src="https://icons.iconarchive.com/icons/hopstarter/sleek-xp-software/256/Windows-Close-Program-icon.png"
