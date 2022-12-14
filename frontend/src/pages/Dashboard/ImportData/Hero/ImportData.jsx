@@ -182,7 +182,7 @@ function ImportData() {
 				</div>
 			</div>
 			{/* loading state for file 1 */}
-			{uploadLoading && localData.length === 0 &&  (
+			{uploadLoading && localData.length === 0 && (
 				<div className="flex flex-col justify-center items-center">
 					<h2 className="animate-pulse text-[30px] text-[#2E90FA] font-semibold">
 						Matching data...
@@ -203,7 +203,7 @@ function ImportData() {
 
 				{/* file 1 table */}
 
-				{Boolean(localData.length) &&  localData && (
+				{Boolean(localData.length) && localData && (
 					<div className="overflow-scroll">
 						<table className="table-auto w-full text-xs md:text-base">
 							<thead className="bg-[#D1E9FF] py-2 my-2">
@@ -231,20 +231,14 @@ function ImportData() {
 					</div>
 				)}
 
-				{fileValidationError && !uploadLoading && (
-					<ServerError />
-				)}
-
-
+				{fileValidationError && !uploadLoading && <ServerError />}
 			</div>
-
 
 			{localData2.length < 1 && (
 				<div className="space-y-[3em] w-full mt-[2em] ">
 					<h1 className="text-[1.5em] font-bold">Next, upload Sales Record</h1>
 					{showUpload ? (
-
-						<div  className="flex flex-col justify-center items-center py-[2em] space-y-[2em] mb-[1em] w-full md:w-[60%] mx-auto lg:w-[40%]  rounded-xl border-[2px] border-dashed border-[#1D2939] bg-[#F2F4F7]">
+						<div className="flex flex-col justify-center items-center py-[2em] space-y-[2em] mb-[1em] w-full md:w-[60%] mx-auto lg:w-[40%]  rounded-xl border-[2px] border-dashed border-[#1D2939] bg-[#F2F4F7]">
 							{fileErr ? (
 								<img
 									src="https://icons.iconarchive.com/icons/hopstarter/sleek-xp-software/256/Windows-Close-Program-icon.png"
@@ -267,7 +261,7 @@ function ImportData() {
 										</p>
 									) : (
 										<h2 className="font-semibold text-[#344054] text-lg">
-											File Selected: &#34; {fileDropped?.name} &#34;
+											File Selected: &#34; {fileDropped2?.name} &#34;
 										</h2>
 									)}
 								</h2>
@@ -292,7 +286,6 @@ function ImportData() {
 						</div>
 					) : (
 						<div
-							onClick={() => inputRef.current.click()}
 							role="presentation"
 							onDragOver={dragHandlerFile2}
 							onDrop={(e) => {
@@ -330,7 +323,7 @@ function ImportData() {
 								<button
 									type="button"
 									onClick={() => inputRef.current.click()}
-									className="bg-[#2E90FA] text-white px-[1.5em] py-[0.8em] rounded-md "
+									className="text-black border px-[1.5em] py-[0.8em] rounded-md "
 								>
 									Browse File <FileCopyOutlinedIcon />
 								</button>
@@ -377,7 +370,6 @@ function ImportData() {
 						{/* loadinf state for file 2  */}
 						{uploadLoading2 && localData2.length === 0 && (
 							<div className="flex flex-col justify-center items-center">
-								
 								{/* <p>Test</p> */}
 
 								{text && (
@@ -418,15 +410,9 @@ function ImportData() {
 								</table>
 							</div>
 						)}
-
-
-
 					</div>
 
-					{fileValidationError2 && !uploadLoading2 && (
-						<ServerError />
-					)}
-					
+					{fileValidationError2 && !uploadLoading2 && <ServerError />}
 				</div>
 			)}
 
@@ -478,8 +464,3 @@ function ImportData() {
 }
 
 export default ImportData;
-
-
-
-
-
