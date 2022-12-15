@@ -25,7 +25,6 @@ export const UserProvider = ({ children }) => {
 	const [progress, setProgress] = useState(0);
 	const [saleAccountFiles, setSalesAccountFiles] = useState([]);
 	const [bankStatementFile, setBankStatementFile] = useState([]);
-	const [error, setError] = useState('');
 
 	const [fileErr, setFileErr] = useState(false);
 
@@ -35,12 +34,13 @@ export const UserProvider = ({ children }) => {
 	const [localData, setLocalData] = useState(AccountStatementsaved);
 	const [localData2, setLocalData2] = useState(SalesRecordsaved);
 
-	// reconcile data
+	// State for Response data, Error and loading
 	const [localData3, setLocalData3] = useState(ReconciledRecordsSaved);
 	const [loading, setLoading] = useState(true);
 	const [uploadLoading, setUploadLoading] = useState(true);
 	const [uploadLoading2, setUploadLoading2] = useState(true);
 	const [rError, setRError] = useState('');
+	const [error, setError] = useState('');
 
 	// file user picked from thier machine
 	const [fileDropped, setFileDropped] = useState([]);
@@ -160,11 +160,6 @@ export const UserProvider = ({ children }) => {
 	};
 
 	const removeItem = () => {
-		// localStorage.removeItem('localData');
-		// localStorage.removeItem('localData2');
-		// localStorage.removeItem('fileDropped');
-		// localStorage.removeItem('fileDropped2');
-		// localStorage.removeItem('localData3');
 		localStorage.clear();
 		setLocalData([]);
 		setLocalData2([]);

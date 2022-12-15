@@ -101,8 +101,6 @@ function ImportData() {
 	);
 
 	const filteredResult2 = localData2?.filter((table) =>
-		// table?.Description?.toLowerCase().includes(userInput2.trim().toLowerCase())
-
 		Object.keys(table).some((key) => {
 			if (
 				table?.[key]

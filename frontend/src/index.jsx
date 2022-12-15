@@ -32,15 +32,12 @@ import Gpt3 from './pages/Gpt-3';
 import Blogs from './pages/Blogs/Index';
 import Error404 from './pages/Error404/index';
 import ErrorProcessing from './pages/ErrorProcessing/index';
-import UploadReady from './pages/Dashboard/DashboardMain/UploadReady/UploadReady';
-import ImportData from './pages/Dashboard/ImportData/Hero/ImportData';
-import Reconcile from './pages/Dashboard/ImportData/Hero/Reconcile';
+import Reconcile from './pages/Dashboard/Reconcile/Reconcile';
 import { UserProvider } from './Store/Context';
-import AccountReport from './pages/Dashboard/AccountReport/AccountReport';
-import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
 import Privacy from './pages/Privacy';
 import ServerError from './pages/ServerError/index';
 import Upload from './pages/Dashboard/Upload/Upload';
+import Download from './pages/Dashboard/Download/Download';
 
 // Kindly Comment when on testing on Local
 Sentry.init({
@@ -93,24 +90,16 @@ const router = createBrowserRouter([
 		element: <DashBoard />,
 		children: [
 			{
-				path: '/dashboard/home',
-				element: <Upload />,
-			},
-			{
 				path: '/dashboard/upload',
 				element: <Upload />,
-			},
-			{
-				path: '/dashboard/importpage',
-				element: <ImportData />,
 			},
 			{
 				path: '/dashboard/reconcile',
 				element: <Reconcile />,
 			},
 			{
-				path: '/dashboard/accountreport',
-				element: <AccountReport />,
+				path: '/dashboard/download',
+				element: <Download />,
 			},
 		],
 	},
