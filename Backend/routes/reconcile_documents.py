@@ -17,7 +17,7 @@ router = APIRouter()
 def reconcile(files: List[UploadFile]):
     """ Matches similar transactions in the documents """
     if len(files) == 2:
-        try:
+        # try:
             for file in files:
                 contents = file.file.read()
                 file_dir = f"media\{file.filename}"
@@ -25,9 +25,9 @@ def reconcile(files: List[UploadFile]):
                     f.write(contents)
             response = match(f"media\{files[0].filename}", f"media\{files[1].filename}")
             null = "null"
-            return eval(response)
-        except Exception as e:
-            return {"Error": f"{e} occurred. Inform team. Thanks."}
+            return response
+        # except Exception as e:
+        #     return {"Error": f"{e} occurred. Inform team. Thanks."}
     else:
         return {"message": "Sorry, you need two files for reconconciliation"}
 

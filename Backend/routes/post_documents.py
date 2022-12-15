@@ -24,11 +24,7 @@ def upload(file: UploadFile = File(...)):
             f.write(contents)
         response = convert_file(f"media\{file.filename}")
         null = "null"
-        try:
-            response = eval(response)
-            return response
-        except:
-            return response
+        return response
     except Exception as e:
         os.remove(f"media\{file.filename}")
         return {
