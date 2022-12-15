@@ -19,19 +19,21 @@ def match(file1, file2):
     """
     keyword = """
         Match all the details in these files content below. No title.
-        Response in JSON in an array\n
+        Response must be a JSON in an array. All key and values in double quotations"\n
         """
-    statement_table = pd.read_json(convert_file(file1))
-    records_table = pd.read_json(convert_file(file2))
-    
-    statement_csv = statement_table.to_csv()[:1000]
-    records_csv = records_table.to_csv()[:1000]
+    statement_table = convert_file(file1)
+    statement_table = pd.DataFrame(statement_table)
+    records_table = convert_file(file2)
+    records_table = pd.DataFrame(records_table)
+    statement_csv = statement_table.to_csv()[:900]
+    records_csv = records_table.to_csv()[:900]
 
     columns_a = list(statement_table.columns) 
     columns_b = list(records_table.columns)
     example = "Example\n[\n{"
     for x in columns_a:
         example += f"\n    \"{x}\":"
+
     example += "\n   Matching: Yes\n   Matching_details:\n   [\n   {"
     for x in columns_b:
         example += f"\n    \"{x}\":"
@@ -39,6 +41,11 @@ def match(file1, file2):
 
     prompt = f"{keyword}{example}{statement_csv}\n{records_csv}"
 
-    response = openai_call(prompt)
-    response = json.loads(response)
-    return response
+    response = openai_call(prompt, 0.1)
+    try:
+        response = eval(response)
+    except:
+        index = response.index('[')
+        response = eval(response[index:])
+    finally:
+        return response
