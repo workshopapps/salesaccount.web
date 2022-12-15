@@ -23,12 +23,12 @@ def upload(file: UploadFile = File(...)):
         with open(f"media\{file.filename}", 'wb') as f:
             f.write(contents)
         response = convert_file(f"media\{file.filename}")
-        null = "null"
         return response
     except Exception as e:
         os.remove(f"media\{file.filename}")
         return {
-            "message": f"There was an error uploading the file {e}"
-        }
+            "message": f"There was an error uploading the file {e}",
+            "status": 400
+            }
     finally:
         file.file.close()

@@ -22,17 +22,36 @@ def openai_call(prompt, temperature=0.62):
     Return:
         object: json
     """
-    
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=prompt,
-        temperature=temperature,
-        max_tokens=3000,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0
-    )
-
+    try:
+        response = openai.Completion.create(
+            model="text-davinci-003",
+            prompt=prompt,
+            temperature=temperature,
+            max_tokens=3000,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0
+        )
+    except openai.error.InvalidRequestError:
+        response = openai.Completion.create(
+            model="text-davinci-003",
+            prompt=prompt[:2000],
+            temperature=temperature,
+            max_tokens=3000,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0
+        )
+    except openai.error.APIConnectionError:
+        response = openai.Completion.create(
+            model="text-davinci-003",
+            prompt=prompt,
+            temperature=temperature,
+            max_tokens=3000,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0
+        )
     flag = 0
     while flag < 7:
         if response.choices[0].text == None:
