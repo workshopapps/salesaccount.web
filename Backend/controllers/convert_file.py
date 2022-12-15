@@ -20,8 +20,8 @@ def df_to_json(df):
         object: json
     """
     result = df.to_json(orient="records")
-    parsed = json.loads(result)
-    response = json.dumps(parsed, indent=4)
+    response = json.loads(result)
+    # response = json.dumps(parsed, indent=4)
     return response
 
 
@@ -48,6 +48,22 @@ def check_header(df, header):
             return df
     return df
 
+def correct_date(response: str):
+    """Converts wrong parsed date field to proper datetime
+
+    Args:
+        response: json response
+
+    Return:
+        object: json
+    """
+    keyword = """Change the date field in this\
+            JSON to proper dates and null to a string"""
+    prompt = f"{keyword}\n\n{response}\n\n"
+    result = openai_call(prompt)
+    response = eval(result)
+    return response
+
 def convert_file(filename: str):
     """Converts csv/pdf/xls files to json
 
@@ -69,6 +85,7 @@ def convert_file(filename: str):
     elif re.match(".*xls*", filename):
         df = pd.read_excel(filename)
         response = df_to_json(df)
+        response = correct_date(response)
         return response
 
     elif filename.endswith(".pdf"):
