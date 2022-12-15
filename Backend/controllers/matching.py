@@ -3,9 +3,25 @@
 import asyncio
 import pandas as pd
 import json
-from .convert_file import convert_file
+from .convert_file import convert_file, df_to_json
 from .openai_request import openai_call
 
+
+def unmatched(matched_json: str, records_table):
+    """Finds the unmatched transactions in the dataframe
+
+    Args:
+        matched_json: matched json
+        records_df: sales record df
+
+    Return:
+        object: json
+    """
+    response = [ sub['Matching_details'][0] for sub in matched_json if sub['Matching'] == 'Yes' ]
+    res_df = pd.DataFrame(response)
+    response = records_table[~records_table.isin(res_df)].dropna()
+    response = df_to_json(response)
+    return response
 
 def match(file1, file2):
     """Matches similar transactions in two documents
@@ -43,9 +59,11 @@ def match(file1, file2):
 
     response = openai_call(prompt, 0.1)
     try:
-        response = eval(response)
+        matched_response = eval(response)
+        unmatched_response = unmatched(matched_response, records_table)
+        return [matched_response, unmatched_response]
     except:
         index = response.index('[')
-        response = eval(response[index:])
-    finally:
-        return response
+        matched_response = eval(response[index:])
+        unmatched_response = unmatched(matched_response, records_table)
+        return [matched_response, unmatched_response]
