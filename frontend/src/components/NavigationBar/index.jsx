@@ -30,7 +30,7 @@ function NavigationBar() {
 		<>
 			<ScrollToTop />
 			<nav className="bg-[#F9FAFB] ">
-				<div className="py-[] md:py-[0.5em] lg:py-[2em] w-full mx-auto px-[3em] flex items-center justify-between md:px-[5em]   ">
+				<div className="py-[0.5em] md:py-[0.5em] lg:py-[1.5em] w-full mx-auto flex items-center justify-between  px-[2em] md:px-[5em]   ">
 					<Link to="/">
 						<figure className="h-[50px] lg:h-[40px] max-sm:w-[120px] max-lg:w-[200px]">
 							<img
@@ -57,7 +57,7 @@ function NavigationBar() {
 
 					{/* Hamburger */}
 					<div
-						className=" block md:hidden pr-2"
+						className=" block md:hidden"
 						onClick={() => {
 							toggle();
 						}}
@@ -74,7 +74,7 @@ function NavigationBar() {
 						className={
 							nav
 								? 'md:hidden w-full absolute top-[112px] md:top-[80px] max-md:top-[56px] left-0 p-2 space-y-[40px] pt-[70px] max-md:pt-[30px] h-4/5 bg-[#F9FAFB] z-50 flex flex-col items-center'
-								: 'absolute left-[-100%] top-[-50%]'
+								: 'absolute  left-[-100%] top-[-50%]'
 						}
 					>
 						{navLinks.map((item) => (

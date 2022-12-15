@@ -40,6 +40,7 @@ import AccountReport from './pages/Dashboard/AccountReport/AccountReport';
 import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
 import Privacy from './pages/Privacy';
 import ServerError from './pages/ServerError/index';
+import Upload from './pages/Dashboard/Upload/Upload';
 
 // Kindly Comment when on testing on Local
 Sentry.init({
@@ -93,11 +94,11 @@ const router = createBrowserRouter([
 		children: [
 			{
 				path: '/dashboard/home',
-				element: <DashboardMain />,
+				element: <Upload />,
 			},
 			{
 				path: '/dashboard/upload',
-				element: <UploadReady />,
+				element: <Upload />,
 			},
 			{
 				path: '/dashboard/importpage',
