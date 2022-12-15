@@ -97,7 +97,7 @@ function Reconcile() {
 				{/* Table 1 */}
 				{Boolean(localData.length) && localData && (
 					<div
-						className="overflow-scroll mb-[5em] lg:mb-0  bg-[#F9FAFB] "
+						className="overflow-scroll mb-[5em] lg:mb-0  bg-[#F9FAFB] lg:w-[50%]"
 						id="pagetodownload"
 					>
 						<table className="table-auto w-full text-xs md:text-base">
@@ -128,7 +128,10 @@ function Reconcile() {
 
 				{/* Table 2 */}
 				{Boolean(localData.length) && localData && (
-					<div className="overflow-scroll  bg-[#F9FAFB] " id="pagetodownload">
+					<div
+						className="overflow-scroll  bg-[#F9FAFB] "
+						id="pagetodownload lg:w-[50%]"
+					>
 						<table className="table-auto w-full text-xs md:text-base">
 							<thead className="bg-[#D1E9FF] py-2 my-2">
 								<tr>

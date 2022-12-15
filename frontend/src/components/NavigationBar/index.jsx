@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
-// import { BsSearch, BsGlobe2 } from 'react-icons/bs';
-// import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import { Link, NavLink } from 'react-router-dom';
 import { FiMenu } from 'react-icons/fi';
 import { AiOutlineClose } from 'react-icons/ai';
 import uuid from 'react-uuid';
-import Button from '../Button';
 import logoUpdate from '../../assets/logoUpdate.svg';
-import logo from '../../assets/logo.png';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 const navLinks = [

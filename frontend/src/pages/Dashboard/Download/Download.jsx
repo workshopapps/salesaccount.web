@@ -101,25 +101,24 @@ function Reconcile() {
 				</div>
 
 				<NavigateNextIcon />
-				<div className="text-slate-500 font-semibold ">Reconcile</div>
-
-				<NavigateNextIcon />
-				<div className=" text-black-600 font-semibold hover:text-black">
-					<Link to="/dashboard/download"> Download</Link>
+				<div className="text-slate-500 font-semibold hover:text-black">
+					<Link to="/dashboard/reconcile"> Reconcile</Link>
 				</div>
+				<NavigateNextIcon />
+				<div className=" text-black-600 font-semibold ">Download</div>
 			</div>
 
 			<div className="w-full lg:bg-[#F9FAFB] py-[1em] md:p-[4em] mt-[4em] lg:mt-[7em] ">
 				{/* Sort Table and Search */}
 				<div className="flex justify-between items-center mb-4 ">
 					<div className="flex justify-between w-[55%]  md:w-[40%]   lg:w-[20%] border border-[#2E90FA] text-xs md:text-sm">
-						<div className="font-medium  py-2 px-2  active:bg-[#2E90FA] active:text-white rounded-sm">
+						<div className="font-medium  py-2 px-2 md:px-3  active:bg-[#2E90FA] active:text-white rounded-sm">
 							All Data
 						</div>
-						<div className="font-medium py-2 px-4 border-x active:bg-[#2E90FA] active:text-white rounded-sm">
+						<div className="font-medium py-2 px-2 md:px-4 border-x active:bg-[#2E90FA] active:text-white rounded-sm">
 							All Data
 						</div>
-						<div className="font-medium  py-2 px-2 active:bg-[#2E90FA] active:text-white rounded-sm">
+						<div className="font-medium  py-2 px-2 md:px-3 active:bg-[#2E90FA] active:text-white rounded-sm">
 							All Data
 						</div>
 					</div>
@@ -219,7 +218,7 @@ function Reconcile() {
 				</div>
 			</div>
 			{/* Reconcile Button */}
-			<div className="w-full flex justify-center mt-10 border">
+			<div className="w-full flex justify-center mt-10">
 				<button
 					// onClick={() => handleSubmit()}
 					className="bg-[#2E90FA] active:bg-[#1849A9] text-white px-[1em] md:px-[2em] py-[0.8em] rounded-md mx-2"
