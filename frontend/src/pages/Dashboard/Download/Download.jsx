@@ -7,60 +7,229 @@ import { useAuth } from '../../../Store/Context';
 
 function Reconcile() {
 	const localData = [
-		{
-			'Item no ': 101,
-			'Item Name': 'Financial Services',
-			Description: 'IBM UK',
-			Price: ' 1,000,000,000 ',
-		},
-		{
-			'Item no ': 102,
-			'Item Name': 'Audit services',
-			Description: 'Microsoft UK',
-			Price: ' 300,000,044 ',
-		},
-		{
-			'Item no ': 103,
-			'Item Name': 'Security upgrade',
-			Description: 'Sort Code 20-10-53',
-			Price: ' 500,498,277 ',
-		},
-		{
-			'Item no ': 104,
-			'Item Name': 'Loan service',
-			Description: 'British Petroleum',
-			Price: ' 55,049,837 ',
-		},
-		{
-			'Item no ': 105,
-			'Item Name': 'Audit services',
-			Description: 'Shell BP',
-			Price: ' 49,920,002 ',
-		},
-		{
-			'Item no ': 106,
-			'Item Name': 'ATM installation',
-			Description: 'HSBC Dubai',
-			Price: ' 100,004,892 ',
-		},
-		{
-			'Item no ': 107,
-			'Item Name': 'Misc',
-			Description: 'Various Payment',
-			Price: ' 320,490,287 ',
-		},
-		{
-			'Item no ': 108,
-			'Item Name': 'Security upgrade',
-			Description: 'HMRC',
-			Price: ' 200,000,034 ',
-		},
-		{
-			'Item no ': 109,
-			'Item Name': 'Financial Services',
-			Description: 'Tebay Trading Co.',
-			Price: ' 42,452,466 ',
-		},
+		[
+			{
+				Date: '1/18/2013',
+				Description: 'Received from IBM UK',
+				Details: 'Credit',
+				' Money out ': '',
+				' Money in ': '1,000,000,000',
+				' Balance ': '4,000,000,000',
+				Matching: 'Yes',
+				Matching_details: [
+					{
+						'Item no ': '101',
+						'Item Name': 'Financial Services',
+						Description: 'IBM UK',
+						Price: '1,000,000,000',
+					},
+				],
+			},
+			{
+				Date: '2/14/2013',
+				Description: 'Payment to Natwest Mtge Payt',
+				Details: 'Debit',
+				' Money out ': '300,009,988',
+				' Money in ': '',
+				' Balance ': '3,699,990,012',
+				Matching: 'No',
+				Matching_details: [],
+			},
+			{
+				Date: '2/28/2013',
+				Description: 'Payment to UK provident Fund by Draft',
+				Details: 'Debit',
+				' Money out ': '200,043,995',
+				' Money in ': '',
+				' Balance ': '3,499,946,017',
+				Matching: 'No',
+				Matching_details: [],
+			},
+			{
+				Date: '3/5/2013',
+				Description: 'Direct Debit HSBC UK',
+				Details: 'Debit',
+				' Money out ': '980,050,054',
+				' Money in ': '',
+				' Balance ': '2,519,895,963',
+				Matching: 'No',
+				Matching_details: [],
+			},
+			{
+				Date: '3/21/2013',
+				Description: 'Received from Microsoft UK',
+				Details: 'Credit',
+				' Money out ': '',
+				' Money in ': '300,000,044',
+				' Balance ': '2,819,896,007',
+				Matching: 'Yes',
+				Matching_details: [
+					{
+						'Item no ': '102',
+						'Item Name': 'Audit services',
+						Description: 'Microsoft UK',
+						Price: '300,000,044',
+					},
+				],
+			},
+		],
+		[
+			{
+				'Item no ': 103,
+				'Item Name': 'Security upgrade',
+				Description: 'Sort Code 20-10-53',
+				Price: ' 500,498,277 ',
+			},
+			{
+				'Item no ': 104,
+				'Item Name': 'Loan service',
+				Description: 'British Petroleum',
+				Price: ' 55,049,837 ',
+			},
+			{
+				'Item no ': 105,
+				'Item Name': 'Audit services',
+				Description: 'Shell BP',
+				Price: ' 49,920,002 ',
+			},
+			{
+				'Item no ': 106,
+				'Item Name': 'ATM installation',
+				Description: 'HSBC Dubai',
+				Price: ' 100,004,892 ',
+			},
+			{
+				'Item no ': 107,
+				'Item Name': 'Misc',
+				Description: 'Various Payment',
+				Price: ' 320,490,287 ',
+			},
+			{
+				'Item no ': 108,
+				'Item Name': 'Security upgrade',
+				Description: 'HMRC',
+				Price: ' 200,000,034 ',
+			},
+			{
+				'Item no ': 109,
+				'Item Name': 'Financial Services',
+				Description: 'Tebay Trading Co.',
+				Price: ' 42,452,466 ',
+			},
+		],
+	];
+
+	const localData3 = [
+		[
+			{
+				Date: '1/18/2013',
+				Description: 'Received from IBM UK',
+				Details: 'Credit',
+				' Money out ': '',
+				' Money in ': '1,000,000,000',
+				' Balance ': '4,000,000,000',
+				Matching: 'Yes',
+				Matching_details: [
+					{
+						'Item no ': '101',
+						'Item Name': 'Financial Services',
+						Description: 'IBM UK',
+						Price: '1,000,000,000',
+					},
+				],
+			},
+			{
+				Date: '2/14/2013',
+				Description: 'Payment to Natwest Mtge Payt',
+				Details: 'Debit',
+				' Money out ': '300,009,988',
+				' Money in ': '',
+				' Balance ': '3,699,990,012',
+				Matching: 'No',
+				Matching_details: [],
+			},
+			{
+				Date: '2/28/2013',
+				Description: 'Payment to UK provident Fund by Draft',
+				Details: 'Debit',
+				' Money out ': '200,043,995',
+				' Money in ': '',
+				' Balance ': '3,499,946,017',
+				Matching: 'No',
+				Matching_details: [],
+			},
+			{
+				Date: '3/5/2013',
+				Description: 'Direct Debit HSBC UK',
+				Details: 'Debit',
+				' Money out ': '980,050,054',
+				' Money in ': '',
+				' Balance ': '2,519,895,963',
+				Matching: 'No',
+				Matching_details: [],
+			},
+			{
+				Date: '3/21/2013',
+				Description: 'Received from Microsoft UK',
+				Details: 'Credit',
+				' Money out ': '',
+				' Money in ': '300,000,044',
+				' Balance ': '2,819,896,007',
+				Matching: 'Yes',
+				Matching_details: [
+					{
+						'Item no ': '102',
+						'Item Name': 'Audit services',
+						Description: 'Microsoft UK',
+						Price: '300,000,044',
+					},
+				],
+			},
+		],
+		[
+			{
+				'Item no ': 103,
+				'Item Name': 'Security upgrade',
+				Description: 'Sort Code 20-10-53',
+				Price: ' 500,498,277 ',
+			},
+			{
+				'Item no ': 104,
+				'Item Name': 'Loan service',
+				Description: 'British Petroleum',
+				Price: ' 55,049,837 ',
+			},
+			{
+				'Item no ': 105,
+				'Item Name': 'Audit services',
+				Description: 'Shell BP',
+				Price: ' 49,920,002 ',
+			},
+			{
+				'Item no ': 106,
+				'Item Name': 'ATM installation',
+				Description: 'HSBC Dubai',
+				Price: ' 100,004,892 ',
+			},
+			{
+				'Item no ': 107,
+				'Item Name': 'Misc',
+				Description: 'Various Payment',
+				Price: ' 320,490,287 ',
+			},
+			{
+				'Item no ': 108,
+				'Item Name': 'Security upgrade',
+				Description: 'HMRC',
+				Price: ' 200,000,034 ',
+			},
+			{
+				'Item no ': 109,
+				'Item Name': 'Financial Services',
+				Description: 'Tebay Trading Co.',
+				Price: ' 42,452,466 ',
+			},
+		],
 	];
 
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
@@ -68,6 +237,9 @@ function Reconcile() {
 	const { removeItem } = useAuth();
 
 	const navigate = useNavigate();
+
+	// matching data
+
 
 	const reconcileNewFile = () => {
 		removeItem();
@@ -134,7 +306,7 @@ function Reconcile() {
 				{/* Api Table */}
 				<div className="lg:flex items-center justify-center w-full ">
 					{/* Table 1 */}
-					{Boolean(localData.length) && localData && (
+					{/* {Boolean(localData.length) && localData && (
 						<div
 							className="overflow-scroll mb-[5em] lg:mb-0  bg-[#F9FAFB] lg:w-[50%]"
 							id="pagetodownload"
@@ -163,10 +335,10 @@ function Reconcile() {
 								</tbody>
 							</table>
 						</div>
-					)}
+					)} */}
 
 					{/* Table 2 */}
-					{Boolean(localData.length) && localData && (
+					{/* {Boolean(localData.length) && localData && (
 						<div
 							className="overflow-scroll  bg-[#F9FAFB] lg:w-[50%] "
 							id="pagetodownload"
@@ -195,7 +367,7 @@ function Reconcile() {
 								</tbody>
 							</table>
 						</div>
-					)}
+					)} */}
 				</div>
 				{/* Match Guide */}
 				<div className="flex items-center font-medium mt-[2em] text-xs">

@@ -4,7 +4,7 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useAuth } from '../../../Store/Context';
 
 function Reconcile() {
-	const localData = [
+	const localDataa = [
 		{
 			'Item no ': 101,
 			'Item Name': 'Financial Services',
@@ -60,18 +60,23 @@ function Reconcile() {
 			Price: ' 42,452,466 ',
 		},
 	];
-	const { removeItem, reconcileData } = useAuth();
+	const { removeItem, reconcileData, localData3, localData2, localData } =
+		useAuth();
 
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
 
 	const navigate = useNavigate();
 	const handleSubmit = () => {
+		reconcileData();
 		navigate('/dashboard/download');
 	};
 	const userClickedUpload = () => {
 		removeItem();
 		navigate('/dashboard/upload');
 	};
+
+	console.log('localData', localData);
+	console.log('localData2', localData2);
 	return (
 		<>
 			<div className="flex">
@@ -93,70 +98,72 @@ function Reconcile() {
 			</div>
 
 			{/* Api Table */}
-			<div className="lg:flex items-center justify-center w-full lg:bg-[#F9FAFB] py-[1em] md:p-[4em] mt-[4em] lg:mt-[7em] ">
+			<div className="lg:flex items-center gap-8 justify-center w-full lg:bg-[#F9FAFB] py-[1em] md:p-[4em] mt-[4em] lg:mt-[7em] ">
 				{/* Table 1 */}
-				{Boolean(localData.length) && localData && (
-					<div
-						className="overflow-scroll mb-[5em] lg:mb-0  bg-[#F9FAFB] lg:w-[50%]"
-						id="pagetodownload"
-					>
-						<table className="table-auto w-full text-xs md:text-base">
-							<thead className="bg-[#D1E9FF] py-2 my-2">
-								<tr>
-									{headerKeys.map((key) => (
-										<th className="py-[1em] md:py-[1.5em] pl-8 text-left">
-											{key}
-										</th>
-									))}
-								</tr>
-							</thead>
-
-							<tbody className="py-2 px-6">
-								{localData?.map((sData) => (
-									<tr className="py-2 pl-8">
-										{Object.values(sData).map((iData) => (
-											<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
-												{iData}
-											</td>
+				<div className="lg:w-1/2 border border-slate-500 p-4">
+					<h1 className="lowercase my-2 font-bold ">Table Title Here</h1>
+					{Boolean(localData.length) && localData && (
+						<div
+							className="overflow-scroll mb-[5em] lg:mb-0  bg-[#F9FAFB]"
+							id="pagetodownload"
+						>
+							<table className="table-auto w-full text-xs md:text-base">
+								<thead className="bg-[#D1E9FF] py-2 my-2">
+									<tr>
+										{headerKeys.map((key) => (
+											<th className="py-[1em] md:py-[1.5em] pl-8 text-left">
+												{key}
+											</th>
 										))}
 									</tr>
-								))}
-							</tbody>
-						</table>
-					</div>
-				)}
+								</thead>
 
-				{/* Table 2 */}
-				{Boolean(localData.length) && localData && (
-					<div
-						className="overflow-scroll  bg-[#F9FAFB] "
-						id="pagetodownload lg:w-[50%]"
-					>
-						<table className="table-auto w-full text-xs md:text-base">
-							<thead className="bg-[#D1E9FF] py-2 my-2">
-								<tr>
-									{headerKeys.map((key) => (
-										<th className="py-[1em] md:py-[1.5em] pl-8 text-left">
-											{key}
-										</th>
+								<tbody className="py-2 px-6">
+									{localData?.map((sData) => (
+										<tr className="py-2 pl-8">
+											{Object.values(sData).map((iData) => (
+												<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
+													{iData}
+												</td>
+											))}
+										</tr>
 									))}
-								</tr>
-							</thead>
-
-							<tbody className="py-2 px-6">
-								{localData?.map((sData) => (
-									<tr className="py-2 pl-8">
-										{Object.values(sData).map((iData) => (
-											<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
-												{iData}
-											</td>
+								</tbody>
+							</table>
+						</div>
+					)}
+				</div>
+				<div className="lg:w-1/2 border border-slate-500 p-4">
+					<h1 className="lowercase my-2 font-bold ">Table Title Here</h1>
+					{/* Table 2 */}
+					{Boolean(localData.length) && localData && (
+						<div className="overflow-scroll  bg-[#F9FAFB] " id="pagetodownload">
+							<table className="table-auto w-full text-xs md:text-base">
+								<thead className="bg-[#D1E9FF] py-2 my-2">
+									<tr>
+										{headerKeys.map((key) => (
+											<th className="py-[1em] md:py-[1.5em] pl-8 text-left">
+												{key}
+											</th>
 										))}
 									</tr>
-								))}
-							</tbody>
-						</table>
-					</div>
-				)}
+								</thead>
+
+								<tbody className="py-2 px-6">
+									{localData?.map((sData) => (
+										<tr className="py-2 pl-8">
+											{Object.values(sData).map((iData) => (
+												<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
+													{iData}
+												</td>
+											))}
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</div>
+					)}
+				</div>
 			</div>
 			{/* Reconcile Button */}
 			<div className="w-full flex justify-center">

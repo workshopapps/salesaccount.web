@@ -19,6 +19,8 @@ function Upload() {
 		setFileDropped2,
 		getData,
 		getSalesData,
+		localData,
+		localData2,
 	} = useAuth();
 
 	const handleSubmit = () => {

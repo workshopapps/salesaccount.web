@@ -178,7 +178,7 @@ function LandingPage() {
 		<div>
 			<NavigationBar />
 			<div>
-				<div className="bg-white flex flex-col md:flex-row justify-between w-full md:w-[95%] lg:w-[80%] my-[3em] lg:my-[5em] h-[48vh] py-[2em] px-[1em] mx-auto  ">
+				<div className="bg-white flex flex-col md:flex-row justify-between w-full md:w-[95%] lg:w-[80%] mt-[3em] mb-0  lg:my-[5em] h-[48vh] py-[2em] px-[1em] mx-auto  ">
 					<div className="w-full md:w-[50%] md:mt-[3em] lg:mt-[2em] lg:w-[45%] space-y-[1em] leading-6">
 						<h1 className="text-[#101828] text-3xl md:text-4xl lg:text-6xl font-semibold  ">
 							Account
@@ -203,7 +203,7 @@ function LandingPage() {
 					</div>
 
 					{/* upload files here only visible in desktop */}
-					<div className="hidden md:flex items-center justify-center w-[40%] lg:w-[35%] bg-[#F9FAFB] rounded-2xl flex-col shadow-xl">
+					<div className="hidden md:flex items-center justify-center h-max py-[2em] w-[40%] lg:w-[35%] bg-[#F9FAFB] rounded-2xl flex-col shadow-xl">
 						<img
 							className="w-[60%] h-[60%] object-contain"
 							src={uploadIcon}
@@ -224,17 +224,15 @@ function LandingPage() {
 			</div>
 
 			{/* how it works with SCG lines  */}
-			<div className="bg-[#F9FAFB] flex flex-col gap-y-[24px]  md:gap-y-[30px] md:mt-[3em] md:z-50 md:relative">
-				<div className="bg-[#F9FAFB]">
-					<div className="pt-[30px] flex flex-col gap-y-[1px] items-center px-[44px] md:px-0 ">
-						<h2 className="font-semibold text-[#101828] md:text-4xl text-xl text-center">
-							How it works
-						</h2>
-					</div>
+			<div className="bg-[#F9FAFB] flex flex-col gap-y-[24px]  md:gap-y-[30px] md:mt-[0] md:z-50 md:relative">
+				<div className="pt-[30px] flex flex-col gap-y-[1px] items-center px-[44px] md:px-0 ">
+					<h2 className="font-semibold text-[#101828] md:text-4xl text-xl text-center">
+						How it works
+					</h2>
+				</div>
 
-					<div className="flex justify-center items-center px-4 my-[2em] md:my-[4em]">
-						<img src={howItWorks} alt="how it works" />
-					</div>
+				<div className="flex justify-center items-center px-4 my-[2em] md:my-[4em]">
+					<img src={howItWorks} alt="how it works" />
 				</div>
 			</div>
 
