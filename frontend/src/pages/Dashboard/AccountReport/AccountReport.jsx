@@ -99,11 +99,13 @@ function AccountReport() {
 
 						<tbody className="">
 							{localData3?.map((sData) => (
-								<tr className="  bg-[#B7EDD6] border-4 pl-8">
-									{Object.values(sData).map((iData) => (
-										<td className="text-sm pt-5 pb-3 pl-8 border-r border-[#ccc]   ">{iData}</td>
-									))}
-								</tr>
+
+									<tr className="  bg-[#B7EDD6] border-4 pl-8">
+										{Object.values(sData).map((iData) => (
+											<td className="text-sm pt-5 pb-3 pl-8 border-r border-[#ccc]   ">{iData}</td>
+										))}
+									</tr>
+
 							))}
 						</tbody>
 					</table>
