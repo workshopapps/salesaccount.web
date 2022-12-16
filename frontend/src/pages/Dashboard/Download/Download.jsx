@@ -240,7 +240,13 @@ function Reconcile() {
 
 	// matching data
 
+	// console.log(localData3[0])
+	// const tableRight = localData3[0].forEach((item) =>
+	// 	console.log(item.Matching_details)
+	// );
 
+	localData3[0].forEach((item)=> console.log(item))
+	// console.log('tableLeft', tableLeft)
 	const reconcileNewFile = () => {
 		removeItem();
 		navigate('/dashboard/upload');
