@@ -1,5 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import {
+	Stack,
+	styled,
+	Table,
+	TableBody,
+	TableCell,
+	tableCellClasses,
+	TableContainer,
+	TableHead,
+	TableRow,
+} from '@mui/material';
+import axios from 'axios';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import check from '../../../assets/images/DashboardImages/check_circle.png';
 import cancel from '../../../assets/images/DashboardImages/cancel.png';
@@ -12,14 +26,14 @@ function Reconcile() {
 				Date: '1/18/2013',
 				Description: 'Received from IBM UK',
 				Details: 'Credit',
-				' Money out ': '',
-				' Money in ': '1,000,000,000',
+				MoneyOut: '',
+				MoneyIn: '1,000,000,000',
 				' Balance ': '4,000,000,000',
 				Matching: 'Yes',
 				Matching_details: [
 					{
-						'Item no ': '101',
-						'Item Name': 'Financial Services',
+						ItemNo: '101',
+						ItemName: 'Financial Services',
 						Description: 'IBM UK',
 						Price: '1,000,000,000',
 					},
@@ -29,8 +43,8 @@ function Reconcile() {
 				Date: '2/14/2013',
 				Description: 'Payment to Natwest Mtge Payt',
 				Details: 'Debit',
-				' Money out ': '300,009,988',
-				' Money in ': '',
+				MoneyOut: '300,009,988',
+				MoneyIn: '',
 				' Balance ': '3,699,990,012',
 				Matching: 'No',
 				Matching_details: [],
@@ -39,8 +53,8 @@ function Reconcile() {
 				Date: '2/28/2013',
 				Description: 'Payment to UK provident Fund by Draft',
 				Details: 'Debit',
-				' Money out ': '200,043,995',
-				' Money in ': '',
+				MoneyOut: '200,043,995',
+				MoneyIn: '',
 				' Balance ': '3,499,946,017',
 				Matching: 'No',
 				Matching_details: [],
@@ -49,8 +63,8 @@ function Reconcile() {
 				Date: '3/5/2013',
 				Description: 'Direct Debit HSBC UK',
 				Details: 'Debit',
-				' Money out ': '980,050,054',
-				' Money in ': '',
+				MoneyOut: '980,050,054',
+				MoneyIn: '',
 				' Balance ': '2,519,895,963',
 				Matching: 'No',
 				Matching_details: [],
@@ -59,14 +73,14 @@ function Reconcile() {
 				Date: '3/21/2013',
 				Description: 'Received from Microsoft UK',
 				Details: 'Credit',
-				' Money out ': '',
-				' Money in ': '300,000,044',
+				MoneyOut: '',
+				MoneyIn: '300,000,044',
 				' Balance ': '2,819,896,007',
 				Matching: 'Yes',
 				Matching_details: [
 					{
-						'Item no ': '102',
-						'Item Name': 'Audit services',
+						ItemNo: '102',
+						ItemName: 'Audit services',
 						Description: 'Microsoft UK',
 						Price: '300,000,044',
 					},
@@ -75,44 +89,44 @@ function Reconcile() {
 		],
 		[
 			{
-				'Item no ': 103,
-				'Item Name': 'Security upgrade',
+				ItemNo: 103,
+				ItemName: 'Security upgrade',
 				Description: 'Sort Code 20-10-53',
 				Price: ' 500,498,277 ',
 			},
 			{
-				'Item no ': 104,
-				'Item Name': 'Loan service',
+				ItemNo: 104,
+				ItemName: 'Loan service',
 				Description: 'British Petroleum',
 				Price: ' 55,049,837 ',
 			},
 			{
-				'Item no ': 105,
-				'Item Name': 'Audit services',
+				ItemNo: 105,
+				ItemName: 'Audit services',
 				Description: 'Shell BP',
 				Price: ' 49,920,002 ',
 			},
 			{
-				'Item no ': 106,
-				'Item Name': 'ATM installation',
+				ItemNo: 106,
+				ItemName: 'ATM installation',
 				Description: 'HSBC Dubai',
 				Price: ' 100,004,892 ',
 			},
 			{
-				'Item no ': 107,
-				'Item Name': 'Misc',
+				ItemNo: 107,
+				ItemName: 'Misc',
 				Description: 'Various Payment',
 				Price: ' 320,490,287 ',
 			},
 			{
-				'Item no ': 108,
-				'Item Name': 'Security upgrade',
+				ItemNo: 108,
+				ItemName: 'Security upgrade',
 				Description: 'HMRC',
 				Price: ' 200,000,034 ',
 			},
 			{
-				'Item no ': 109,
-				'Item Name': 'Financial Services',
+				ItemNo: 109,
+				ItemName: 'Financial Services',
 				Description: 'Tebay Trading Co.',
 				Price: ' 42,452,466 ',
 			},
@@ -125,14 +139,14 @@ function Reconcile() {
 				Date: '1/18/2013',
 				Description: 'Received from IBM UK',
 				Details: 'Credit',
-				' Money out ': '',
-				' Money in ': '1,000,000,000',
+				MoneyOut: '',
+				MoneyIn: '1,000,000,000',
 				' Balance ': '4,000,000,000',
 				Matching: 'Yes',
 				Matching_details: [
 					{
-						'Item no ': '101',
-						'Item Name': 'Financial Services',
+						ItemNo: '101',
+						ItemName: 'Financial Services',
 						Description: 'IBM UK',
 						Price: '1,000,000,000',
 					},
@@ -142,8 +156,8 @@ function Reconcile() {
 				Date: '2/14/2013',
 				Description: 'Payment to Natwest Mtge Payt',
 				Details: 'Debit',
-				' Money out ': '300,009,988',
-				' Money in ': '',
+				MoneyOut: '300,009,988',
+				MoneyIn: '',
 				' Balance ': '3,699,990,012',
 				Matching: 'No',
 				Matching_details: [],
@@ -152,8 +166,8 @@ function Reconcile() {
 				Date: '2/28/2013',
 				Description: 'Payment to UK provident Fund by Draft',
 				Details: 'Debit',
-				' Money out ': '200,043,995',
-				' Money in ': '',
+				MoneyOut: '200,043,995',
+				MoneyIn: '',
 				' Balance ': '3,499,946,017',
 				Matching: 'No',
 				Matching_details: [],
@@ -162,8 +176,8 @@ function Reconcile() {
 				Date: '3/5/2013',
 				Description: 'Direct Debit HSBC UK',
 				Details: 'Debit',
-				' Money out ': '980,050,054',
-				' Money in ': '',
+				MoneyOut: '980,050,054',
+				MoneyIn: '',
 				' Balance ': '2,519,895,963',
 				Matching: 'No',
 				Matching_details: [],
@@ -172,14 +186,14 @@ function Reconcile() {
 				Date: '3/21/2013',
 				Description: 'Received from Microsoft UK',
 				Details: 'Credit',
-				' Money out ': '',
-				' Money in ': '300,000,044',
+				MoneyOut: '',
+				MoneyIn: '300,000,044',
 				' Balance ': '2,819,896,007',
 				Matching: 'Yes',
 				Matching_details: [
 					{
-						'Item no ': '102',
-						'Item Name': 'Audit services',
+						ItemNo: '102',
+						ItemName: 'Audit services',
 						Description: 'Microsoft UK',
 						Price: '300,000,044',
 					},
@@ -188,44 +202,44 @@ function Reconcile() {
 		],
 		[
 			{
-				'Item no ': 103,
-				'Item Name': 'Security upgrade',
+				ItemNo: 103,
+				ItemName: 'Security upgrade',
 				Description: 'Sort Code 20-10-53',
 				Price: ' 500,498,277 ',
 			},
 			{
-				'Item no ': 104,
-				'Item Name': 'Loan service',
+				ItemNo: 104,
+				ItemName: 'Loan service',
 				Description: 'British Petroleum',
 				Price: ' 55,049,837 ',
 			},
 			{
-				'Item no ': 105,
-				'Item Name': 'Audit services',
+				ItemNo: 105,
+				ItemName: 'Audit services',
 				Description: 'Shell BP',
 				Price: ' 49,920,002 ',
 			},
 			{
-				'Item no ': 106,
-				'Item Name': 'ATM installation',
+				ItemNo: 106,
+				ItemName: 'ATM installation',
 				Description: 'HSBC Dubai',
 				Price: ' 100,004,892 ',
 			},
 			{
-				'Item no ': 107,
-				'Item Name': 'Misc',
+				ItemNo: 107,
+				ItemName: 'Misc',
 				Description: 'Various Payment',
 				Price: ' 320,490,287 ',
 			},
 			{
-				'Item no ': 108,
-				'Item Name': 'Security upgrade',
+				ItemNo: 108,
+				ItemName: 'Security upgrade',
 				Description: 'HMRC',
 				Price: ' 200,000,034 ',
 			},
 			{
-				'Item no ': 109,
-				'Item Name': 'Financial Services',
+				ItemNo: 109,
+				ItemName: 'Financial Services',
 				Description: 'Tebay Trading Co.',
 				Price: ' 42,452,466 ',
 			},
@@ -238,15 +252,6 @@ function Reconcile() {
 
 	const navigate = useNavigate();
 
-	// matching data
-
-	// console.log(localData3[0])
-	// const tableRight = localData3[0].forEach((item) =>
-	// 	console.log(item.Matching_details)
-	// );
-
-	localData3[0].forEach((item)=> console.log(item))
-	// console.log('tableLeft', tableLeft)
 	const reconcileNewFile = () => {
 		removeItem();
 		navigate('/dashboard/upload');
@@ -265,6 +270,138 @@ function Reconcile() {
 			}
 			return false;
 		})
+	);
+
+	const StyledTableCell = styled(TableCell)(({ theme }) => ({
+		[`&.${tableCellClasses.head}`]: {
+			backgroundColor: theme.palette.common.black,
+			color: theme.palette.common.white,
+		},
+		[`&.${tableCellClasses.body}`]: {
+			border: `3px solid #fff`,
+			borderRadius: `8px`,
+			fontSize: 12,
+		},
+	}));
+
+	const StyledTableRow = styled(TableRow)(() => ({
+		fontWeight: 500,
+	}));
+
+	const fomattedData = localData3[0]?.map((data, index) => (
+		<StyledTableRow key={data.Date}>
+			<StyledTableCell
+				sx={{ bgcolor: `${data.Matching === 'Yes' ? `#B7EDD6` : `#F1AAA5`}` }}
+				component="th"
+			>
+				{data.Date}
+			</StyledTableCell>
+			<StyledTableCell
+				sx={{ bgcolor: `${data.Matching === 'Yes' ? `#B7EDD6` : `#F1AAA5`}` }}
+				align="right"
+			>
+				{data.Details}
+			</StyledTableCell>
+			<StyledTableCell
+				sx={{ bgcolor: `${data.Matching === 'Yes' ? `#B7EDD6` : `#F1AAA5`}` }}
+				align="right"
+			>
+				{data.MoneyIn}
+			</StyledTableCell>
+			<StyledTableCell
+				sx={{ bgcolor: `${data.Matching === 'Yes' ? `#B7EDD6` : `#F1AAA5`}` }}
+				align="right"
+			>
+				{data.MoneyOut}
+			</StyledTableCell>
+			{/* <StyledTableCell align="right">{row.protein}</StyledTableCell> */}
+		</StyledTableRow>
+	));
+
+	const fomattedDataMatch = localData3[0]?.map((data, index) =>
+		data.Matching_details.length ? (
+			<StyledTableRow key={data.Matching_details[0]?.ItemNo}>
+				<StyledTableCell
+					sx={{ bgcolor: `${data.Matching === 'Yes' ? `#B7EDD6` : `#F1AAA5`}` }}
+					component="th"
+				>
+					{data.Matching_details[0]?.ItemNo}
+				</StyledTableCell>
+				<StyledTableCell
+					sx={{ bgcolor: `${data.Matching === 'Yes' ? `#B7EDD6` : `#F1AAA5`}` }}
+					align="right"
+				>
+					{data.Matching_details[0]?.ItemName}
+				</StyledTableCell>
+				<StyledTableCell
+					sx={{ bgcolor: `${data.Matching === 'Yes' ? `#B7EDD6` : `#F1AAA5`}` }}
+					align="right"
+				>
+					{data.Matching_details[0]?.Description}
+				</StyledTableCell>
+				<StyledTableCell
+					sx={{ bgcolor: `${data.Matching === 'Yes' ? `#B7EDD6` : `#F1AAA5`}` }}
+					align="right"
+				>
+					{data.Matching_details[0]?.Price}
+				</StyledTableCell>
+			</StyledTableRow>
+		) : (
+			<StyledTableRow key={data.Matching_details[0]?.ItemNo}>
+				<StyledTableCell
+					sx={{ bgcolor: `${data.Matching === 'Yes' ? `#B7EDD6` : `#F1AAA5`}` }}
+					component="th"
+				>
+					NA{' '}
+				</StyledTableCell>
+				<StyledTableCell
+					sx={{ bgcolor: `${data.Matching === 'Yes' ? `#B7EDD6` : `#F1AAA5`}` }}
+					align="right"
+				>
+					NA
+				</StyledTableCell>
+				<StyledTableCell
+					sx={{ bgcolor: `${data.Matching === 'Yes' ? `#B7EDD6` : `#F1AAA5`}` }}
+					align="right"
+				>
+					NA
+				</StyledTableCell>
+				<StyledTableCell
+					sx={{ bgcolor: `${data.Matching === 'Yes' ? `#B7EDD6` : `#F1AAA5`}` }}
+					align="right"
+				>
+					NA{' '}
+				</StyledTableCell>
+			</StyledTableRow>
+		)
+	);
+
+	const matchDisplay = localData3[0]?.map((data, index) =>
+		data.Matching_details.length ? (
+			<StyledTableRow key={data.Matching_details[0]?.ItemNo}>
+				<StyledTableCell
+					align="center"
+					sx={{
+						bgcolor: `${data.Matching === 'Yes' ? `#B7EDD6` : `#F1AAA5`}`,
+					}}
+					component="th"
+				>
+					<CheckCircleOutlineIcon fontSize="12px" color="B7EDD6" />
+					{/* <img src={check} alt="check" /> */}
+				</StyledTableCell>
+			</StyledTableRow>
+		) : (
+			<StyledTableRow key={data.Matching_details[0]?.ItemNo}>
+				<StyledTableCell
+					align="center"
+					sx={{ bgcolor: `${data.Matching === 'Yes' ? `#B7EDD6` : `#F1AAA5`}` }}
+					component="th"
+				>
+					<HighlightOffIcon fontSize="12px" />
+					{/* <img src={cancel} alt="cancel" /> */}
+				</StyledTableCell>
+			</StyledTableRow>
+		)
 	);
 
 	return (
@@ -394,6 +531,55 @@ function Reconcile() {
 						<p>Unmatched Items</p>
 					</div>
 				</div>
+			</div>
+			{/* table */}
+			<div>
+				{localData3?.length ? (
+					<Stack direction="row" gap={5} paddingTop={2}>
+						<TableContainer>
+							<Table aria-label="customized table">
+								<TableHead>
+									<TableRow>
+										<StyledTableCell>Data recieved</StyledTableCell>
+										<StyledTableCell align="right">Details</StyledTableCell>
+										<StyledTableCell align="right">Amount In</StyledTableCell>
+										<StyledTableCell align="right">Amount Out</StyledTableCell>
+										{/* <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell> */}
+									</TableRow>
+								</TableHead>
+								<TableBody>{fomattedData}</TableBody>
+							</Table>
+						</TableContainer>
+
+						<TableContainer sx={{ maxWidth: `7rem` }}>
+							<Table aria-label="customized table">
+								<TableHead>
+									<TableRow>
+										<StyledTableCell align="center">Status</StyledTableCell>
+									</TableRow>
+								</TableHead>
+								<TableBody>{matchDisplay}</TableBody>
+							</Table>
+						</TableContainer>
+
+						<TableContainer>
+							<Table aria-label="customized table">
+								<TableHead>
+									<TableRow>
+										<StyledTableCell>Data recieved</StyledTableCell>
+										<StyledTableCell align="right">Description</StyledTableCell>
+										<StyledTableCell align="right">Amount In</StyledTableCell>
+										<StyledTableCell align="right">Amount Out</StyledTableCell>
+										{/* <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell> */}
+									</TableRow>
+								</TableHead>
+								<TableBody>{fomattedDataMatch}</TableBody>
+							</Table>
+						</TableContainer>
+					</Stack>
+				) : (
+					<h1>Loading...</h1>
+				)}
 			</div>
 			{/* Reconcile Button */}
 			<div className="w-full flex justify-center mt-10">

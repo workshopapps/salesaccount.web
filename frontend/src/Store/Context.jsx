@@ -102,6 +102,8 @@ export const UserProvider = ({ children }) => {
 
 	// Reconcile  Function
 	const reconcileData = async () => {
+		console.log(`begin reconciling data...`);
+
 		const formData = new FormData();
 		const files = [fileDropped, fileDropped2];
 
@@ -112,13 +114,14 @@ export const UserProvider = ({ children }) => {
 		axios
 			.post(reconcileUrl, formData)
 			.then((res) => {
+				console.log(res?.data);
 				setLocalData3(res?.data);
-				setRError('');
-				setLoading(false);
+				// setRError('');
+				// setLoading(false);
 			})
 			.catch((e) => {
-				setLoading(false);
-				setRError(e.message);
+				// setLoading(false);
+				// setRError(e.message);
 			});
 	};
 

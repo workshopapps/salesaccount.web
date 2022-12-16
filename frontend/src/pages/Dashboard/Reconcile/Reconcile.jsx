@@ -62,10 +62,13 @@ function Reconcile() {
 	];
 	const { removeItem, reconcileData, localData3, localData2, localData } =
 		useAuth();
+		
+	console.log(useAuth());
 
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
 
 	const navigate = useNavigate();
+
 	const handleSubmit = () => {
 		reconcileData();
 		navigate('/dashboard/download');
@@ -75,8 +78,9 @@ function Reconcile() {
 		navigate('/dashboard/upload');
 	};
 
-	console.log('localData', localData);
-	console.log('localData2', localData2);
+	// console.log('localData', localData);
+	// console.log('localData2', localData2);
+
 	return (
 		<>
 			<div className="flex">
