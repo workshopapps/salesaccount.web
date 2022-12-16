@@ -238,15 +238,20 @@ function Reconcile() {
 
 	const navigate = useNavigate();
 
-	// matching data
+	const tableLeft = [];
+	localData3[0].map(item => tableLeft.push(item.Matching_details));
 
-	// console.log(localData3[0])
-	// const tableRight = localData3[0].forEach((item) =>
-	// 	console.log(item.Matching_details)
-	// );
 
-	localData3[0].forEach((item)=> console.log(item))
-	// console.log('tableLeft', tableLeft)
+	const tableRight = [];
+	localData3[0].map((item)=>{
+		delete item.Matching_details		
+		return tableRight.push(item)
+	})
+
+	console.log("Table Left: ", tableLeft);
+	console.log("Table Right: ", tableRight);
+
+	
 	const reconcileNewFile = () => {
 		removeItem();
 		navigate('/dashboard/upload');
