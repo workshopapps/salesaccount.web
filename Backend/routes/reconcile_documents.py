@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+!/usr/bin/python3
 """ ENDPOINT TO RECONCILE DOCUMENTS """
 from controllers.matching import match
 from fastapi import APIRouter, UploadFile

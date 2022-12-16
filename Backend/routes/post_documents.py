@@ -32,3 +32,4 @@ def upload(file: UploadFile = File(...)):
             }
     finally:
         file.file.close()
+  

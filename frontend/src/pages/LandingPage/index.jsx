@@ -9,7 +9,6 @@ import uploadIcon from '../../assets/images/landingPage/upload-icon-new.png';
 import howItWorks from '../../assets/images/landingPage/howitworks.png';
 import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
-import Button from '../../components/Button';
 
 const data = {
 	rows: [
@@ -486,7 +485,13 @@ function LandingPage() {
 					>
 						Learn More
 					</button>
-					<Button path="/contact" title="Get in touch" />
+					<button
+						type="button"
+						className="text-white bg-[#2E90FA] rounded px-[18px] py-[10px]"
+					>
+						Get in Touch
+					</button>
+					{/* <Button path="/contact" title="Get in touch" /> */}
 				</div>
 			</div>
 			<Footer />

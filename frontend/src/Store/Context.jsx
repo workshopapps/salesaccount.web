@@ -173,11 +173,12 @@ export const UserProvider = ({ children }) => {
 	};
 
 	const removeItem = () => {
-		localStorage.removeItem('localData');
-		localStorage.removeItem('localData2');
-		localStorage.removeItem('fileDropped');
-		localStorage.removeItem('fileDropped2');
-		localStorage.removeItem('localData3');
+		// localStorage.removeItem('localData');
+		// localStorage.removeItem('localData2');
+		// localStorage.removeItem('fileDropped');
+		// localStorage.removeItem('fileDropped2');
+		// localStorage.removeItem('localData3');
+		localStorage.clear()
 		setLocalData([]);
 		setLocalData2([]);
 		setFileDropped([]);
