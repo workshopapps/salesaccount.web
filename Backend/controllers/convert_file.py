@@ -20,10 +20,9 @@ def df_to_json(df):
         object: json
     """
     result = df.to_json(orient="records")
-    parsed = json.loads(result)
-    response = json.dumps(parsed, indent=4)
+    response = json.loads(result)
+    json.dumps(response, indent=4)
     return response
-
 
 def check_header(df, header):
     """Converts dataframe to json object
@@ -48,6 +47,25 @@ def check_header(df, header):
             return df
     return df
 
+def correct_date(response: str):
+    """Converts wrong parsed date field to proper datetime
+
+    Args:
+        response: json response
+
+    Return:
+        object: json
+    """
+    keyword = """Change the date field in this\
+            JSON to proper dates and null to a string"""
+    if len(response) > 2000:
+        prompt = f"{keyword}\n\n{response[:2000]}\n\n"
+    else:
+        prompt = f"{keyword}\n\n{response}\n\n"
+    result = openai_call(prompt)
+    response = eval(result)
+    return response
+
 def convert_file(filename: str):
     """Converts csv/pdf/xls files to json
 
@@ -61,20 +79,36 @@ def convert_file(filename: str):
         with open(filename) as f:
             encoding = f.encoding
         df = pd.read_csv(filename, encoding=encoding)
+        df = df.replace(r'^\s*$', np.nan, regex=True)
+        df = df.fillna("")
         header = df.head(2).to_csv()
         df = check_header(df, header)
         response = df_to_json(df)
         return response
 
+    # if filename.endswith(".txt"):
+    #     with open(filename) as f:
+    #         encoding = f.encoding
+    #     df = pd.read_clipboard(filename, encoding=encoding)
+    #     header = df.head(2).to_csv()
+    #     df = check_header(df, header)
+    #     response = df_to_json(df)
+    #     return response
+
     elif re.match(".*xls*", filename):
         df = pd.read_excel(filename)
+        df = df.replace(r'^\s*$', np.nan, regex=True)
+        df = df.fillna("")
         response = df_to_json(df)
+        response = correct_date(response)
         return response
 
     elif filename.endswith(".pdf"):
         response = pdf_to_text(filename)
         try:
             df = pd.read_json(response, convert_dates=False)
+            df = df.replace(r'^\s*$', np.nan, regex=True)
+            df = df.fillna("")
             response = df_to_json(df)
             return response
         except:
