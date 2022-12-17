@@ -50,8 +50,7 @@ def match(file1, file2):
     """
     keyword = """
         Match all the details in these files content below. No title. \
-        Response must be a JSON in an array. Fill empty list with dictionary of empty string values.
-        All key and values in double quotations"\n
+        Response must be a JSON in an array. Fill empty list with dictionary of empty string values
         """
     statement_table = convert_file(file1)
     statement_table = pd.DataFrame(statement_table)
@@ -75,11 +74,11 @@ def match(file1, file2):
     for x in columns_a:
          example += f"\n    \"{x}\":"
 
-    example += "\n   Matching: Yes\n   Matching_details:\n   [\n   {"
+    example += "\n   \"Matching\": \"Yes\"\n   \"Matching_details\":\n   [\n   {"
     for x in columns_b:
         example += f"\n    \"{x}\": "
     example += "\n   }\n   ]\n}\n]"
-
+    # print(example)
     prompt = f"{keyword}{example}{statement_csv}\n{records_csv}"
 
     response = openai_call(prompt, 0.1)
