@@ -399,9 +399,10 @@ function Reconcile() {
 						<ExpandMoreIcon />
 					</div>
 				</div>
+				{/* Search component ends */}
 
 				{/* Api Table */}
-				<div className="lg:flex items-start justify-between w-full ">
+				<div className="lg:flex  items-start justify-between w-full ">
 					{/* Table 1 */}
 					{Boolean(tableLeft.length) && tableLeft && (
 						<div
@@ -411,7 +412,7 @@ function Reconcile() {
 							<h1 className="text-center py-4 border border-slate-300  font-bold mb-2 ">
 								ACCOUNT STATEMENT
 							</h1>
-							<table className="overflow-scroll table-auto w-full text-xs md:text-base">
+							<table className="overflow-scroll border-separate border-spacing-y-2 table-auto w-full text-xs md:text-base">
 								<thead className="bg-[#D1E9FF] py-2 my-2">
 									<tr>
 										{leftHeaderKeys.map((key) => (
@@ -459,7 +460,7 @@ function Reconcile() {
 							<h1 className="text-center py-4 border border-slate-300 bg-slate-200 font-bold mb-2 ">
 								SALES RECORD
 							</h1>
-							<table className="overflow-scroll table-auto w-full text-xs md:text-base">
+							<table className="overflow-scroll table-auto w-full border-separate border-spacing-y-2 text-xs md:text-base">
 								<thead className="bg-[#D1E9FF] py-2 my-2">
 									<tr>
 										{rightHeaderKeys.map((key) => (
@@ -481,6 +482,8 @@ function Reconcile() {
 														: '#F1AAA5',
 											}}
 										>
+
+
 											{Object.values(sData).map((iData) => (
 												<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc]">
 													{iData}
