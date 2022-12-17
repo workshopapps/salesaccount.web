@@ -122,136 +122,350 @@ function Reconcile() {
 
 	const localData3 = [
 		[
-			{
-				Date: '1/18/2013',
-				Description: 'IBM UK',
-				Details: 'Credit',
-				' Money out ': '',
-				' Money in ': '1,000,000,000',
-				' Balance ': '4,000,000,000',
-				Matching: 'Yes',
-				Matching_details: [
-					{
-						'Item no ': '101',
-						'Item Name': 'Financial Services',
-						Description: 'IBM UK',
-						Price: '1,000,000,000',
-					},
-				],
-			},
-			{
-				Date: '2/14/2013',
-				Description: 'Mtge Payt',
-				Details: 'Debit',
-				' Money out ': '300,009,988',
-				' Money in ': '',
-				' Balance ': '3,699,990,012',
-				Matching: 'No',
-				Matching_details: [
-					{
-						'Item no ': ' ',
-						'Item Name': ' ',
-						Description: ' ',
-						Price: ' ',
-					},
-				],
-			},
-			{
-				Date: '2/28/2013',
-				Description: 'UK Draft',
-				Details: 'Debit',
-				' Money out ': '200,043,995',
-				' Money in ': '',
-				' Balance ': '3,499,946,017',
-				Matching: 'No',
-				Matching_details: [
-					{
-						'Item no ': ' ',
-						'Item Name': ' ',
-						Description: ' ',
-						Price: ' ',
-					},
-				],
-			},
-			{
-				Date: '3/5/2013',
-				Description: 'HSBC UK',
-				Details: 'Debit',
-				' Money out ': '980,050,054',
-				' Money in ': '',
-				' Balance ': '2,519,895,963',
-				Matching: 'No',
-				Matching_details: [
-					{
-						'Item no ': ' ',
-						'Item Name': ' ',
-						Description: ' ',
-						Price: ' ',
-					},
-				],
-			},
-			{
-				Date: '3/21/2013',
-				Description: 'Microsoft',
-				Details: 'Credit',
-				' Money out ': '',
-				' Money in ': '300,000,044',
-				' Balance ': '2,819,896,007',
-				Matching: 'Yes',
-				Matching_details: [
-					{
-						'Item no ': '102',
-						'Item Name': 'Audit services',
-						Description: 'Microsoft',
-						Price: '300,000,044',
-					},
-				],
-			},
-		],
-		[
-			{
-				'Item no ': 103,
-				'Item Name': 'Security upgrade',
-				Description: 'Sort Code 20-10-53',
-				Price: ' 500,498,277 ',
-			},
-			{
-				'Item no ': 104,
-				'Item Name': 'Loan service',
-				Description: 'British Petroleum',
-				Price: ' 55,049,837 ',
-			},
-			{
-				'Item no ': 105,
-				'Item Name': 'Audit services',
-				Description: 'Shell BP',
-				Price: ' 49,920,002 ',
-			},
-			{
-				'Item no ': 106,
-				'Item Name': 'ATM installation',
-				Description: 'HSBC Dubai',
-				Price: ' 100,004,892 ',
-			},
-			{
-				'Item no ': 107,
-				'Item Name': 'Misc',
-				Description: 'Various Payment',
-				Price: ' 320,490,287 ',
-			},
-			{
-				'Item no ': 108,
-				'Item Name': 'Security upgrade',
-				Description: 'HMRC',
-				Price: ' 200,000,034 ',
-			},
-			{
-				'Item no ': 109,
-				'Item Name': 'Financial Services',
-				Description: 'Tebay Trading Co.',
-				Price: ' 42,452,466 ',
-			},
-		],
+			[
+			  {
+				"Date": "1/18/2013",
+				"Description": "Received from IBM UK",
+				"Details": "Credit",
+				" Money out ": "",
+				" Money in ": " 1,000,000,000 ",
+				" Balance ": " 4,000,000,000 ",
+				"Matching": "Yes",
+				"Matching_details": [
+				  {
+					"Item no ": "101",
+					"Item Name": "Financial Services",
+					"Description": "IBM UK",
+					"Price": " 1,000,000,000 "
+				  }
+				]
+			  },
+			  {
+				"Date": "2/14/2013",
+				"Description": "Payment to Natwest Mtge Payt",
+				"Details": "Debit",
+				" Money out ": " 300,009,988 ",
+				" Money in ": "",
+				" Balance ": " 3,699,990,012 ",
+				"Matching": "No",
+				"Matching_details": [
+				  {
+					"Item no ": "",
+					"Item Name": "",
+					"Description": "",
+					"Price": ""
+				  }
+				]
+			  },
+			  {
+				"Date": "2/28/2013",
+				"Description": "Payment to UK provident Fund by Draft",
+				"Details": "Debit",
+				" Money out ": " 200,043,995 ",
+				" Money in ": "",
+				" Balance ": " 3,499,946,017 ",
+				"Matching": "No",
+				"Matching_details": [
+				  {
+					"Item no ": "",
+					"Item Name": "",
+					"Description": "",
+					"Price": ""
+				  }
+				]
+			  },
+			  {
+				"Date": "3/5/2013",
+				"Description": "Direct Debit HSBC UK",
+				"Details": "Debit",
+				" Money out ": " 980,050,054 ",
+				" Money in ": "",
+				" Balance ": " 2,519,895,963 ",
+				"Matching": "No",
+				"Matching_details": [
+				  {
+					"Item no ": "",
+					"Item Name": "",
+					"Description": "",
+					"Price": ""
+				  }
+				]
+			  },
+			  {
+				"Date": "3/21/2013",
+				"Description": "Received from Microsoft UK",
+				"Details": "Credit",
+				" Money out ": "",
+				" Money in ": " 300,000,044 ",
+				" Balance ": " 2,819,896,007 ",
+				"Matching": "Yes",
+				"Matching_details": [
+				  {
+					"Item no ": "102",
+					"Item Name": "Audit services",
+					"Description": "Microsoft UK",
+					"Price": " 300,000,044 "
+				  }
+				]
+			  },
+			  {
+				"Date": "3/29/2013",
+				"Description": "Transfer from Sort Code 20-10-53",
+				"Details": "Credit",
+				" Money out ": "",
+				" Money in ": " 500,498,277 ",
+				" Balance ": " 3,320,394,284 ",
+				"Matching": "Yes",
+				"Matching_details": [
+				  {
+					"Item no ": "103",
+					"Item Name": "Security upgrade",
+					"Description": "Sort Code 20-10-53",
+					"Price": " 500,498,277 "
+				  }
+				]
+			  },
+			  {
+				"Date": "5/8/2013",
+				"Description": "Payment to Exxon Mobil Unlimited",
+				"Details": "Debit",
+				" Money out ": " 100,029,847 ",
+				" Money in ": "",
+				" Balance ": " 3,220,364,437 ",
+				"Matching": "No",
+				"Matching_details": [
+				  {
+					"Item no ": "",
+					"Item Name": "",
+					"Description": "",
+					"Price": ""
+				  }
+				]
+			  },
+			  {
+				"Date": "5/15/2013",
+				"Description": "Received from British Petroleum",
+				"Details": "Credit",
+				" Money out ": "",
+				" Money in ": " 55,049,837 ",
+				" Balance ": " 3,275,414,274 ",
+				"Matching": "Yes",
+				"Matching_details": [
+				  {
+					"Item no ": "104",
+					"Item Name": "Loan service",
+					"Description": "British Petroleum",
+					"Price": " 55,049,837 "
+				  }
+				]
+			  },
+			  {
+				"Date": "5/29/2013",
+				"Description": "Payment to Board of Internal",
+				"Details": "Debit",
+				" Money out ": " 5,030,498 ",
+				" Money in ": "",
+				" Balance ": " 3,270,383,776 ",
+				"Matching": "No",
+				"Matching_details": [
+				  {
+					"Item no ": "",
+					"Item Name": "",
+					"Description": "",
+					"Price": ""
+				  }
+				]
+			  },
+			  {
+				"Date": "7/2/2013",
+				"Description": "Direct Debit HSBC China",
+				"Details": "Debit",
+				" Money out ": " 10,098,009 ",
+				" Money in ": "",
+				" Balance ": " 3,260,285,767 ",
+				"Matching": "No",
+				"Matching_details": [
+				  {
+					"Item no ": "",
+					"Item Name": "",
+					"Description": "",
+					"Price": ""
+				  }
+				]
+			  },
+			  {
+				"Date": "8/20/2013",
+				"Description": "Received from Shell BP",
+				"Details": "Credit",
+				" Money out ": "",
+				" Money in ": " 49,920,002 ",
+				" Balance ": " 3,310,205,769 ",
+				"Matching": "Yes",
+				"Matching_details": [
+				  {
+					"Item no ": "105",
+					"Item Name": "Audit services",
+					"Description": "Shell BP",
+					"Price": " 49,920,002 "
+				  }
+				]
+			  },
+			  {
+				"Date": "9/13/2013",
+				"Description": "Drawn on Cho No. 448960",
+				"Details": "Debit",
+				" Money out ": " 28,000,492 ",
+				" Money in ": "",
+				" Balance ": " 3,282,205,277 ",
+				"Matching": "No",
+				"Matching_details": [
+				  {
+					"Item no ": "",
+					"Item Name": "",
+					"Description": "",
+					"Price": ""
+				  }
+				]
+			  },
+			  {
+				"Date": "10/9/2013",
+				"Description": "Transfer from HSBC Dubai",
+				"Details": "Credit",
+				" Money out ": "",
+				" Money in ": " 100,004,892 ",
+				" Balance ": " 3,382,210,169 ",
+				"Matching": "Yes",
+				"Matching_details": [
+				  {
+					"Item no ": "106",
+					"Item Name": "ATM installation",
+					"Description": "HSBC Dubai",
+					"Price": " 100,004,892 "
+				  }
+				]
+			  },
+			  {
+				"Date": "2/7/2014",
+				"Description": "OVO Energy",
+				"Details": "Debit",
+				" Money out ": " 250,000,563 ",
+				" Money in ": "",
+				" Balance ": " 3,132,209,606 ",
+				"Matching": "No",
+				"Matching_details": [
+				  {
+					"Item no ": "",
+					"Item Name": "",
+					"Description": "",
+					"Price": ""
+				  }
+				]
+			  },
+			  {
+				"Date": "2/8/2014",
+				"Description": "Various Payment",
+				"Details": "Credit",
+				" Money out ": "",
+				" Money in ": " 320,490,287 ",
+				" Balance ": " 3,452,699,893 ",
+				"Matching": "Yes",
+				"Matching_details": [
+				  {
+					"Item no ": "107",
+					"Item Name": "Misc",
+					"Description": "Various Payment",
+					"Price": " 320,490,287 "
+				  }
+				]
+			  },
+			  {
+				"Date": "2/9/2014",
+				"Description": "HMRC",
+				"Details": "Credit",
+				" Money out ": "",
+				" Money in ": " 200,000,034 ",
+				" Balance ": " 3,652,699,927 ",
+				"Matching": "Yes",
+				"Matching_details": [
+				  {
+					"Item no ": "108",
+					"Item Name": "Security upgrade",
+					"Description": "HMRC",
+					"Price": " 200,000,034 "
+				  }
+				]
+			  },
+			  {
+				"Date": "2/10/2014",
+				"Description": "DVLA",
+				"Details": "Debit",
+				" Money out ": " 45,000,434 ",
+				" Money in ": "",
+				" Balance ": " 3,607,699,493 ",
+				"Matching": "No",
+				"Matching_details": [
+				  {
+					"Item no ": "",
+					"Item Name": "",
+					"Description": "",
+					"Price": ""
+				  }
+				]
+			  },
+			  {
+				"Date": "2/20/2014",
+				"Description": "Amazon",
+				"Details": "Debit",
+				" Money out ": " 1,320,789 ",
+				" Money in ": "",
+				" Balance ": " 3,606,378,704 ",
+				"Matching": "No",
+				"Matching_details": [
+				  {
+					"Item no ": "",
+					"Item Name": "",
+					"Description": "",
+					"Price": ""
+				  }
+				]
+			  },
+			  {
+				"Date": "2/21/2014",
+				"Description": "Tebay Trading Co.",
+				"Details": "Credit",
+				" Money out ": "",
+				" Money in ": " 42,452,466 ",
+				" Balance ": " 3,648,831,170 ",
+				"Matching": "Yes",
+				"Matching_details": [
+				  {
+					"Item no ": "109",
+					"Item Name": "Financial Services",
+					"Description": "Tebay Trading Co.",
+					"Price": " 42,452,466 "
+				  }
+				]
+			  },
+			  {
+				"Date": "2/22/2014",
+				"Description": "Morrisons Petrol",
+				"Details": "Debit",
+				" Money out ": " 54,400 ",
+				" Money in ": "",
+				" Balance ": " 3,648,776,770 ",
+				"Matching": "No",
+				"Matching_details": [
+				  {
+					"Item no ": "",
+					"Item Name": "",
+					"Description": "",
+					"Price": ""
+				  }
+				]
+			  }
+			],
+			[]
+		  ]
 	];
 
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
@@ -264,28 +478,30 @@ function Reconcile() {
 	const tableRight1 = [];
 	const tableRight2 = [];
 
-	localData3[0].map((item) => tableRight1.push(item.Matching_details));
+	console.log("LoccalDta3",localData3[0][0])
 
-	localData3[0].map((item) => {
-		delete item.Matching_details;
-		return tableLeft.push(item);
+	localData3[0][0]?.map((item) => tableRight1.push(item.Matching_details));
+
+	localData3[0][0]?.map((item) => {
+		delete item?.Matching_details;
+		return tableLeft?.push(item);
 	});
 
 	// eslint-disable-next-line
-	tableRight1.map((item) => {
-		if (item.length === 0) {
-			item.push({});
+	tableRight1?.map((item) => {
+		if (item?.length === 0) {
+			item?.push({});
 		}
-		return tableRight2.push(item);
+		return tableRight2?.push(item);
 	});
 
-	const tableRight = tableRight2.flat();
+	const tableRight = tableRight2?.flat();
 
 	console.log('Table Right: ', tableRight);
 
 	// tableRight.map(item => item.map(iItem => )
 
-	console.log('Formatted Table11111: ', tableRight.flat());
+	console.log('Formatted Table11111: ', tableRight?.flat());
 
 	const leftHeaderKeys = Object.keys(Object.assign({}, ...tableLeft));
 	const rightHeaderKeys = Object.keys(Object.assign({}, ...tableRight));
@@ -322,19 +538,19 @@ function Reconcile() {
 		})
 	);
 
-	const filteredResult2 = tableRight?.filter((table) =>
-		Object.keys(table).some((key) => {
-			if (
-				table?.[key]
-					?.toString()
-					?.toLowerCase()
-					?.includes(userInput.trim().toLowerCase())
-			) {
-				return true;
-			}
-			return false;
-		})
-	);
+	// const filteredResult2 = tableRight?.filter((table) =>
+	// 	Object.keys(table).some((key) => {
+	// 		if (
+	// 			table?.[key]
+	// 				?.toString()
+	// 				?.toLowerCase()
+	// 				?.includes(userInput.trim().toLowerCase())
+	// 		) {
+	// 			return true;
+	// 		}
+	// 		return false;
+	// 	})
+	// );
 
 	return (
 		<>
@@ -404,7 +620,7 @@ function Reconcile() {
 				{/* Api Table */}
 				<div className="lg:flex  items-start justify-between w-full ">
 					{/* Table 1 */}
-					{Boolean(tableLeft.length) && tableLeft && (
+					{Boolean(tableLeft?.length) && tableLeft && (
 						<div
 							className="overflow-scroll mb-[5em] lg:mb-0  bg-[#F9FAFB] lg:w-[50%]"
 							id="pagetodownload"
@@ -413,9 +629,9 @@ function Reconcile() {
 								ACCOUNT STATEMENT
 							</h1>
 							<table className="overflow-scroll border-separate border-spacing-y-2 table-auto w-full text-xs md:text-base">
-								<thead className="bg-[#D1E9FF] py-2 my-2">
+								<thead className="bg-[#F9FAFB] py-2 my-2">
 									<tr>
-										{leftHeaderKeys.map((key) => (
+										{leftHeaderKeys?.map((key) => (
 											<th className="py-[1em] text-xs md:py-[1.5em] pl-8 text-left">
 												{key}
 											</th>
@@ -434,14 +650,10 @@ function Reconcile() {
 										>
 											{Object.values(sData).map((iData) => (
 												<td
-													style={
-														{
-															// background: iData.Matching_details === "Yes" ? "black" : "blue"
-														}
-													}
 													className=" text-ellipsis text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] "
 												>
-													{iData}
+													{ iData }
+													{/* if iData === "Yes", render the green button, if no render red one */}
 												</td>
 											))}
 										</tr>
@@ -452,7 +664,7 @@ function Reconcile() {
 					)}
 
 					{/* Table 2 */}
-					{Boolean(tableRight.length) && tableRight && (
+					{Boolean(tableRight?.length) && tableRight && (
 						<div
 							className="overflow-scroll mb-[5em] lg:mb-0  bg-[#F9FAFB] lg:w-[50%]"
 							id="pagetodownload"
@@ -461,9 +673,9 @@ function Reconcile() {
 								SALES RECORD
 							</h1>
 							<table className="overflow-scroll table-auto w-full border-separate border-spacing-y-2 text-xs md:text-base">
-								<thead className="bg-[#D1E9FF] py-2 my-2">
+								<thead className="bg-[#F9FAFB] py-2 my-2">
 									<tr>
-										{rightHeaderKeys.map((key) => (
+										{rightHeaderKeys?.map((key) => (
 											<th className="py-[1em] text-xs md:py-[1.5em] pl-8 text-left">
 												{key}
 											</th>
@@ -477,14 +689,14 @@ function Reconcile() {
 											className="py-2 pl-8"
 											style={{
 												background:
-													Object.values(sData)[0].trim().length > 0
+													Object.values(sData)[0]?.trim().length > 0
 														? '#B7EDD6'
 														: '#F1AAA5',
 											}}
 										>
 
 
-											{Object.values(sData).map((iData) => (
+											{Object.values(sData)?.map((iData) => (
 												<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc]">
 													{iData}
 												</td>
