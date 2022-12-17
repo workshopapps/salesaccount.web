@@ -337,6 +337,7 @@ function Reconcile() {
 
 	return (
 		<>
+			{/* Breadcrumbs here */}
 			<div className="flex">
 				<div
 					onClick={reconcileNewFile}
@@ -353,19 +354,26 @@ function Reconcile() {
 				<NavigateNextIcon />
 				<div className=" text-black-600 font-semibold ">Download</div>
 			</div>
+			{/* Breadcrumbs end */}
+
+			{/* Hero like heading tab */}
+			<div className='my-8'>
+				<h1 className='text-3xl font-bold my-3'>Here’s your reconciled data</h1>
+				<p className='lg:w-1/2 lg:text-lg font-light'>Disclaimer: This might not be 100% accurate as the results are solely dependent on the data you have provided </p>
+			</div>
 
 			<div className="w-full lg:bg-[#F9FAFB] py-[1em] md:p-[4em] mt-[4em] lg:mt-[7em] ">
 				{/* Sort Table and Search */}
-				<div className="flex justify-between items-center mb-4 ">
-					<div className="flex justify-between w-[55%]  md:w-[40%]   lg:w-[20%] border border-[#2E90FA] text-xs md:text-sm">
-						<div className="font-medium  py-2 px-2 md:px-3  active:bg-[#2E90FA] active:text-white rounded-sm">
+				<div className="flex justify-between items-center bg-white border border-slate-700 p-4 rounded-lg mb-4 ">
+					<div className="flex justify-between  border border-[#2E90FA] rounded-lg text-xs md:text-sm">
+						<div className="font-medium cursor-pointer hover:bg-[#2E90FA] hover:text-white  py-2 px-2 md:px-3  active:bg-[#2E90FA] active:text-white rounded-sm">
 							All Data
 						</div>
-						<div className="font-medium py-2 px-2 md:px-4 border-x active:bg-[#2E90FA] active:text-white rounded-sm">
-							All Data
+						<div className="font-medium cursor-pointer hover:bg-[#2E90FA] hover:text-white py-2 px-2 md:px-4 border-x active:bg-[#2E90FA] active:text-white rounded-sm">
+							Matched
 						</div>
-						<div className="font-medium  py-2 px-2 md:px-3 active:bg-[#2E90FA] active:text-white rounded-sm">
-							All Data
+						<div className="font-medium cursor-pointer hover:bg-[#2E90FA] hover:text-white  py-2 px-2 md:px-3 active:bg-[#2E90FA] active:text-white rounded-sm">
+							No Matched
 						</div>
 					</div>
 					<input
@@ -376,6 +384,7 @@ function Reconcile() {
 						placeholder="Search"
 					/>
 				</div>
+				{/* Search and sort heading ends  */}
 
 				{/* Api Table */}
 				<div className="lg:flex items-start justify-between w-full ">
