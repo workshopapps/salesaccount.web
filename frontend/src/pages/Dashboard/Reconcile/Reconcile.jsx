@@ -115,9 +115,6 @@ function Reconcile() {
 			</div>
 			{/* Breadcrumbs Ends */}
 
-
-
-
 			{/* Api Tables */}
 			<div className=" space-y-[4em] lg:space-y-0 lg:flex items-start gap-12 lg:gap-8 justify-center w-full lg:bg-[#F9FAFB] my-8 lg:my-[6em]">
 				<div className="lg:w-1/2">

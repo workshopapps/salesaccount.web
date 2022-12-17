@@ -2,6 +2,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 
 import { useContext, useState, createContext, useMemo } from 'react';
+import { Navigate } from 'react-router-dom';
 
 const UserContext = createContext();
 export const useAuth = () => useContext(UserContext);
@@ -169,6 +170,7 @@ export const UserProvider = ({ children }) => {
 		setFileDropped([]);
 		setFileDropped2([]);
 		setLocalData3([]);
+		// Navigate()
 		// eslint-disable-next-line
 		location.reload();
 	};

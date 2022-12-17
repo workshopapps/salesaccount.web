@@ -135,7 +135,7 @@ function Reconcile() {
 		],
 	];
 
-	const localData3 = [
+	const localData33 = [
 		[
 			[
 				{
@@ -485,7 +485,9 @@ function Reconcile() {
 
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
 	const [userInput, setUserInput] = useState('');
-	const { removeItem } = useAuth();
+	const { removeItem, localData3 } = useAuth();
+
+
 
 	const navigate = useNavigate();
 
@@ -493,14 +495,14 @@ function Reconcile() {
 	const tableRight1 = [];
 	const tableRight2 = [];
 
-	console.log('LoccalDta3', localData3[0][0]);
+	// console.log('LoccalDta3', localData3[0][0]);
 
-	localData3[0][0]?.map((item) => tableRight1.push(item.Matching_details));
+	// localData3[0][0]?.map((item) => tableRight1.push(item.Matching_details));
 
-	localData3[0][0]?.map((item) => {
-		delete item?.Matching_details;
-		return tableLeft?.push(item);
-	});
+	// localData3[0][0]?.map((item) => {
+	// 	delete item?.Matching_details;
+	// 	return tableLeft?.push(item);
+	// });
 
 	// eslint-disable-next-line
 	tableRight1?.map((item) => {
@@ -512,11 +514,11 @@ function Reconcile() {
 
 	const tableRight = tableRight2?.flat();
 
-	console.log('Table Right: ', tableRight);
+	// console.log('Table Right: ', tableRight);
 
-	// tableRight.map(item => item.map(iItem => )
+	// // tableRight.map(item => item.map(iItem => )
 
-	console.log('Formatted Table11111: ', tableRight?.flat());
+	// console.log('Formatted Table11111: ', tableRight?.flat());
 
 	const leftHeaderKeys = Object.keys(Object.assign({}, ...tableLeft));
 	const rightHeaderKeys = Object.keys(Object.assign({}, ...tableRight));
@@ -597,151 +599,6 @@ function Reconcile() {
 				</p>
 			</div>
 
-			<div className="w-full lg:bg-[#F9FAFB] py-[1em] md:p-[4em] mt-[4em] lg:mt-[7em] ">
-				{/* Sort Table and Search */}
-				<div className="flex justify-between items-center bg-white border border-slate-700 p-4 rounded-lg mb-4 ">
-					<div className="flex justify-between  border border-[#2E90FA] rounded-lg text-xs md:text-sm">
-						<div className="font-medium cursor-pointer hover:bg-[#2E90FA] hover:text-white  py-2 px-2 md:px-3  active:bg-[#2E90FA] active:text-white rounded-sm">
-							All Data
-						</div>
-						<div className="font-medium cursor-pointer hover:bg-[#2E90FA] hover:text-white py-2 px-2 md:px-4 border-x active:bg-[#2E90FA] active:text-white rounded-sm">
-							Matched
-						</div>
-						<div className="font-medium cursor-pointer hover:bg-[#2E90FA] hover:text-white  py-2 px-2 md:px-3 active:bg-[#2E90FA] active:text-white rounded-sm">
-							No Matched
-						</div>
-					</div>
-					<input
-						className="w-[35%] md:w-[30%] lg:w-[20%] border outline-none  rounded-md px-2 py-1"
-						type="search"
-						value={userInput}
-						onChange={(e) => setUserInput(e.target.value)}
-						placeholder="Search"
-					/>
-				</div>
-				{/* Search and sort heading ends  */}
-
-				{/* Search components  */}
-				<div className="w-full flex justify-between items-center border p-2  rounded-md bg-[#F9FAFB;] ">
-					<input
-						className=" w-[50%] md:w-[60%] lg:w-[30%] px-2 py-2 md:px-4 md:text-sm outline-none border rounded-md text-xs bg-transparent "
-						type="serach"
-						placeholder="Find possible Match"
-					/>
-					<div className="w-[40%] md:w-[35%] flex justify-between items-center border rounded-md  px-2 py-1 md:py-2 md:px-4 text-xs md:text-sm">
-						<p>Select to Match</p>
-						<ExpandMoreIcon />
-					</div>
-				</div>
-				{/* Search component ends */}
-
-				{/* Api Table */}
-				<div className="lg:flex  items-start justify-between w-full ">
-					{/* Table 1 */}
-					{Boolean(tableLeft?.length) && tableLeft && (
-						<div
-							className="overflow-scroll mb-[5em] lg:mb-0  bg-[#F9FAFB] lg:w-[50%]"
-							id="pagetodownload"
-						>
-							<h1 className="text-center py-4 border border-slate-300  font-bold mb-2 ">
-								ACCOUNT STATEMENT
-							</h1>
-							<table className="overflow-scroll border-separate border-spacing-y-2 table-auto w-full text-xs md:text-base">
-								<thead className="bg-[#F9FAFB] py-2 my-2">
-									<tr>
-										{leftHeaderKeys?.map((key) => (
-											<th className="py-[1em] text-xs md:py-[1.5em] pl-8 text-left">
-												{key}
-											</th>
-										))}
-									</tr>
-								</thead>
-
-								<tbody className="py-2 px-6">
-									{filteredResult?.map((sData) => (
-										<tr
-											className="pl-8"
-											style={{
-												background:
-													sData.Matching === 'Yes' ? '#B7EDD6' : '#F1AAA5',
-											}}
-										>
-											{Object.values(sData).map((iData) => (
-												<td className=" text-ellipsis text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
-													{iData}
-													{/* if iData === "Yes", render the green button, if no render red one */}
-												</td>
-											))}
-										</tr>
-									))}
-								</tbody>
-							</table>
-						</div>
-					)}
-
-					{/* Table 2 */}
-					{Boolean(tableRight?.length) && tableRight && (
-						<div
-							className="overflow-scroll mb-[5em] lg:mb-0  bg-[#F9FAFB] lg:w-[50%]"
-							id="pagetodownload"
-						>
-							<h1 className="text-center py-4 border border-slate-300 bg-slate-200 font-bold mb-2 ">
-								SALES RECORD
-							</h1>
-							<table className="overflow-scroll table-auto w-full border-separate border-spacing-y-2 text-xs md:text-base">
-								<thead className="bg-[#F9FAFB] py-2 my-2">
-									<tr>
-										{rightHeaderKeys?.map((key) => (
-											<th className="py-[1em] text-xs md:py-[1.5em] pl-8 text-left">
-												{key}
-											</th>
-										))}
-									</tr>
-								</thead>
-
-								<tbody className="py-2 px-6">
-									{tableRight?.map((sData) => (
-										<tr
-											className="py-2 pl-8"
-											style={{
-												background:
-													Object.values(sData)[0]?.trim().length > 0
-														? '#B7EDD6'
-														: '#F1AAA5',
-											}}
-										>
-											{Object.values(sData)?.map((iData) => (
-												<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc]">
-													{iData}
-												</td>
-											))}
-										</tr>
-									))}
-								</tbody>
-							</table>
-						</div>
-					)}
-				</div>
-				{/* Match Guide */}
-				<div className="flex items-center font-medium mt-[2em] text-xs">
-					<div className="flex items-center bg-green-100 text-green-600 px-4 py-2 m-2">
-						<img
-							src={check}
-							alt="check"
-							className="w-[30px] h-[30px] object-contain mr-1"
-						/>
-						<p>Matched Items</p>
-					</div>
-					<div className="flex items-center bg-red-100 text-red-600 px-4 py-2 m-2">
-						<img
-							src={cancel}
-							alt="cancel"
-							className="w-[30px] h-[30px] object-contain mr-1"
-						/>
-						<p>Unmatched Items</p>
-					</div>
-				</div>
-			</div>
 			{/* table */}
 			<div>
 				<ReconcileTable tableData={localData3[0]} />

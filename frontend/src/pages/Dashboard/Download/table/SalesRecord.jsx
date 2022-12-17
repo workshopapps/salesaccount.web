@@ -26,7 +26,7 @@ import {
 const SalesRecord = ({ tableData }) => {
 	// eslint-disable-next-line react/prop-types
 	const data = tableData?.map((value) => {
-		if (value.Matching_details.length) {
+		if (value.Matching === 'Yes') {
 			return (
 				<Tr height="65px" borderY="8px solid #fff" bg="#B7EDD6">
 					{/* <Td>{value.Date}</Td> */}
