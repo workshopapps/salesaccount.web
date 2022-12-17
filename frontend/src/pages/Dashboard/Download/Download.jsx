@@ -263,32 +263,29 @@ function Reconcile() {
 	const tableRight1 = [];
 	const tableRight2 = [];
 
-	localData3[0].map(item => tableRight1.push(item.Matching_details));
+	localData3[0].map((item) => tableRight1.push(item.Matching_details));
 
 	localData3[0].map((item) => {
-		delete item.Matching_details
-		return tableLeft.push(item)
-	})
+		delete item.Matching_details;
+		return tableLeft.push(item);
+	});
 
-	tableRight1.map(item => {
+	// eslint-disable-next-line
+	tableRight1.map((item) => {
 		if (item.length === 0) {
-			item.push({})
+			item.push({});
 		}
-		tableRight2.push(item)
-		console.log("Items: ", item)
-	})
+		tableRight2.push(item);
+		console.log('Items: ', item);
+	});
 
-	const tableRight = tableRight2.flat()
+	const tableRight = tableRight2.flat();
 
-	console.log("Table Right: ", tableRight);
+	console.log('Table Right: ', tableRight);
 
 	// tableRight.map(item => item.map(iItem => )
 
-
-
-
-	console.log("Formatted Table11111: ", tableRight.flat())
-
+	console.log('Formatted Table11111: ', tableRight.flat());
 
 	const leftHeaderKeys = Object.keys(Object.assign({}, ...tableLeft));
 	const rightHeaderKeys = Object.keys(Object.assign({}, ...tableRight));
@@ -299,7 +296,8 @@ function Reconcile() {
 	};
 
 	const isEmpty = (obj) => {
-		if (obj === null ||
+		if (
+			obj === null ||
 			obj === undefined ||
 			Array.isArray(obj) ||
 			typeof obj !== 'object'
@@ -386,9 +384,11 @@ function Reconcile() {
 					{Boolean(tableLeft.length) && tableLeft && (
 						<div
 							className="overflow-scroll mb-[5em] lg:mb-0  bg-[#F9FAFB] lg:w-[50%]"
-							id="pagetodownload">
-
-							<h1 className="text-center py-4 border border-slate-500 bg-slate-200 font-bold mb-2 ">ACCOUNT STATEMENT</h1>
+							id="pagetodownload"
+						>
+							<h1 className="text-center py-4 border border-slate-500 bg-slate-200 font-bold mb-2 ">
+								ACCOUNT STATEMENT
+							</h1>
 							<table className="overflow-scroll table-auto w-full text-xs md:text-base">
 								<thead className="bg-[#D1E9FF] py-2 my-2">
 									<tr>
@@ -402,15 +402,22 @@ function Reconcile() {
 
 								<tbody className="py-2 px-6">
 									{filteredResult?.map((sData) => (
-
-										<tr className="pl-8" style={{
-											background: sData.Matching === "Yes" ? "#B7EDD6" : "#F1AAA5"
-										}}>
+										<tr
+											className="pl-8"
+											style={{
+												background:
+													sData.Matching === 'Yes' ? '#B7EDD6' : '#F1AAA5',
+											}}
+										>
 											{Object.values(sData).map((iData) => (
-												<td style={{
-													// background: iData.Matching_details === "Yes" ? "black" : "blue"
-
-												}} className=" text-ellipsis text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
+												<td
+													style={
+														{
+															// background: iData.Matching_details === "Yes" ? "black" : "blue"
+														}
+													}
+													className=" text-ellipsis text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] "
+												>
 													{iData}
 												</td>
 											))}
@@ -425,12 +432,13 @@ function Reconcile() {
 					{Boolean(tableRight.length) && tableRight && (
 						<div
 							className="overflow-scroll mb-[5em] lg:mb-0  bg-[#F9FAFB] lg:w-[50%]"
-							id="pagetodownload">
-
-							<h1 className="text-center py-4 border border-slate-500 bg-slate-200 font-bold mb-2 ">SALES RECORD</h1>
+							id="pagetodownload"
+						>
+							<h1 className="text-center py-4 border border-slate-500 bg-slate-200 font-bold mb-2 ">
+								SALES RECORD
+							</h1>
 							<table className="overflow-scroll table-auto w-full text-xs md:text-base">
 								<thead className="bg-[#D1E9FF] py-2 my-2">
-
 									<tr>
 										{rightHeaderKeys.map((key) => (
 											<th className="py-[1em] text-xs md:py-[1.5em] pl-8 text-left">
@@ -442,9 +450,15 @@ function Reconcile() {
 
 								<tbody className="py-2 px-6">
 									{tableRight?.map((sData) => (
-										<tr className="py-2 pl-8"  style={{
-											background: Object.values(sData)[0].trim().length > 0 ? "#B7EDD6" : "#F1AAA5"
-										}}>
+										<tr
+											className="py-2 pl-8"
+											style={{
+												background:
+													Object.values(sData)[0].trim().length > 0
+														? '#B7EDD6'
+														: '#F1AAA5',
+											}}
+										>
 											{Object.values(sData).map((iData) => (
 												<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
 													{iData}
