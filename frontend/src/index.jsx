@@ -7,6 +7,7 @@ import * as Sentry from '@sentry/react';
 import { BrowserTracing } from '@sentry/tracing';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react';
 import LandingPage from './pages/LandingPage';
 import AboutUs from './pages/AboutUs';
 import AccountBalanceReport from './pages/AccountBalanceReport';
@@ -202,7 +203,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
 		<UserProvider>
-			<RouterProvider router={router} />
+			<ChakraProvider>
+				<RouterProvider router={router} />
+			</ChakraProvider>
 		</UserProvider>
 	</React.StrictMode>
 );
