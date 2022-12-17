@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import check from '../../../assets/images/DashboardImages/check_circle.png';
 import cancel from '../../../assets/images/DashboardImages/cancel.png';
 import { useAuth } from '../../../Store/Context';
@@ -386,6 +387,19 @@ function Reconcile() {
 				</div>
 				{/* Search and sort heading ends  */}
 
+				{/* Search components  */}
+				<div className="w-full flex justify-between items-center border p-2  rounded-md bg-[#F9FAFB;] ">
+					<input
+						className=" w-[50%] md:w-[60%] lg:w-[30%] px-2 py-2 md:px-4 md:text-sm outline-none border rounded-md text-xs bg-transparent "
+						type="serach"
+						placeholder="Find possible Match"
+					/>
+					<div className="w-[40%] md:w-[35%] flex justify-between items-center border rounded-md  px-2 py-1 md:py-2 md:px-4 text-xs md:text-sm">
+						<p>Select to Match</p>
+						<ExpandMoreIcon />
+					</div>
+				</div>
+
 				{/* Api Table */}
 				<div className="lg:flex items-start justify-between w-full ">
 					{/* Table 1 */}
@@ -394,7 +408,7 @@ function Reconcile() {
 							className="overflow-scroll mb-[5em] lg:mb-0  bg-[#F9FAFB] lg:w-[50%]"
 							id="pagetodownload"
 						>
-							<h1 className="text-center py-4 border border-slate-500 bg-slate-200 font-bold mb-2 ">
+							<h1 className="text-center py-4 border border-slate-300  font-bold mb-2 ">
 								ACCOUNT STATEMENT
 							</h1>
 							<table className="overflow-scroll table-auto w-full text-xs md:text-base">
@@ -442,7 +456,7 @@ function Reconcile() {
 							className="overflow-scroll mb-[5em] lg:mb-0  bg-[#F9FAFB] lg:w-[50%]"
 							id="pagetodownload"
 						>
-							<h1 className="text-center py-4 border border-slate-500 bg-slate-200 font-bold mb-2 ">
+							<h1 className="text-center py-4 border border-slate-300 bg-slate-200 font-bold mb-2 ">
 								SALES RECORD
 							</h1>
 							<table className="overflow-scroll table-auto w-full text-xs md:text-base">
@@ -468,7 +482,7 @@ function Reconcile() {
 											}}
 										>
 											{Object.values(sData).map((iData) => (
-												<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
+												<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc]">
 													{iData}
 												</td>
 											))}
