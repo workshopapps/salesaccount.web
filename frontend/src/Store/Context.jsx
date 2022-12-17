@@ -169,6 +169,8 @@ export const UserProvider = ({ children }) => {
 		setFileDropped([]);
 		setFileDropped2([]);
 		setLocalData3([]);
+		// eslint-disable-next-line
+		location.reload();
 	};
 
 	const value = useMemo(

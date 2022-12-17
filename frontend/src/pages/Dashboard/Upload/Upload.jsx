@@ -56,13 +56,13 @@ function Upload() {
 					{fileDropped.name ? (
 						<div className="flex justify-between items-center py-[1.5em] px-[1em] w-full  my-2 text-[#475467] text-sm md:text-md text-left border border-[#667085] rounded-sm">
 							{/* Upload SuccessFul */}
-							<div className="flex w-[65%] md:w-[75%] items-center">
+							<div className="flex w-[60%] md:w-[75%] items-center">
 								<img
 									src={draft}
 									alt=""
-									className="w-[40px] h-[40px] object-contain"
+									className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] object-contain"
 								/>
-								<p className="pl-2 w-[80%] text-xs md:text-sm">
+								<p className="pl-1 md:pl-4 w-[80%] text-xs md:text-sm">
 									{fileDropped?.name}
 								</p>
 							</div>
@@ -99,13 +99,13 @@ function Upload() {
 					{fileDropped2.name ? (
 						<div className="flex justify-between items-center py-[1.5em] px-[1em] w-full  my-2 text-[#475467] text-sm md:text-md text-left border border-[#667085] rounded-sm">
 							{/* Upload SuccessFul */}
-							<div className="flex w-[65%] md:w-[75%] items-center">
+							<div className="flex w-[60%] md:w-[75%] items-center">
 								<img
 									src={draft}
 									alt=""
-									className="w-[40px] h-[40px] object-contain"
+									className="w-[30px] h-[30px]  md:w-[40px] md:h-[40px]  object-contain"
 								/>
-								<p className="pl-2 w-[80%] text-xs md:text-sm">
+								<p className="pl-1 md:pl-4 w-[80%] text-xs md:text-sm">
 									{fileDropped2?.name}
 								</p>
 							</div>
