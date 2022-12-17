@@ -4,6 +4,7 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { HashLoader } from 'react-spinners';
 import { useAuth } from '../../../Store/Context';
 import ServerError from '../../ServerError';
+import draft from '../../../assets/images/DashboardImages/draft2.png';
 
 function Reconcile() {
 	const localDataa = [
@@ -116,9 +117,14 @@ function Reconcile() {
 			{/* Api Tables */}
 			<div className=" space-y-[4em] lg:space-y-0 lg:flex items-start gap-12 lg:gap-8 justify-center w-full lg:bg-[#F9FAFB] my-8 lg:my-[6em]">
 				<div className="lg:w-1/2">
-					<h1 className="lowercase bg-slate-700 text-white p-2 font-bold  border border-slate-500">
-						{fileDropped?.name}
-					</h1>
+					<div className="flex gap-2 md:gap-4 items-center bg-slate-700 text-white p-2 font-bold  border border-slate-500 ">
+						<img
+							src={draft}
+							alt=""
+							className="w-[20px] h-[20px] object-contain"
+						/>
+						<h1 className="lowercase">{fileDropped?.name}</h1>
+					</div>
 
 					{/* Loading State */}
 					{uploadLoading && localData.length === 0 && (
@@ -133,7 +139,7 @@ function Reconcile() {
 					{/* Table 1 */}
 					{Boolean(localData.length) && localData && (
 						<div
-							className="overflow-scroll lg:mb-0  bg-[#F9FAFB]"
+							className="overflow-scroll lg:mb-0  bg-[#F9FAFB] border border-slate-300"
 							id="pagetodownload"
 						>
 							<table className="table-auto w-full text-xs md:text-base">
@@ -167,9 +173,14 @@ function Reconcile() {
 
 				{/* Table 2 here */}
 				<div className="lg:w-1/2">
-					<h1 className="lowercase bg-slate-700 text-white p-2 font-bold  border border-slate-500">
-						{fileDropped2?.name}
-					</h1>
+					<div className="flex gap-2 md:gap-4 items-center bg-slate-700 text-white p-2 font-bold  border border-slate-500 ">
+						<img
+							src={draft}
+							alt=""
+							className="w-[20px] h-[20px] object-contain"
+						/>
+						<h1 className="lowercase">{fileDropped2?.name}</h1>
+					</div>
 
 					{/* Loading State */}
 					{uploadLoading2 && localData2.length === 0 && (
@@ -183,7 +194,7 @@ function Reconcile() {
 
 					{Boolean(localData2.length) && localData2 && (
 						<div
-							className="overflow-scroll lg:mb-0  bg-[#F9FAFB]"
+							className="overflow-scroll lg:mb-0  bg-[#F9FAFB] border border-slate-300"
 							id="pagetodownload"
 						>
 							<table className="table-auto w-full text-xs md:text-base">
