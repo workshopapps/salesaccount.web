@@ -274,8 +274,7 @@ function Reconcile() {
 		if (item.length === 0) {
 			item.push({})
 		}
-		tableRight2.push(item)
-		console.log("Items: ", item)
+		return tableRight2.push(item)
 	})
 
 	const tableRight = tableRight2.flat()

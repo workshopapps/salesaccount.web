@@ -96,22 +96,23 @@ function Reconcile() {
 					<Link to="/dashboard/download"> Download</Link>
 				</div>
 			</div>
+			{/* py-[1em] md:p-[4em] mt-[4em] lg:mt-[7em]  */}
 
 			{/* Api Table */}
-			<div className="lg:flex items-center gap-8 justify-center w-full lg:bg-[#F9FAFB] py-[1em] md:p-[4em] mt-[4em] lg:mt-[7em] ">
+			<div className="lg:flex items-center gap-8 justify-center w-full lg:bg-[#F9FAFB] my-8 lg:my-[6em]">
 				{/* Table 1 */}
-				<div className="lg:w-1/2 border border-slate-500 p-4">
-					<h1 className="lowercase my-2 font-bold ">Table Title Here</h1>
+				<div className="lg:w-1/2">
+					<h1 className="lowercase bg-slate-700 text-white p-2 font-bold  border border-slate-500">Table Title Here</h1>
 					{Boolean(localData.length) && localData && (
 						<div
-							className="overflow-scroll mb-[5em] lg:mb-0  bg-[#F9FAFB]"
+							className="overflow-scroll lg:mb-0  bg-[#F9FAFB]"
 							id="pagetodownload"
 						>
 							<table className="table-auto w-full text-xs md:text-base">
-								<thead className="bg-[#D1E9FF] py-2 my-2">
+								<thead className="bg-[#1849A9] text-white text-xs py-2 ">
 									<tr>
 										{headerKeys.map((key) => (
-											<th className="py-[1em] md:py-[1.5em] pl-8 text-left">
+											<th className="py-[1em] md:py-[1.5em] px-4 text-left">
 												{key}
 											</th>
 										))}
@@ -122,7 +123,7 @@ function Reconcile() {
 									{localData?.map((sData) => (
 										<tr className="py-2 pl-8">
 											{Object.values(sData).map((iData) => (
-												<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
+												<td className="text-sm text-[#101828] text-left pb-3 md:py-6 pl-4 border-b border-[#ccc] ">
 													{iData}
 												</td>
 											))}
@@ -133,16 +134,20 @@ function Reconcile() {
 						</div>
 					)}
 				</div>
-				<div className="lg:w-1/2 border border-slate-500 p-4">
-					<h1 className="lowercase my-2 font-bold ">Table Title Here</h1>
-					{/* Table 2 */}
+
+				{/* Table 2 here */}
+				<div className="lg:w-1/2">
+					<h1 className="lowercase bg-slate-700 text-white p-2 font-bold  border border-slate-500">Table Title Here</h1>
 					{Boolean(localData.length) && localData && (
-						<div className="overflow-scroll  bg-[#F9FAFB] " id="pagetodownload">
+						<div
+							className="overflow-scroll lg:mb-0  bg-[#F9FAFB]"
+							id="pagetodownload"
+						>
 							<table className="table-auto w-full text-xs md:text-base">
-								<thead className="bg-[#D1E9FF] py-2 my-2">
+								<thead className="bg-slate-300 text-black text-xs py-2 ">
 									<tr>
 										{headerKeys.map((key) => (
-											<th className="py-[1em] md:py-[1.5em] pl-8 text-left">
+											<th className="py-[1em] md:py-[1.5em] px-4 text-left">
 												{key}
 											</th>
 										))}
@@ -153,7 +158,7 @@ function Reconcile() {
 									{localData?.map((sData) => (
 										<tr className="py-2 pl-8">
 											{Object.values(sData).map((iData) => (
-												<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
+												<td className="text-sm text-slate-700 text-left pb-3 md:py-6 pl-4 border-b border-[#ccc] ">
 													{iData}
 												</td>
 											))}
