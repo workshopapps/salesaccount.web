@@ -9,6 +9,7 @@ import {
 	Td,
 	TableContainer,
 	Heading,
+	Box,
 } from '@chakra-ui/react';
 
 // eslint-disable-next-line react/prop-types
@@ -23,10 +24,36 @@ const Status = ({ tableData }) => {
 				borderY="8px solid #fff"
 				key={value.Date}
 			>
-				<Td>{value.Date}</Td>
-				<Td>{value.Details}</Td>
-				<Td>{value[' Money in '] ? `$ ${value[' Money in ']} ` : ''}</Td>
-				<Td>{value[' Money out '] ? `$ ${value[' Money out ']}` : ''}</Td>
+				<Td>
+					<Box p={3}>{value.Date}</Box>
+				</Td>
+				<Td>
+					<Box
+						display={value.Details ? `block` : 'none'}
+						// borderStart="1px solid #D0D5DD"
+						p={3}
+					>
+						{value.Details}
+					</Box>
+				</Td>
+				<Td>
+					<Box
+						// borderStart="1px solid #D0D5DD"
+						display={value[' Money in '] ? `block` : 'none'}
+						p={3}
+					>
+						{value[' Money in '] ? `$ ${value[' Money in ']} ` : ''}
+					</Box>
+				</Td>
+				<Td>
+					<Box
+						// borderStart="1px solid #D0D5DD"
+						display={value[' Money out '] ? `block` : 'none'}
+						p={3}
+					>
+						{value[' Money out '] ? `$ ${value[' Money out ']}` : ''}
+					</Box>
+				</Td>
 			</Tr>
 		);
 	});
