@@ -100,7 +100,7 @@ def convert_file(filename: str):
         df = df.replace(r'^\s*$', np.nan, regex=True)
         df = df.fillna("")
         response = df_to_json(df)
-        response = correct_date(response)
+        # response = correct_date(response)
         return response
 
     elif filename.endswith(".pdf"):
