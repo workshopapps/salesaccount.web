@@ -385,7 +385,7 @@ function Reconcile() {
 					{/* Table 1 */}
 					{Boolean(tableLeft.length) && tableLeft && (
 						<div
-							className=" mb-[5em] lg:mb-0  bg-[#F9FAFB] lg:w-[50%]"
+							className="overflow-scroll mb-[5em] lg:mb-0  bg-[#F9FAFB] lg:w-[50%]"
 							id="pagetodownload">
 
 							<h1 className="text-center py-4 border border-slate-500 bg-slate-200 font-bold mb-2 ">ACCOUNT STATEMENT</h1>
@@ -424,7 +424,7 @@ function Reconcile() {
 					{/* Table 2 */}
 					{Boolean(tableRight.length) && tableRight && (
 						<div
-							className=" mb-[5em] lg:mb-0  bg-[#F9FAFB] lg:w-[50%]"
+							className="overflow-scroll mb-[5em] lg:mb-0  bg-[#F9FAFB] lg:w-[50%]"
 							id="pagetodownload">
 
 							<h1 className="text-center py-4 border border-slate-500 bg-slate-200 font-bold mb-2 ">SALES RECORD</h1>
@@ -443,7 +443,7 @@ function Reconcile() {
 								<tbody className="py-2 px-6">
 									{tableRight?.map((sData) => (
 										<tr className="py-2 pl-8"  style={{
-											background: Object.values(sData)[0].length > 2 ? "#B7EDD6" : "#F1AAA5"
+											background: Object.values(sData)[0].trim().length > 0 ? "#B7EDD6" : "#F1AAA5"
 										}}>
 											{Object.values(sData).map((iData) => (
 												<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
