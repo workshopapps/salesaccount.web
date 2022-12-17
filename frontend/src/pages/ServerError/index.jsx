@@ -16,7 +16,7 @@ export default function ServerError() {
 				</h2>
 				<Link to="/dashboard/upload" className="mt-[-10px]">
 					<button
-						onClick={removeItem}
+						onClick={() => removeItem()}
 						to="/dashboard/upload"
 						type="button"
 						className="bg-[#F9FAFB] text-[#2E90FA] active:bg-[#e8e8e9] border border-[#2E90FA] px-[1em] md:px-[2em] py-[0.8em] rounded-md"
