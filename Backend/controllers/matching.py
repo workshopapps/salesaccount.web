@@ -56,30 +56,30 @@ def match(file1, file2):
     statement_table = pd.DataFrame(statement_table)
     records_table = convert_file(file2)
     records_table = pd.DataFrame(records_table)
-    statement_csv = statement_table.to_csv()
-    records_csv = records_table.to_csv()
+    statement_csv = statement_table.to_csv()[:900]
+    records_csv = records_table.to_csv()[:900]
     # total_tokens = statement_csv + records_csv
-    # if total_tokens > 2000:
-    #     sections = compare(statement_table, records_table, keyword)
+    # if len(total_tokens) > 2000:
+    #     sections = compare(statement_table, records_table)
     #     matched_response = []
     #     for i in sections:
-    #         result = arrange(i[0], i[1])
-    #         matched_response += result
-    #     unmatched_response = unmatched(matched_response, records_table)
-    #     return [matched_response, unmatched_response]
-
-    columns_a = list(statement_table.columns) 
+    #         result = arrange(i[0], i[1], keyword)
+    #         matched_response.extend(result)
+    #     # unmatched_response = unmatched(matched_response, records_table)
+    #     return matched_response#, unmatched_response]
+    # else:
+    columns_a = list(statement_table.columns)
     columns_b = list(records_table.columns)
     example = "Example\n[\n{"
     for x in columns_a:
-         example += f"\n    \"{x}\":"
+        example += f"\n    \"{x}\":"
 
     example += "\n   \"Matching\": \"Yes\"\n   \"Matching_details\":\n   [\n   {"
     for x in columns_b:
         example += f"\n    \"{x}\": "
     example += "\n   }\n   ]\n}\n]"
     # print(example)
-    prompt = f"{keyword}{example}{statement_csv}\n{records_csv}"
+    prompt = f"{keyword}{example}{statement_csv}\n{records_csv}\n"
 
     response = openai_call(prompt, 0.1)
     try:
@@ -90,7 +90,7 @@ def match(file1, file2):
         index = response.index('[')
         matched_response = eval(response[index:])
         unmatched_response = unmatched(matched_response, records_table)
-        return [matched_response, unmatched_response]
+    return [matched_response, unmatched_response]
 
 def arrange(statement_table, records_table, keyword):
     statement_csv = statement_table.to_csv()
@@ -106,13 +106,14 @@ def arrange(statement_table, records_table, keyword):
         example += f"\n    \"{x}\":"
     example += "\n   }\n   ]\n}\n]"
 
-    prompt = f"{keyword}{example}{statement_csv}\n{records_csv}"
+    prompt = f"{keyword}{example}{statement_csv}\n{records_csv}\n"
 
     response = openai_call(prompt, 0.1)
     try:
-        matched_response = eval(response)
+        matched_response = response
+        print(response)
         return matched_response
     except:
         index = response.index('[')
-        matched_response = eval(response[index:])
+        matched_response = response[index:]
         return matched_response
