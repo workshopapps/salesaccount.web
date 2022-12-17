@@ -56,9 +56,9 @@ def match(file1, file2):
     statement_table = pd.DataFrame(statement_table)
     records_table = convert_file(file2)
     records_table = pd.DataFrame(records_table)
-    statement_csv = statement_table.to_csv()
-    records_csv = records_table.to_csv()
-    total_tokens = statement_csv + records_csv
+    statement_csv = statement_table.to_csv()[:900]
+    records_csv = records_table.to_csv()[:900]
+    # total_tokens = statement_csv + records_csv
     # if len(total_tokens) > 2000:
     #     sections = compare(statement_table, records_table)
     #     matched_response = []
@@ -68,8 +68,8 @@ def match(file1, file2):
     #     # unmatched_response = unmatched(matched_response, records_table)
     #     return matched_response#, unmatched_response]
     # else:
-    columns_a = list(statement_table.columns)[:900]
-    columns_b = list(records_table.columns)[:900]
+    columns_a = list(statement_table.columns)
+    columns_b = list(records_table.columns)
     example = "Example\n[\n{"
     for x in columns_a:
         example += f"\n    \"{x}\":"
