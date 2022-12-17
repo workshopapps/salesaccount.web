@@ -10,7 +10,7 @@ function Reconcile() {
 		[
 			{
 				Date: '1/18/2013',
-				Description: 'Received from IBM UK',
+				Description: 'IBM UK',
 				Details: 'Credit',
 				' Money out ': '',
 				' Money in ': '1,000,000,000',
@@ -27,7 +27,7 @@ function Reconcile() {
 			},
 			{
 				Date: '2/14/2013',
-				Description: 'Payment to Natwest Mtge Payt',
+				Description: 'Mtge Payt',
 				Details: 'Debit',
 				' Money out ': '300,009,988',
 				' Money in ': '',
@@ -37,7 +37,7 @@ function Reconcile() {
 			},
 			{
 				Date: '2/28/2013',
-				Description: 'Payment to UK provident Fund by Draft',
+				Description: 'UK Draft',
 				Details: 'Debit',
 				' Money out ': '200,043,995',
 				' Money in ': '',
@@ -47,7 +47,7 @@ function Reconcile() {
 			},
 			{
 				Date: '3/5/2013',
-				Description: 'Direct Debit HSBC UK',
+				Description: 'HSBC UK',
 				Details: 'Debit',
 				' Money out ': '980,050,054',
 				' Money in ': '',
@@ -57,7 +57,7 @@ function Reconcile() {
 			},
 			{
 				Date: '3/21/2013',
-				Description: 'Received from Microsoft UK',
+				Description: 'Microsoft',
 				Details: 'Credit',
 				' Money out ': '',
 				' Money in ': '300,000,044',
@@ -67,7 +67,7 @@ function Reconcile() {
 					{
 						'Item no ': '102',
 						'Item Name': 'Audit services',
-						Description: 'Microsoft UK',
+						Description: 'Microsoft',
 						Price: '300,000,044',
 					},
 				],
@@ -123,7 +123,7 @@ function Reconcile() {
 		[
 			{
 				Date: '1/18/2013',
-				Description: 'Received from IBM UK',
+				Description: 'IBM UK',
 				Details: 'Credit',
 				' Money out ': '',
 				' Money in ': '1,000,000,000',
@@ -140,37 +140,58 @@ function Reconcile() {
 			},
 			{
 				Date: '2/14/2013',
-				Description: 'Payment to Natwest Mtge Payt',
+				Description: 'Mtge Payt',
 				Details: 'Debit',
 				' Money out ': '300,009,988',
 				' Money in ': '',
 				' Balance ': '3,699,990,012',
 				Matching: 'No',
-				Matching_details: [],
+				Matching_details: [
+					{
+						'Item no ': ' ',
+						'Item Name': ' ',
+						Description: ' ',
+						Price: ' ',
+					},
+				],
 			},
 			{
 				Date: '2/28/2013',
-				Description: 'Payment to UK provident Fund by Draft',
+				Description: 'UK Draft',
 				Details: 'Debit',
 				' Money out ': '200,043,995',
 				' Money in ': '',
 				' Balance ': '3,499,946,017',
 				Matching: 'No',
-				Matching_details: [],
+				Matching_details: [
+					{
+						'Item no ': ' ',
+						'Item Name': ' ',
+						Description: ' ',
+						Price: ' ',
+					},
+				],
 			},
 			{
 				Date: '3/5/2013',
-				Description: 'Direct Debit HSBC UK',
+				Description: 'HSBC UK',
 				Details: 'Debit',
 				' Money out ': '980,050,054',
 				' Money in ': '',
 				' Balance ': '2,519,895,963',
 				Matching: 'No',
-				Matching_details: [],
+				Matching_details: [
+					{
+						'Item no ': ' ',
+						'Item Name': ' ',
+						Description: ' ',
+						Price: ' ',
+					},
+				],
 			},
 			{
 				Date: '3/21/2013',
-				Description: 'Received from Microsoft UK',
+				Description: 'Microsoft',
 				Details: 'Credit',
 				' Money out ': '',
 				' Money in ': '300,000,044',
@@ -180,7 +201,7 @@ function Reconcile() {
 					{
 						'Item no ': '102',
 						'Item Name': 'Audit services',
-						Description: 'Microsoft UK',
+						Description: 'Microsoft',
 						Price: '300,000,044',
 					},
 				],
@@ -238,22 +259,72 @@ function Reconcile() {
 
 	const navigate = useNavigate();
 
-	// matching data
+	const tableLeft = [];
+	const tableRight1 = [];
+	const tableRight2 = [];
 
-	// console.log(localData3[0])
-	// const tableRight = localData3[0].forEach((item) =>
-	// 	console.log(item.Matching_details)
-	// );
+	localData3[0].map(item => tableRight1.push(item.Matching_details));
 
-	localData3[0].forEach((item)=> console.log(item))
-	// console.log('tableLeft', tableLeft)
+	localData3[0].map((item) => {
+		delete item.Matching_details
+		return tableLeft.push(item)
+	})
+
+	tableRight1.map(item => {
+		if (item.length === 0) {
+			item.push({})
+		}
+		tableRight2.push(item)
+		console.log("Items: ", item)
+	})
+
+	const tableRight = tableRight2.flat()
+
+	console.log("Table Right: ", tableRight);
+
+	// tableRight.map(item => item.map(iItem => )
+
+
+
+
+	console.log("Formatted Table11111: ", tableRight.flat())
+
+
+	const leftHeaderKeys = Object.keys(Object.assign({}, ...tableLeft));
+	const rightHeaderKeys = Object.keys(Object.assign({}, ...tableRight));
+
 	const reconcileNewFile = () => {
 		removeItem();
 		navigate('/dashboard/upload');
 	};
 
+	const isEmpty = (obj) => {
+		if (obj === null ||
+			obj === undefined ||
+			Array.isArray(obj) ||
+			typeof obj !== 'object'
+		) {
+			return true;
+		}
+		return Object.getOwnPropertyNames(obj).length === 0;
+	};
+
 	// Search Function
-	const filteredResult = localData?.filter((table) =>
+	const filteredResult = tableLeft?.filter((table) =>
+		Object.keys(table).some((key) => {
+			if (
+				table?.[key]
+					?.toString()
+					?.toLowerCase()
+					?.includes(userInput.trim().toLowerCase())
+			) {
+				return true;
+			}
+			return false;
+		})
+	);
+
+	const filteredResult2 = tableRight?.filter((table) =>
 		Object.keys(table).some((key) => {
 			if (
 				table?.[key]
@@ -310,18 +381,19 @@ function Reconcile() {
 				</div>
 
 				{/* Api Table */}
-				<div className="lg:flex items-center justify-center w-full ">
+				<div className="lg:flex items-start justify-between w-full ">
 					{/* Table 1 */}
-					{/* {Boolean(localData.length) && localData && (
+					{Boolean(tableLeft.length) && tableLeft && (
 						<div
 							className="overflow-scroll mb-[5em] lg:mb-0  bg-[#F9FAFB] lg:w-[50%]"
-							id="pagetodownload"
-						>
-							<table className="table-auto w-full text-xs md:text-base">
+							id="pagetodownload">
+
+							<h1 className="text-center py-4 border border-slate-500 bg-slate-200 font-bold mb-2 ">ACCOUNT STATEMENT</h1>
+							<table className="overflow-scroll table-auto w-full text-xs md:text-base">
 								<thead className="bg-[#D1E9FF] py-2 my-2">
 									<tr>
-										{headerKeys.map((key) => (
-											<th className="py-[1em] md:py-[1.5em] pl-8 text-left">
+										{leftHeaderKeys.map((key) => (
+											<th className="py-[1em] text-xs md:py-[1.5em] pl-8 text-left">
 												{key}
 											</th>
 										))}
@@ -330,9 +402,15 @@ function Reconcile() {
 
 								<tbody className="py-2 px-6">
 									{filteredResult?.map((sData) => (
-										<tr className="py-2 pl-8">
+
+										<tr className="pl-8" style={{
+											background: sData.Matching === "Yes" ? "#B7EDD6" : "#F1AAA5"
+										}}>
 											{Object.values(sData).map((iData) => (
-												<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
+												<td style={{
+													// background: iData.Matching_details === "Yes" ? "black" : "blue"
+
+												}} className=" text-ellipsis text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
 													{iData}
 												</td>
 											))}
@@ -341,19 +419,21 @@ function Reconcile() {
 								</tbody>
 							</table>
 						</div>
-					)} */}
+					)}
 
 					{/* Table 2 */}
-					{/* {Boolean(localData.length) && localData && (
+					{Boolean(tableRight.length) && tableRight && (
 						<div
-							className="overflow-scroll  bg-[#F9FAFB] lg:w-[50%] "
-							id="pagetodownload"
-						>
-							<table className="table-auto w-full text-xs md:text-base">
+							className="overflow-scroll mb-[5em] lg:mb-0  bg-[#F9FAFB] lg:w-[50%]"
+							id="pagetodownload">
+
+							<h1 className="text-center py-4 border border-slate-500 bg-slate-200 font-bold mb-2 ">SALES RECORD</h1>
+							<table className="overflow-scroll table-auto w-full text-xs md:text-base">
 								<thead className="bg-[#D1E9FF] py-2 my-2">
+
 									<tr>
-										{headerKeys.map((key) => (
-											<th className="py-[1em] md:py-[1.5em] pl-8 text-left">
+										{rightHeaderKeys.map((key) => (
+											<th className="py-[1em] text-xs md:py-[1.5em] pl-8 text-left">
 												{key}
 											</th>
 										))}
@@ -361,8 +441,10 @@ function Reconcile() {
 								</thead>
 
 								<tbody className="py-2 px-6">
-									{localData?.map((sData) => (
-										<tr className="py-2 pl-8">
+									{tableRight?.map((sData) => (
+										<tr className="py-2 pl-8"  style={{
+											background: Object.values(sData)[0].trim().length > 0 ? "#B7EDD6" : "#F1AAA5"
+										}}>
 											{Object.values(sData).map((iData) => (
 												<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
 													{iData}
@@ -373,7 +455,7 @@ function Reconcile() {
 								</tbody>
 							</table>
 						</div>
-					)} */}
+					)}
 				</div>
 				{/* Match Guide */}
 				<div className="flex items-center font-medium mt-[2em] text-xs">

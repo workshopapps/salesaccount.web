@@ -75,8 +75,8 @@ function Reconcile() {
 		navigate('/dashboard/upload');
 	};
 
-	console.log('localData', localData);
-	console.log('localData2', localData2);
+	// console.log('localData', localData);
+	// console.log('localData2', localData2);
 	return (
 		<>
 			<div className="flex">
