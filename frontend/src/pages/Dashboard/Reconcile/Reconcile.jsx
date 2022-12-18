@@ -92,7 +92,7 @@ function Reconcile() {
 		navigate('/dashboard/upload');
 	};
 
-	console.log(localData.length);
+	// console.log(localData.length);
 	return (
 		<>
 			{/* Breadcrumbs start */}

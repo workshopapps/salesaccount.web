@@ -115,14 +115,14 @@ export const UserProvider = ({ children }) => {
 		axios
 			.post(reconcileUrl, formData)
 			.then((res) => {
-				console.log(res?.data);
+				// console.log(res?.data);
 				setLocalData3(res?.data);
-				// setRError('');
-				// setLoading(false);
+				setRError('');
+				setLoading(false);
 			})
 			.catch((e) => {
-				// setLoading(false);
-				// setRError(e.message);
+				setLoading(false);
+				setRError(e.message);
 			});
 	};
 

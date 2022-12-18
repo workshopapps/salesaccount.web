@@ -8,7 +8,11 @@ const DashBoard = () => (
 		<div className="w-full bg-white h-max pb-[3em]">
 			<NavigationBar />
 			<div className="flex flex-col items-center justify-center mt-[1em] md:mt-[3em]">
-				<Box maxW="1440px" width="100%" px="80px">
+				<Box
+					maxW="1440px"
+					width="100%"
+					px={{ base: `32px`, xl: `80px`, '2xl': 0 }}
+				>
 					<Outlet />
 				</Box>
 			</div>

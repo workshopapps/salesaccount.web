@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './tableScrollbar.css'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import {
-	Stack,
-	styled,
-	Table,
-	TableBody,
-	TableCell,
-	tableCellClasses,
-	TableContainer,
-	TableHead,
-	TableRow,
-} from '@mui/material';
+import { HashLoader } from 'react-spinners';
+import { Box } from '@chakra-ui/react';
 import axios from 'axios';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -20,6 +12,7 @@ import check from '../../../assets/images/DashboardImages/check_circle.png';
 import cancel from '../../../assets/images/DashboardImages/cancel.png';
 import { useAuth } from '../../../Store/Context';
 import ReconcileTable from './table/ReconcileTable';
+import ServerError from '../../ServerError';
 
 function Reconcile() {
 	const localData = [
@@ -485,9 +478,7 @@ function Reconcile() {
 
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
 	const [userInput, setUserInput] = useState('');
-	const { removeItem, localData3 } = useAuth();
-
-
+	const { removeItem, localData3, loading, rError } = useAuth();
 
 	const navigate = useNavigate();
 
@@ -495,14 +486,14 @@ function Reconcile() {
 	const tableRight1 = [];
 	const tableRight2 = [];
 
-	// console.log('LoccalDta3', localData3[0][0]);
+	localData3[0]?.map((item) => tableRight1.push(item.Matching_details));
 
-	// localData3[0][0]?.map((item) => tableRight1.push(item.Matching_details));
+	// console.log('LoccalDta3', localData3[0]);
 
-	// localData3[0][0]?.map((item) => {
-	// 	delete item?.Matching_details;
-	// 	return tableLeft?.push(item);
-	// });
+	localData3[0]?.map((item) =>
+		// delete item?.Matching_details;
+		tableLeft?.push(item)
+	);
 
 	// eslint-disable-next-line
 	tableRight1?.map((item) => {
@@ -514,8 +505,6 @@ function Reconcile() {
 
 	const tableRight = tableRight2?.flat();
 
-	// console.log('Table Right: ', tableRight);
-
 	// // tableRight.map(item => item.map(iItem => )
 
 	// console.log('Formatted Table11111: ', tableRight?.flat());
@@ -523,9 +512,14 @@ function Reconcile() {
 	const leftHeaderKeys = Object.keys(Object.assign({}, ...tableLeft));
 	const rightHeaderKeys = Object.keys(Object.assign({}, ...tableRight));
 
+	// console.log('Table Right: ', tableRight);
+	// console.log('Table left: ', tableLeft);
+	// console.log('Left header Key: ', leftHeaderKeys);
+	// console.log('right header key: ', rightHeaderKeys);
+
 	const reconcileNewFile = () => {
-		removeItem();
 		navigate('/dashboard/upload');
+		removeItem();
 	};
 
 	const isEmpty = (obj) => {
@@ -601,7 +595,27 @@ function Reconcile() {
 
 			{/* table */}
 			<div>
-				<ReconcileTable tableData={localData3[0]} />
+				{/* Loading State */}
+				{loading && (
+					<div className="flex flex-col justify-center items-center my-12 md:my-20">
+						<HashLoader color="#2E90FA" size={150} />
+					</div>
+				)}
+
+				{/* Error State */}
+				{rError && !loading && <ServerError />}
+
+				{!loading && (
+					<Box className='cc-table' overflow="auto" pb={2}>
+						<ReconcileTable
+							leftHeaderKeys={leftHeaderKeys}
+							rightHeaderKeys={rightHeaderKeys}
+							tableLeft={tableLeft}
+							tableRight={tableRight}
+							tableData={localData3[0]}
+						/>
+					</Box>
+				)}
 			</div>
 			{/* Reconcile Button */}
 			<div className="w-full flex justify-center mt-10">
@@ -612,6 +626,7 @@ function Reconcile() {
 				>
 					Download File
 				</button>
+
 				<button
 					onClick={() => reconcileNewFile()}
 					className="bg-[#F9FAFB] text-[#2E90FA] active:bg-[#e8e8e9] border border-[#2E90FA] px-[1em] md:px-[2em] py-[0.8em] rounded-md"

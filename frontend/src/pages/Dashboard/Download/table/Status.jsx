@@ -9,6 +9,7 @@ import {
 	Td,
 	TableContainer,
 	Image,
+	Box,
 } from '@chakra-ui/react';
 import check from '../../../../assets/images/DashboardImages/check_circle.png';
 import cancel from '../../../../assets/images/DashboardImages/cancel.png';
@@ -39,11 +40,13 @@ const AccountStatement = ({ tableData }) => {
 	});
 
 	return (
-		<TableContainer >
-			<Table size="sm" variant="simple">
+		<TableContainer>
+			<Table fontSize="xs" size="xs" variant="simple">
 				<Thead height="65px">
 					<Tr bg="#D1E9FF">
-						<Th>Status</Th>
+						<Th>
+							<Box p={3}>Status</Box>
+						</Th>
 					</Tr>
 				</Thead>
 				<Tbody>{data}</Tbody>

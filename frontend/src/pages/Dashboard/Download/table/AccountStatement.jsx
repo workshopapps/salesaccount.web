@@ -1,57 +1,66 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import {
 	Table,
 	Thead,
 	Tbody,
-	Tfoot,
 	Tr,
 	Th,
 	Td,
 	TableContainer,
-	Heading,
 	Box,
 } from '@chakra-ui/react';
 
-// eslint-disable-next-line react/prop-types
-const Status = ({ tableData }) => {
-	// eslint-disable-next-line react/prop-types
-	const data = tableData?.map((value) => {
+const Status = ({ tableLeft, leftHeaderKeys }) => {
+	// // eslint-disable-next-line arrow-body-style
+	const headerKeys = leftHeaderKeys.slice(0, 4)?.map((key) => (
+		<Th color="#fff">
+			<Box p={3}>{key}</Box>
+		</Th>
+	));
+
+	const data = tableLeft?.map((value) => {
+		// console.log(Object.values(value));
+		const keys = Object.values(value);
+
 		const status = value.Matching === 'Yes';
 		return (
 			<Tr
+				fontSize="xs"
 				height="65px"
 				bg={status ? `#B7EDD6` : `#F1AAA5`}
 				borderY="8px solid #fff"
 				key={value.Date}
 			>
 				<Td>
-					<Box p={3}>{value.Date}</Box>
+					<Box p={3}>{keys[0]}</Box>
 				</Td>
 				<Td>
 					<Box
-						display={value.Details ? `block` : 'none'}
+						display={keys[1] ? `block` : 'none'}
 						// borderStart="1px solid #D0D5DD"
 						p={3}
 					>
-						{value.Details}
+						{keys[1]}
 					</Box>
 				</Td>
 				<Td>
 					<Box
 						// borderStart="1px solid #D0D5DD"
-						display={value[' Money in '] ? `block` : 'none'}
+						display={keys[2] ? `block` : 'none'}
 						p={3}
 					>
-						{value[' Money in '] ? `$ ${value[' Money in ']} ` : ''}
+						{keys[2] ? `${keys[2]} ` : ''}
 					</Box>
 				</Td>
 				<Td>
 					<Box
 						// borderStart="1px solid #D0D5DD"
-						display={value[' Money out '] ? `block` : 'none'}
+						display={keys[3] ? `block` : 'none'}
 						p={3}
 					>
-						{value[' Money out '] ? `$ ${value[' Money out ']}` : ''}
+						{keys[3] ? `${keys[3]}` : ''}
 					</Box>
 				</Td>
 			</Tr>
@@ -60,14 +69,9 @@ const Status = ({ tableData }) => {
 
 	return (
 		<TableContainer>
-			<Table size="sm" variant="simple">
+			<Table fontSize="xs" size="xs" variant="simple">
 				<Thead mb="5" height="65px">
-					<Tr bg="#000">
-						<Th color="#fff">Date Recieved</Th>
-						<Th color="#fff">Details</Th>
-						<Th color="#fff">Amount in</Th>
-						<Th color="#fff">Amount Out</Th>
-					</Tr>
+					<Tr bg="#000">{headerKeys}</Tr>
 				</Thead>
 				<Tbody>{data}</Tbody>
 			</Table>
