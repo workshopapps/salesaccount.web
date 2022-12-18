@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './tableScrollbar.css'
+import './tableScrollbar.css';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { HashLoader } from 'react-spinners';
-import { Box } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 import axios from 'axios';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -606,19 +606,37 @@ function Reconcile() {
 				{rError && !loading && <ServerError />}
 
 				{!loading && (
-					<Box className='cc-table' overflow="auto" pb={2}>
-						<ReconcileTable
-							leftHeaderKeys={leftHeaderKeys}
-							rightHeaderKeys={rightHeaderKeys}
-							tableLeft={tableLeft}
-							tableRight={tableRight}
-							tableData={localData3[0]}
-						/>
-					</Box>
+					<>
+						<Box
+							display={{ base: `none`, md: `block` }}
+							className="cc-table"
+							overflow="auto"
+							pb={2}
+						>
+							<ReconcileTable
+								leftHeaderKeys={leftHeaderKeys}
+								rightHeaderKeys={rightHeaderKeys}
+								tableLeft={tableLeft}
+								tableRight={tableRight}
+								tableData={localData3[0]}
+							/>
+						</Box>
+						<Box display={{ base: `block`, md: `none` }}>
+							<Heading
+								fontSize="sm"
+								fontStyle="italic"
+								textAlign="center"
+								color="#F1AAA5"
+							>
+								Reconcile table cannot be viewed on this device. Try viewing it
+								on a larger screen
+							</Heading>
+						</Box>
+					</>
 				)}
 			</div>
 			{/* Reconcile Button */}
-			<div className="w-full flex justify-center mt-10">
+			<Box className="w-full flex justify-center my-10">
 				<button
 					// onClick={() => handleSubmit()}
 					className="bg-[#2E90FA] active:bg-[#1849A9] text-white px-[1em] md:px-[2em] py-[0.8em] rounded-md mx-2"
@@ -634,7 +652,7 @@ function Reconcile() {
 				>
 					Reconcile New File
 				</button>
-			</div>
+			</Box>
 		</>
 	);
 }

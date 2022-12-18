@@ -2,7 +2,7 @@
 ::-webkit-scrollbar {
 	display: initial;
 	height: 7px !important;
-	width: 7px;
+	width: 7px !important;
   gap: 10px;
 }
 
