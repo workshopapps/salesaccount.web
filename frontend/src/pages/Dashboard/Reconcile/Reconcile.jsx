@@ -88,8 +88,8 @@ function Reconcile() {
 		navigate('/dashboard/download');
 	};
 	const userClickedUpload = () => {
-		removeItem();
 		navigate('/dashboard/upload');
+		removeItem();
 	};
 
 	console.log(localData.length);
@@ -114,9 +114,6 @@ function Reconcile() {
 				</div>
 			</div>
 			{/* Breadcrumbs Ends */}
-
-		
-
 
 			{/* Api Tables */}
 			<div className=" space-y-[4em] lg:space-y-0 lg:flex items-start gap-12 lg:gap-8 justify-center w-full lg:bg-[#F9FAFB] my-8 lg:my-[6em]">

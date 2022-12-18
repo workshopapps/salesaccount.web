@@ -291,8 +291,8 @@ function Reconcile() {
 	const rightHeaderKeys = Object.keys(Object.assign({}, ...tableRight));
 
 	const reconcileNewFile = () => {
-		removeItem();
 		navigate('/dashboard/upload');
+		removeItem();
 	};
 
 	const isEmpty = (obj) => {
@@ -358,9 +358,12 @@ function Reconcile() {
 			{/* Breadcrumbs end */}
 
 			{/* Hero like heading tab */}
-			<div className='my-8'>
-				<h1 className='text-3xl font-bold my-3'>Here’s your reconciled data</h1>
-				<p className='lg:w-1/2 lg:text-lg font-light'>Disclaimer: This might not be 100% accurate as the results are solely dependent on the data you have provided </p>
+			<div className="my-8">
+				<h1 className="text-3xl font-bold my-3">Here’s your reconciled data</h1>
+				<p className="lg:w-1/2 lg:text-lg font-light">
+					Disclaimer: This might not be 100% accurate as the results are solely
+					dependent on the data you have provided{' '}
+				</p>
 			</div>
 
 			<div className="w-full lg:bg-[#F9FAFB] py-[1em] md:p-[4em] mt-[4em] lg:mt-[7em] ">
@@ -482,8 +485,6 @@ function Reconcile() {
 														: '#F1AAA5',
 											}}
 										>
-
-
 											{Object.values(sData).map((iData) => (
 												<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc]">
 													{iData}
