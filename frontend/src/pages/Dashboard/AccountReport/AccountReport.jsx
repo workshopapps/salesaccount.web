@@ -82,14 +82,14 @@ function AccountReport() {
 
 			{localData3 && (
 				<div className="overflow-scroll">
-					<table className="table-auto w-full text-xs md:text-base p-[2em] pt-0" id="pagetodownload">
-						<thead className="bg-[#D1E9FF] py-4 ">
+					<table className="table-auto w-full text-xs md:text-base p-[2em] pt-0 border-separate border-spacing-y-4" id="pagetodownload">
+						<thead className="bg-[#B8D6E252] border-b-2 border-[#868E9D] ">
 							<tr>
 								{headerKeys.map((key) => (
 									<th
 										// eslint-disable-next-line
 										onClick={() => console.log(key)}
-										className="py-4 pl-8 text-left"
+										className="py-4 pl-8 text-left border-r border-[#868E9D4D] "
 									>
 										{key}
 									</th>
@@ -97,13 +97,15 @@ function AccountReport() {
 							</tr>
 						</thead>
 
-						<tbody className="py-2 px-6">
+						<tbody className="">
 							{localData3?.map((sData) => (
-								<tr className="py-2 pl-8">
-									{Object.values(sData).map((iData) => (
-										<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc]  ">{iData}</td>
-									))}
-								</tr>
+
+									<tr className="  bg-[#B7EDD6] border-4 pl-8">
+										{Object.values(sData).map((iData) => (
+											<td className="text-sm pt-5 pb-3 pl-8 border-r border-[#ccc]   ">{iData}</td>
+										))}
+									</tr>
+
 							))}
 						</tbody>
 					</table>
