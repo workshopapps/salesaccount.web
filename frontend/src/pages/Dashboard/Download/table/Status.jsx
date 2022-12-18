@@ -11,20 +11,22 @@ import {
 	Image,
 	Box,
 } from '@chakra-ui/react';
+import { v4 as uuidv4 } from 'uuid';
 import check from '../../../../assets/images/DashboardImages/check_circle.png';
 import cancel from '../../../../assets/images/DashboardImages/cancel.png';
 
 // eslint-disable-next-line react/prop-types
 const AccountStatement = ({ tableData }) => {
 	// eslint-disable-next-line react/prop-types
-	const data = tableData?.map((value) => {
+	const data = tableData?.map((value, index) => {
 		const status = value.Matching === 'Yes';
 		return (
 			<Tr
 				height="65px"
 				bg={status ? `#B7EDD6` : `#F1AAA5`}
 				borderY="8px solid #fff"
-				key={value.Date}
+				// eslint-disable-next-line react/no-array-index-key
+				key={index}
 			>
 				{status ? (
 					<Td>

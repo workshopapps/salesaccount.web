@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import {
 	Table,
 	Thead,
@@ -6,12 +7,7 @@ import {
 	Tr,
 	Th,
 	Td,
-	TableCaption,
 	TableContainer,
-	Input,
-	FormControl,
-	InputGroup,
-	InputLeftElement,
 	Flex,
 	Box,
 } from '@chakra-ui/react';
@@ -25,19 +21,27 @@ import {
 // eslint-disable-next-line react/prop-types
 const SalesRecord = ({ tableRight, rightHeaderKeys }) => {
 	// eslint-disable-next-line react/prop-types
-	const headerKeys = rightHeaderKeys.slice(0, 4).map((key) => (
-		<Th key={key} color="#fff">
+	const headerKeys = rightHeaderKeys.slice(0, 4).map((key, index) => (
+		// eslint-disable-next-line react/no-array-index-key
+		<Th key={index} color="#fff">
 			<Box p={3}>{key}</Box>
 		</Th>
 	));
 
 	// eslint-disable-next-line react/prop-types
-	const data = tableRight?.map((value) => {
+	const data = tableRight?.map((value, index) => {
 		const keys = Object.values(value);
-		console.log(value);
+
 		if (keys[0] !== '') {
 			return (
-				<Tr fontSize="xs" height="65px" borderY="8px solid #fff" bg="#B7EDD6">
+				<Tr
+					// eslint-disable-next-line react/no-array-index-key
+					key={index}
+					fontSize="xs"
+					height="65px"
+					borderY="8px solid #fff"
+					bg="#B7EDD6"
+				>
 					{/* <Td>{value.Date}</Td> */}
 					<Td>
 						<Box p={3}>{keys[0]}</Box>
@@ -57,7 +61,7 @@ const SalesRecord = ({ tableRight, rightHeaderKeys }) => {
 		// return <Td>{keys[0]}</Td>;
 
 		return (
-			<Tr height="65px" borderBottom="8px solid #fff">
+			<Tr key={uuidv4()} height="65px" borderBottom="8px solid #fff">
 				<Td colSpan={4} p={0}>
 					<Flex
 						border="1px solid #D0D5DD"
