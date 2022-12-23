@@ -103,8 +103,6 @@ export const UserProvider = ({ children }) => {
 
 	// Reconcile  Function
 	const reconcileData = async () => {
-		console.log(`begin reconciling data...`);
-
 		const formData = new FormData();
 		const files = [fileDropped, fileDropped2];
 

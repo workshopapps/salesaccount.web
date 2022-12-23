@@ -276,7 +276,7 @@ function Reconcile() {
 						e.preventDefault();
 						handleSubmit();
 					}}
-					className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2  w-[70%] md:w-[60%] lg:w-[30%] active:color-#1849A9"
+					className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2  active:color-#1849A9"
 				>
 					Reconcile
 				</button>

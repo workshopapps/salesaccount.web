@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { HashLoader } from 'react-spinners';
+import { v4 as uuidv4 } from 'uuid';
 import { useAuth } from '../../../Store/Context';
 import ServerError from '../../ServerError';
 import draft from '../../../assets/images/DashboardImages/draft2.png';
@@ -147,7 +148,10 @@ function Reconcile() {
 								<thead className="bg-[#1849A9] text-white text-xs py-2 ">
 									<tr>
 										{headerKeys.map((key) => (
-											<th className="py-[1em] md:py-[1.5em] px-4 text-left">
+											<th
+												key={uuidv4()}
+												className="py-[1em] md:py-[1.5em] px-4 text-left"
+											>
 												{key}
 											</th>
 										))}
@@ -156,9 +160,12 @@ function Reconcile() {
 
 								<tbody className="py-2 px-6">
 									{localData?.map((sData) => (
-										<tr className="py-2 pl-8">
+										<tr key={uuidv4()} className="py-2 pl-8">
 											{Object.values(sData).map((iData) => (
-												<td className="text-sm text-[#101828] text-left pb-3 md:py-6 pl-4 border-b border-[#ccc] ">
+												<td
+													key={uuidv4()}
+													className="text-sm text-[#101828] text-left pb-3 md:py-6 pl-4 border-b border-[#ccc] "
+												>
 													{iData}
 												</td>
 											))}
@@ -202,7 +209,10 @@ function Reconcile() {
 								<thead className="bg-slate-300 text-black text-xs py-2 ">
 									<tr>
 										{headerKeys2.map((key) => (
-											<th className="py-[1em] md:py-[1.5em] px-4 text-left">
+											<th
+												key={uuidv4()}
+												className="py-[1em] md:py-[1.5em] px-4 text-left"
+											>
 												{key}
 											</th>
 										))}
@@ -211,9 +221,12 @@ function Reconcile() {
 
 								<tbody className="py-2 px-6">
 									{localData2?.map((sData) => (
-										<tr className="py-2 pl-8">
+										<tr key={uuidv4()} className="py-2 pl-8">
 											{Object.values(sData).map((iData) => (
-												<td className="text-sm text-slate-700 text-left pb-3 md:py-6 pl-4 border-b border-[#ccc] ">
+												<td
+													key={uuidv4()}
+													className="text-sm text-slate-700 text-left pb-3 md:py-6 pl-4 border-b border-[#ccc] "
+												>
 													{iData}
 												</td>
 											))}
