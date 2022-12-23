@@ -11,6 +11,7 @@ export const UserProvider = ({ children }) => {
 	// catch invalid response from backend
 	const [fileValidationError, setFileValidationError] = useState('');
 	const [fileValidationError2, setFileValidationError2] = useState('');
+	const [status, setStatus] = useState(false);
 
 	// Persisting data to LocalStorage
 	const AccountStatementsaved = JSON.parse(
@@ -103,8 +104,6 @@ export const UserProvider = ({ children }) => {
 
 	// Reconcile  Function
 	const reconcileData = async () => {
-		console.log(`begin reconciling data...`);
-
 		const formData = new FormData();
 		const files = [fileDropped, fileDropped2];
 
@@ -170,9 +169,6 @@ export const UserProvider = ({ children }) => {
 		setFileDropped([]);
 		setFileDropped2([]);
 		setLocalData3([]);
-		// Navigate()
-		// eslint-disable-next-line
-		location.reload();
 	};
 
 	const value = useMemo(
@@ -215,6 +211,8 @@ export const UserProvider = ({ children }) => {
 			setFileValidationError,
 			fileValidationError2,
 			setFileValidationError2,
+			status,
+			setStatus,
 		}),
 		[
 			localFile,

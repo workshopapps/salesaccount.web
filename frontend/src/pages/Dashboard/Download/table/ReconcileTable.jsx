@@ -14,7 +14,7 @@ const ReconcileTable = ({
 	leftHeaderKeys,
 	rightHeaderKeys,
 }) => (
-	<Flex transform="scale(1)" transformOrigin={0} gap={2}>
+	<Flex transform="scale(1)" transformOrigin={0} gap={2} id="pagetodownload">
 		<Box width="50%">
 			<AccountStatement
 				tableLeft={tableLeft?.slice(0, 7)}

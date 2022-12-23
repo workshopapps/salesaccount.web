@@ -7,7 +7,7 @@ const DashBoard = () => (
 	<>
 		<div className="w-full bg-white h-max pb-[3em]">
 			<NavigationBar />
-			<div className="flex flex-col items-center justify-center mt-[1em] md:mt-[3em]">
+			<div className="flex flex-col items-center justify-center mt-[1em] md:mt-[3em] h-max pb-[5em]">
 				<Box
 					maxW="1440px"
 					width="100%"
