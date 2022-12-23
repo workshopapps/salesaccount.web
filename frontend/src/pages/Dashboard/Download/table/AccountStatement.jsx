@@ -12,6 +12,7 @@ import {
 	Box,
 } from '@chakra-ui/react';
 import { v4 as uuidv4 } from 'uuid';
+import { useAuth } from '../../../../Store/Context';
 
 const Status = ({ tableLeft, leftHeaderKeys }) => {
 	// // eslint-disable-next-line arrow-body-style

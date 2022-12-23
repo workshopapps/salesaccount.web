@@ -8,67 +8,12 @@ import ServerError from '../../ServerError';
 import draft from '../../../assets/images/DashboardImages/draft2.png';
 
 function Reconcile() {
-	const localDataa = [
-		{
-			'Item no ': 101,
-			'Item Name': 'Financial Services',
-			Description: 'IBM UK',
-			Price: ' 1,000,000,000 ',
-		},
-		{
-			'Item no ': 102,
-			'Item Name': 'Audit services',
-			Description: 'Microsoft UK',
-			Price: ' 300,000,044 ',
-		},
-		{
-			'Item no ': 103,
-			'Item Name': 'Security upgrade',
-			Description: 'Sort Code 20-10-53',
-			Price: ' 500,498,277 ',
-		},
-		{
-			'Item no ': 104,
-			'Item Name': 'Loan service',
-			Description: 'British Petroleum',
-			Price: ' 55,049,837 ',
-		},
-		{
-			'Item no ': 105,
-			'Item Name': 'Audit services',
-			Description: 'Shell BP',
-			Price: ' 49,920,002 ',
-		},
-		{
-			'Item no ': 106,
-			'Item Name': 'ATM installation',
-			Description: 'HSBC Dubai',
-			Price: ' 100,004,892 ',
-		},
-		{
-			'Item no ': 107,
-			'Item Name': 'Misc',
-			Description: 'Various Payment',
-			Price: ' 320,490,287 ',
-		},
-		{
-			'Item no ': 108,
-			'Item Name': 'Security upgrade',
-			Description: 'HMRC',
-			Price: ' 200,000,034 ',
-		},
-		{
-			'Item no ': 109,
-			'Item Name': 'Financial Services',
-			Description: 'Tebay Trading Co.',
-			Price: ' 42,452,466 ',
-		},
-	];
 	const {
 		removeItem,
 		reconcileData,
 		fileDropped,
 		fileDropped2,
+		localData3,
 		localData2,
 		localData,
 		uploadLoading,
@@ -93,7 +38,6 @@ function Reconcile() {
 		navigate('/dashboard/upload');
 	};
 
-	// console.log(localData.length);
 	return (
 		<>
 			{/* Breadcrumbs start */}
@@ -110,9 +54,15 @@ function Reconcile() {
 				<div className="  text-black-600 font-semibold ">Reconcile</div>
 
 				<NavigateNextIcon />
-				<div className=" text-slate-500 font-semibold hover:text-black">
-					<Link to="/dashboard/download"> Download</Link>
-				</div>
+				{localData3.length > 2 ? (
+					<div className=" text-slate-500 font-semibold hover:text-black">
+						<Link to="/dashboard/download"> Download</Link>
+					</div>
+				) : (
+					<div className=" text-slate-500 font-semibold hover:text-black">
+						Download
+					</div>
+				)}
 			</div>
 			{/* Breadcrumbs Ends */}
 
