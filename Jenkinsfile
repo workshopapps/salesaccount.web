@@ -46,9 +46,9 @@ pipeline {
                 // sh "cd Backend && ls -l"
                 // sh "cd Backend && pip install -r requirements.txt"
                 // start the fastapi server on port 55502 with Uvicorn
-                sh "sudo chmod u+ -R ${env.WORKSPACE}"
-                sh "sudo ls -la /home/dcnc/salesaccount.web/Backend"
-                sh "cd /home/dcnc/salesaccount.web/Backend"
+               // sh "sudo chmod u+ -R ${env.WORKSPACE}"
+                sh "sudo ls /home/dcnc/salesaccount.web/Backend"
+                //sh "cd /home/dcnc/salesaccount.web/Backend"
                 sh 'sudo pm2 delete -s reconcileaibackend || :'
                 sh "cd /home/dcnc/salesaccount.web/Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502 --timeout=3000' --name reconcileaibackend"
               // sh "sudo pm2 start 'gunicorn /home.dcnc.salesaccount.web.Backend.main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind  0.0.0.0:55502 --timeout=3000' --name reconcileaibackend"
