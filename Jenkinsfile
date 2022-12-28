@@ -46,7 +46,7 @@ pipeline {
                 // sh "cd Backend && ls -l"
                 // sh "cd Backend && pip install -r requirements.txt"
                 // start the fastapi server on port 55502 with Uvicorn
-               // sh "chmod +x -R ${env.WORKSPACE}"
+                sh "sudo chmod u+ -R /home/dcnc/salesaccount.web/Backend"
                 sh "sudo ls -la /home/dcnc/salesaccount.web/Backend"
                 sh "whoami"
                 sh "cd /home/dcnc/salesaccount.web/Backend"
