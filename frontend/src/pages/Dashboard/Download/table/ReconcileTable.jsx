@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Box, Flex } from '@chakra-ui/react';
-import React from 'react';
+import React, { useState } from 'react';
 import Status from './Status';
 
 import AccountStatement from './AccountStatement';
@@ -13,24 +13,30 @@ const ReconcileTable = ({
 	tableData,
 	leftHeaderKeys,
 	rightHeaderKeys,
-}) => (
-	<Flex transform="scale(1)" transformOrigin={0} gap={2} id="pagetodownload">
-		<Box width="50%">
-			<AccountStatement
-				tableLeft={tableLeft?.slice(0, 7)}
-				leftHeaderKeys={leftHeaderKeys}
-			/>
-		</Box>
-		<Box>
-			<Status tableData={tableData?.slice(0, 7)} />
-		</Box>
-		<Box width="50%">
-			<SalesRecord
-				tableRight={tableRight?.slice(0, 7)}
-				rightHeaderKeys={rightHeaderKeys}
-			/>
-		</Box>
-	</Flex>
-);
+}) => {
+	const [newTableLeft, setNewTableLeft] = useState([...tableLeft]);
+	return (
+		<Flex transform="scale(1)" transformOrigin={0} gap={2} id="pagetodownload">
+			<Box width="50%">
+				<AccountStatement
+					tableLeft={newTableLeft?.slice(0, 7)}
+					leftHeaderKeys={leftHeaderKeys}
+				/>
+			</Box>
+			<Box>
+				<Status tableData={tableData?.slice(0, 7)} />
+			</Box>
+			<Box width="50%">
+				<SalesRecord
+					tableLeft={newTableLeft?.slice(0, 7)}
+					setNewTableLeft={setNewTableLeft}
+					leftHeaderKeys={leftHeaderKeys}
+					tableRight={tableRight?.slice(0, 7)}
+					rightHeaderKeys={rightHeaderKeys}
+				/>
+			</Box>
+		</Flex>
+	);
+};
 
 export default ReconcileTable;
