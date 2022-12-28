@@ -41,10 +41,10 @@ export const TableSearchBox = () => {
 export const TableDropDown = () => {
 	const a = '';
 	return (
-		<Flex gap={10}>
-			<Menu>
+		<Flex gap={10} >
+			<Menu className='w-[90%]'>
 				<MenuButton
-					// width="15rem"
+					width="30rem"
 					height="38px"
 					bg="transparent"
 					border="1px solid #66708530"
@@ -53,10 +53,11 @@ export const TableDropDown = () => {
 					color="#667085"
 					fontSize="sm"
 					fontWeight="400"
+
 				>
 					Select to Match
 				</MenuButton>
-				<MenuList>
+				<MenuList width="30rem">
 					<MenuItem>Download</MenuItem>
 					<MenuItem>Create a Copy</MenuItem>
 					<MenuItem>Mark as Draft</MenuItem>
@@ -64,6 +65,7 @@ export const TableDropDown = () => {
 					<MenuItem>Attend a Workshop</MenuItem>
 				</MenuList>
 			</Menu>
+			
 			<Menu>
 				<MenuButton>
 					<FaEllipsisV />

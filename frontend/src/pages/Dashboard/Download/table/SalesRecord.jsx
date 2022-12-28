@@ -1,4 +1,6 @@
 import React from 'react';
+import Select from 'react-select';
+
 import { v4 as uuidv4 } from 'uuid';
 import {
 	Table,
@@ -17,9 +19,32 @@ import {
 	// TableDropDownIcon,
 	TableSearchBox,
 } from '../minicomponents/MiniTableComponents';
+import { useAuth } from '../../../../Store/Context';
 
 // eslint-disable-next-line react/prop-types
 const SalesRecord = ({ tableRight, rightHeaderKeys }) => {
+	const { localData3 } = useAuth()
+
+
+	const selectOption = [
+
+
+	]
+	localData3[1]?.map((items) => selectOption.push(
+		{
+			value: <p>
+				{Object.values(items).map(iItem =>
+					console.log("InnerItem: ", iItem)
+				)}
+			</p>
+		}
+	))
+	// localData3[1]?.map((item) => selectOption.push({ value: Object.values(item) }))
+
+
+
+	console.log("SelectOption: ", selectOption)
+
 	// eslint-disable-next-line react/prop-types
 	const headerKeys = rightHeaderKeys.slice(0, 4).map((key, index) => (
 		// eslint-disable-next-line react/no-array-index-key
@@ -70,11 +95,21 @@ const SalesRecord = ({ tableRight, rightHeaderKeys }) => {
 						gap={2}
 						justifyContent="space-between"
 					>
-						<Box flex={1}>
+						{/* <Box flex={1}>
 							<TableSearchBox />
-						</Box>
+						</Box> */}
 						<Box>
-							<TableDropDown />
+							{/* <TableDropDown /> */}
+
+							<Select
+								className="basic-single"
+								classNamePrefix="select"
+								// defaultValue={selectOption[0]}
+								isClearable
+								isSearchable
+								name="color"
+								options={selectOption}
+							/>
 						</Box>
 					</Flex>
 				</Td>
