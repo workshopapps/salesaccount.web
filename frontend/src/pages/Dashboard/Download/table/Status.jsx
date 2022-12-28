@@ -20,6 +20,7 @@ const AccountStatement = ({ tableData }) => {
 	// eslint-disable-next-line react/prop-types
 	const data = tableData?.map((value, index) => {
 		const status = value.Matching === 'Yes';
+
 		return (
 			<Tr
 				height="65px"

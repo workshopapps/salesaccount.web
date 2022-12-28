@@ -17,6 +17,7 @@ import {
 import React from 'react';
 import { BsChevronDown, BsSearch } from 'react-icons/bs';
 import { FaEllipsisV } from 'react-icons/fa';
+import { useAuth } from '../../../../Store/Context';
 
 // eslint-disable-next-line import/prefer-default-export
 export const TableSearchBox = () => {
@@ -39,12 +40,13 @@ export const TableSearchBox = () => {
 };
 
 export const TableDropDown = () => {
+	const { localData3 } = useAuth();
 	const a = '';
 	return (
 		<Flex gap={10} >
 			<Menu className='w-[90%]'>
 				<MenuButton
-					width="30rem"
+					width="35rem"
 					height="38px"
 					bg="transparent"
 					border="1px solid #66708530"
@@ -57,12 +59,20 @@ export const TableDropDown = () => {
 				>
 					Select to Match
 				</MenuButton>
-				<MenuList width="30rem">
-					<MenuItem>Download</MenuItem>
+				<MenuList>
+					{localData3[1]?.map((items) => (
+						<MenuItem>
+							<span className="flex justify-between py-5">
+								{Object.values(items)}
+							</span>
+						</MenuItem>
+					))}
+
+					{/* <MenuItem>Download</MenuItem>
 					<MenuItem>Create a Copy</MenuItem>
 					<MenuItem>Mark as Draft</MenuItem>
 					<MenuItem>Delete</MenuItem>
-					<MenuItem>Attend a Workshop</MenuItem>
+					<MenuItem>Attend a Workshop</MenuItem> */}
 				</MenuList>
 			</Menu>
 			
@@ -81,10 +91,3 @@ export const TableDropDown = () => {
 		</Flex>
 	);
 };
-
-// export const TableDropDownIcon = () => {
-// 	const a = '';
-// 	return (
-
-// 	);
-// };

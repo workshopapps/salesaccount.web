@@ -2,72 +2,18 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { HashLoader } from 'react-spinners';
+import { v4 as uuidv4 } from 'uuid';
 import { useAuth } from '../../../Store/Context';
 import ServerError from '../../ServerError';
 import draft from '../../../assets/images/DashboardImages/draft2.png';
 
 function Reconcile() {
-	const localDataa = [
-		{
-			'Item no ': 101,
-			'Item Name': 'Financial Services',
-			Description: 'IBM UK',
-			Price: ' 1,000,000,000 ',
-		},
-		{
-			'Item no ': 102,
-			'Item Name': 'Audit services',
-			Description: 'Microsoft UK',
-			Price: ' 300,000,044 ',
-		},
-		{
-			'Item no ': 103,
-			'Item Name': 'Security upgrade',
-			Description: 'Sort Code 20-10-53',
-			Price: ' 500,498,277 ',
-		},
-		{
-			'Item no ': 104,
-			'Item Name': 'Loan service',
-			Description: 'British Petroleum',
-			Price: ' 55,049,837 ',
-		},
-		{
-			'Item no ': 105,
-			'Item Name': 'Audit services',
-			Description: 'Shell BP',
-			Price: ' 49,920,002 ',
-		},
-		{
-			'Item no ': 106,
-			'Item Name': 'ATM installation',
-			Description: 'HSBC Dubai',
-			Price: ' 100,004,892 ',
-		},
-		{
-			'Item no ': 107,
-			'Item Name': 'Misc',
-			Description: 'Various Payment',
-			Price: ' 320,490,287 ',
-		},
-		{
-			'Item no ': 108,
-			'Item Name': 'Security upgrade',
-			Description: 'HMRC',
-			Price: ' 200,000,034 ',
-		},
-		{
-			'Item no ': 109,
-			'Item Name': 'Financial Services',
-			Description: 'Tebay Trading Co.',
-			Price: ' 42,452,466 ',
-		},
-	];
 	const {
 		removeItem,
 		reconcileData,
 		fileDropped,
 		fileDropped2,
+		localData3,
 		localData2,
 		localData,
 		uploadLoading,
@@ -92,7 +38,6 @@ function Reconcile() {
 		navigate('/dashboard/upload');
 	};
 
-	// console.log(localData.length);
 	return (
 		<>
 			{/* Breadcrumbs start */}
@@ -109,9 +54,15 @@ function Reconcile() {
 				<div className="  text-black-600 font-semibold ">Reconcile</div>
 
 				<NavigateNextIcon />
-				<div className=" text-slate-500 font-semibold hover:text-black">
-					<Link to="/dashboard/download"> Download</Link>
-				</div>
+				{localData3.length > 2 ? (
+					<div className=" text-slate-500 font-semibold hover:text-black">
+						<Link to="/dashboard/download"> Download</Link>
+					</div>
+				) : (
+					<div className=" text-slate-500 font-semibold hover:text-black">
+						Download
+					</div>
+				)}
 			</div>
 			{/* Breadcrumbs Ends */}
 
@@ -147,7 +98,10 @@ function Reconcile() {
 								<thead className="bg-[#1849A9] text-white text-xs py-2 ">
 									<tr>
 										{headerKeys.map((key) => (
-											<th className="py-[1em] md:py-[1.5em] px-4 text-left">
+											<th
+												key={uuidv4()}
+												className="py-[1em] md:py-[1.5em] px-4 text-left"
+											>
 												{key}
 											</th>
 										))}
@@ -156,9 +110,12 @@ function Reconcile() {
 
 								<tbody className="py-2 px-6">
 									{localData?.map((sData) => (
-										<tr className="py-2 pl-8">
+										<tr key={uuidv4()} className="py-2 pl-8">
 											{Object.values(sData).map((iData) => (
-												<td className="text-sm text-[#101828] text-left pb-3 md:py-6 pl-4 border-b border-[#ccc] ">
+												<td
+													key={uuidv4()}
+													className="text-sm text-[#101828] text-left pb-3 md:py-6 pl-4 border-b border-[#ccc] "
+												>
 													{iData}
 												</td>
 											))}
@@ -202,7 +159,10 @@ function Reconcile() {
 								<thead className="bg-slate-300 text-black text-xs py-2 ">
 									<tr>
 										{headerKeys2.map((key) => (
-											<th className="py-[1em] md:py-[1.5em] px-4 text-left">
+											<th
+												key={uuidv4()}
+												className="py-[1em] md:py-[1.5em] px-4 text-left"
+											>
 												{key}
 											</th>
 										))}
@@ -211,9 +171,12 @@ function Reconcile() {
 
 								<tbody className="py-2 px-6">
 									{localData2?.map((sData) => (
-										<tr className="py-2 pl-8">
+										<tr key={uuidv4()} className="py-2 pl-8">
 											{Object.values(sData).map((iData) => (
-												<td className="text-sm text-slate-700 text-left pb-3 md:py-6 pl-4 border-b border-[#ccc] ">
+												<td
+													key={uuidv4()}
+													className="text-sm text-slate-700 text-left pb-3 md:py-6 pl-4 border-b border-[#ccc] "
+												>
 													{iData}
 												</td>
 											))}
