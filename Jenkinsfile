@@ -49,9 +49,7 @@ pipeline {
                // sh "chmod +x -R ${env.WORKSPACE}"
                 sh "sudo ls -la /home/dcnc/salesaccount.web/Backend"
                 sh "whoami"
-                dir('/home/dcnc/salesaccount.web/Backend'){
-                    sh "sudo ls"  
-                }
+                sh "cd /home/dcnc/salesaccount.web/Backend"
                // sh 'sudo pm2 delete -s reconcileaibackend || :'
                // sh "cd /home/dcnc/salesaccount.web/Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502 --timeout=3000' --name reconcileaibackend"
             }
