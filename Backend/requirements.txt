@@ -41,7 +41,9 @@ sql==2022.4.0
 SQLAlchemy==1.4.44
 starlette==0.21.0
 tabula-py==2.6.0
+torch
 tqdm==4.64.1
+sentence-transformers
 types-pytz==2022.6.0.1
 typing-extensions==4.4.0
 urllib3==1.26.13
