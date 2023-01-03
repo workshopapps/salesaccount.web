@@ -3,7 +3,7 @@
 from controllers.matching import match
 from fastapi import APIRouter, UploadFile
 from typing import List
-import asyncio
+import json
 import pandas as pd
 import pdfkit
 import requests as req
@@ -24,7 +24,7 @@ def reconcile(files: List[UploadFile]):
                 with open(file_dir, "wb") as f:
                     f.write(contents)
             response = match(f"Media/{files[0].filename}", f"Media/{files[1].filename}")
-            return response
+            return json.loads(response)
         except Exception as e:
             return {
                 "Error": f"{e} occurred. Inform team. Thanks.",
@@ -36,13 +36,3 @@ def reconcile(files: List[UploadFile]):
             "status": 400
             }
 
-
-@router.get("/download")
-def download():
-    """ Returns reconciled document as pdf """
-    with req.get("https://salesaccount-web-hng.vercel.app/dashboard/accountreport") as rq:
-        with open("test.csv", "wb") as file:
-            file.write(rq.content)
-            df1 = pd.read_csv("test.csv")
-            html_string = df1.to_html()
-            pdfkit.from_string(html_string, "test.pdf")

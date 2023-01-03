@@ -32,13 +32,14 @@ def match(file1, file2):
     """
     
     records_table = convert_file(file2)
-    records_table = pd.DataFrame(records_table)
+    records_table = pd.read_json(records_table)
+    records_table['corpus'] = records_table[records_table.columns].apply(lambda row: ' '.join(row.values.astype(str)), axis=1)
     corpus = records_table['corpus'].to_list()
     corpus_embeddings = embedder.encode(corpus, convert_to_tensor=True)
     
     
     statement_table = convert_file(file1)
-    statement_table = pd.DataFrame(statement_table)
+    statement_table = pd.read_json(statement_table)
     queries = []
     for i in statement_table.index:
         queries.append(" ".join(list(statement_table.loc[i].astype(str))))
