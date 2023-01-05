@@ -96,7 +96,7 @@ def convert_file(filename: str):
     #     return response
 
     elif re.match(".*xls*", filename):
-        df = pd.read_excel(filename)
+        df = pd.read_excel(filename, dtype={'Date': str})
         df = df.replace(r'^\s*$', np.nan, regex=True)
         df = df.fillna("")
         response = df_to_json(df)
