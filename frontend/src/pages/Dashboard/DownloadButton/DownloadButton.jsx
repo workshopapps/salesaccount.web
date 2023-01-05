@@ -19,11 +19,13 @@ function DownloadButton({ fileId, fileName }) {
 	};
 
 	return (
-		<div className="button2 flex justify-center items-center  text-white bg-[#2E90FA] w-full py-[0.5em] rounded-md">
-			<button onClick={downloadFile} type="button">
-				Download
-			</button>
-		</div>
+		<button
+			onClick={downloadFile}
+			type="button"
+			className="w-fullbg-[#F9FAFB] text-[#2E90FA] active:bg-[#e8e8e9] border border-[#2E90FA]  py-[0.8em] rounded-md"
+		>
+			Download PDF
+		</button>
 	);
 }
 

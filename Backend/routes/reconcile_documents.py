@@ -20,16 +20,21 @@ def reconcile(files: List[UploadFile]):
         try:
             for file in files:
                 contents = file.file.read()
-                file_dir = f"media\{file.filename}"
+                file_dir = f"Media/{file.filename}"
                 with open(file_dir, "wb") as f:
                     f.write(contents)
-            response = match(f"media\{files[0].filename}", f"media\{files[1].filename}")
-            null = "null"
-            return eval(response)
+            response = match(f"Media/{files[0].filename}", f"Media/{files[1].filename}")
+            return response
         except Exception as e:
-            return {"Error": f"{e} occurred. Inform team. Thanks."}
+            return {
+                "Error": f"{e} occurred. Inform team. Thanks.",
+                "status": 400
+                }
     else:
-        return {"message": "Sorry, you need two files for reconconciliation"}
+        return {
+            "Error": "Sorry, you need two files for reconconciliation",
+            "status": 400
+            }
 
 
 @router.get("/download")
