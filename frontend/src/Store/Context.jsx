@@ -7,9 +7,8 @@ const UserContext = createContext();
 export const useAuth = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
-
-	const [fileValidationError, setFileValidationError] = useState('')
-	const [fileValidationError2, setFileValidationError2] = useState('')
+	const [fileValidationError, setFileValidationError] = useState('');
+	const [fileValidationError2, setFileValidationError2] = useState('');
 	// Persisting data
 	const AccountStatementsaved = JSON.parse(
 		localStorage.getItem('localData') || '[]'
@@ -69,18 +68,19 @@ export const UserProvider = ({ children }) => {
 				},
 			})
 			.then((res) => {
-				// setLocalData(res?.data);				
+				// setLocalData(res?.data);
 				// setUploadLoading(false);
 
 				if (res?.data?.message) {
-                    setFileValidationError(res.data?.message);
-                    setLocalData([]);
-                    setUploadLoading(false);
-                    return;
-                }
-                setFileValidationError('');
-                setLocalData(res?.data);
-                setUploadLoading(false);
+					setFileValidationError(res.data?.message);
+					setLocalData([]);
+					setUploadLoading(false);
+					return;
+				}
+				setFileValidationError('');
+				console.log(res?.data);
+				setLocalData(res?.data);
+				setUploadLoading(false);
 			})
 			.catch((e) => setError(e.message));
 	};
@@ -100,15 +100,14 @@ export const UserProvider = ({ children }) => {
 				// setUploadLoading2(false);
 
 				if (res?.data?.message) {
-                    setFileValidationError2(res.data?.message);
-                    setLocalData2([]);
-                    setUploadLoading2(false);
-                    return;
-                }
-                setFileValidationError2('');
-                setLocalData2(res?.data);
-                setUploadLoading2(false);
-		
+					setFileValidationError2(res.data?.message);
+					setLocalData2([]);
+					setUploadLoading2(false);
+					return;
+				}
+				setFileValidationError2('');
+				setLocalData2(res?.data);
+				setUploadLoading2(false);
 			})
 			.catch((e) => setError(e.message));
 	};
@@ -220,8 +219,11 @@ export const UserProvider = ({ children }) => {
 			progress,
 			fileErr,
 			uploadLoading,
-			uploadLoading2,fileValidationError, setFileValidationError,
-			fileValidationError2, setFileValidationError2
+			uploadLoading2,
+			fileValidationError,
+			setFileValidationError,
+			fileValidationError2,
+			setFileValidationError2,
 		}),
 		[
 			localFile,
@@ -233,9 +235,13 @@ export const UserProvider = ({ children }) => {
 			fileDropped2,
 			localFile2,
 			setFileDropped2,
-			setLocalData2,uploadLoading2,
-			localData3,fileValidationError, setFileValidationError,
-			fileValidationError2, setFileValidationError2
+			setLocalData2,
+			uploadLoading2,
+			localData3,
+			fileValidationError,
+			setFileValidationError,
+			fileValidationError2,
+			setFileValidationError2,
 		]
 	);
 

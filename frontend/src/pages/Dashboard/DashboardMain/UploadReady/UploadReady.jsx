@@ -4,8 +4,14 @@ import { useAuth } from '../../../../Store/Context';
 import signedDocument from '../../../../assets/images/DashboardImages/upload/signed document.png';
 
 function UploadReady() {
-	const { setFileDropped, getData, fileDropped, fileErr, removeItem } =
-		useAuth();
+	const {
+		setFileDropped,
+		getData,
+		fileDropped,
+		fileErr,
+		removeItem,
+		localData,
+	} = useAuth();
 
 	const navigate = useNavigate();
 
@@ -16,8 +22,9 @@ function UploadReady() {
 
 	const uploadHandler = () => {
 		getData();
-		navigate('/dashboard/importpage');
+		// navigate('/dashboard/importpage');
 	};
+	console.log(localData);
 	return (
 		<div className="space-y-[1em] w-full mt-[10%] lg:mt-[5%] flex flex-col items-center ">
 			<h1 className="font-bold text-2xl ">Ready for Upload</h1>

@@ -70,7 +70,7 @@ function AccountReport() {
 					<h2 className="animate-pulse text-[30px] text-[#2E90FA] font-semibold">
 						Matching data...
 					</h2>
-					{/* <p>Test</p> */}
+					
 
 					{text && (
 						<h2 className="animate-pulse mb-10">Just a few more moments...</h2>

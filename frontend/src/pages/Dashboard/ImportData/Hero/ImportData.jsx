@@ -85,20 +85,20 @@ function ImportData() {
 	// }, [fileDropped2]);
 	// search function here
 
-	const filteredResult = localData?.filter((table) =>
-		// table?.Description?.toLowerCase().includes(userInput.trim().toLowerCase())
-		Object.keys(table).some((key) => {
-			if (
-				table?.[key]
-					?.toString()
-					?.toLowerCase()
-					?.includes(userInput.trim().toLowerCase())
-			) {
-				return true;
-			}
-			return false;
-		})
-	);
+	// const filteredResult = localData?.filter((table) =>
+	// 	// table?.Description?.toLowerCase().includes(userInput.trim().toLowerCase())
+	// 	Object.keys(table).some((key) => {
+	// 		if (
+	// 			table?.[key]
+	// 				?.toString()
+	// 				?.toLowerCase()
+	// 				?.includes(userInput.trim().toLowerCase())
+	// 		) {
+	// 			return true;
+	// 		}
+	// 		return false;
+	// 	})
+	// );
 
 	const filteredResult2 = localData2?.filter((table) =>
 		// table?.Description?.toLowerCase().includes(userInput2.trim().toLowerCase())
@@ -201,6 +201,8 @@ function ImportData() {
 			<div className="my-8 ">
 				<p className="my-4 text-green-600 font-bold">{fileDropped.name}</p>
 
+				<div>Test</div>
+
 				{/* file 1 table */}
 
 				{Boolean(localData.length) && !uploadLoading && (
@@ -217,7 +219,7 @@ function ImportData() {
 							</thead>
 
 							<tbody className="py-2 px-6">
-								{filteredResult?.map((sData) => (
+								{localData?.map((sData) => (
 									<tr className="py-2 pl-8">
 										{Object.values(sData).map((iData) => (
 											<td className="text-sm pt-5 pb-3 md:py-10 pl-8 border-b border-[#ccc] ">
@@ -231,15 +233,10 @@ function ImportData() {
 					</div>
 				)}
 
-				{fileValidationError && !uploadLoading && (
-					<ServerError />
-				)}
-
-
+				{fileValidationError && !uploadLoading && <ServerError />}
 			</div>
 
-
-
+			{/* {fileValidationError && !uploadLoading && localData2.length < 1 &&  ? () : ""} */}
 			{localData2.length < 1 && (
 				<div className="space-y-[3em] w-full mt-[2em] ">
 					<h1 className="text-[1.5em] font-bold">Next, upload Sales Record</h1>
@@ -420,15 +417,9 @@ function ImportData() {
 								</table>
 							</div>
 						)}
-
-
-
 					</div>
 
-					{fileValidationError2 && !uploadLoading2 && (
-						<ServerError />
-					)}
-					
+					{fileValidationError2 && !uploadLoading2 && <ServerError />}
 				</div>
 			)}
 
