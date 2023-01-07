@@ -63,13 +63,13 @@ const socialLinks = [
 
 const Footer = () => (
 	<>
-		<div className="text-center space-y-[1em] bg-[#EFF8FF] py-[3em] lg:py-[4em] my-[0.2em] ">
-			<p className="font-medium lg:text-lg">
+		<div className="text-center space-y-[1em] bg-[#EFF8FF] py-[3em] md:py-[4em] my-[0.2em] ">
+			<p className="font-medium lg:text-xl">
 				Share reconcile.AI with your friends
 			</p>
 			<div className="flex justify-center items-center">
 				{socialLinks.map((item) => (
-					<a href={item.link}>
+					<a key={uuid()} href={item.link}>
 						<img
 							className="h-[30px] w-[30px] mx-1 md:mx-2 lg:mx-3 rounded-full object-contain drop-shadow-md"
 							src={item.image}
@@ -88,7 +88,7 @@ const Footer = () => (
 			</div>
 		</div>
 
-		<footer className="bg-[#D1E9FF] py-[5em] md:py-[12em]">
+		<footer className="bg-[#D1E9FF] py-[5em] md:py-[7em]">
 			<div className="flex flex-col-reverse justify-center items-center lg:items-start lg:flex-row lg:justify-between w-9/12 mx-auto gap-[4em] lg:gap-0 align-top">
 				<div className="flex flex-col justify-center lg:max-w-[20%] align-center lg:justify-start gap-[0.5rem] lg:gap-0">
 					<Link to="/">

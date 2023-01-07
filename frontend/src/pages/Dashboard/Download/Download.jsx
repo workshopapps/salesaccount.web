@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './tableScrollbar.css';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import FilterListIcon from '@mui/icons-material/FilterList';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { HashLoader } from 'react-spinners';
@@ -18,6 +19,7 @@ import { useAuth } from '../../../Store/Context';
 import ReconcileTable from './table/ReconcileTable';
 import ServerError from '../../ServerError';
 import DownloadButton from '../DownloadButton/DownloadButton';
+import Ratings from '../../../components/Ratings/Ratings';
 
 function Reconcile() {
 	const [userInput, setUserInput] = useState('');
@@ -124,6 +126,34 @@ function Reconcile() {
 				</p>
 			</div>
 
+			<div className="hidden md:flex justify-between items-center">
+				<div className="hidden md:flex justify-between items-center  text-sm lg:text-xs border border-[#489EFB] w-[40%] lg:w-[20%]">
+					<div className="active:text-white active:bg-[#489EFB] p-3 w-[30%] font-medium">
+						All Data
+					</div>
+					<div className="active:text-white active:bg-[#489EFB] p-3 w-[30%] px-2 font-medium border-x text-center">
+						Matched
+					</div>
+					<div className="active:text-white active:bg-[#489EFB] p-3 w-[30%] font-medium">
+						No Match
+					</div>
+				</div>
+
+				<div className="w-[40%] lg:w-[30%] flex justify-between items-center">
+					<input
+						className="w-[65%] border rounded-md outline-none py-2 px-4"
+						type="search"
+						placeholder="Search"
+					/>
+					<div className="flex justify-center items-center w-[30%] border rounded-md p-2 text-sm text-slate-400 space-x-1">
+						<div>
+							<FilterListIcon fontSize="24" />
+						</div>
+						<p>Filters</p>
+					</div>
+				</div>
+			</div>
+
 			<p className="my-[2em]">
 				FYI: Switch to desktop view for a better experience
 			</p>
@@ -170,7 +200,7 @@ function Reconcile() {
 					</>
 				)}
 			</div>
-			{/* Reconcile Button */}
+			{/* Download button */}
 			<Box className="w-full flex justify-center my-10">
 				<button
 					onClick={() => reconcileNewFile()}
@@ -211,6 +241,8 @@ function Reconcile() {
 					</div>
 				)}
 			</Box>
+
+			<Ratings />
 		</>
 	);
 }
