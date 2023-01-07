@@ -96,7 +96,7 @@ const TableData = ({ tableRight, setNewTableLeft, newTableLeft }) => {
 										...newTableLeft[index],
 										Matching: 'Yes',
 									};
-									
+
 									options.forEach((item, i) => {
 										if (item.label === selectedOption.label) {
 											delete item[[i]];

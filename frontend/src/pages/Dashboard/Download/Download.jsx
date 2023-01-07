@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './tableScrollbar.css';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { HashLoader } from 'react-spinners';
@@ -96,7 +97,7 @@ function Reconcile() {
 	return (
 		<>
 			{/* Breadcrumbs here */}
-			<div className="flex">
+			<div className="flex lg:mt-[2em]">
 				<div
 					onClick={reconcileNewFile}
 					role="presentation"
@@ -122,6 +123,10 @@ function Reconcile() {
 					dependent on the data you have provided
 				</p>
 			</div>
+
+			<p className="my-[2em]">
+				FYI: Switch to desktop view for a better experience
+			</p>
 
 			{/* table */}
 			<div>
@@ -167,38 +172,44 @@ function Reconcile() {
 			</div>
 			{/* Reconcile Button */}
 			<Box className="w-full flex justify-center my-10">
-				<div
-					onClick={() => clickHandler()}
-					role="presentation"
-					className="relative flex items-center justify-center bg-[#2E90FA] active:bg-[#1849A9] text-white w-[70%] md:w-[30%] lg:w-[15%] py-[0.8em]py-[0.8em] rounded-md mx-2 "
-				>
-					<div className="flex items-center space-x-4">
-						<p>Download File</p>
-						<div>
-							{isClicked ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-						</div>
-					</div>
-					{isClicked && (
-						<div className="absolute top-[4em] left-0  w-[90%] mx-[2.5%] border flex flex-col ">
-							<DownloadButton fileId="pagetodownload" fileName="reconcile" />
-							<CSVLink
-								data={tableRight}
-								filename="reconcile"
-								className="w-full text-center bg-[#F9FAFB] text-[#2E90FA] active:bg-[#e8e8e9] border border-[#2E90FA]  py-[0.8em] rounded-md my-2"
-							>
-								Download CSV
-							</CSVLink>
-						</div>
-					)}
-				</div>
-
 				<button
 					onClick={() => reconcileNewFile()}
-					className="bg-[#F9FAFB] text-[#2E90FA] active:bg-[#e8e8e9] border border-[#2E90FA]  w-[70%] md:w-[30%] lg:w-[15%] py-[0.8em] rounded-md"
+					className="flex justify-center items-center bg-[#F9FAFB] text-[#2E90FA] active:bg-[#e8e8e9] border  border-[#2E90FA]  w-[30%] md:w-[15%] lg:w-[10%] md:mx-4 py-[0.8em] rounded-md font-medium"
 					type="button"
 				>
-					Reconcile New File
+					<ArrowBackIosIcon fontSize="20" />
+					<p>Back</p>
 				</button>
+				{tableRight.length > 0 && tableLeft.length > 0 && (
+					<div
+						onClick={() => clickHandler()}
+						role="presentation"
+						className="relative flex items-center justify-center bg-[#2E90FA] active:bg-[#1849A9] text-white w-[50%] md:w-[25%] lg:w-[15%] py-[0.8em]py-[0.8em] rounded-md mx-2 "
+					>
+						<div className="flex items-center space-x-4">
+							<p>Download File</p>
+							<div>
+								{isClicked ? (
+									<KeyboardArrowUpIcon />
+								) : (
+									<KeyboardArrowDownIcon />
+								)}
+							</div>
+						</div>
+						{isClicked && (
+							<div className="absolute top-[4em] left-0  w-[90%] mx-[2.5%] border flex flex-col ">
+								<DownloadButton fileId="pagetodownload" fileName="reconcile" />
+								<CSVLink
+									data={tableRight}
+									filename="reconcile"
+									className="w-full text-center bg-[#F9FAFB] text-[#2E90FA] active:bg-[#e8e8e9] border border-[#2E90FA]  py-[0.8em] rounded-md my-2"
+								>
+									Download CSV
+								</CSVLink>
+							</div>
+						)}
+					</div>
+				)}
 			</Box>
 		</>
 	);

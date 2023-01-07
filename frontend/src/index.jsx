@@ -204,7 +204,9 @@ root.render(
 	<React.StrictMode>
 		<UserProvider>
 			<ChakraProvider>
-				<RouterProvider router={router} />
+				<div className="">
+					<RouterProvider router={router} />
+				</div>
 			</ChakraProvider>
 		</UserProvider>
 	</React.StrictMode>

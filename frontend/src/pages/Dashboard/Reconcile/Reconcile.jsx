@@ -41,7 +41,7 @@ function Reconcile() {
 	return (
 		<>
 			{/* Breadcrumbs start */}
-			<div className="flex">
+			<div className="flex lg:mt-[2em]">
 				<div
 					onClick={userClickedUpload}
 					role="presentation"
@@ -67,7 +67,7 @@ function Reconcile() {
 			{/* Breadcrumbs Ends */}
 
 			{/* Api Tables */}
-			<div className=" space-y-[4em] lg:space-y-0 lg:flex items-start gap-12 lg:gap-8 justify-center w-full lg:bg-[#F9FAFB] my-8 lg:my-[6em]">
+			<div className=" space-y-[4em] lg:space-y-0 lg:flex items-start gap-12 lg:gap-8 justify-center w-full lg:bg-[#F9FAFB] lg:py-[5em] lg:px-[6em] rounded-sm my-8 lg:my-[6em]">
 				<div className="lg:w-1/2">
 					<div className="flex gap-2 md:gap-4 items-center bg-slate-700 text-white p-2 font-bold  border border-slate-500 ">
 						<img
@@ -91,7 +91,7 @@ function Reconcile() {
 					{/* Table 1 */}
 					{Boolean(localData.length) && localData && (
 						<div
-							className="overflow-scroll lg:mb-0  bg-[#F9FAFB] border border-slate-300"
+							className="overflow-scroll lg:mb-0   border border-slate-300"
 							id="pagetodownload"
 						>
 							<table className="table-auto w-full text-xs md:text-base">
@@ -114,7 +114,7 @@ function Reconcile() {
 											{Object.values(sData).map((iData) => (
 												<td
 													key={uuidv4()}
-													className="text-sm text-[#101828] text-left pb-3 md:py-6 pl-4 border-b border-[#ccc] "
+													className="text-sm text-[#101828] text-left pb-3 md:py-6 pl-4 border-b border-[#ccc]  "
 												>
 													{iData}
 												</td>
@@ -152,7 +152,7 @@ function Reconcile() {
 
 					{Boolean(localData2.length) && localData2 && (
 						<div
-							className="overflow-scroll lg:mb-0  bg-[#F9FAFB] border border-slate-300"
+							className="overflow-scroll lg:mb-0 border border-slate-300"
 							id="pagetodownload"
 						>
 							<table className="table-auto w-full text-xs md:text-base">
