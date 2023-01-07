@@ -180,9 +180,10 @@ function LandingPage() {
 			<div>
 				<div className="bg-white flex flex-col md:flex-row justify-between w-full md:w-[95%] lg:w-[80%] mt-[3em] mb-0  lg:my-[5em] h-[48vh] py-[2em] px-[1em] mx-auto  ">
 					<div className="w-full md:w-[50%] md:mt-[3em] lg:mt-[2em] lg:w-[45%] space-y-[1em] leading-6">
-						<h1 className="text-[#101828] text-3xl md:text-4xl lg:text-6xl font-semibold  ">
-							Account
-							<span className="text-[#1570EF]"> Reconciliations</span> Made Easy
+						<h1 className="text-[#101828] text-3xl md:text-4xl lg:text-6xl font-semibold  leading-7 ">
+							Account <br />
+							<span className="text-[#1570EF]">Reconciliations</span> <br />
+							Made Easy
 						</h1>
 						<p className="text-md font-light md:text-sm lg:text-lg">
 							Run your business effectively with a simplified solution to
@@ -203,7 +204,7 @@ function LandingPage() {
 					</div>
 
 					{/* upload files here only visible in desktop */}
-					<div className="hidden md:flex items-center justify-center h-max py-[2em] w-[40%] lg:w-[35%] bg-[#F9FAFB] rounded-2xl flex-col shadow-xl">
+					<div className="hidden md:flex items-center justify-center h-max py-[2em] w-[40%] lg:w-[35%] bg-[#F9FAFB] rounded-2xl flex-col drop-shadow-xl">
 						<img
 							className="w-[60%] h-[60%] object-contain"
 							src={uploadIcon}
@@ -282,22 +283,25 @@ function LandingPage() {
 				<p className="font-semibold text-xl md:text-3xl ">
 					Start your free trial
 				</p>
-				<p className="text-slate-700">
-					Join over 4,000 startups already growing with reconcileAI
+				<p className="text-[#667085] font-medium">
+					Join over 4,000+ startups already growing with reconcile.
+					<span className="text-[#2E90FA]">AI</span>
 				</p>
-				<div className="flex space-x-12 justify-center mt-[20px] ">
+				<div className="flex space-x-12 justify-center mt-[2em] md:mt-[3em]  pb-[1em] lg:pb-[3em]  ">
 					<button
 						type="button"
-						className="bg-white text-[#2E90FA] rounded px-[18px] py-[10px]"
+						className="bg-transparent text-[#2E90FA] font-medium  rounded px-[18px] py-[10px] shadow-sm"
 					>
 						Learn More
 					</button>
-					<button
-						type="button"
-						className="text-white bg-[#2E90FA] rounded px-[18px] py-[10px]"
-					>
-						Get in Touch
-					</button>
+					<Link to="/contact">
+						<button
+							type="button"
+							className="text-white bg-[#2E90FA] font-medium rounded px-[18px] py-[10px]"
+						>
+							Get in Touch
+						</button>
+					</Link>
 				</div>
 			</div>
 			<Footer />

@@ -124,7 +124,7 @@ function Upload() {
 							className="w-full mb-[1em] space-y-4 justify-center items-center flex flex-col"
 						>
 							<div className="py-[1.5em] px-[2em] w-full  my-2 bg-[#F9FAFB] text-[#2E90FA] text-sm md:text-base lg:text-lg  font-semibold border border-[#2E90FA]  rounded-sm active:bg-[#e4e8ec]">
-								1. Upload Sales Record
+								2. Upload Sales Record
 								<input
 									type="file"
 									hidden
