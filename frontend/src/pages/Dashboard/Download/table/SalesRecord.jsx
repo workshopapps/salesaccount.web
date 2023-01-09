@@ -14,7 +14,7 @@ import {
 import Select from 'react-select';
 import { useAuth } from '../../../../Store/Context';
 
-const TableData = ({ tableRight }) => {
+const TableData = ({ tableRight, setNewTableLeft, newTableLeft }) => {
 	const [tableItems, setTableItems] = React.useState([...tableRight]);
 
 	return tableItems?.map((value, index) => {
@@ -92,12 +92,17 @@ const TableData = ({ tableRight }) => {
 								onChange={(selectedOption) => {
 									const newTable = [...tableItems];
 									newTable.splice(index, 1, selectedOption.value);
+									const ObjectRight = {
+										...newTableLeft[index],
+										Matching: 'Yes',
+									};
 
 									options.forEach((item, i) => {
 										if (item.label === selectedOption.label) {
 											delete item[[i]];
 										}
 									});
+									setNewTableLeft(ObjectRight);
 									setTableItems(newTable);
 								}}
 							/>
