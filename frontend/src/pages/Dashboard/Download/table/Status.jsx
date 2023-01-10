@@ -44,7 +44,7 @@ const AccountStatement = ({ tableData }) => {
 
 	return (
 		<TableContainer>
-			<Table fontSize="xs" size="xs" variant="simple">
+			<Table fontSize="xs" size="xs" variant="simple" marginTop={10}>
 				<Thead height="65px">
 					<Tr bg="#D1E9FF">
 						<Th>

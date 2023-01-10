@@ -30,13 +30,35 @@ function Reconcile() {
 
 	const navigate = useNavigate();
 
+	// Search Function
+	const filteredResult = localData3[0]?.filter((table) =>
+		Object.keys(table).some((key) => {
+			if (
+				table?.[key]
+					?.toString()
+					?.toLowerCase()
+					?.includes(userInput.trim().toLowerCase())
+			) {
+				return true;
+			}
+			return false;
+		})
+	);
+
 	const tableLeft = [];
 	const tableRight1 = [];
 	const tableRight2 = [];
 
-	localData3[0]?.map((item) => tableRight1.push(item.Matching_details));
+	filteredResult?.map((item) => tableRight1.push(item.Matching_details));
 
-	localData3[0]?.map((item) => tableLeft?.push(item));
+	filteredResult?.map((item) => tableLeft?.push(item));
+
+	// // for the headerKeys
+	// const headerTableLeft = [];
+	// const headerTableRight = [];
+	// localData3[0]?.map((item) => tableRight1.push(item.Matching_details));
+
+	// localData3[0]?.map((item) => headerTableLeft?.push(item));
 
 	// eslint-disable-next-line
 	tableRight1?.forEach((item) => {
@@ -47,6 +69,7 @@ function Reconcile() {
 	});
 
 	const tableRight = tableRight2?.flat();
+
 	const leftHeaderKeys = Object.keys(Object.assign({}, ...tableLeft));
 	const rightHeaderKeys = Object.keys(Object.assign({}, ...tableRight));
 
@@ -66,35 +89,6 @@ function Reconcile() {
 		}
 		return Object.getOwnPropertyNames(obj).length === 0;
 	};
-
-	// Search Function
-	const filteredResult = tableLeft?.filter((table) =>
-		Object.keys(table).some((key) => {
-			if (
-				table?.[key]
-					?.toString()
-					?.toLowerCase()
-					?.includes(userInput.trim().toLowerCase())
-			) {
-				return true;
-			}
-			return false;
-		})
-	);
-
-	// const filteredResult2 = tableRight?.filter((table) =>
-	// 	Object.keys(table).some((key) => {
-	// 		if (
-	// 			table?.[key]
-	// 				?.toString()
-	// 				?.toLowerCase()
-	// 				?.includes(userInput.trim().toLowerCase())
-	// 		) {
-	// 			return true;
-	// 		}
-	// 		return false;
-	// 	})
-	// );
 
 	return (
 		<>
@@ -143,6 +137,8 @@ function Reconcile() {
 					<input
 						className="w-[65%] border rounded-md outline-none py-2 px-4"
 						type="search"
+						value={userInput}
+						onChange={(e) => setUserInput(e.target.value)}
 						placeholder="Search"
 					/>
 					<div className="flex justify-center items-center w-[30%] border rounded-md p-2 text-sm text-slate-400 space-x-1">

@@ -15,6 +15,7 @@ const ReconcileTable = ({
 	rightHeaderKeys,
 }) => {
 	const [newTableLeft, setNewTableLeft] = useState([...tableLeft]);
+
 	return (
 		<Flex transform="scale(1)" transformOrigin={0} gap={2} id="pagetodownload">
 			<Box width="50%">

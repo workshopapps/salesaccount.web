@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import ReactDOM, { createPortal } from 'react-dom';
 import { Link, useNavigate } from 'react-router-dom';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { HashLoader } from 'react-spinners';
@@ -6,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useAuth } from '../../../Store/Context';
 import ServerError from '../../ServerError';
 import draft from '../../../assets/images/DashboardImages/draft2.png';
+import Captcha from '../../../components/Captcha/Captcha';
 
 function Reconcile() {
 	const {
@@ -22,6 +24,8 @@ function Reconcile() {
 		fileValidationError2,
 	} = useAuth();
 
+	const captchaRef = useRef(null);
+
 	const headerKeys = Object.keys(Object.assign({}, ...localData));
 	const headerKeys2 = Object.keys(Object.assign({}, ...localData2));
 
@@ -36,6 +40,12 @@ function Reconcile() {
 	const userClickedUpload = () => {
 		removeItem();
 		navigate('/dashboard/upload');
+	};
+
+	const onCaptcha = (e) => {
+		e.preventDefault();
+		const token1 = captchaRef.current.getValue();
+		captchaRef.current.reset();
 	};
 
 	return (
@@ -65,6 +75,12 @@ function Reconcile() {
 				)}
 			</div>
 			{/* Breadcrumbs Ends */}
+
+			{/* captcha */}
+			{/* {ReactDOM.createPortal(
+				<Captcha captchaRef={captchaRef} />,
+				document.getElementById('captcha')
+			)} */}
 
 			{/* Api Tables */}
 			<div className=" space-y-[4em] lg:space-y-0 lg:flex items-start gap-12 lg:gap-8 justify-center w-full lg:bg-[#F9FAFB] lg:py-[5em] lg:px-[6em] rounded-sm my-8 lg:my-[6em]">

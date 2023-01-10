@@ -22,14 +22,14 @@ function Ratings() {
 			</div>
 			<div className="w-full md:w-[70%] lg:w-[50%] mx-auto flex justify-between md:justify-center items-center">
 				<input
-					className="outline-none bg-[#EAECF0] rounded-md px-4 py-2 md:w-[60%]"
+					className="outline-none bg-[#EAECF0] rounded-md px-4 py-2 w-[65%] md:w-[60%]"
 					type="text"
 					placeholder="Tell us something more"
 				/>
 				<Link to="/contact">
 					<button
 						type="button"
-						className="text-white bg-[#2E90FA] font-medium rounded p-2 mx-2 lg:mx-4 text-sm md:text-base "
+						className="text-white bg-[#2E90FA] font-medium rounded w-max p-2 mx-2 lg:mx-4 text-xs md:text-base "
 					>
 						Get in touch
 					</button>
