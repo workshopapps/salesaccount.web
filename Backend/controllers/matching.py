@@ -3,11 +3,14 @@
 import pandas as pd
 
 from .convert_file import convert_file, df_to_json
+
 from .openai_request import openai_call
+
 from .get_sections import get_sections
 
 
 def compare(df1, df2):
+    """Compares two dataframes, returns """
     response = []
     x = 0
     while x < df1.shape[0]:
@@ -42,11 +45,11 @@ def match(file1, file2):
     """Matches similar transactions in two documents
 
     Args:
-        file1: first document uploaded
-        file2: second document uploaded
+        -file1: first document uploaded
+        -file2: second document uploaded
 
     Return:
-        object: json
+        -object: json
     """
     keyword = """
         Match all the details in these files content below. No title. \
@@ -93,6 +96,16 @@ def match(file1, file2):
     return [matched_response, unmatched_response]
 
 def arrange(statement_table, records_table, keyword):
+    """Takes in user files and passes them to openai
+    
+    Args:
+        -Bank account statement
+        -Sales record
+        -Keyword
+
+    Return:
+        -matched document
+    """
     statement_csv = statement_table.to_csv()
     records_csv = records_table.to_csv()
     columns_a = list(statement_table.columns) 

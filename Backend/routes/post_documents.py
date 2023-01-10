@@ -1,16 +1,20 @@
 #!/usr/bin/python3
 """ POST ENDPOINT FOR POSTING DOCUMENTS """
-from controllers.convert_file import convert_file
-from fastapi import File, UploadFile, APIRouter
-import asyncio
 import os
+
+import asyncio
+
+from controllers.convert_file import convert_file
+
+from fastapi import File, UploadFile, APIRouter
+
 
 router = APIRouter()
 
 
 @router.post("/upload")
 def upload(file: UploadFile = File(...)):
-    """Uploads a file
+    """Uploads a file.
 
     Arg:
         file: uploaded file

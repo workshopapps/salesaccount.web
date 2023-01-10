@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 """ OPENAI API REQUEST MODULE """
-import asyncio
-import openai
 import os
+
+import asyncio
+
+import openai
 
 #from .api_key import API_KEY
 
