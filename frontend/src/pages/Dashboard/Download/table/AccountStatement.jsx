@@ -70,14 +70,19 @@ const Status = ({ tableLeft, leftHeaderKeys }) => {
 	});
 
 	return (
-		<TableContainer>
-			<Table fontSize="xs" size="xs" variant="simple">
-				<Thead mb="5" height="65px">
-					<Tr bg="#000">{headerKeys}</Tr>
-				</Thead>
-				<Tbody>{data}</Tbody>
-			</Table>
-		</TableContainer>
+		<Box>
+			<Box className="w-full bg-[#F9FAFB] p-2 font-medium text-center">
+				ACCOUNT STATEMENT
+			</Box>
+			<TableContainer>
+				<Table fontSize="xs" size="xs" variant="simple">
+					<Thead mb="5" height="65px">
+						<Tr bg="#000">{headerKeys}</Tr>
+					</Thead>
+					<Tbody>{data}</Tbody>
+				</Table>
+			</TableContainer>
+		</Box>
 	);
 };
 

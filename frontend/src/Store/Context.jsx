@@ -8,12 +8,9 @@ const UserContext = createContext();
 export const useAuth = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
-	// catch invalid response from backend
 	const [fileValidationError, setFileValidationError] = useState('');
 	const [fileValidationError2, setFileValidationError2] = useState('');
-	const [status, setStatus] = useState(false);
-
-	// Persisting data to LocalStorage
+	// Persisting data
 	const AccountStatementsaved = JSON.parse(
 		localStorage.getItem('localData') || '[]'
 	);
@@ -52,6 +49,7 @@ export const UserProvider = ({ children }) => {
 	const uploadUrl = 'https://api.reconcileai.hng.tech/upload';
 	const reconcileUrl = `https://api.reconcileai.hng.tech/reconcile`;
 
+
 	// upload bank statement function
 	const getData = async () => {
 		const formData = new FormData();
@@ -64,7 +62,9 @@ export const UserProvider = ({ children }) => {
 				},
 			})
 			.then((res) => {
-				// if response is not a JSON don't proceed
+				// setLocalData(res?.data);
+				// setUploadLoading(false);
+
 				if (res?.data?.message) {
 					setFileValidationError(res.data?.message);
 					setLocalData([]);
@@ -211,8 +211,6 @@ export const UserProvider = ({ children }) => {
 			setFileValidationError,
 			fileValidationError2,
 			setFileValidationError2,
-			status,
-			setStatus,
 		}),
 		[
 			localFile,

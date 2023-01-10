@@ -14,7 +14,7 @@ import {
 import Select from 'react-select';
 import { useAuth } from '../../../../Store/Context';
 
-const TableData = ({ tableRight }) => {
+const TableData = ({ tableRight, setNewTableLeft, newTableLeft }) => {
 	const [tableItems, setTableItems] = React.useState([...tableRight]);
 
 	return tableItems?.map((value, index) => {
@@ -92,12 +92,18 @@ const TableData = ({ tableRight }) => {
 								onChange={(selectedOption) => {
 									const newTable = [...tableItems];
 									newTable.splice(index, 1, selectedOption.value);
+									
+									// const ObjectRight = {
+									// 	...newTableLeft[index],
+									// 	Matching: 'Yes',
+									// };
 
 									options.forEach((item, i) => {
 										if (item.label === selectedOption.label) {
 											delete item[[i]];
 										}
 									});
+									// setNewTableLeft(ObjectRight);
 									setTableItems(newTable);
 								}}
 							/>
@@ -122,16 +128,21 @@ const SalesRecord = ({ tableRight, rightHeaderKeys }) => {
 	// eslint-disable-next-line react/prop-types
 
 	return (
-		<TableContainer>
-			<Table fontSize="xs" size="xs" variant="unstyled">
-				<Thead height="65px">
-					<Tr bg="#000">{headerKeys}</Tr>
-				</Thead>
-				<Tbody>
-					<TableData tableRight={tableRight} />
-				</Tbody>
-			</Table>
-		</TableContainer>
+		<Box>
+			<Box className="w-full bg-[#EAECF0] p-2 font-medium text-center">
+				SALES RECORD
+			</Box>
+			<TableContainer>
+				<Table fontSize="xs" size="xs" variant="unstyled">
+					<Thead height="65px">
+						<Tr bg="#000">{headerKeys}</Tr>
+					</Thead>
+					<Tbody>
+						<TableData tableRight={tableRight} />
+					</Tbody>
+				</Table>
+			</TableContainer>
+		</Box>
 	);
 };
 
