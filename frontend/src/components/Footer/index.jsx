@@ -63,7 +63,7 @@ const socialLinks = [
 
 const Footer = () => (
 	<>
-		<div className="text-center space-y-[1em] bg-[#EFF8FF] py-[3em] md:py-[4em] my-[0.2em] ">
+		<div className="text-center space-y-[1em] bg-[#F9FAFB] py-[3em] md:py-[4em] ">
 			<p className="font-medium lg:text-xl">
 				Share reconcile.AI with your friends
 			</p>

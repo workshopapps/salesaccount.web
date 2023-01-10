@@ -82,19 +82,6 @@ function Reconcile() {
 		})
 	);
 
-	// const filteredResult2 = tableRight?.filter((table) =>
-	// 	Object.keys(table).some((key) => {
-	// 		if (
-	// 			table?.[key]
-	// 				?.toString()
-	// 				?.toLowerCase()
-	// 				?.includes(userInput.trim().toLowerCase())
-	// 		) {
-	// 			return true;
-	// 		}
-	// 		return false;
-	// 	})
-	// );
 
 	return (
 		<>
