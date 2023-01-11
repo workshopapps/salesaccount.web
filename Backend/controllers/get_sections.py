@@ -9,6 +9,7 @@ def get_tokens(df):
         df['Tokens'].loc[i] = len([m for n in b for m in str(n).split()])
     return df
 
+
 def get_sections(df):
     count = 0
     df = get_tokens(df)

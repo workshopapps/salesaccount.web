@@ -10,7 +10,7 @@ import numpy as np
 
 import pandas as pd
 
-from .extract_text import pdf_to_text #image_to_text
+from .extract_text import pdf_to_text  # image_to_text
 
 from .openai_request import openai_call
 
@@ -28,6 +28,7 @@ def df_to_json(df):
     response = json.loads(result)
     json.dumps(response, indent=4)
     return response
+
 
 def check_header(df, header):
     """Converts dataframe to json object
@@ -48,9 +49,10 @@ def check_header(df, header):
     for k, v in result.items():
         if k == "False":
             df = pd.DataFrame(np.row_stack([df.columns, df.values]),
-                             columns=v)
+                              columns=v)
             return df
     return df
+
 
 def correct_date(response: str):
     """Converts wrong parsed date field to proper datetime
@@ -70,6 +72,7 @@ def correct_date(response: str):
     result = openai_call(prompt)
     response = eval(result)
     return response
+
 
 def convert_file(filename: str):
     """Converts csv/pdf/xls files to json
@@ -116,7 +119,7 @@ def convert_file(filename: str):
             df = df.fillna("")
             response = df_to_json(df)
             return response
-        except:
+        except BaseException:
             return response
 
     # elif filename.endswith(".png"):

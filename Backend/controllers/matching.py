@@ -35,11 +35,13 @@ def unmatched(matched_json: str, records_table):
     Return:
         object: json
     """
-    response = [ sub['Matching_details'][0] for sub in matched_json if sub['Matching'] == 'Yes' ]
+    response = [sub['Matching_details'][0]
+                for sub in matched_json if sub['Matching'] == 'Yes']
     res_df = pd.DataFrame(response)
     response = records_table[~records_table.isin(res_df)].dropna()
     response = df_to_json(response)
     return response
+
 
 def match(file1, file2):
     """Matches similar transactions in two documents
@@ -89,15 +91,16 @@ def match(file1, file2):
         matched_response = eval(response)
         unmatched_response = unmatched(matched_response, records_table)
         return [matched_response, unmatched_response]
-    except:
+    except BaseException:
         index = response.index('[')
         matched_response = eval(response[index:])
         unmatched_response = unmatched(matched_response, records_table)
     return [matched_response, unmatched_response]
 
+
 def arrange(statement_table, records_table, keyword):
     """Takes in user files and passes them to openai
-    
+
     Args:
         -Bank account statement
         -Sales record
@@ -108,7 +111,7 @@ def arrange(statement_table, records_table, keyword):
     """
     statement_csv = statement_table.to_csv()
     records_csv = records_table.to_csv()
-    columns_a = list(statement_table.columns) 
+    columns_a = list(statement_table.columns)
     columns_b = list(records_table.columns)
     example = "Example\n[\n{"
     for x in columns_a:
@@ -126,7 +129,7 @@ def arrange(statement_table, records_table, keyword):
         matched_response = response
         print(response)
         return matched_response
-    except:
+    except BaseException:
         index = response.index('[')
         matched_response = response[index:]
         return matched_response

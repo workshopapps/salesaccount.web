@@ -7,9 +7,6 @@ from models import storage
 from fastapi import APIRouter
 
 
-
-
-
 router = APIRouter()
 
 
