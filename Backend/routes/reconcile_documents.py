@@ -1,12 +1,20 @@
 #!/usr/bin/python3
 """ ENDPOINT TO RECONCILE DOCUMENTS """
-from controllers.matching import match
-from fastapi import APIRouter, UploadFile
-from typing import List
 import asyncio
+
 import pandas as pd
+
 import pdfkit
+
 import requests as req
+
+from typing import List
+
+from controllers.matching import match
+
+from fastapi import APIRouter, UploadFile
+
+
 
 
 
@@ -15,7 +23,7 @@ router = APIRouter()
 
 @router.post("/reconcile")
 def reconcile(files: List[UploadFile]):
-    """ Matches similar transactions in the documents """
+    """ Matches similar transactions in the documents, returns a reconciled document or Error 400."""
     if len(files) == 2:
         try:
             for file in files:

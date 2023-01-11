@@ -2,12 +2,12 @@
 """Module to define a serialization/deserialization engine
 that saves objects to a file"""
 import json
+
 from os import path as os_path
 
 
 class FileStorage:
-    """class that defines a file storage engine
-    for JSON serialization"""
+    """class that defines a file storage engine for JSON serialization"""
     __file_path = "backend/reviews.json"
     __objects = {}
 
@@ -30,8 +30,7 @@ class FileStorage:
             json.dump(temp, f)
 
     def reload(self):
-        """deserializes a json file at __file_path and save
-        it in __objects"""
+        """deserializes a json file at __file_path and save it in __objects"""
         models = import_models()
         if os_path.exists(FileStorage.__file_path):
             with open(f"{FileStorage.__file_path}", "r") as f:
@@ -46,8 +45,7 @@ class FileStorage:
 
 
 def import_models():
-    """imports the modules locally when called
-    to avoid circular import"""
+    """imports the modules locally when called to avoid circular import"""
     from models.review import Review
     models = {
         "Review": Review

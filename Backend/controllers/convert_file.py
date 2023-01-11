@@ -1,12 +1,17 @@
 #!/usr/bin/python3
 """ FILE CONVERSION MODULE """
 import asyncio
+
 import json
-import numpy as np
-import pandas as pd
+
 import re
 
+import numpy as np
+
+import pandas as pd
+
 from .extract_text import pdf_to_text #image_to_text
+
 from .openai_request import openai_call
 
 
@@ -17,7 +22,7 @@ def df_to_json(df):
         df: dataframe
 
     Return:
-        object: json
+        object: json format
     """
     result = df.to_json(orient="records")
     response = json.loads(result)
