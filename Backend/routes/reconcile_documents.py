@@ -9,7 +9,6 @@ import pdfkit
 import requests as req
 
 
-
 router = APIRouter()
 
 
@@ -23,16 +22,17 @@ def reconcile(files: List[UploadFile]):
                 file_dir = f"Media/{file.filename}"
                 with open(file_dir, "wb") as f:
                     f.write(contents)
-            response = match(f"Media/{files[0].filename}", f"Media/{files[1].filename}")
+            response = match(
+                f"Media/{files[0].filename}",
+                f"Media/{files[1].filename}")
             return json.loads(response)
         except Exception as e:
             return {
                 "Error": f"{e} occurred. Inform team. Thanks.",
                 "status": 400
-                }
+            }
     else:
         return {
             "Error": "Sorry, you need two files for reconconciliation",
             "status": 400
-            }
-
+        }
