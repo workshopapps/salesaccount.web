@@ -20,7 +20,7 @@ except:
         pickle.dump(embedder, f)
 
 
-def match(file1, file2):
+def bertmatch(file1, file2):
     """Matches similar transactions in two documents
 
     Args:
