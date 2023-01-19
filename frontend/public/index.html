@@ -32,11 +32,26 @@
 			rel="stylesheet"
 		/>
 
+		<!-- Google tag (gtag.js) -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-HEKRJFGWYE"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+			gtag('config', 'G-HEKRJFGWYE');
+		</script>
+
 		<title>ReconcileAI</title>
 	</head>
 
 	<body>
 		<noscript>You need to enable JavaScript to run this app.</noscript>
 		<div id="root"></div>
+		<div id="captcha"></div>
 	</body>
 </html>
