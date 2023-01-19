@@ -1,44 +1,26 @@
 #!/usr/bin/python3
 """ DOCUMENT MATCHING MODULE """
+import json
 import pandas as pd
+import pickle
+import warnings
 
-from .convert_file import convert_file, df_to_json
-from .openai_request import openai_call
-from .get_sections import get_sections
+from .convert_file import convert_file
+from sentence_transformers import SentenceTransformer, util
+import torch
 
+warnings.filterwarnings("ignore")
 
-def compare(df1, df2):
-    response = []
-    x = 0
-    while x < df1.shape[0]:
-        p = get_sections(df1.loc[x:])
-        x = p.index.stop
-        y = 0
-        while y < df2.shape[0]:
-            q = get_sections(df2.loc[y:])
-            y = q.index.stop
-            k = (p, q)
-            response.append(k)
-    return response
+try:
+    with open('embedder.pkl', 'rb') as f:
+        embedder = pickle.load(f)
+except:
+    embedder = SentenceTransformer('msmarco-distilbert-base-tas-b')
+    with open('embedder.pkl', 'wb') as f:
+        pickle.dump(embedder, f)
 
 
-def unmatched(matched_json: str, records_table):
-    """Finds the unmatched transactions in the dataframe
-
-    Args:
-        matched_json: matched json
-        records_df: sales record df
-
-    Return:
-        object: json
-    """
-    response = [ sub['Matching_details'][0] for sub in matched_json if sub['Matching'] == 'Yes' ]
-    res_df = pd.DataFrame(response)
-    response = records_table[~records_table.isin(res_df)].dropna()
-    response = df_to_json(response)
-    return response
-
-def match(file1, file2):
+def bertmatch(file1, file2):
     """Matches similar transactions in two documents
 
     Args:
@@ -48,72 +30,50 @@ def match(file1, file2):
     Return:
         object: json
     """
-    keyword = """
-        Match all the details in these files content below. No title. \
-        Response must be a JSON in an array. Fill empty list with dictionary of empty string values
-        """
-    statement_table = convert_file(file1)
-    statement_table = pd.DataFrame(statement_table)
+    
     records_table = convert_file(file2)
-    records_table = pd.DataFrame(records_table)
-    statement_csv = statement_table.to_csv()[:900]
-    records_csv = records_table.to_csv()[:900]
-    # total_tokens = statement_csv + records_csv
-    # if len(total_tokens) > 2000:
-    #     sections = compare(statement_table, records_table)
-    #     matched_response = []
-    #     for i in sections:
-    #         result = arrange(i[0], i[1], keyword)
-    #         matched_response.extend(result)
-    #     # unmatched_response = unmatched(matched_response, records_table)
-    #     return matched_response#, unmatched_response]
-    # else:
-    columns_a = list(statement_table.columns)
-    columns_b = list(records_table.columns)
-    example = "Example\n[\n{"
-    for x in columns_a:
-        example += f"\n    \"{x}\":"
+    records_table = pd.read_json(records_table)
+    records_table['corpus'] = records_table[records_table.columns].apply(lambda row: ' '.join(row.values.astype(str)), axis=1)
+    corpus = records_table['corpus'].to_list()
+    corpus_embeddings = embedder.encode(corpus, convert_to_tensor=True)
+    
+    
+    statement_table = convert_file(file1)
+    statement_table = pd.read_json(statement_table)
+    queries = []
+    for i in statement_table.index:
+        queries.append(" ".join(list(statement_table.loc[i].astype(str))))
+    # Query sentences:
 
-    example += "\n   \"Matching\": \"Yes\"\n   \"Matching_details\":\n   [\n   {"
-    for x in columns_b:
-        example += f"\n    \"{x}\": "
-    example += "\n   }\n   ]\n}\n]"
-    # print(example)
-    prompt = f"{keyword}{example}{statement_csv}\n{records_csv}\n"
+    response = []
+    pool = {}
+    # Find the closest 5 sentences of the corpus for each query sentence based on cosine similarity
+    top_k = min(1, len(corpus))
+    for i, query in enumerate(queries):
+        query_embedding = embedder.encode(query, convert_to_tensor=True)
 
-    response = openai_call(prompt, 0.1)
-    try:
-        matched_response = eval(response)
-        unmatched_response = unmatched(matched_response, records_table)
-        return [matched_response, unmatched_response]
-    except:
-        index = response.index('[')
-        matched_response = eval(response[index:])
-        unmatched_response = unmatched(matched_response, records_table)
-    return [matched_response, unmatched_response]
+        # We use cosine-similarity and torch.topk to find the highest 5 scores
+        cos_scores = util.cos_sim(query_embedding, corpus_embeddings)[0]
+        top_results = torch.topk(cos_scores, k=top_k)
 
-def arrange(statement_table, records_table, keyword):
-    statement_csv = statement_table.to_csv()
-    records_csv = records_table.to_csv()
-    columns_a = list(statement_table.columns) 
-    columns_b = list(records_table.columns)
-    example = "Example\n[\n{"
-    for x in columns_a:
-        example += f"\n    \"{x}\":"
+        # print("\n\n======================\n\n")
+        # print("Query:", query)
+        # print("\nTop 5 most similar sentences in corpus:")
 
-    example += "\n   Matching: Yes\n   Matching_details:\n   [\n   {"
-    for x in columns_b:
-        example += f"\n    \"{x}\":"
-    example += "\n   }\n   ]\n}\n]"
+        for score, idx in zip(top_results[0], top_results[1]):
+            x = records_table.loc[idx.tolist()].to_dict()
+            del x['corpus']
+            if score > 0.5999:
+                pool['Matched'] = True
+                pool['Matched_details'] = [x]
+                pool["Certainty"] = "{:.4f}".format(score)
+            else:
+                pool['Matched'] = False
+                pool['Matched_details'] = [{i: "" for i in x}]
+                pool["Certainty"] = ""
+            x = statement_table.loc[i].to_dict()
+            x.update(pool)
+            response.append(x)
 
-    prompt = f"{keyword}{example}{statement_csv}\n{records_csv}\n"
-
-    response = openai_call(prompt, 0.1)
-    try:
-        matched_response = response
-        print(response)
-        return matched_response
-    except:
-        index = response.index('[')
-        matched_response = response[index:]
-        return matched_response
+    json_object = json.dumps(response, default=str, indent = 4) 
+    return json_object

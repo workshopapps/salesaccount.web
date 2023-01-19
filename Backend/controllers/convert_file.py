@@ -10,20 +10,6 @@ from .extract_text import pdf_to_text #image_to_text
 from .openai_request import openai_call
 
 
-def df_to_json(df):
-    """Converts dataframe to json object
-
-    Args:
-        df: dataframe
-
-    Return:
-        object: json
-    """
-    result = df.to_json(orient="records")
-    response = json.loads(result)
-    json.dumps(response, indent=4)
-    return response
-
 def check_header(df, header):
     """Converts dataframe to json object
 
@@ -47,25 +33,6 @@ def check_header(df, header):
             return df
     return df
 
-def correct_date(response: str):
-    """Converts wrong parsed date field to proper datetime
-
-    Args:
-        response: json response
-
-    Return:
-        object: json
-    """
-    keyword = """Change the date field in this\
-            JSON to proper dates and null to a string"""
-    if len(response) > 2000:
-        prompt = f"{keyword}\n\n{response[:2000]}\n\n"
-    else:
-        prompt = f"{keyword}\n\n{response}\n\n"
-    result = openai_call(prompt)
-    response = eval(result)
-    return response
-
 def convert_file(filename: str):
     """Converts csv/pdf/xls files to json
 
@@ -81,9 +48,9 @@ def convert_file(filename: str):
         df = pd.read_csv(filename, encoding=encoding)
         df = df.replace(r'^\s*$', np.nan, regex=True)
         df = df.fillna("")
-        header = df.head(2).to_csv()
-        df = check_header(df, header)
-        response = df_to_json(df)
+        # header = df.head(2).to_csv()
+        # df = check_header(df, header)
+        response = df.to_json(orient="records", indent=4, date_format='iso', date_unit='s')
         return response
 
     # if filename.endswith(".txt"):
@@ -99,8 +66,7 @@ def convert_file(filename: str):
         df = pd.read_excel(filename)
         df = df.replace(r'^\s*$', np.nan, regex=True)
         df = df.fillna("")
-        response = df_to_json(df)
-        # response = correct_date(response)
+        response = df.to_json(orient="records", indent=4, date_format='iso', date_unit='s')
         return response
 
     elif filename.endswith(".pdf"):
@@ -109,7 +75,7 @@ def convert_file(filename: str):
             df = pd.read_json(response, convert_dates=False)
             df = df.replace(r'^\s*$', np.nan, regex=True)
             df = df.fillna("")
-            response = df_to_json(df)
+            response = df.to_json(orient="records", indent=4, date_format='iso', date_unit='s')
             return response
         except:
             return response

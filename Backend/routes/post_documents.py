@@ -2,7 +2,7 @@
 """ POST ENDPOINT FOR POSTING DOCUMENTS """
 from controllers.convert_file import convert_file
 from fastapi import File, UploadFile, APIRouter
-import asyncio
+import json
 import os
 
 router = APIRouter()
@@ -23,7 +23,7 @@ def upload(file: UploadFile = File(...)):
         with open(f"Media/{file.filename}", 'wb') as f:
             f.write(contents)
         response = convert_file(f"Media/{file.filename}")
-        return response
+        return json.loads(response)
     except Exception as e:
         os.remove(f"Media/{file.filename}")
         return {
