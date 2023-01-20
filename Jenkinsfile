@@ -50,10 +50,10 @@ pipeline {
                 sh "sudo ls /home/dcnc/salesaccount.web/Backend"
                 //sh "cd /home/dcnc/salesaccount.web/Backend"
                 sh 'sudo pm2 delete -s reconcileaibackend || :'
-                sh "cd /home/dcnc/salesaccount.web/Backend"
-                sh "pip install protobuf==3.20.*"
-                sh "export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python"
-                sh "sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502 --timeout=3000' --name reconcileaibackend"
+               // sh "cd /home/dcnc/salesaccount.web/Backend"
+                sh "cd /home/dcnc/salesaccount.web/Backend && pip install protobuf==3.20.*"
+                sh "cd /home/dcnc/salesaccount.web/Backend && export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python"
+                sh "cd /home/dcnc/salesaccount.web/Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502 --timeout=3000' --name reconcileaibackend"
             }
         }
     }
