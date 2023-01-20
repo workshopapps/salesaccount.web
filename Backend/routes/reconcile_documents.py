@@ -23,7 +23,9 @@ def gptreconcile(files: List[UploadFile]):
                 file_dir = f"Media/{file.filename}"
                 with open(file_dir, "wb") as f:
                     f.write(contents)
-            response = gptmatch(f"Media/{files[0].filename}", f"Media/{files[1].filename}")
+            response = gptmatch(
+                f"Media/{files[0].filename}",
+                f"Media/{files[1].filename}")
             return response
         except Exception as e:
             return {
@@ -34,7 +36,8 @@ def gptreconcile(files: List[UploadFile]):
         return {
             "Error": "Sorry, you need two files for reconconciliation",
             "status": 400
-            }
+        }
+
 
 @router.post("/bertreconcile")
 def bertreconcile(files: List[UploadFile]):
@@ -46,15 +49,19 @@ def bertreconcile(files: List[UploadFile]):
                 file_dir = f"Media/{file.filename}"
                 with open(file_dir, "wb") as f:
                     f.write(contents)
-            response = bertmatch(f"Media/{files[0].filename}", f"Media/{files[1].filename}")
+            response = bertmatch(
+                f"Media/{files[0].filename}",
+                f"Media/{files[1].filename}")
             return json.loads(response)
         except Exception as e:
             return {
                 "Error": f"{e} occurred. Inform team. Thanks.",
                 "status": 400
-                }
+            }
     else:
         return {
             "Error": "Sorry, you need two files for reconconciliation",
             "status": 400
-            }
+
+          }
+
