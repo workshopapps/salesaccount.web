@@ -12,10 +12,8 @@ def get_tokens(df):
         b = df.loc[i]
         text = " ".join([m for n in b for m in str(n).split()])
         tokens2 = tokenizer(text)['input_ids']
-        df['Tokens'].loc[i] = len(
-            [tokenizer.decode(x).strip() for x in tokens2])
+        df['Tokens'].loc[i] = len([tokenizer.decode(x).strip() for x in tokens2])
     return df
-
 
 def get_sections(df):
     count = 0
@@ -29,7 +27,7 @@ def get_sections(df):
             x = df.loc[i]["Tokens"]
             print(f"Tokens {x} ---- sections {count}")
             if df.loc[i]["Tokens"] == 0:
-                print(i, df.loc[i], df.loc[i + 1])
+                print(i, df.loc[i], df.loc[i+1])
             i += 1
         else:
             i -= 1
