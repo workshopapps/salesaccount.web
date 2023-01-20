@@ -14,7 +14,7 @@ warnings.filterwarnings("ignore")
 try:
     with open('embedder.pkl', 'rb') as f:
         embedder = pickle.load(f)
-except:
+except BaseException:
     embedder = SentenceTransformer('msmarco-distilbert-base-tas-b')
     with open('embedder.pkl', 'wb') as f:
         pickle.dump(embedder, f)
@@ -30,14 +30,14 @@ def bertmatch(file1, file2):
     Return:
         object: json
     """
-    
+
     records_table = convert_file(file2)
     records_table = pd.read_json(records_table)
-    records_table['corpus'] = records_table[records_table.columns].apply(lambda row: ' '.join(row.values.astype(str)), axis=1)
+    records_table['corpus'] = records_table[records_table.columns].apply(
+        lambda row: ' '.join(row.values.astype(str)), axis=1)
     corpus = records_table['corpus'].to_list()
     corpus_embeddings = embedder.encode(corpus, convert_to_tensor=True)
-    
-    
+
     statement_table = convert_file(file1)
     statement_table = pd.read_json(statement_table)
     queries = []
@@ -47,7 +47,8 @@ def bertmatch(file1, file2):
 
     response = []
     pool = {}
-    # Find the closest 5 sentences of the corpus for each query sentence based on cosine similarity
+    # Find the closest 5 sentences of the corpus for each query sentence based
+    # on cosine similarity
     top_k = min(1, len(corpus))
     for i, query in enumerate(queries):
         query_embedding = embedder.encode(query, convert_to_tensor=True)
@@ -75,5 +76,5 @@ def bertmatch(file1, file2):
             x.update(pool)
             response.append(x)
 
-    json_object = json.dumps(response, default=str, indent = 4) 
+    json_object = json.dumps(response, default=str, indent=4)
     return json_object

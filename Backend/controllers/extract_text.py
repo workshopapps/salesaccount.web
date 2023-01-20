@@ -7,7 +7,7 @@ import PyPDF2
 from .openai_request import openai_call
 
 
-def pdf_to_text(filename:str):
+def pdf_to_text(filename: str):
     """Extracts text from pdf files
 
     Args:
@@ -21,12 +21,12 @@ def pdf_to_text(filename:str):
     pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
     output = ""
     response = ""
-    keyword = """Match only transaction details with a date attached in this text below into a table. No title. 
+    keyword = """Match only transaction details with a date attached in this text below into a table. No title.
                 Response only as JSON format inside an array.\n Example: [{"key_response":"value_response"}]"""
     for i in range(pdfReader.numPages):
         pageObj = pdfReader.getPage(i)
         output = pageObj.extractText()
-        output  = output.strip('\n')
+        output = output.strip('\n')
         output = output[:2000]
         prompt = f"{keyword}\n\n{output}\n\n"
         result = openai_call(prompt, 0.1)
@@ -49,8 +49,12 @@ class OCR_Reader:
     def read_text(self, image):
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         adapted = cv2.adaptiveThreshold(
-            gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 85, 11
-        )
+            gray,
+            255,
+            cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+            cv2.THRESH_BINARY,
+            85,
+            11)
         result = self.reader.readtext(gray)
         text = []
         boxes = []
@@ -60,7 +64,8 @@ class OCR_Reader:
             text.append(detection[1])
             boxes.append(f"Box: {top_left + bottom_right}")
             try:
-                image = cv2.rectangle(image, top_left, bottom_right, (0, 255, 0), 2)
-            except:
+                image = cv2.rectangle(
+                    image, top_left, bottom_right, (0, 255, 0), 2)
+            except BaseException:
                 continue
-        return image, text, boxes 
+        return image, text, boxes
