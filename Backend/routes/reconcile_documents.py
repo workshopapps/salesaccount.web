@@ -10,7 +10,6 @@ import pdfkit
 import requests as req
 
 
-
 router = APIRouter()
 
 
@@ -30,7 +29,7 @@ def gptreconcile(files: List[UploadFile]):
             return {
                 "Error": f"{e} occurred. Inform team. Thanks.",
                 "status": 400
-                }
+            }
     else:
         return {
             "Error": "Sorry, you need two files for reconconciliation",
