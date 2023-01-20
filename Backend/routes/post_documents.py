@@ -29,6 +29,7 @@ def upload(file: UploadFile = File(...)):
         return {
             "message": f"There was an error uploading the file {e}",
             "status": 400
-        }
+            }
     finally:
         file.file.close()
+  

@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import re
 
-from .extract_text import pdf_to_text  # image_to_text
+from .extract_text import pdf_to_text #image_to_text
 from .openai_request import openai_call
 
 
@@ -29,10 +29,9 @@ def check_header(df, header):
     for k, v in result.items():
         if k == "False":
             df = pd.DataFrame(np.row_stack([df.columns, df.values]),
-                              columns=v)
+                             columns=v)
             return df
     return df
-
 
 def convert_file(filename: str):
     """Converts csv/pdf/xls files to json
@@ -51,11 +50,7 @@ def convert_file(filename: str):
         df = df.fillna("")
         # header = df.head(2).to_csv()
         # df = check_header(df, header)
-        response = df.to_json(
-            orient="records",
-            indent=4,
-            date_format='iso',
-            date_unit='s')
+        response = df.to_json(orient="records", indent=4, date_format='iso', date_unit='s')
         return response
 
     # if filename.endswith(".txt"):
@@ -71,11 +66,7 @@ def convert_file(filename: str):
         df = pd.read_excel(filename)
         df = df.replace(r'^\s*$', np.nan, regex=True)
         df = df.fillna("")
-        response = df.to_json(
-            orient="records",
-            indent=4,
-            date_format='iso',
-            date_unit='s')
+        response = df.to_json(orient="records", indent=4, date_format='iso', date_unit='s')
         return response
 
     elif filename.endswith(".pdf"):
@@ -84,13 +75,9 @@ def convert_file(filename: str):
             df = pd.read_json(response, convert_dates=False)
             df = df.replace(r'^\s*$', np.nan, regex=True)
             df = df.fillna("")
-            response = df.to_json(
-                orient="records",
-                indent=4,
-                date_format='iso',
-                date_unit='s')
+            response = df.to_json(orient="records", indent=4, date_format='iso', date_unit='s')
             return response
-        except BaseException:
+        except:
             return response
 
     # elif filename.endswith(".png"):
