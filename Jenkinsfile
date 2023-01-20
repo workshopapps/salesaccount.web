@@ -49,6 +49,7 @@ pipeline {
                 sh "sudo chmod -R a+rwx ${env.WORKSPACE}"
                 sh "sudo ls /home/dcnc/salesaccount.web/Backend"
                 //sh "cd /home/dcnc/salesaccount.web/Backend"
+                sh "export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python"
                 sh 'sudo pm2 delete -s reconcileaibackend || :'
                 sh "cd /home/dcnc/salesaccount.web/Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502 --timeout=3000' --name reconcileaibackend"
             }
