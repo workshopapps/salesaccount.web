@@ -1,11 +1,9 @@
 #!/usr/bin/python3
 """ TOKEN SECTIONING MODULE """
-from .gpt2_tokenizer.gpt2.tokenization_gpt2 import GPT2Tokenizer
+from transformers import GPT2Tokenizer
 
-# initialize tokenizer and model from pretrained GPT2 model
-f1 = 'D:\\Vagrant\\salesaccount.web-dev/backend\\controllers/tokenize'
-f2 = "C:\\Users\\ALIENWARE//.cache\\huggingface\\hub\\models--gpt2\\snapshots//tokenize"
-tokenizer = GPT2Tokenizer.from_pretrained(f2)
+
+tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
 
 
 def get_tokens(df):
@@ -36,4 +34,4 @@ def get_sections(df):
         else:
             i -= 1
             break
-    return df.loc[:i]  # .drop("Tokens", axis=1)
+    return df.loc[:i].drop("Tokens", axis=1)

@@ -2,14 +2,14 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 
 import { useContext, useState, createContext, useMemo } from 'react';
+import { Navigate } from 'react-router-dom';
 
 const UserContext = createContext();
 export const useAuth = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
-
-	const [fileValidationError, setFileValidationError] = useState('')
-	const [fileValidationError2, setFileValidationError2] = useState('')
+	const [fileValidationError, setFileValidationError] = useState('');
+	const [fileValidationError2, setFileValidationError2] = useState('');
 	// Persisting data
 	const AccountStatementsaved = JSON.parse(
 		localStorage.getItem('localData') || '[]'
@@ -21,19 +21,9 @@ export const UserProvider = ({ children }) => {
 		localStorage.getItem('localData3') || '[]'
 	);
 
-	//  Persisting data for uploaded files
-
-	// const fileDroppedSaved = JSON.parse(
-	// 	localStorage.getItem('fileDropped') || '[]'
-	// );
-	// const fileDroppedSaved2 = JSON.parse(
-	// 	localStorage.getItem('fileDropped2') || '[]'
-	// );
-
 	const [progress, setProgress] = useState(0);
 	const [saleAccountFiles, setSalesAccountFiles] = useState([]);
 	const [bankStatementFile, setBankStatementFile] = useState([]);
-	const [error, setError] = useState('');
 
 	const [fileErr, setFileErr] = useState(false);
 
@@ -43,21 +33,24 @@ export const UserProvider = ({ children }) => {
 	const [localData, setLocalData] = useState(AccountStatementsaved);
 	const [localData2, setLocalData2] = useState(SalesRecordsaved);
 
-	// reconcile data
+	// State for Response data, Error and loading
 	const [localData3, setLocalData3] = useState(ReconciledRecordsSaved);
 	const [loading, setLoading] = useState(true);
 	const [uploadLoading, setUploadLoading] = useState(true);
 	const [uploadLoading2, setUploadLoading2] = useState(true);
 	const [rError, setRError] = useState('');
+	const [error, setError] = useState('');
 
+	// file user picked from thier machine
 	const [fileDropped, setFileDropped] = useState([]);
 	const [fileDropped2, setFileDropped2] = useState([]);
 
+	// api endpoint
 	const uploadUrl = 'https://api.reconcileai.hng.tech/upload';
 	const reconcileUrl = `https://api.reconcileai.hng.tech/reconcile`;
-	const downloadUrl = '';
 
-	// ////////bank statement GET request
+
+	// upload bank statement function
 	const getData = async () => {
 		const formData = new FormData();
 		formData.append('file', fileDropped);
@@ -69,23 +62,23 @@ export const UserProvider = ({ children }) => {
 				},
 			})
 			.then((res) => {
-				// setLocalData(res?.data);				
+				// setLocalData(res?.data);
 				// setUploadLoading(false);
 
 				if (res?.data?.message) {
-                    setFileValidationError(res.data?.message);
-                    setLocalData([]);
-                    setUploadLoading(false);
-                    return;
-                }
-                setFileValidationError('');
-                setLocalData(res?.data);
-                setUploadLoading(false);
+					setFileValidationError(res.data?.message);
+					setLocalData([]);
+					setUploadLoading(false);
+					return;
+				}
+				setFileValidationError('');
+				setLocalData(res?.data);
+				setUploadLoading(false);
 			})
 			.catch((e) => setError(e.message));
 	};
 
-	// ////sales Record ///////
+	//  Upload Sales Record  function
 	const getSalesData = async () => {
 		const formData = new FormData();
 		formData.append('file', fileDropped2);
@@ -96,24 +89,20 @@ export const UserProvider = ({ children }) => {
 				},
 			})
 			.then((res) => {
-				// setLocalData2(res?.data);
-				// setUploadLoading2(false);
-
 				if (res?.data?.message) {
-                    setFileValidationError2(res.data?.message);
-                    setLocalData2([]);
-                    setUploadLoading2(false);
-                    return;
-                }
-                setFileValidationError2('');
-                setLocalData2(res?.data);
-                setUploadLoading2(false);
-		
+					setFileValidationError2(res.data?.message);
+					setLocalData2([]);
+					setUploadLoading2(false);
+					return;
+				}
+				setFileValidationError2('');
+				setLocalData2(res?.data);
+				setUploadLoading2(false);
 			})
 			.catch((e) => setError(e.message));
 	};
 
-	// reconcile get request
+	// Reconcile  Function
 	const reconcileData = async () => {
 		const formData = new FormData();
 		const files = [fileDropped, fileDropped2];
@@ -125,6 +114,7 @@ export const UserProvider = ({ children }) => {
 		axios
 			.post(reconcileUrl, formData)
 			.then((res) => {
+				// console.log(res?.data);
 				setLocalData3(res?.data);
 				setRError('');
 				setLoading(false);
@@ -173,12 +163,7 @@ export const UserProvider = ({ children }) => {
 	};
 
 	const removeItem = () => {
-		// localStorage.removeItem('localData');
-		// localStorage.removeItem('localData2');
-		// localStorage.removeItem('fileDropped');
-		// localStorage.removeItem('fileDropped2');
-		// localStorage.removeItem('localData3');
-		localStorage.clear()
+		localStorage.clear();
 		setLocalData([]);
 		setLocalData2([]);
 		setFileDropped([]);
@@ -221,8 +206,11 @@ export const UserProvider = ({ children }) => {
 			progress,
 			fileErr,
 			uploadLoading,
-			uploadLoading2,fileValidationError, setFileValidationError,
-			fileValidationError2, setFileValidationError2
+			uploadLoading2,
+			fileValidationError,
+			setFileValidationError,
+			fileValidationError2,
+			setFileValidationError2,
 		}),
 		[
 			localFile,
@@ -234,9 +222,13 @@ export const UserProvider = ({ children }) => {
 			fileDropped2,
 			localFile2,
 			setFileDropped2,
-			setLocalData2,uploadLoading2,
-			localData3,fileValidationError, setFileValidationError,
-			fileValidationError2, setFileValidationError2
+			setLocalData2,
+			uploadLoading2,
+			localData3,
+			fileValidationError,
+			setFileValidationError,
+			fileValidationError2,
+			setFileValidationError2,
 		]
 	);
 

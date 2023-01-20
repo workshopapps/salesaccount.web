@@ -6,6 +6,8 @@ pipeline {
             steps {
                 sh 'echo "Building Frontend"'
                 sh 'cd frontend && npm i --force && CI=false npm run build'
+                //delete node_modules
+                sh 'cd frontend && rm -rf node_modules'
             }
         }
                 
@@ -28,11 +30,8 @@ pipeline {
             steps {
                 sh 'echo "Deploying" '
                 //copy workspace to directory
-                //sh 'sudo cp -rf ${WORKSPACE}/frontend/build/* /var/www/html'
                 sh 'sudo cp -rf ${WORKSPACE}/frontend/build/* /home/dcnc/salesaccount.web/frontend/build'
-                sh 'sudo cp -rf ${WORKSPACE}/frontend/ /var/www/salesaccount.web'
-                //sh 'pm2 stop reconcileaifrontend && pm2 delete reconcileaifrontend'
-                sh 'sudo su dcnc && whoami'
+                sh 'sudo cp -rf ${WORKSPACE}/frontend/build/* /var/www/reconcileai'
                 sh 'sudo pm2 delete -s reconcileaifrontend || :'
                 //sh 'cd frontend && pm2 serve -s build 55501 --name reconcileaifrontend --spa'
                 sh 'sudo pm2 serve -s /home/dcnc/salesaccount.web/frontend/build --port 55501 --name reconcileaifrontend --spa'
@@ -41,21 +40,18 @@ pipeline {
 
         stage('Build and Deploy FastAPI Backend') {
             steps {
-               // sh "sudo chmod +x -R ${env.WORKSPACE}"
                 sh 'echo "Building FastAPI Backend"'
                 sh 'sudo cp -rf ${WORKSPACE}/Backend/* /home/dcnc/salesaccount.web/Backend'
                 sh "pwd"
                 sh "cd Backend && ls -l"
-               // sh "cd Backend && python3 -m venv myvenv"
-               // sh "cd Backend && cd myvenv && . bin/activate"
                 sh "cd Backend && pip install -r requirements.txt"
                 // start the fastapi server on port 55502 with Uvicorn
+                sh "sudo chmod -R a+rwx ${env.WORKSPACE}"
+                sh "sudo ls /home/dcnc/salesaccount.web/Backend"
+                //sh "cd /home/dcnc/salesaccount.web/Backend"
                 sh 'sudo pm2 delete -s reconcileaibackend || :'
-                sh "cd Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502 --timeout=3000' --name reconcileaibackend"
+                sh "cd /home/dcnc/salesaccount.web/Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502 --timeout=3000' --name reconcileaibackend"
             }
         }
     }
 }
-
-//create a cron job to run the curl localhost:55501 on the first of every month at 7:00 AM
-//0 7 1 * * curl localhost:55501

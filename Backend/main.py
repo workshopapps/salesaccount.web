@@ -2,9 +2,12 @@
 """ FASTAPI APPLICATION """
 import sentry_sdk
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from routes import api_status, post_documents, reconcile_documents, api_reviews
+from Config.db import engine, SessionLocal
+from sqlalchemy.orm import Session
+from model import Reconcile
 
 
 sentry_sdk.init(
@@ -15,8 +18,16 @@ sentry_sdk.init(
     traces_sample_rate=1.0,
 )
 
-
 app = FastAPI()
+
+"""Databse Connection"""
+Reconcile.Base.metadata.create_all(bind=engine)
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
 app.add_middleware(
     CORSMiddleware,

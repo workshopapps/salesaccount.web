@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """ DOCUMENT MATCHING MODULE """
+import json
 import pandas as pd
 import warnings
 
-from .convert_file import convert_file, df_to_json
+from .convert_file import convert_file
 from .openai_request import openai_call
 from .get_sections import get_sections
 
@@ -43,7 +44,7 @@ def unmatched(matched_json: str, records_table):
     response = df_to_json(response)
     return response
 
-def match(file1, file2):
+def gptmatch(file1, file2):
     """Matches similar transactions in two documents
 
     Args:
@@ -59,9 +60,9 @@ def match(file1, file2):
         All key value pairs should have be double quotation. Change the date field in the JSON to proper dates
         """
     statement_table = convert_file(file1)
-    statement_table = pd.DataFrame(statement_table)
+    statement_table = pd.read_json(statement_table)
     records_table = convert_file(file2)
-    records_table = pd.DataFrame(records_table)
+    records_table = pd.read_json(records_table)
     statement_csv = statement_table.to_csv()#[:800]
     records_csv = records_table.to_csv()#[:800]
     total_tokens = statement_csv + records_csv
@@ -94,15 +95,15 @@ def match(file1, file2):
         prompt = f"{keyword}\n\n{example}\n\n{statement_csv}\n\n{records_csv}\n\n"
 
         response = openai_call(prompt, 0.05)
-        try:
-            matched_response = eval(response)
-            # unmatched_response = unmatched(matched_response, records_table)
-            return matched_response#, unmatched_response]
-        except:
-            index = response.index('[')
-            matched_response = eval(response[index:])
-            # unmatched_response = unmatched(matched_response, records_table)
-        return [matched_response, unmatched_response]
+        # try:
+        matched_response = json.loads(response) 
+        # unmatched_response = unmatched(matched_response, records_table)
+        return matched_response#, unmatched_response]
+        # except:
+        #     index = response.index('[')
+        #     matched_response = json.dumps(response[index:])
+        #     # unmatched_response = unmatched(matched_response, records_table)
+        # return matched_response
 
 def arrange(statement_table, records_table, keyword):
     statement_csv = statement_table.to_csv()
