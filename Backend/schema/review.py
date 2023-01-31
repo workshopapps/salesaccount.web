@@ -3,7 +3,7 @@
 from pydantic import BaseModel
 
 
-class Review(BaseModel):
+class CreateReview(BaseModel):
     id: str
     email: str
     text: str
