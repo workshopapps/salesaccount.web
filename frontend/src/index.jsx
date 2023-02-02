@@ -39,6 +39,7 @@ import Privacy from './pages/Privacy';
 import ServerError from './pages/ServerError/index';
 import Upload from './pages/Dashboard/Upload/Upload';
 import Download from './pages/Dashboard/Download/Download';
+import SignUp from './pages/sign-up/Signup';
 
 // Kindly Comment when on testing on Local
 Sentry.init({
@@ -158,6 +159,10 @@ const router = createBrowserRouter([
 	{
 		path: '/uploadedaccountstatementready',
 		element: <UploadedAccountStatementReady />,
+	},
+	{
+		path: '/sign-up',
+		element: <SignUp />,
 	},
 
 	{
