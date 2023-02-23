@@ -47,7 +47,7 @@ export const UserProvider = ({ children }) => {
 
 	// api endpoint
 	const uploadUrl = 'https://api.reconcileai.hng.tech/upload';
-	const reconcileUrl = `https://api.reconcileai.hng.tech/reconcile`;
+	const reconcileUrl = `https://api.reconcileai.hng.tech/gptreconcile`;
 
 	// upload bank statement function
 	const getData = async () => {
@@ -61,9 +61,6 @@ export const UserProvider = ({ children }) => {
 				},
 			})
 			.then((res) => {
-				// setLocalData(res?.data);
-				// setUploadLoading(false);
-
 				if (res?.data?.message) {
 					setFileValidationError(res.data?.message);
 					setLocalData([]);
@@ -113,7 +110,6 @@ export const UserProvider = ({ children }) => {
 		axios
 			.post(reconcileUrl, formData)
 			.then((res) => {
-				// console.log(res?.data);
 				setLocalData3(res?.data);
 				setRError('');
 				setLoading(false);
