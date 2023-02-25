@@ -31,27 +31,27 @@ function Reconcile() {
 	const navigate = useNavigate();
 
 	// Search Function
-	const filteredResult = localData3[0]?.filter((table) =>
-		Object.keys(table).some((key) => {
-			if (
-				table?.[key]
-					?.toString()
-					?.toLowerCase()
-					?.includes(userInput.trim().toLowerCase())
-			) {
-				return true;
-			}
-			return false;
-		})
-	);
+	// const filteredResult = localData3[0]?.filter((table) =>
+	// 	Object.keys(table).some((key) => {
+	// 		if (
+	// 			table?.[key]
+	// 				?.toString()
+	// 				?.toLowerCase()
+	// 				?.includes(userInput.trim().toLowerCase())
+	// 		) {
+	// 			return true;
+	// 		}
+	// 		return false;
+	// 	})
+	// );
 
 	const tableLeft = [];
 	const tableRight1 = [];
 	const tableRight2 = [];
 
-	filteredResult?.map((item) => tableRight1.push(item.Matching_details));
+	localData3[0]?.map((item) => tableRight1.push(item.Matching_details));
 
-	filteredResult?.map((item) => tableLeft?.push(item));
+	localData3[0]?.map((item) => tableLeft?.push(item));
 
 	// // for the headerKeys
 	// const headerTableLeft = [];

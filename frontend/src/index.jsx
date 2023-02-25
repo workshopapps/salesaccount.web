@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
@@ -8,37 +8,55 @@ import { BrowserTracing } from '@sentry/tracing';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
-import LandingPage from './pages/LandingPage';
-import AboutUs from './pages/AboutUs';
-import AccountBalanceReport from './pages/AccountBalanceReport';
-import BlogPost from './pages/BlogPost';
-import Careers from './pages/Careers';
-import Company from './pages/Company';
-import ContactUs from './pages/Contact';
-import Documentation from './pages/Documentation';
-import Faqs from './pages/Faqs';
-import Guides from './pages/Guides';
-import Pricing from './pages/Pricing';
-import Help from './pages/Help';
-import Resources from './pages/Resources';
-import UploadAccountsStatementReady from './pages/UploadAccountsStatementReady';
-import Userupload from './pages/UserUpload';
-import UploadedAccountStatementReady from './pages/UploadedAccountStatementReady';
-import UpoadingSalesRecord from './pages/UpoadingSalesRecord';
-import Teams from './pages/Teams';
-import History from './pages/History';
+import { HashLoader } from 'react-spinners';
+
 import reportWebVitals from './reportWebVitals';
 import DashBoard from './pages/Dashboard';
-import Gpt3 from './pages/Gpt-3';
-import Blogs from './pages/Blogs/Index';
-import Error404 from './pages/Error404/index';
-import ErrorProcessing from './pages/ErrorProcessing/index';
-import Reconcile from './pages/Dashboard/Reconcile/Reconcile';
+
 import { UserProvider } from './Store/Context';
-import Privacy from './pages/Privacy';
-import ServerError from './pages/ServerError/index';
 import Upload from './pages/Dashboard/Upload/Upload';
-import Download from './pages/Dashboard/Download/Download';
+
+const AboutUs = React.lazy(() => import('./pages/AboutUs'));
+const Download = React.lazy(() =>
+	import('./pages/Dashboard/Download/Download')
+);
+const ServerError = React.lazy(() => import('./pages/ServerError/index'));
+const Reconcile = React.lazy(() =>
+	import('./pages/Dashboard/Reconcile/Reconcile')
+);
+const ErrorProcessing = React.lazy(() =>
+	import('./pages/ErrorProcessing/index')
+);
+const Privacy = React.lazy(() => import('./pages/Privacy'));
+const Error404 = React.lazy(() => import('./pages/Error404/index'));
+const Blogs = React.lazy(() => import('./pages/Blogs/Index'));
+const Gpt3 = React.lazy(() => import('./pages/Gpt-3'));
+const History = React.lazy(() => import('./pages/History'));
+const Teams = React.lazy(() => import('./pages/Teams'));
+const UpoadingSalesRecord = React.lazy(() =>
+	import('./pages/UpoadingSalesRecord')
+);
+const UploadedAccountStatementReady = React.lazy(() =>
+	import('./pages/UploadedAccountStatementReady')
+);
+const Userupload = React.lazy(() => import('./pages/UserUpload'));
+const UploadAccountsStatementReady = React.lazy(() =>
+	import('./pages/UploadAccountsStatementReady')
+);
+const Resources = React.lazy(() => import('./pages/Resources'));
+const Help = React.lazy(() => import('./pages/Help'));
+const Pricing = React.lazy(() => import('./pages/Pricing'));
+const Guides = React.lazy(() => import('./pages/Guides'));
+const Faqs = React.lazy(() => import('./pages/Faqs'));
+const Documentation = React.lazy(() => import('./pages/Documentation'));
+const ContactUs = React.lazy(() => import('./pages/Contact'));
+const Company = React.lazy(() => import('./pages/Company'));
+const Careers = React.lazy(() => import('./pages/Careers'));
+const BlogPost = React.lazy(() => import('./pages/BlogPost'));
+const AccountBalanceReport = React.lazy(() =>
+	import('./pages/AccountBalanceReport')
+);
+const LandingPage = React.lazy(() => import('./pages/LandingPage'));
 
 // Kindly Comment when on testing on Local
 Sentry.init({
@@ -59,7 +77,11 @@ const router = createBrowserRouter([
 
 	{
 		path: '/aboutus',
-		element: <AboutUs />,
+		element: (
+			<Suspense fallback={<HashLoader />}>
+				<AboutUs />,
+			</Suspense>
+		),
 	},
 
 	{
@@ -195,7 +217,7 @@ const router = createBrowserRouter([
 	},
 	{
 		path: '/servererror',
-		element: <ServerError />,
+		element: <ServerError />
 	},
 ]);
 
@@ -204,9 +226,11 @@ root.render(
 	<React.StrictMode>
 		<UserProvider>
 			<ChakraProvider>
-				<div className="">
-					<RouterProvider router={router} />
-				</div>
+				<Suspense fallback={<HashLoader />}>
+					<div className="">
+						<RouterProvider router={router} />
+					</div>
+				</Suspense>
 			</ChakraProvider>
 		</UserProvider>
 	</React.StrictMode>
