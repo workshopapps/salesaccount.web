@@ -34,7 +34,7 @@ pipeline {
                 sh 'sudo cp -rf ${WORKSPACE}/frontend/build/* /var/www/reconcileai'
                 sh 'sudo pm2 delete -s reconcileaifrontend || :'
                 //sh 'cd frontend && pm2 serve -s build 55501 --name reconcileaifrontend --spa'
-                sh 'sudo pm2 serve -s /home/dcnc/salesaccount.web/frontend/build --port 55501 --name reconcileaifrontend --spa'
+                sh 'sudo pm2 serve -s /home/dcnc/salesaccount.web/frontend/build --port 3001 --name reconcileaifrontend --spa'
             }
         }
 
@@ -53,7 +53,7 @@ pipeline {
                // sh "cd /home/dcnc/salesaccount.web/Backend"
                 sh "cd /home/dcnc/salesaccount.web/Backend && sudo pip install protobuf==3.20.*"
                 sh "cd /home/dcnc/salesaccount.web/Backend && export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python"
-                sh "cd /home/dcnc/salesaccount.web/Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:55502 --timeout=3000' --name reconcileaibackend"
+                sh "cd /home/dcnc/salesaccount.web/Backend && sudo pm2 start 'gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:6660 --timeout=3000' --name reconcileaibackend"
             }
         }
     }
