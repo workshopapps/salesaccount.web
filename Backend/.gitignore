@@ -2,6 +2,7 @@ __pycache__
 venv/
 lenv/
 env/
+jenv/
 pyvenv.cfg
 env
 
