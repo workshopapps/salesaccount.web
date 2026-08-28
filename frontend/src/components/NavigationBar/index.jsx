@@ -87,7 +87,7 @@ function NavigationBar() {
 					</div>
 				</div>
 			</nav>
-			<div className="bg-[#D1E9FF] mb-4 p-3 flex justify-center items-center text-sm md:text-base lg:text-lg">
+			{/* <div className="bg-[#D1E9FF] mb-4 p-3 flex justify-center items-center text-sm md:text-base lg:text-lg">
 				<p className="font-medium ">
 					Want to remove &#160;
 					<span className="text-[#175CD3]">Ads & reCaptcha?</span>{' '}
@@ -98,7 +98,7 @@ function NavigationBar() {
 				>
 					Support Us
 				</button>
-			</div>
+			</div> */}
 		</>
 	);
 }
